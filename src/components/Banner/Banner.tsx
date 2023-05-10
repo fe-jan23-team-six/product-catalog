@@ -10,6 +10,10 @@ interface SliderImageType {
   id: number;
   url: string;
 }
+// interface SliderImageType {
+//   id: number;
+//   url: string;
+// }
 
 export const sliderImages: SliderImageType[] = [
   { id: 1, url: 'img/banner-accessories.png' },
@@ -41,11 +45,13 @@ export const Banner: React.FC = () => {
 
   return (
     <div className="banner">
+
       {/*
           Here we can in feature use custom button, but
         i have no idea how to give to component
         different images background
       */}
+
       <button
         className="banner__button banner__button--left"
         type="button"
