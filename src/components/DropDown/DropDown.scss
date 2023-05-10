@@ -1,0 +1,93 @@
+@import './../../styles/utils/vars';
+
+$borderWidth: 1px;
+$itemHeight: 32px;
+$itemVerticalPadding: 4px;
+$indentAbs4px: calc($itemHeight + 2 * $itemVerticalPadding + 4px);
+
+.dropDown {
+  cursor: pointer;
+  box-sizing: border-box; // ?
+  transition: all 0.2s ease-out;
+  border-color: #B4BDC4;
+  border-style: solid;
+  color: $colorGrayPrimary;
+  border-width: $borderWidth;
+  height: calc($itemHeight + 2 * $itemVerticalPadding);
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-left: 12px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 21px;
+
+  &::before {
+    position: absolute;
+    content: attr(data-dropdown-description);
+    /* Small text 12 */
+    font-family: inherit; // ?
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 15px;
+    color: $colorGraySecondary;
+    bottom: $indentAbs4px;
+    left: 0;
+  }
+
+  &__menu {
+    box-sizing: border-box;
+    margin: 0;  // need only while global styles are not reset
+    position: absolute;
+    width: calc(100% + 2 * $borderWidth);
+    left: -$borderWidth;
+    top: $indentAbs4px;
+    list-style: none;
+    background: #FFFFFF;
+    border: 1px solid #E2E6E9;
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.05);
+    padding: $itemVerticalPadding 0;
+
+      &_item {
+        transition: all 0.2s ease-out;
+        height: $itemHeight;
+        display: flex;
+        align-items: center;
+        padding-left: 12px;
+        font-weight: 500;
+        color: $colorGraySecondary; /* Gray / Secondary */
+
+        &:hover {
+          font-weight: inherit;
+          color: inherit;
+        }
+      }
+  }
+
+  &:hover {
+    border-color: $colorGraySecondary;  /* Gray / Secondary */
+  }
+
+  &:focus {
+    border-color: #313237;
+  }
+
+  &::after {
+    position: absolute;
+    content: "";
+    width: 10px;
+    height: 6px;
+    top: 17px;
+    right: 15px;
+    bottom: 17px;
+  }
+
+  &:not(:focus)::after,  &:not(.clicked):focus::after {
+    background-image: url('../../../public/icons/dropDown_arrow.svg');
+  }
+
+  &.clicked:focus::after {
+    background-image: url('../../../public/icons/dropDown_arrow.svg');
+    transform: rotate(180deg);
+  }
+}
