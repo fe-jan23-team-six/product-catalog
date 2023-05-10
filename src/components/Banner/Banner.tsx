@@ -23,7 +23,7 @@ export const Banner: React.FC = () => {
 
   const settings: Settings = {
     dots: true,
-    // dotsClass: 'slick-dots pagination',
+    arrows: false,
     dotsClass: 'slick-dots banner__pagination',
     infinite: true,
     autoplay: true,
