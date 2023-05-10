@@ -20,8 +20,8 @@
   }
 
   &__item {
-    @for $start from 1 through 6 {
-      @for $end from $start through 6 {
+    @for $start from 1 through 12 {
+      @for $end from $start through 12 {
         &--tablet-#{$start}-#{$end} {
           @include onTablet {
             grid-column: #{$start} / #{$end + 1};
@@ -30,8 +30,8 @@
       }
     }
 
-    @for $start from 1 through 12 {
-      @for $end from $start through 12 {
+    @for $start from 1 through 24 {
+      @for $end from $start through 24 {
         &--desktop-#{$start}-#{$end} {
           @include onDesktop {
             grid-column: #{$start} / #{$end + 1};
