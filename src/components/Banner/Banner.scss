@@ -1,0 +1,34 @@
+.banner {
+  width: 1136px;
+  margin: 0 auto;
+  display: flex;
+
+  &__slider-container {
+    width: 1040px;
+    height: 400px;
+    display: flex;
+  }
+
+  &__button-left {
+    margin-right: 16px;
+    z-index: 1;
+  }
+
+  &__button-right {
+    margin-left: 16px;
+    z-index: 1;
+    cursor: pointer;
+  }
+
+  &__paging {
+    display: flex;
+    width: 124px;
+    height: 4px;
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+
+  }
+}
