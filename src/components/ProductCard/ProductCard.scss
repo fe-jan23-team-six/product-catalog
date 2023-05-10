@@ -1,0 +1,134 @@
+@font-face {
+  font-family: 'Mont';
+  src:
+    url('../../../public/fonts/Mont-Bold.otf');
+  font-weight: 800;
+}
+
+@font-face {
+  font-family: 'Mont';
+  src:
+    url('../../../public/fonts/Mont-Regular.otf');
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: 'Mont';
+  src:
+    url('../../../public/fonts/Mont-SemiBold.otf');
+  font-weight: 700;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+  font-family: 'Mont';
+  width: 272px;
+  background: #fff;
+  border: 1px solid #e2e6e9;
+  padding: 32px;
+
+  &__image {
+  display: flex;
+  height: 196px;
+  width: 208px;
+  margin-bottom: 24px;
+  }
+
+  &__model {
+  display: flex;
+  margin-bottom: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  color: #313237;
+  }
+
+  &__price {
+  margin: 0;
+  display: flex;
+  font-size: 22px;
+
+    &--new {
+    font-weight: 800;
+    color: #313237;
+    }
+
+    &--old {
+    color: #89939a;
+    font-weight: 600;
+    text-decoration: line-through;
+    margin-left: 8px;
+    }
+  }
+
+  &__hr {
+  border: 1px solid #e2e6e9;
+  width: 208px;
+  margin-bottom: 16px;
+  }
+
+  &__characteristics {
+  margin-bottom: 16px;
+  }
+
+  &__characteristic {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+
+    &__description {
+    display: inline-block;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 15px;
+    color: #89939a;
+    margin: 0;
+    }
+
+    &__value {
+    display: flex;
+    justify-content: flex-end;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 15px;
+    color: #313237;
+    margin: 0;
+    }
+  }
+
+  &__button {
+  display: flex;
+
+    &__basket {
+    display: flex;
+    color: #fff;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 21px;
+    align-items: center;
+    justify-content: center;
+
+    text-decoration: none;
+    box-shadow: none;
+    border: none;
+    width: 160px;
+    height: 40px;
+    background: #313237;
+    }
+
+    &__favorites {
+    height: 40px;
+    width: 40px;
+    margin-left: 8px;
+    border: 1px solid #e2e6e9;
+    background: #fff;
+    box-sizing: border-box;
+    }
+  }
+}
