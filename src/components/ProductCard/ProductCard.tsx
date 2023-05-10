@@ -6,7 +6,7 @@ export const ProductCard: React.FC = () => {
     <div className="card">
       <img
         className="card__image"
-        src="img/phones/apple-iphone-7/black/00.jpg"
+        src="img/phones/apple-iphone-11-pro/gold/00.jpg"
         alt="Apple iPhone 14 Pro 128GB Silver (MQ023)"
       >
       </img>
@@ -52,8 +52,8 @@ export const ProductCard: React.FC = () => {
         >
           <img
           className="card__button__favorites--image"
-          src="./images/Vector (Stroke).svg"
-          alt="Apple iPhone 14 Pro 128GB Silver (MQ023)"
+          src="icons/empty-heart.svg"
+          alt="Favorite icon"
           >
           </img>
         </button>
