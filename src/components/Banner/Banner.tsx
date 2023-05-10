@@ -5,6 +5,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import './Banner.scss';
 
+// #region Temporarily items below, please don't waste time on it
 interface SliderImageType {
   id: number;
   url: string;
@@ -15,6 +16,7 @@ export const sliderImages: SliderImageType[] = [
   { id: 2, url: 'img/banner-phones.png' },
   { id: 3, url: 'img/banner-tablets.png' },
 ];
+// #endregion
 
 export const Banner: React.FC = () => {
   const sliderRef = useRef<Slider>(null);
@@ -39,8 +41,13 @@ export const Banner: React.FC = () => {
 
   return (
     <div className="banner">
+      {/*
+          Here we can in feature use custom button, but
+        i have no idea how to give to component
+        different images background
+      */}
       <button
-        className="banner__button-left"
+        className="banner__button banner__button--left"
         type="button"
         aria-label="leftBtn"
         onClick={handlePrevClick}
@@ -50,7 +57,7 @@ export const Banner: React.FC = () => {
 
       <Slider
         ref={sliderRef}
-        className="banner__slider-container"
+        className="banner__container"
         {...settings}
       >
 
@@ -69,7 +76,7 @@ export const Banner: React.FC = () => {
       </Slider>
 
       <button
-        className="banner__button-right"
+        className="banner__button banner__button--right"
         type="button"
         aria-label="rightBtn"
         onClick={handleNextClick}
