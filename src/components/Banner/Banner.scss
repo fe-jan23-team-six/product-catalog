@@ -2,6 +2,7 @@
   width: 1136px;
   margin: 0 auto;
   display: flex;
+  justify-content: space-between;
 
   &__container {
     width: 1040px;
@@ -19,6 +20,24 @@
 
     &--right {
       margin-left: 16px;
+    }
+  }
+
+  &__pagination li {
+    margin: 0 14px;
+    display: inline-block;
+    width: 14px;
+    height: 4px;
+    background-color: #e2e6e9;;
+  
+    transition: transform .3s background-color .3s;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+
+    &.slick-active {
+      background-color: #313237;
     }
   }
 }
