@@ -9,11 +9,21 @@ import { Banner } from '../../components/Banner/Banner';
 export const HomePage: React.FC = () => {
   return (
     <div>
-      <h1>Home Page</h1>
+      <h1>Welcome to Nice Gadgets store!</h1>
+
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
 
       <Banner />
 
-      <h1>Home Page</h1>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
 
       <SliderProducts />
     </div>

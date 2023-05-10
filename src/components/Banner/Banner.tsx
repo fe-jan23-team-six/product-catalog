@@ -10,15 +10,11 @@ interface SliderImageType {
   id: number;
   url: string;
 }
-// interface SliderImageType {
-//   id: number;
-//   url: string;
-// }
 
 export const sliderImages: SliderImageType[] = [
-  { id: 1, url: 'img/banner-accessories.png' },
-  { id: 2, url: 'img/banner-phones.png' },
-  { id: 3, url: 'img/banner-tablets.png' },
+  { id: 1, url: 'img/banners/phones.jpg' },
+  { id: 2, url: 'img/banners/accessories.jpg' },
+  { id: 3, url: 'img/banners/tablets.png' },
 ];
 // #endregion
 
@@ -27,12 +23,25 @@ export const Banner: React.FC = () => {
 
   const settings: Settings = {
     dots: true,
+    // dotsClass: 'slick-dots pagination',
+    dotsClass: 'slick-dots banner__pagination',
     infinite: true,
     autoplay: true,
     autoplaySpeed: 5000,
-    speed: 500,
+    speed: 300,
     slidesToShow: 1,
     slidesToScroll: 1,
+    customPaging: (i) => (
+      <div
+        style={{
+          position: 'absolute',
+          width: '100%',
+          opacity: 0,
+        }}
+      >
+        {i}
+      </div>
+    ),
   };
 
   const handlePrevClick = () => {
