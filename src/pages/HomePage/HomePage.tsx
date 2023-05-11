@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-import { getPhones } from '../../utils/api/phones/phones';
+import { getPhones } from '../../utils/api/phones';
 
 import { PhoneMain } from '../../types/phone/phone';
 
