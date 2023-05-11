@@ -1,15 +1,13 @@
 @import './../../styles/utils/vars';
 
-$borderWidth: 1px;
 $itemHeight: 32px;
 $itemVerticalPadding: 4px;
 $indentAbs4px: calc($itemHeight + 2 * $itemVerticalPadding + 4px);
 
 .dropDown {
   cursor: pointer;
-  box-sizing: border-box; // ?
   transition: all 0.2s ease-out;
-  border-color: #B4BDC4;
+  border-color: $grayIconsPlaceholders;
   border-style: solid;
   color: $colorGrayPrimary;
   border-width: $borderWidth;
@@ -25,19 +23,18 @@ $indentAbs4px: calc($itemHeight + 2 * $itemVerticalPadding + 4px);
   &::before {
     position: absolute;
     content: attr(data-dropdown-description);
-    /* Small text 12 */
-    font-family: inherit; // ?
+    font-family: inherit;
     font-weight: 600;
     font-size: 12px;
     line-height: 15px;
-    color: $colorGraySecondary;
+    color: $graySecondary;
     bottom: $indentAbs4px;
     left: 0;
   }
 
   &__menu {
     box-sizing: border-box;
-    margin: 0;  // need only while global styles are not reset
+    margin: 0;
     position: absolute;
     width: calc(100% + 2 * $borderWidth);
     left: -$borderWidth;
@@ -55,7 +52,7 @@ $indentAbs4px: calc($itemHeight + 2 * $itemVerticalPadding + 4px);
         align-items: center;
         padding-left: 12px;
         font-weight: 500;
-        color: $colorGraySecondary; /* Gray / Secondary */
+        color: $graySecondary; /* Gray / Secondary */
 
         &:hover {
           font-weight: inherit;
@@ -65,11 +62,11 @@ $indentAbs4px: calc($itemHeight + 2 * $itemVerticalPadding + 4px);
   }
 
   &:hover {
-    border-color: $colorGraySecondary;  /* Gray / Secondary */
+    border-color: $graySecondary;  /* Gray / Secondary */
   }
 
   &:focus {
-    border-color: #313237;
+    border-color: $colorGrayPrimary;
   }
 
   &::after {
