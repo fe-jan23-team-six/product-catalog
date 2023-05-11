@@ -1,7 +1,6 @@
 @import './../../styles/utils/vars';
 
-.likeButton {
-  background-color: $colorwhite;
+.like-button {
   width: 40px;
   height: 40px;
   border: 1px solid $colorIcons;
@@ -13,7 +12,7 @@
     border-color: $colorPrimary;
   }
   
-  &.selected {
+  &--selected {
     background-image: url('./../../../public/icons/favIsFav16x16.svg');
   }
 }

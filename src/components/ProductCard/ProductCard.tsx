@@ -1,5 +1,6 @@
 import React from 'react';
 import './ProductCard.scss';
+import { LikeButton } from '../LikeButton';
 
 export const ProductCard: React.FC = () => {
   return (
@@ -57,6 +58,8 @@ export const ProductCard: React.FC = () => {
           >
           </img>
         </button>
+
+        <LikeButton />
       </div>
     </div>
   );

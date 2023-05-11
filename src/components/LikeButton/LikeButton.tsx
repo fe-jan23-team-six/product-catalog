@@ -1,13 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import classNames from 'classnames';
 import './LikeButton.scss';
 
-type Props = {
-  selected?: boolean,
-}
+export const LikeButton: React.FC = () => {
+  const [isSelected, setIsSelected] = useState(false);
 
-export const LikeButton: React.FC<Props> = ({ selected }) => {
+  const handleLikeButtonSelect = () => {
+    setIsSelected((prevIsSelected) => (
+      !prevIsSelected
+    ));
+  };
+
   return (
-    <button className={classNames('likeButton', { selected })} />
+    <button
+      className={classNames(
+        'like-button',
+        {
+          'like-button--selected': isSelected,
+        },
+      )}
+      onClick={handleLikeButtonSelect}
+    />
   );
 };
