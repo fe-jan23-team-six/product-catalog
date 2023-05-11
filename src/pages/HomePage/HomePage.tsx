@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 
-import { getPhones } from '../../utils/api/phones';
+import { getById, getPhones } from '../../utils/api/phones';
 
-import { PhoneMain } from '../../types/phone/phone';
+import { PhoneDescription, PhoneMain } from '../../types/phone/phone';
 
 import './HomePage.scss';
 
@@ -15,7 +15,12 @@ export const HomePage: React.FC = () => {
       try {
         const fetchedPhones: PhoneMain[] = await getPhones();
 
-        global.console.log('fetched:', fetchedPhones[0]);
+        // fetchedPhone its for Vale,
+        // this example how u can get your elements from api
+        const fetchedPhone: PhoneDescription = await getById(1);
+
+        global.console.log('fetched:', fetchedPhones);
+        global.console.log('phone:', fetchedPhone);
       } catch {
         global.console.log('error');
       }
