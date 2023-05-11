@@ -1,6 +1,6 @@
 import React from 'react';
 import './ProductCard.scss';
-import { LikeButton } from '../LikeButton';
+import { ProductManageButtons } from '../ProductManage';
 
 export const ProductCard: React.FC = () => {
   return (
@@ -40,27 +40,7 @@ export const ProductCard: React.FC = () => {
         </div>
       </div>
 
-      <div className="product-card__button">
-        <a
-          className="product-card__button__basket"
-          href="#buy"
-        >
-          Add to cart
-        </a>
-
-        <button
-          className="product-card__button__favorites"
-        >
-          <img
-          className="product-card__button__favorites--image"
-          src="icons/favAddFav16x16.svg"
-          alt="Favorite icon"
-          >
-          </img>
-        </button>
-
-        <LikeButton />
-      </div>
+      <ProductManageButtons />
     </div>
   );
 };
