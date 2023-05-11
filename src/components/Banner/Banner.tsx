@@ -1,10 +1,10 @@
 import React, { useRef } from 'react';
 import Slider, { Settings } from 'react-slick';
+import { ArrowButton } from '../ArrowButton';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import './Banner.scss';
-import { ArrowButton } from '../ArrowButton';
 
 // #region Temporarily items below, please don't waste time on it
 interface SliderImageType {
@@ -91,7 +91,7 @@ export const Banner: React.FC = () => {
       </Slider>
 
       <ArrowButton
-        classes="forward banner__button banner__button--right"
+        classes="forward test banner__button banner__button--right"
         action={handleNextClick}
       />
 

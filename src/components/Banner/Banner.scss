@@ -28,10 +28,14 @@
   }
 
   &__button {
-    height: 190px !important;
+    height: 190px;
 
     @include onDesktop {
-      height: 400px !important;
+      height: 400px;
+    }
+
+    &.test {
+      // height: ;
     }
 
     cursor: pointer;
