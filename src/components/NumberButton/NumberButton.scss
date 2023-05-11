@@ -1,0 +1,23 @@
+@import './../../styles/utils/vars';
+
+.squareButton {
+  width: 32px;
+  height: 32px;
+  background-color: transparent;
+  border: $borderWidth solid $grayElements;
+
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 16px;
+
+  &:hover {
+    border-color: $colorGrayPrimary;
+  }
+
+  &.selected {
+    border-color: $colorGrayPrimary;
+    background-color: $colorGrayPrimary;
+    color: $white;
+  }
+}
