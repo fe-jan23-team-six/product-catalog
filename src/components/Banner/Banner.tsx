@@ -24,8 +24,6 @@ export const Banner: React.FC = () => {
 
   const isMobileVersion = window.innerWidth < 640;
 
-  global.console.log('isMobileVersion:', isMobileVersion);
-
   const settings: Settings = {
     dots: true,
     arrows: false,
