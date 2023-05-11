@@ -7,10 +7,10 @@ $indentAbs4px: calc($itemHeight + 2 * $itemVerticalPadding + 4px);
 .dropDown {
   cursor: pointer;
   transition: all 0.2s ease-out;
-  border-color: $grayIconsPlaceholders;
+  border-color: $colorIcons;
   border-style: solid;
-  color: $colorGrayPrimary;
-  border-width: $borderWidth;
+  color: $colorPrimary;
+  border-width: 1px;
   height: calc($itemHeight + 2 * $itemVerticalPadding);
   position: relative;
   display: flex;
@@ -27,7 +27,7 @@ $indentAbs4px: calc($itemHeight + 2 * $itemVerticalPadding + 4px);
     font-weight: 600;
     font-size: 12px;
     line-height: 15px;
-    color: $graySecondary;
+    color: $colorSecondary;
     bottom: $indentAbs4px;
     left: 0;
   }
@@ -36,8 +36,8 @@ $indentAbs4px: calc($itemHeight + 2 * $itemVerticalPadding + 4px);
     box-sizing: border-box;
     margin: 0;
     position: absolute;
-    width: calc(100% + 2 * $borderWidth);
-    left: -$borderWidth;
+    width: calc(100% + 2 * 1px);
+    left: -1px;
     top: $indentAbs4px;
     list-style: none;
     background: #FFFFFF;
@@ -52,7 +52,7 @@ $indentAbs4px: calc($itemHeight + 2 * $itemVerticalPadding + 4px);
         align-items: center;
         padding-left: 12px;
         font-weight: 500;
-        color: $graySecondary; /* Gray / Secondary */
+        color: $colorSecondary; /* Gray / Secondary */
 
         &:hover {
           font-weight: inherit;
@@ -62,11 +62,11 @@ $indentAbs4px: calc($itemHeight + 2 * $itemVerticalPadding + 4px);
   }
 
   &:hover {
-    border-color: $graySecondary;  /* Gray / Secondary */
+    border-color: $colorSecondary;  /* Gray / Secondary */
   }
 
   &:focus {
-    border-color: $colorGrayPrimary;
+    border-color: $colorPrimary;
   }
 
   &::after {

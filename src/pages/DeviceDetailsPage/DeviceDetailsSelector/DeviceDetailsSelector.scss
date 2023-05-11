@@ -80,38 +80,7 @@
   }
 
   &__buttons {
-    display: flex;
-    gap: 8px;
     margin-bottom: 32px;
-
-    &__primary {
-      display: flex;
-      flex-direction: row;
-      flex-grow: 100;
-      justify-content: center;
-      align-items: center;
-      padding: 13.5px;
-
-      font-weight: 700;
-      font-size: 14px;
-      line-height: 21px;
-  
-      color: #fff;
-      background: #313237;
-    }
-
-    &__favourites {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-      width: 48px;
-      height: 48px;
-  
-      color: #000;
-      background: #fff;
-      border: 1px solid #b4bdc4;
-    }
   }
 
   &__characteristics {
@@ -124,23 +93,6 @@
   display: flex;
   gap: 8px;
   margin-bottom: 24px;
-  
-  &__colour {
-    width: 32px;
-    height: 32px;
-
-    background-color: #fcdbc1;
-    border: 3px solid #fff;
-    border-radius: 50%;
-    outline: 1px solid #e2e6e9;
-    outline-offset: -1px;
-    cursor: pointer;
-
-    &--active {
-      outline: 1px solid #000;
-      outline-offset: -1px;
-    }
-  }
 }
 
 .capacities {

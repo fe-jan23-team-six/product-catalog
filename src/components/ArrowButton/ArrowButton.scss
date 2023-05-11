@@ -9,7 +9,7 @@
   height: 32px;
   border-radius: 0;
   background-color: transparent;
-  border: $borderWidth solid $grayElements;
+  border: 1px solid $colorElements;
 
   background-image: url('./../../../public/icons/leftBlack16x16.svg');
   background-repeat: no-repeat;
@@ -21,7 +21,7 @@
   }
 
   &:not(.disabled):hover {
-    border-color: $colorGrayPrimary;
+    border-color: $colorPrimary;
   }
 
   &.forward {
