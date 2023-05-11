@@ -19,7 +19,6 @@
     display: flex;
 
     width: 320px;
-    height: 352px;
 
     @include onDesktop {
       width: 1040px;
@@ -32,10 +31,6 @@
 
     @include onDesktop {
       height: 400px;
-    }
-
-    &.test {
-      // height: ;
     }
 
     cursor: pointer;
