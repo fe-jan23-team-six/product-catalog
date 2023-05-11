@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import './DeviceDetailsSelector.scss';
 import { ProductColorGroup } from '../../../components/ProductColorGroup';
+import { ProductManageButtons } from '../../../components/ProductManage';
 
 export const DeviceDetailsSelector: FC = () => {
   return (
@@ -67,17 +68,7 @@ export const DeviceDetailsSelector: FC = () => {
         </div>
 
         <div className="selector__buttons">
-          <button
-            className="selector__buttons__primary"
-          >
-            Add to a cart
-          </button>
-
-          <button
-            className="selector__buttons__favourites"
-          >
-            ♡
-          </button>
+          <ProductManageButtons isBig={true}/>
         </div>
 
         <div className="selector__characteristics characteristics">

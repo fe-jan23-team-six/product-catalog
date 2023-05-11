@@ -16,4 +16,9 @@
   &--selected {
     background-image: url('./../../../public/icons/favIsFav16x16.svg');
   }
+
+  &--big {
+    width: 48px;
+    height: 48px;
+  }
 }

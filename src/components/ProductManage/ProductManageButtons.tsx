@@ -3,13 +3,18 @@ import './ProductManageButtons.scss';
 import { LikeButton } from '../LikeButton';
 import { PrimaryButton } from '../PrimaryButton';
 
-export const ProductManageButtons: React.FC = () => {
+type Props = {
+  isBig?: boolean;
+}
+
+export const ProductManageButtons: React.FC<Props> = ({ isBig = false }) => {
   return (
     <div className="product-manage-buttons">
       <PrimaryButton />
 
-      <div className="product-manage-buttons__like">
-        <LikeButton />
+      <div
+        className="product-manage-buttons__like">
+        <LikeButton isBig={isBig} />
       </div>
     </div>
   );
