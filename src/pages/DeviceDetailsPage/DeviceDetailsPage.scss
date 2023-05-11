@@ -1,1 +1,37 @@
-// styles go here
+@import "../../styles/utils";
+
+
+.device_details {
+  &__title {
+    margin-bottom: 40px;
+
+    font-weight: 800;
+    font-size: 32px;
+    line-height: 41px;
+    letter-spacing: -0.01em;
+
+    color: #313237;
+  }
+
+  &__id {
+    display: none;
+    float: right;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 15px;
+    text-align: right;  
+    color: #b4bdc4;
+
+    @include onDesktop {
+      display: inline-block;
+    }
+  }
+
+  &__product {
+    margin-bottom: 80px;
+  }
+
+  &__about-product {
+    margin-bottom: 80px;
+  }
+}

@@ -13,11 +13,12 @@ interface PropsCard {
 
 export const Card: React.FC<PropsCard> = ({ title, image }) => {
   return (
-    <div className="card">
+    <div className="slider-card">
       <img
         src={image}
         alt={title}
-        style={{ width: '272px' }} />
+        style={{ width: '272px' }}
+      />
     </div>
   );
 };
@@ -50,20 +51,38 @@ export const SliderProducts: React.FC = () => {
 
   const settings: Settings = {
     dots: false,
+    arrows: false,
     infinite: false,
     speed: 300,
     slidesToShow: 4,
     slidesToScroll: 1,
+    initialSlide: 0,
+    afterChange: (currentNo: number) => {
+      setNoSlide(currentNo);
+    },
+    responsive: [
+      {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 2.5,
+        },
+      },
+      {
+        breakpoint: 649,
+        settings: {
+          slidesToShow: 1.4,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
 
   const handlePrevClick = () => {
     sliderRef.current?.slickPrev();
-    setNoSlide(prev => prev - 1);
   };
 
   const handleNextClick = () => {
     sliderRef.current?.slickNext();
-    setNoSlide(prev => prev + 1);
   };
 
   return (

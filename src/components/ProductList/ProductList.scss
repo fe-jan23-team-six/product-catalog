@@ -1,0 +1,21 @@
+@import '../../styles/utils/mixins.scss';
+
+.catalog {
+  $card-width: 272px;
+  $screens:
+    640px 2,
+    1200px 4
+  ;
+
+  display: grid;
+  justify-content: center;
+  grid-template-columns: $card-width;
+  column-gap: 16px;
+  row-gap: 40px;
+
+  @each $width, $columns in $screens {
+    @media (min-width: $width) {
+      grid-template-columns: repeat($columns, $card-width);
+    }
+  }
+}

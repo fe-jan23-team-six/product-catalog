@@ -1,8 +1,33 @@
-import React from 'react';
+import React, { FC } from 'react';
 import './DeviceDetailsPage.scss';
 
-export const DeviceDetailsPage: React.FC = () => {
+import { DeviceDetailsPictures } from './DeviceDetailsPictures';
+import { DeviceDetailsSelector } from './DeviceDetailsSelector';
+import { DeviceDetailsAbout } from './DeviceDetailsAbout';
+import { DeviceDetailsSpecs } from './DeviceDetailsSpecs';
+
+export const DeviceDetailsPage: FC = () => {
   return (
-    <h1>Device Details Page</h1>
+    <main className="device_details">
+      <h2 className="device_details__title">
+        Apple iPhone 11 Pro Max 64GB Gold (iMT9G2FS/A)
+      </h2>
+
+      <div className="device_details__product grid grid--mobile-off">
+        <DeviceDetailsPictures />
+
+        <DeviceDetailsSelector />
+
+        <p className="device_details__id grid__item--desktop-22-24">
+          ID: 802390
+        </p>
+      </div>
+
+      <div className="device_details__about-product grid grid--mobile-off">
+        <DeviceDetailsAbout />
+
+        <DeviceDetailsSpecs />
+      </div>
+    </main>
   );
 };

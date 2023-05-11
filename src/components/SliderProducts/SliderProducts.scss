@@ -1,17 +1,16 @@
 .slider {
   margin: 0 auto;
-  width: 1136px;
   transition: 0.3s all ease-out;
-  overflow: hidden;
 
   &__label {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    margin-bottom: 28px;
   }
 
   &__button-container {
-    width: 80px;
     display: flex;
     justify-content: space-between;
   }
@@ -19,11 +18,17 @@
   &__button {
     width: 32px;
     height: 32px;
+
+    cursor: pointer;
+
+    &:not(:last-child) {
+      margin-right: 16px;
+    }
   }
 }
 
 // Below temporarily styles, don't waste time on it
-.card {
+.slider-card {
   width: 272px;
 
   transition: transform .3s box-shadow .3s;

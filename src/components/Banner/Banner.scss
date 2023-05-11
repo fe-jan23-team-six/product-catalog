@@ -1,0 +1,53 @@
+@import '../../styles/utils';
+
+.banner {
+  // min-width: 320px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+
+  @include onDesktop {
+    width: 1136px;
+  }
+
+  &__container {
+    display: flex;
+    width: 320px;
+    height: 352px;
+
+    @include onDesktop {
+      width: 1040px;
+      height: 400px;
+    }
+  }
+
+  &__button {
+    cursor: pointer;
+
+    &--left {
+      margin-right: 16px;
+    }
+
+    &--right {
+      margin-left: 16px;
+    }
+  }
+
+  &__pagination li {
+    margin: 0 14px;
+    display: inline-block;
+    width: 14px;
+    height: 4px;
+    background-color: #e2e6e9;;
+  
+    transition: transform .3s background-color .3s;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+
+    &.slick-active {
+      background-color: #313237;
+    }
+  }
+}
