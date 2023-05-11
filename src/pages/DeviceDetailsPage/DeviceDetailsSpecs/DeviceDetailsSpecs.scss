@@ -1,0 +1,39 @@
+@import "../../../styles/utils";
+
+.specs {
+  &__title {
+    margin-bottom: 48px;
+    font-weight: 800;
+    font-size: 22px;
+    line-height: 140%;
+
+    color: #313237;
+  }
+
+  &__title:after {
+    content: "";
+    display: block;
+    position: relative;
+    top: 16px;
+    height: 1px;
+    background-color: #e2e6e9;
+  }
+
+  &__characteristics {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.characteristics {
+  &__text {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 21px;
+    color: #89939a;
+
+    &--black {
+      color: #313237;
+    }
+  }
+}
