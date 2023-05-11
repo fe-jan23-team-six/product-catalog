@@ -8,22 +8,22 @@
   margin: 0;
   padding: 0;
   border-radius: 50%;
-  border: 1px solid $grayElements;;
+  border: 1px solid $colorElements;;
   justify-content: center;
   align-items: center;
 
   &:hover {
-    border-color: $grayIconsPlaceholders;
+    border-color: $colorIcons;
   }
 
   &.selected {
-    border-color: $colorGrayPrimary;
+    border-color: $colorPrimary;
   }
 
   &__circle {
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    border: 2px solid $white;
+    border: 2px solid $colorwhite;
   }
 }

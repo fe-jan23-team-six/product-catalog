@@ -4,7 +4,7 @@
   width: 32px;
   height: 32px;
   background-color: transparent;
-  border: $borderWidth solid $grayElements;
+  border: 1px solid $colorElements;
 }
 
 .prev {
@@ -32,12 +32,12 @@
   line-height: 21px;
 
   &:hover {
-    border-color: $colorGrayPrimary;
+    border-color: $colorPrimary;
   }
 
   &.selected {
-    border-color: $colorGrayPrimary;
-    background-color: $colorGrayPrimary;
-    color: $white;
+    border-color: $colorPrimary;
+    background-color: $colorPrimary;
+    color: $colorwhite;
   }
 }

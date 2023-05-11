@@ -1,16 +1,16 @@
 @import './../../styles/utils/vars';
 
 .likeButton {
-  background-color: $white;
+  background-color: $colorwhite;
   width: 40px;
   height: 40px;
-  border: 1px solid $grayIconsPlaceholders;
+  border: 1px solid $colorIcons;
   background-image: url('./../../../public/icons/favAddFav16x16.svg');
   background-repeat: no-repeat;
   background-position: center;
 
   &:hover {
-    border-color: $colorGrayPrimary;
+    border-color: $colorPrimary;
   }
   
   &.selected {
