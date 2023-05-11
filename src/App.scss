@@ -35,3 +35,7 @@
     padding: 0 32px;
   }
 }
+
+html * {
+  cursor: url('./../public/cursor.cur') 17 23, pointer;
+}
