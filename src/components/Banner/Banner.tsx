@@ -4,6 +4,7 @@ import Slider, { Settings } from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import './Banner.scss';
+import { ArrowButton } from '../ArrowButton';
 
 // #region Temporarily items below, please don't waste time on it
 interface SliderImageType {
@@ -55,20 +56,19 @@ export const Banner: React.FC = () => {
   return (
     <div className="banner">
 
-      {/*
-          Here we can in feature use custom button, but
-        i have no idea how to give to component
-        different images background
-      */}
+      <ArrowButton
+        classes="back banner__button banner__button--left"
+        action={handlePrevClick}
+      />
 
-      <button
+      {/* <button
         className="banner__button banner__button--left"
         type="button"
         aria-label="leftBtn"
         onClick={handlePrevClick}
       >
         {'<'}
-      </button>
+      </button> */}
 
       <Slider
         ref={sliderRef}
@@ -90,14 +90,19 @@ export const Banner: React.FC = () => {
         })}
       </Slider>
 
-      <button
+      <ArrowButton
+        classes="forward banner__button banner__button--right"
+        action={handleNextClick}
+      />
+
+      {/* <button
         className="banner__button banner__button--right"
         type="button"
         aria-label="rightBtn"
         onClick={handleNextClick}
       >
         {'>'}
-      </button>
+      </button> */}
 
     </div>
   );
