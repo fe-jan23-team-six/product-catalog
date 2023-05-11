@@ -1,1 +1,23 @@
-// styles go here
+@import '../../styles/utils/typography.scss';
+
+.catalog-page {
+  display: flex;
+  flex-direction: column;
+
+  &__title {
+    margin-bottom: 8px;
+  }
+
+  &__subtitle {
+    margin-bottom: 40px;
+  }
+
+  &__product-list {
+    margin-bottom: 40px;
+  }
+
+  &__pagination-pannel {
+    align-self: center;
+    margin-bottom: 80px;
+  }
+}

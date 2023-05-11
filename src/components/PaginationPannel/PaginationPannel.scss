@@ -1,0 +1,26 @@
+@import '../../styles/utils/typography.scss';
+
+.pagination {
+  display: flex;
+
+  &__item {
+    align-items: center;
+    justify-content: center;
+    height: 32px;
+    width: 32px;
+  }
+
+  &__item-switch {
+    border: 1px solid #B4BDC4;
+    color: #313237;
+  }
+
+  &__item-control {
+    border: 1px solid #E2E6E9;
+  }
+
+  &__link {
+    color: #000000;
+    line-height: 32px;
+  }
+}
