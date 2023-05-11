@@ -1,18 +1,28 @@
+@import '../../styles/utils';
+
 .banner {
-  width: 1136px;
+  // min-width: 320px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
 
+  @include onDesktop {
+    width: 1136px;
+  }
+
   &__container {
-    width: 1040px;
-    height: 400px;
     display: flex;
+    width: 320px;
+    height: 352px;
+
+    @include onDesktop {
+      width: 1040px;
+      height: 400px;
+    }
   }
 
   &__button {
     cursor: pointer;
-    z-index: 1;
 
     &--left {
       margin-right: 16px;

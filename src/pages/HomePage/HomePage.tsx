@@ -3,29 +3,30 @@ import React from 'react';
 import './HomePage.scss';
 
 import { SliderProducts } from '../../components/SliderProducts';
-
 import { Banner } from '../../components/Banner/Banner';
 
 export const HomePage: React.FC = () => {
   return (
-    <div>
-      <h1>Welcome to Nice Gadgets store!</h1>
+    <main className="home-page">
+      <h1 className="home-page__title">
+        Welcome to Nice Gadgets store!
+      </h1>
 
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
+      <section className="home-page__banner">
+        <Banner />
+      </section>
 
-      <Banner />
+      <section className="home-page__product-slider">
+        <SliderProducts />
+      </section>
 
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
+      <section className="home-page__categories">
+        Here will be section with links by categories
+      </section>
 
-      <SliderProducts />
-    </div>
+      <section className="home-page__product-slider">
+        <SliderProducts />
+      </section>
+    </main>
   );
 };
