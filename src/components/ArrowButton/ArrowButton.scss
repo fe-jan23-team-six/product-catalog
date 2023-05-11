@@ -1,6 +1,10 @@
 @import './../../styles/utils/vars';
 
 .button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
   width: 32px;
   height: 32px;
   border-radius: 0;
@@ -8,7 +12,9 @@
   border: $borderWidth solid $grayElements;
 
   background-image: url('./../../../public/icons/leftBlack16x16.svg');
-  background-size: cover;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
 
   &.disabled {
     background-image: url('./../../../public/icons/left16x16.svg');
