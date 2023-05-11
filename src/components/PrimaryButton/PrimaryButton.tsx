@@ -21,7 +21,7 @@ export const PrimaryButton: React.FC = () => {
       )}
       onClick={handlePrimaryButtonSelect}
     >
-      Add to cart
+      {isSelected ? 'Added' : 'Add to cart'}
     </button>
   );
 };
