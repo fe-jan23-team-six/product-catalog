@@ -5,6 +5,7 @@ import { DeviceDetailsPictures } from './DeviceDetailsPictures';
 import { DeviceDetailsSelector } from './DeviceDetailsSelector';
 import { DeviceDetailsAbout } from './DeviceDetailsAbout';
 import { DeviceDetailsSpecs } from './DeviceDetailsSpecs';
+import { SliderProducts } from '../../components/SliderProducts';
 
 export const DeviceDetailsPage: FC = () => {
   return (
@@ -23,10 +24,16 @@ export const DeviceDetailsPage: FC = () => {
         </p>
       </div>
 
-      <div className="device_details__about-product grid grid--mobile-off">
+      <div
+        className="device_details__about-product grid grid--mobile-tablet-off"
+      >
         <DeviceDetailsAbout />
 
         <DeviceDetailsSpecs />
+      </div>
+
+      <div className="device_details__slider-products">
+        <SliderProducts />
       </div>
     </main>
   );
