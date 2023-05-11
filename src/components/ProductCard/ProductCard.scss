@@ -1,3 +1,5 @@
+@import '../../styles/utils/mixins';
+
 @font-face {
   font-family: 'Mont';
   src:
@@ -25,17 +27,35 @@
   justify-content: center;
   box-sizing: border-box;
   font-family: 'Mont';
-  width: 272px;
+  width: 212px;
   background: #fff;
   border: 1px solid #e2e6e9;
   padding: 32px;
 
+  @include onTablet(){
+    width: 237px;
+  }
+
+  @include onDesktop(){
+    width: 272px;
+  }
+
   &__image {
   display: flex;
   object-fit: contain;
-  height: 196px;
-  width: 208px;
+  height: 129px;
+  width: 148px;
   margin-bottom: 24px;
+
+  @include onTablet(){
+    width: 173px;
+    height: 181px;
+  }
+
+  @include onDesktop(){
+    width: 208px;
+    height: 196px;
+  }
   }
 
   &__model {
@@ -66,8 +86,16 @@
 
   &__hr {
   border: 1px solid #e2e6e9;
-  width: 208px;
+  width: 148px;
   margin-bottom: 16px;
+
+  @include onTablet(){
+    width: 173px;
+  }
+
+  @include onDesktop(){
+    width: 208px;
+  }
   }
 
   &__characteristics {
@@ -118,9 +146,22 @@
     text-decoration: none;
     box-shadow: none;
     border: none;
-    width: 160px;
+    width: 100px;
     height: 40px;
     background: #313237;
+
+    @include onTablet(){
+      width: 125px;
+    }
+
+    @include onDesktop(){
+      width: 160px;
+    }
+
+    &:hover {
+      background: #313237;
+      box-shadow: 0px 3px 13px rgba(23, 32, 49, 0.4);
+    }
     }
 
     &__favorites {
@@ -130,6 +171,10 @@
     border: 1px solid #e2e6e9;
     background: #fff;
     box-sizing: border-box;
+
+    &:hover {
+      border: 1px solid #313237;
+    }
     }
   }
 }
