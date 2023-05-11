@@ -13,12 +13,16 @@ export const Root: React.FC = () => (
   <Routes>
     <Route path="/" element={<App />}>
       <Route index element={<HomePage />} />
-      <Route path="/home" element={<Navigate to="/" replace />} />
+      <Route path="home" element={<Navigate to="/" replace />} />
 
-      <Route path="/catalog" element={<CatalogPage />} />
-      <Route path="/device-details" element={<DeviceDetailsPage />} />
-      <Route path="/favourite" element={<FavouritePage />} />
-      <Route path="/cart" element={<CartPage />} />
+      <Route path="catalog">
+        <Route index element={<CatalogPage />} />
+        <Route path=":currentPage" element={<CatalogPage />} />
+      </Route>
+
+      <Route path="device-details" element={<DeviceDetailsPage />} />
+      <Route path="favourite" element={<FavouritePage />} />
+      <Route path="cart" element={<CartPage />} />
 
       <Route path="*" element={<NotFoundPage />} />
     </Route>

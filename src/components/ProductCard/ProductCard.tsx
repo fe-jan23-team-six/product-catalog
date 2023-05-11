@@ -52,7 +52,7 @@ export const ProductCard: React.FC = () => {
         >
           <img
           className="card__button__favorites--image"
-          src="icons/empty-heart.svg"
+          src="icons/favAddFav16x16.svg"
           alt="Favorite icon"
           >
           </img>
