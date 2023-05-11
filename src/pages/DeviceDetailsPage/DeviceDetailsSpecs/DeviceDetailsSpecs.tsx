@@ -4,8 +4,7 @@ import './DeviceDetailsSpecs.scss';
 export const DeviceDetailsSpecs: FC = () => {
   return (
     <div
-      className="device_details__specs specs
-      grid__item--tablet-7-12 grid__item--desktop-14-24"
+      className="device_details__specs specs grid__item--desktop-14-24"
     >
       <h3 className="specs__title">
         Tech Specs
