@@ -1,108 +1,66 @@
 @import '../../styles/utils/mixins';
+@import '../../styles/utils/vars';
+@import '../../styles/utils/extends';
 
-.card {
+.product-card {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  border: 1px solid #e2e6e9;
+  width: 272px;
+  border: 1px solid $colorElements;
   padding: 32px;
 
-  @include onTablet(){
-    width: 237px;
-  }
-
-  @include onDesktop(){
-    width: 272px;
-  }
+  color: $colorPrimary;
 
   &__image {
-  display: flex;
-  object-fit: contain;
-  height: 129px;
-  width: 148px;
-  margin-bottom: 24px;
-
-  @include onTablet(){
-    width: 173px;
-    height: 181px;
-  }
-
-  @include onDesktop(){
+    object-fit: contain;
     width: 208px;
     height: 196px;
-  }
+    margin-bottom: 24px;
   }
 
   &__model {
-  display: flex;
-  margin-bottom: 8px;
-  font-weight: 600;
-  font-size: 14px;
-  color: #313237;
+    margin-bottom: 8px;
+    @extend %buttonText;
   }
 
   &__price {
-  margin: 0;
-  display: flex;
-  font-size: 22px;
+    display: flex;
+    margin-bottom: 8px;
+  }
 
-    &--new {
-    font-weight: 800;
-    color: #313237;
-    }
-
-    &--old {
-    color: #89939a;
-    font-weight: 600;
+  &__discount {
+    color: $colorSecondary;
     margin-left: 8px;
     text-decoration: line-through;
-    }
   }
 
   &__hr {
-  border: 1px solid #e2e6e9;
-  width: 148px;
-  margin-bottom: 16px;
-
-  @include onTablet(){
-    width: 173px;
+    border: 1px solid $colorElements;
+    width: 100%;
+    margin-bottom: 8px;
   }
 
-  @include onDesktop(){
-    width: 208px;
-  }
-  }
-
-  &__characteristics {
-  margin-bottom: 16px;
+  &__info {
+    padding: 8px 0;
   }
 
-  &__characteristic {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 8px;
-
-    &__description {
-    display: inline-block;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 12px;
-    line-height: 15px;
-    color: #89939a;
-    margin: 0;
-    }
-
-    &__value {
+  &__info-row {
     display: flex;
-    justify-content: flex-end;
-    font-style: normal;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+
+  &__info-description {
+    @extend %smallText;
+    color: $colorSecondary;
+  }
+
+  &__info-value {
+    @extend %smallText;
     font-weight: 700;
-    font-size: 12px;
-    line-height: 15px;
-    color: #313237;
-    margin: 0;
-    }
+    color: $colorPrimary;
   }
 
   &__button {
