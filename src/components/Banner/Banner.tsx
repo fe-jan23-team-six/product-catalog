@@ -22,6 +22,10 @@ export const sliderImages: SliderImageType[] = [
 export const Banner: React.FC = () => {
   const sliderRef = useRef<Slider>(null);
 
+  const isMobileVersion = window.innerWidth < 640;
+
+  global.console.log('isMobileVersion:', isMobileVersion);
+
   const settings: Settings = {
     dots: true,
     arrows: false,
@@ -56,19 +60,12 @@ export const Banner: React.FC = () => {
   return (
     <div className="banner">
 
+    {!isMobileVersion && (
       <ArrowButton
         classes="back banner__button banner__button--left"
         action={handlePrevClick}
       />
-
-      {/* <button
-        className="banner__button banner__button--left"
-        type="button"
-        aria-label="leftBtn"
-        onClick={handlePrevClick}
-      >
-        {'<'}
-      </button> */}
+    )}
 
       <Slider
         ref={sliderRef}
@@ -90,20 +87,12 @@ export const Banner: React.FC = () => {
         })}
       </Slider>
 
-      <ArrowButton
-        classes="forward test banner__button banner__button--right"
-        action={handleNextClick}
-      />
-
-      {/* <button
-        className="banner__button banner__button--right"
-        type="button"
-        aria-label="rightBtn"
-        onClick={handleNextClick}
-      >
-        {'>'}
-      </button> */}
-
+      {!isMobileVersion && (
+        <ArrowButton
+          classes="forward test banner__button banner__button--right"
+          action={handleNextClick}
+        />
+      )}
     </div>
   );
 };
