@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 
 import { getPhones } from '../../utils/api/phones/phones';
 
+import { PhoneMain } from '../../types/phone/phone';
+
 import './HomePage.scss';
 
 import { SliderProducts } from '../../components/SliderProducts';
@@ -11,9 +13,9 @@ export const HomePage: React.FC = () => {
   useEffect(() => {
     const fetchPhones = async() => {
       try {
-        const fetchedPhones = await getPhones();
+        const fetchedPhones: PhoneMain[] = await getPhones();
 
-        global.console.log('fetched:', fetchedPhones);
+        global.console.log('fetched:', fetchedPhones[0]);
       } catch {
         global.console.log('error');
       }
