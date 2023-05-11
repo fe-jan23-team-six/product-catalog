@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import './DeviceDetailsSelector.scss';
+import { ProductColorGroup } from '../../../components/ProductColorGroup';
 
 export const DeviceDetailsSelector: FC = () => {
   return (
@@ -19,15 +20,7 @@ export const DeviceDetailsSelector: FC = () => {
         </div>
 
         <div className="colours">
-          <a
-            className="colours__colour colours__colour--active"
-            href="/"
-          > </a>
-
-          <a
-            className="colours__colour"
-            href="/"
-          > </a>
+          <ProductColorGroup />
         </div>
       </div>
 

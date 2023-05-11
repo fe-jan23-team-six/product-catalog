@@ -124,23 +124,6 @@
   display: flex;
   gap: 8px;
   margin-bottom: 24px;
-  
-  &__colour {
-    width: 32px;
-    height: 32px;
-
-    background-color: #fcdbc1;
-    border: 3px solid #fff;
-    border-radius: 50%;
-    outline: 1px solid #e2e6e9;
-    outline-offset: -1px;
-    cursor: pointer;
-
-    &--active {
-      outline: 1px solid #000;
-      outline-offset: -1px;
-    }
-  }
 }
 
 .capacities {
