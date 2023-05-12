@@ -58,12 +58,14 @@ export const Banner: React.FC = () => {
   return (
     <div className="banner">
 
-    {!isMobileVersion && (
-      <ArrowButton
-        classes="back banner__button banner__button--left"
-        action={handlePrevClick}
-      />
-    )}
+    <div className="banner__button-arrow">
+      {!isMobileVersion && (
+        <ArrowButton
+          classes="back banner__button banner__button--left"
+          action={handlePrevClick}
+        />
+      )}
+    </div>
 
       <Slider
         ref={sliderRef}
@@ -85,12 +87,14 @@ export const Banner: React.FC = () => {
         })}
       </Slider>
 
-      {!isMobileVersion && (
-        <ArrowButton
-          classes="forward test banner__button banner__button--right"
-          action={handleNextClick}
-        />
-      )}
+      <div className="banner__button-arrow">
+        {!isMobileVersion && (
+          <ArrowButton
+            classes="forward test banner__button banner__button--right"
+            action={handleNextClick}
+          />
+        )}
+      </div>
     </div>
   );
 };
