@@ -1,0 +1,24 @@
+@import '../../styles/utils/mixins';
+@import '../../styles/utils/vars';
+
+.menu-toggle-button {
+  display: flex;
+  width: 48px;
+  height: 48px;
+  justify-content: center;
+  align-items: center;
+  box-shadow: -1px 0 0 $colorElements;
+
+  @include onTabletAndDesktop {
+    display: none;
+
+    &--opened {
+      display: flex;
+    }
+  }
+
+  @include onDesktop {
+    width: 64px;
+    height: 64px;
+  }
+}

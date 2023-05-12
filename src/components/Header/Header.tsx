@@ -1,22 +1,40 @@
-import React from 'react';
+import React, { useState } from 'react';
+import classNames from 'classnames';
 import './Header.scss';
+
+import { HeaderTop } from '../HeaderTop';
 import { PageNavMain } from '../PageNavMain';
 import { PageNavIcons } from '../PageNavIcons';
 
 export const Header: React.FC = () => {
-  return (
-    <header className="header">
-      <div className="header__links">
-        <img
-          className="header__logo"
-          src="./icons/Logo.svg"
-          alt="logo"
-        />
+  const [isMenuOpened, setIsMenuOpened] = useState(true);
 
-        <PageNavMain />
+  const handleMenuOpen = () => (
+    setIsMenuOpened((prevState) => !prevState)
+  );
+
+  return (
+    <header className={classNames(
+      'header',
+      {
+        'header--menu-opened': isMenuOpened,
+      },
+    )}>
+      <div className="header__top">
+        <HeaderTop
+          isMenuOpened={isMenuOpened}
+          onMenuOpen={handleMenuOpen}
+        />
       </div>
 
-      <PageNavIcons />
+      <div className="header__menu">
+        <div className="header__links">
+          <PageNavMain isVertical />
+        </div>
+        <div className="header__icons">
+          <PageNavIcons isHalf />
+        </div>
+      </div>
     </header>
   );
 };

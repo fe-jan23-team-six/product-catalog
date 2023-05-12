@@ -3,16 +3,14 @@
 @import '../../styles/utils/extends';
 
 .page-nav-main {
+  $prefix: ".page-nav-main";
+  
   &__list {
     display: flex;
   }
 
   &__item {
-    height: 64px;
-    
-    @include onTablet {
-      height: 48px;
-    }
+    height: 48px;
 
     @include onDesktop {
       height: 64px;
@@ -23,6 +21,27 @@
 
       @include onDesktop {
         margin-right: 64px;
+      }
+    }
+  }
+
+  &--vertical {
+    #{$prefix}__list {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #{$prefix}__item {
+      height: 27px;
+      margin-right: 0;
+
+      &:not(:last-child) {
+        margin-bottom: 16px;
+  
+        @include onDesktop {
+          margin-bottom: 24px;
+        }
       }
     }
   }

@@ -3,22 +3,24 @@
 
 .page-nav-icons {
   display: flex;
+  height: 100%;
 
-  &__link {
+  &__icons {
     display: flex;
     justify-content: center;
-    width: 64px;
-    height: 64px;
+    width: 48px;
+    height: 48px;
     box-shadow: -1px 0 0 $colorElements;
 
     @include onDesktop {
       width: 64px;
       height: 64px;
     }
+  }
 
-    @include onTablet {
-      width: 48px;
-      height: 48px;
-    }
+  &--is-half &__icons {
+    width: 50%;
+    height: auto;
+    border-top: 1px solid #E2E6E9;
   }
 }

@@ -1,27 +1,29 @@
-@import '../../styles/utils/mixins';
-@import '../../styles/utils/vars';
-
 .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: $colorWhite;
-  padding: 0;
-  box-shadow: 0 1px 0 #e2e6e9;
+  $prefix: '.header';
 
-  &__links {
-    display: flex;
+  display: flex;
+  flex-direction: column;
+
+  &--menu-opened {
+    height: 100vh;
+
+    #{$prefix}__top {
+      margin-bottom: 24px;
+    }
+
+    #{$prefix}__menu {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      flex-grow: 1;
+    }
+
+    #{$prefix}__icons {
+      height: 64px;
+    }
   }
 
-  &__logo {
-    display: block;
-    width: 80px;
-    margin-right: 32px;
-    margin-left: 16px;
-  
-    @include onDesktop {
-      margin-right: 48px;
-      margin-left: 24px;
-    }
+  &__menu {
+    display: none;
   }
 }

@@ -1,11 +1,21 @@
 import React from 'react';
 import './PageNavIcons.scss';
 import { PageNavLink } from '../PageNavLink';
+import classNames from 'classnames';
 
-export const PageNavIcons: React.FC = () => {
+type Props = {
+  isHalf?: boolean;
+};
+
+export const PageNavIcons: React.FC<Props> = ({ isHalf = false }) => {
   return (
-    <div className="page-nav-icons">
-      <div className="page-nav-icons__link">
+    <div className={classNames(
+      'page-nav-icons',
+      {
+        'page-nav-icons--is-half': isHalf,
+      },
+    )}>
+      <div className="page-nav-icons__icons">
         <PageNavLink to="/favourite">
           <img
             src="./icons/favAddFav16x16.svg"
@@ -14,7 +24,7 @@ export const PageNavIcons: React.FC = () => {
         </PageNavLink>
       </div>
 
-      <div className="page-nav-icons__link">
+      <div className="page-nav-icons__icons">
         <PageNavLink to="/cart">
           <img
             className="nav_icon"

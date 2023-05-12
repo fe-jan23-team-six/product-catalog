@@ -1,10 +1,20 @@
 import React from 'react';
-import { PageNavLink } from '../PageNavLink';
+import classNames from 'classnames';
 import './PageNavMain.scss';
+import { PageNavLink } from '../PageNavLink';
 
-export const PageNavMain: React.FC = () => {
+type Props = {
+  isVertical?: boolean;
+};
+
+export const PageNavMain: React.FC<Props> = ({ isVertical = false }) => {
   return (
-    <nav className="page-nav-main">
+    <nav className={classNames(
+      'page-nav-main',
+      {
+        'page-nav-main--vertical': isVertical,
+      },
+    )}>
       <ul className="page-nav-main__list">
         <li className="page-nav-main__item">
           <PageNavLink to="/">
