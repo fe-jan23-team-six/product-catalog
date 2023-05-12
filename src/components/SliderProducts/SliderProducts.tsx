@@ -4,6 +4,8 @@ import Slider, { Settings } from 'react-slick';
 import './SliderProducts.scss';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import { ProductCard } from '../ProductCard';
+import { ArrowButton } from '../ArrowButton';
 
 // #region Those items are temporarily, its will be removed
 interface PropsCard {
@@ -97,25 +99,17 @@ export const SliderProducts: React.FC<Props> = ({ title }) => {
 {/* I think this buttons must be custom. What do you think about? */}
 
         <div className="slider__button-container">
-          <button
-            className="slider__button"
-            type="button"
-            aria-label="leftBtn"
+          <ArrowButton
+            classes="back"
             disabled={noSlide === 0}
-            onClick={handlePrevClick}
-          >
-            {'<'}
-          </button>
+            action={handlePrevClick}
+          />
 
-          <button
-            className="slider__button"
-            type="button"
-            aria-label="rightBtn"
+          <ArrowButton
+            classes="forward"
             disabled={noSlide === products.length - 4}
-            onClick={handleNextClick}
-          >
-            {'>'}
-          </button>
+            action={handleNextClick}
+          />
         </div>
       </div>
 
@@ -125,12 +119,13 @@ export const SliderProducts: React.FC<Props> = ({ title }) => {
       >
 
         {products.map(product => {
-          const { id, image } = product;
+          // const { id, image } = product;
 
           return (
           // Element below not my element it will be removed in future
 
-            <Card key={id} image={image} title={product.title} />
+            // <Card key={id} image={image} title={product.title} />
+            <ProductCard key={product.id} />
           );
         })}
       </Slider>
