@@ -1,0 +1,42 @@
+@import '../../styles/utils/mixins';
+@import '../../styles/utils/vars';
+
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: $colorWhite;
+  box-shadow: 0 1px 0 $colorElements;
+
+  &__main {
+    display: flex;
+  }
+
+  &__links {
+    display: none;
+
+    @include onTabletAndDesktop {
+      display: block;
+    }
+  }
+
+  &__icons {
+    display: none;
+
+    @include onTabletAndDesktop {
+      display: flex;
+    }
+  }
+
+  &__logo {
+    display: block;
+    width: 80px;
+    margin-right: 32px;
+    margin-left: 16px;
+  
+    @include onDesktop {
+      margin-right: 48px;
+      margin-left: 24px;
+    }
+  }
+}
