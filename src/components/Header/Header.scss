@@ -1,13 +1,5 @@
 @import '../../styles/utils/mixins';
 
-html {
-  font-family: "Roboto", sans-serif;
-}
-
-body {
-  margin: 0;
-}
-
 .header {
   display: flex;
   justify-content: space-between;
