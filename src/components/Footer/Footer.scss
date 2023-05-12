@@ -1,1 +1,85 @@
-// styles go here
+@import '../../styles/utils/mixins';
+@import '../../styles/utils/vars';
+@import '../../styles/utils/extends';
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  height: 257px;
+  box-shadow: 0px -1px 0px $colorElements;
+  padding: 32px 16px;
+
+  &>:last-child {
+    align-self: center;
+  }
+
+  @include onTabletAndDesktop() {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 96px;
+    padding: 32px;
+  }
+
+  &__logo {
+    height: 30px;
+    margin-bottom: 32px;
+
+    @include onTabletAndDesktop() {
+      margin: 0;
+    }
+  }
+
+  &__links {
+    display: flex;
+    flex-direction: column;
+
+    @include onTabletAndDesktop() {
+      flex-direction: row;
+    }
+  }
+
+  &__links__link {
+    color: $colorSecondary;
+    margin-bottom: 16px;
+    @extend %upperCase;
+
+    @include onTabletAndDesktop() {
+      margin: 0;
+    }
+
+    &:not(:last-child) {
+      @include onTablet() {
+        margin-right: 13px;
+      }
+      
+      @include onDesktop() {
+      margin-right: 106px;
+    }
+  }
+  }
+
+  &__toTop {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__text {
+      font-weight: 600;
+      font-size: 12px;
+      line-height: 15px;
+      color: $colorSecondary;
+      margin-right: 16px;
+    }
+
+    &__container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 32px;
+      width: 32px;
+      border: 1px solid $colorIcons;
+    }
+  }
+}
