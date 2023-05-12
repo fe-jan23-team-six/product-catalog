@@ -99,20 +99,6 @@
   display: flex;
   gap: 8px;
   margin-bottom: 24px;
-  
-  &__capacity {
-    padding: 4px 8px;
-
-    background-color: #fff;
-    border: 1px solid #b4bdc3;
-    cursor: pointer;
-
-    &--active {
-      color: #fff;
-      background-color: #313237;
-      border: none;
-    }
-  }
 }
 
 .characteristics {
