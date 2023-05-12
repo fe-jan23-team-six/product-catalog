@@ -7,9 +7,26 @@ import { DeviceDetailsAbout } from './DeviceDetailsAbout';
 import { DeviceDetailsSpecs } from './DeviceDetailsSpecs';
 import { SliderProducts } from '../../components/SliderProducts';
 
+import { Breadcrumbs } from '../../components/Breadcrumbs';
+import { BreadcrumbItem } from '../../types/BreadcrumbItem';
+
 export const DeviceDetailsPage: FC = () => {
+  const breadcrumbs: BreadcrumbItem[] = [
+    {
+      link: '/phones',
+      text: 'Phones',
+    },
+    {
+      text: 'Apple iPhone 11 Pro Max 64GB Gold (iMT9G2FS/A)',
+    },
+  ];
+
   return (
     <main className="device_details">
+      <div className="device_details__breadcrumbs">
+        <Breadcrumbs breadcrumbs={breadcrumbs} />
+      </div>
+
       <h2 className="device_details__title">
         Apple iPhone 11 Pro Max 64GB Gold (iMT9G2FS/A)
       </h2>
@@ -33,7 +50,7 @@ export const DeviceDetailsPage: FC = () => {
       </div>
 
       <div className="device_details__slider-products">
-        <SliderProducts />
+        <SliderProducts title={''} />
       </div>
     </main>
   );

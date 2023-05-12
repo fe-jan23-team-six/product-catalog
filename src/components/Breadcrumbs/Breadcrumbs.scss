@@ -1,0 +1,32 @@
+@import '../../styles/utils/extends';
+@import '../../styles/utils/vars';
+
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+
+  &__child {
+    @extend %smallText;
+    display: flex;
+    color: $colorSecondary;
+
+    &:not(:first-child) {
+      margin-left: 8px;
+    }
+  }
+
+  &__link {
+    display: flex;
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.testing {
+  cursor: pointer;
+}
