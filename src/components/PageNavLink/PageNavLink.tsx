@@ -5,11 +5,12 @@ import './PageNavLink.scss';
 type Props = {
   text: string;
   to: string;
+  className: string;
 };
 
-export const PageNavLink: React.FC<Props> = ({ text, to }) => (
+export const PageNavLink: React.FC<Props> = ({ text, to, className }) => (
   <NavLink
-    className="PageNavLink"
+    className={className}
     to={to}>
     {text}
   </NavLink>
