@@ -8,6 +8,7 @@ import './HomePage.scss';
 
 import { SliderProducts } from '../../components/SliderProducts';
 import { Banner } from '../../components/Banner/Banner';
+import { Loader } from '../../components/Loader';
 
 export const HomePage: React.FC = () => {
   useEffect(() => {
@@ -34,6 +35,8 @@ export const HomePage: React.FC = () => {
       <h1 className="home-page__title">
         Welcome to Nice Gadgets store!
       </h1>
+
+      <Loader />
 
       <section className="home-page__banner">
         <Banner />
