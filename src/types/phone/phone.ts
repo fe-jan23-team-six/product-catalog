@@ -19,6 +19,7 @@ export interface PhoneDescription {
 
 export interface PhoneDetails {
   id: number,
+  name: string,
   color: string,
   year: number,
   image: string,
