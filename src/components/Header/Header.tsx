@@ -7,7 +7,7 @@ import { PageNavMain } from '../PageNavMain';
 import { PageNavIcons } from '../PageNavIcons';
 
 export const Header: React.FC = () => {
-  const [isMenuOpened, setIsMenuOpened] = useState(true);
+  const [isMenuOpened, setIsMenuOpened] = useState(false);
 
   const handleMenuOpen = () => (
     setIsMenuOpened((prevState) => !prevState)
