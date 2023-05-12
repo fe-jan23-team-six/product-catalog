@@ -3,15 +3,15 @@ import { NavLink } from 'react-router-dom';
 import './PageNavLink.scss';
 
 type Props = {
-  text: string;
   to: string;
   className: string;
+  children?: React.ReactNode;
 };
 
-export const PageNavLink: React.FC<Props> = ({ text, to, className }) => (
+export const PageNavLink: React.FC<Props> = ({ children, to, className }) => (
   <NavLink
     className={className}
     to={to}>
-    {text}
+    {children}
   </NavLink>
 );
