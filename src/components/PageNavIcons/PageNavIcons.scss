@@ -1,0 +1,24 @@
+@import '../../styles/utils/vars';
+@import '../../styles/utils/mixins';
+
+.page-nav-icons {
+  display: flex;
+
+  &__link {
+    display: flex;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    box-shadow: -1px 0 0 $colorElements;
+
+    @include onDesktop {
+      width: 64px;
+      height: 64px;
+    }
+
+    @include onTablet {
+      width: 48px;
+      height: 48px;
+    }
+  }
+}

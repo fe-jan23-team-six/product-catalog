@@ -6,7 +6,9 @@
   display: flex;
   position: relative;
   align-items: center;
-  height: 60px;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
   font-weight: 800;
   color: $colorSecondary;
 

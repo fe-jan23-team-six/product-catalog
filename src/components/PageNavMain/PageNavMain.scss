@@ -8,6 +8,16 @@
   }
 
   &__item {
+    height: 64px;
+    
+    @include onTablet {
+      height: 48px;
+    }
+
+    @include onDesktop {
+      height: 64px;
+    }
+
     &:not(:last-child) {
       margin-right: 34px;
 
