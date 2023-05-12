@@ -21,23 +21,13 @@ export const DeviceDetailsPage: FC = () => {
   const [hasError, setHasError] = useState(false);
   const { productId } = useParams();
 
-  const breadcrumbs: BreadcrumbItem[] = [
-    {
-      link: '/phones',
-      text: 'Phones',
-    },
-    {
-      text: 'Apple iPhone 11 Pro Max 64GB Gold (iMT9G2FS/A)',
-    },
-  ];
-
   useEffect(() => {
     const fetchPhone = async() => {
       setIsDataLoading(true);
       setHasError(false);
 
       try {
-        const fetchedPhone: PhoneDetails = await getById(Number('1'));
+        const fetchedPhone: PhoneDetails = await getById(Number(productId));
 
         setProduct(fetchedPhone);
 
@@ -54,6 +44,22 @@ export const DeviceDetailsPage: FC = () => {
 
     fetchPhone();
   }, [productId]);
+
+  let productTitle = '';
+
+  if (product) {
+    productTitle = product.name;
+  }
+
+  const breadcrumbs: BreadcrumbItem[] = [
+    {
+      link: '/phones',
+      text: 'Phones',
+    },
+    {
+      text: productTitle,
+    },
+  ];
 
   return (
     <>
@@ -72,13 +78,13 @@ export const DeviceDetailsPage: FC = () => {
               </div>
 
               <h2 className="device_details__title">
-                {product.name}
+                {productTitle}
               </h2>
 
               <div className="device_details__product grid grid--mobile-off">
                 <DeviceDetailsPictures />
 
-                <DeviceDetailsSelector />
+                <DeviceDetailsSelector product={product} />
 
                 <p className="device_details__id grid__item--desktop-22-24">
                   ID: 802390
@@ -91,7 +97,7 @@ export const DeviceDetailsPage: FC = () => {
               >
                 <DeviceDetailsAbout />
 
-                <DeviceDetailsSpecs />
+                <DeviceDetailsSpecs product={product} />
               </div>
 
               <div className="device_details__slider-products">
