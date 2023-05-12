@@ -2,7 +2,6 @@
 
 .banner {
   min-width: 320px;
-  // margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -52,14 +51,12 @@
     }
 
     cursor: pointer;
+  }
 
-    &--left {
-      // margin-right: 16px;
-    }
-
-    &--right {
-      // margin-left: 16px;
-    }
+  &__paging {
+    width: 100%;
+    position: absolute;
+    opacity: 0;
   }
 
   &__pagination li {
