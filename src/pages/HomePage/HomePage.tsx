@@ -8,7 +8,35 @@ import './HomePage.scss';
 
 import { SliderProducts } from '../../components/SliderProducts';
 import { Banner } from '../../components/Banner/Banner';
-import { Loader } from '../../components/Loader';
+import { SliderPhotos } from '../../components/SliderPhotos';
+
+// #region sliderPhoto
+export interface SliderPhotosType {
+  id: number,
+  image: string,
+}
+
+const sliderPhotoImages: SliderPhotosType[] = [
+  { id: 1, image: 'img/delete-after-photo-slider/11-photo-1.png' },
+  { id: 2, image: 'img/delete-after-photo-slider/11-photo-2.png' },
+  { id: 3, image: 'img/delete-after-photo-slider/11-photo-3.png' },
+  { id: 4, image: 'img/delete-after-photo-slider/11-photo-4.png' },
+  { id: 5, image: 'img/delete-after-photo-slider/11-photo-5.png' },
+];
+// #endregion
+
+// #region Temporarily items below, please don't waste time on it
+interface SliderImageType {
+  id: number;
+  url: string;
+}
+
+export const sliderImages: SliderImageType[] = [
+  { id: 1, url: 'img/banners/phones.jpg' },
+  { id: 2, url: 'img/banners/accessories.jpg' },
+  { id: 3, url: 'img/banners/tablets.png' },
+];
+// #endregion
 
 export const HomePage: React.FC = () => {
   useEffect(() => {
@@ -36,7 +64,68 @@ export const HomePage: React.FC = () => {
         Welcome to Nice Gadgets store!
       </h1>
 
-      <Loader />
+      <SliderPhotos images={sliderPhotoImages}/>
+
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
 
       <section className="home-page__banner">
         <Banner />

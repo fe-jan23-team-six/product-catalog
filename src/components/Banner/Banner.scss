@@ -54,8 +54,10 @@
   }
 
   &__paging {
-    width: 100%;
     position: absolute;
+    margin-top: -10px;
+    padding: 5px;
+    width: 100%;
     opacity: 0;
   }
 
@@ -76,4 +78,8 @@
       background-color: #313237;
     }
   }
+}
+
+.slick-list {
+  width: 100%;
 }

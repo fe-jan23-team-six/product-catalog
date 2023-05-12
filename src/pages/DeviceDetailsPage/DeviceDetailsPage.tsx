@@ -33,7 +33,7 @@ export const DeviceDetailsPage: FC = () => {
       </div>
 
       <div className="device_details__slider-products">
-        <SliderProducts />
+        <SliderProducts title="Apple iPhone" />
       </div>
     </main>
   );
