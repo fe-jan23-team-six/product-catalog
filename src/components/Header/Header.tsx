@@ -19,11 +19,11 @@ export const Header: React.FC = () => {
       />
       <PageNavLink
         to="/favourite"
-        text="Favourite"
+        text="fav"
       />
       <PageNavLink
         to="/cart"
-        text="Cart"
+        text="cart"
       />
     </header>
   );

@@ -1,0 +1,122 @@
+@import './../../styles/utils/vars';
+@import './../../styles/utils/mixins';
+@import './../../styles/utils/extends';
+
+.cartItem {
+  width: 100%;
+  border: 1px solid $colorElements;
+
+  padding: 16px 16px 16px 0;
+
+  @include onTabletAndDesktop {
+    padding: 24px 24px 24px 0;
+  }
+
+  &__head {
+    height: 80px;
+    display: flex;
+    // justify-content: space-between;
+
+    &_remove {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      width: 48px;
+
+      @include onTabletAndDesktop {
+        width: 64px;
+      }
+
+      &_button {
+        color: transparent;
+        background-image: url('./../../../public/icons/close16x16.svg');
+        width: 10px;
+        height: 10px;
+        background-size: contain;
+      }
+    }
+
+    &_phone {
+      display: flex;
+      gap: 16px;
+
+      @include onTabletAndDesktop {
+        gap: 24px;
+      }
+
+      &_image {
+        width: 80px;
+        height: auto;
+      }
+
+      &_name {
+        color: $colorPrimary;
+
+        @extend %bodyText;
+      }
+    }
+
+    margin-bottom: 16px;
+  }
+
+  &__priceAmount {
+    height: 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding-left: 16px;
+
+    @include onTabletAndDesktop {
+      padding-left: 24px;
+    }
+
+    &_amount {
+
+      &_amount {
+        display: inline-flex;
+        width: 32px;
+        align-items: center;
+        justify-content: center;
+
+        @extend %buttonText;
+
+        color: $colorBlack;
+      }
+
+      &_button {
+        width: 32px;
+        height: 32px;
+
+        color: transparent;
+        border: 1px solid $colorIcons;
+
+        &.minus {
+          background-image: url('./../../../public/icons/minus16x16.svg');
+          background-position: center;
+          background-repeat: no-repeat;
+
+          &.disabled {
+            background-image: url('./../../../public/icons/minus16x16_disabled.svg');
+            border-color: $colorElements;
+          }
+        }
+
+        &.plus {
+          background-image: url('./../../../public/icons/plus16x16.svg');
+          background-position: center;
+          background-repeat: no-repeat;
+        }
+      }
+    }
+
+    &_price {
+      color: $colorPrimary;
+
+      &::before {
+        content: '$';
+      }
+    }
+  }
+}

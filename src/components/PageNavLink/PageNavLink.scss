@@ -1,5 +1,5 @@
 .PageNavLink {
-  &:nth-child(n) {
+  &:nth-child(n):not(:last-child) {
     margin-left: 30px;
   }
 }
