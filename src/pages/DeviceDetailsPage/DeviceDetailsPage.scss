@@ -1,7 +1,12 @@
 @import "../../styles/utils";
 
-
 .device_details {
+  padding: 24px 0 81px;
+
+  &__breadcrumbs {
+    margin-bottom: 40px;
+  }
+
   &__title {
     margin-bottom: 40px;
 
@@ -28,10 +33,38 @@
   }
 
   &__product {
-    margin-bottom: 80px;
+    margin-bottom: 56px;
+
+    @include onTablet {
+      margin-bottom: 64px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 80px;
+    }
   }
 
   &__about-product {
-    margin-bottom: 80px;
+    margin-bottom: 56px;
+
+    @include onTablet {
+      margin-bottom: 64px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 80px;
+    }
+  }
+
+  &__slider-products {
+    margin-bottom: 56px;
+
+    @include onTablet {
+      margin-bottom: 64px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 80px;
+    }
   }
 }

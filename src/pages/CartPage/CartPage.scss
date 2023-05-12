@@ -1,1 +1,36 @@
-// styles
+@import './../../styles/utils/mixins';
+@import './../../styles/utils/vars';
+
+.cartPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  @include onDesktop {
+    width: 1136px;
+  }
+  @include onTablet {
+    padding: 0 24px;
+  }
+  @include onPhone {
+    padding: 0 16px;
+  }
+
+  &__title {
+    max-width: 1136px;
+    width: 100%;
+    text-align: left;
+    color: $colorPrimary;
+  }
+
+  &__content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    @include onDesktop {
+      flex-direction: row;
+    }
+  }
+}

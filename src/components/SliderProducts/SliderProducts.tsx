@@ -4,6 +4,8 @@ import Slider, { Settings } from 'react-slick';
 import './SliderProducts.scss';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import { ProductCard } from '../ProductCard';
+import { ArrowButton } from '../ArrowButton';
 
 // #region Those items are temporarily, its will be removed
 interface PropsCard {
@@ -45,7 +47,11 @@ export const products: CardType[] = [
 ];
 // #endregion
 
-export const SliderProducts: React.FC = () => {
+interface Props {
+  title: string,
+}
+
+export const SliderProducts: React.FC<Props> = ({ title }) => {
   const [noSlide, setNoSlide] = useState<number>(0);
   const sliderRef = useRef<Slider>(null);
 
@@ -88,30 +94,22 @@ export const SliderProducts: React.FC = () => {
   return (
     <div className="slider">
       <div className="slider__label">
-        <h1>Brand New Models</h1>
+        <h1>{title}</h1>
 
 {/* I think this buttons must be custom. What do you think about? */}
 
         <div className="slider__button-container">
-          <button
-            className="slider__button"
-            type="button"
-            aria-label="leftBtn"
+          <ArrowButton
+            classes="back"
             disabled={noSlide === 0}
-            onClick={handlePrevClick}
-          >
-            {'<'}
-          </button>
+            action={handlePrevClick}
+          />
 
-          <button
-            className="slider__button"
-            type="button"
-            aria-label="rightBtn"
+          <ArrowButton
+            classes="forward"
             disabled={noSlide === products.length - 4}
-            onClick={handleNextClick}
-          >
-            {'>'}
-          </button>
+            action={handleNextClick}
+          />
         </div>
       </div>
 
@@ -121,12 +119,13 @@ export const SliderProducts: React.FC = () => {
       >
 
         {products.map(product => {
-          const { id, image, title } = product;
+          // const { id, image } = product;
 
           return (
           // Element below not my element it will be removed in future
 
-            <Card key={id} image={image} title={title} />
+            // <Card key={id} image={image} title={product.title} />
+            <ProductCard key={product.id} />
           );
         })}
       </Slider>

@@ -1,0 +1,30 @@
+@import './../../styles/utils/vars';
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  width: 32px;
+  height: 32px;
+  border-radius: 0;
+  background-color: transparent;
+  border: 1px solid $colorElements;
+
+  background-image: url('./../../../public/icons/leftBlack16x16.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+
+  &.disabled {
+    background-image: url('./../../../public/icons/left16x16.svg');
+  }
+
+  &:not(.disabled):hover {
+    border-color: $colorPrimary;
+  }
+
+  &.forward {
+    transform: rotate(180deg);
+  }
+}

@@ -1,0 +1,28 @@
+@import './../../styles/utils/extends';
+@import './../../styles/utils/vars';
+
+.cartCheckoutBox {
+  border: 1px solid $colorElements;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+
+  &__mainValue {
+    font-weight: 800;
+    font-size: 32px;
+    line-height: 41px;
+    color: $colorPrimary;
+
+    &::before {
+      content: '$';
+    }
+  }
+
+  &__itemsTotal {
+    @extend %buttonText;
+
+    color: $colorSecondary;
+  }
+}

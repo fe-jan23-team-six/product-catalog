@@ -1,5 +1,8 @@
 import React, { FC } from 'react';
 import './DeviceDetailsSelector.scss';
+import { ProductColorGroup } from '../../../components/ProductColorGroup';
+import { ProductManageButtons } from '../../../components/ProductManage';
+import { ProductCapacityGroup } from '../../../components/ProductCapacityGroup';
 
 export const DeviceDetailsSelector: FC = () => {
   return (
@@ -19,15 +22,7 @@ export const DeviceDetailsSelector: FC = () => {
         </div>
 
         <div className="colours">
-          <a
-            className="colours__colour colours__colour--active"
-            href="/"
-          > </a>
-
-          <a
-            className="colours__colour"
-            href="/"
-          > </a>
+          <ProductColorGroup />
         </div>
       </div>
 
@@ -41,24 +36,7 @@ export const DeviceDetailsSelector: FC = () => {
         <div
           className="capacities"
         >
-          <a
-            className="capacities__capacity capacities__capacity--active"
-            href="/"
-          >
-            64 GB
-          </a>
-          <a
-            className="capacities__capacity"
-            href="/"
-          >
-            256 GB
-          </a>
-          <a
-            className="capacities__capacity"
-            href="/"
-          >
-            512 GB
-          </a>
+          <ProductCapacityGroup />
         </div>
       </div>
 
@@ -74,17 +52,7 @@ export const DeviceDetailsSelector: FC = () => {
         </div>
 
         <div className="selector__buttons">
-          <button
-            className="selector__buttons__primary"
-          >
-            Add to a cart
-          </button>
-
-          <button
-            className="selector__buttons__favourites"
-          >
-            ♡
-          </button>
+          <ProductManageButtons isBig={true}/>
         </div>
 
         <div className="selector__characteristics characteristics">

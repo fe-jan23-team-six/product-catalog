@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import Slider, { Settings } from 'react-slick';
+import { ArrowButton } from '../ArrowButton';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -11,20 +12,26 @@ interface SliderImageType {
   url: string;
 }
 
-export const sliderImages: SliderImageType[] = [
-  { id: 1, url: 'img/banners/phones.jpg' },
-  { id: 2, url: 'img/banners/accessories.jpg' },
-  { id: 3, url: 'img/banners/tablets.png' },
-];
+// export const sliderImages: SliderImageType[] = [
+//   { id: 1, url: 'img/banners/phones.jpg' },
+//   { id: 2, url: 'img/banners/accessories.jpg' },
+//   { id: 3, url: 'img/banners/tablets.png' },
+// ];
 // #endregion
 
 export const Banner: React.FC = () => {
   const sliderRef = useRef<Slider>(null);
 
+  const sliderImages: SliderImageType[] = [
+    { id: 1, url: 'img/banners/phones.jpg' },
+    { id: 2, url: 'img/banners/accessories.jpg' },
+    { id: 3, url: 'img/banners/tablets.png' },
+  ];
+
   const settings: Settings = {
+    dotsClass: 'slick-dots banner__pagination',
     dots: true,
     arrows: false,
-    dotsClass: 'slick-dots banner__pagination',
     infinite: true,
     autoplay: true,
     autoplaySpeed: 5000,
@@ -33,11 +40,7 @@ export const Banner: React.FC = () => {
     slidesToScroll: 1,
     customPaging: (i) => (
       <div
-        style={{
-          position: 'absolute',
-          width: '100%',
-          opacity: 0,
-        }}
+        className='banner__paging'
       >
         {i}
       </div>
@@ -55,20 +58,12 @@ export const Banner: React.FC = () => {
   return (
     <div className="banner">
 
-      {/*
-          Here we can in feature use custom button, but
-        i have no idea how to give to component
-        different images background
-      */}
-
-      <button
-        className="banner__button banner__button--left"
-        type="button"
-        aria-label="leftBtn"
-        onClick={handlePrevClick}
-      >
-        {'<'}
-      </button>
+    <div className="banner__button-arrow">
+      <ArrowButton
+        classes="back banner__button"
+        action={handlePrevClick}
+      />
+    </div>
 
       <Slider
         ref={sliderRef}
@@ -90,15 +85,12 @@ export const Banner: React.FC = () => {
         })}
       </Slider>
 
-      <button
-        className="banner__button banner__button--right"
-        type="button"
-        aria-label="rightBtn"
-        onClick={handleNextClick}
-      >
-        {'>'}
-      </button>
-
+      <div className="banner__button-arrow">
+        <ArrowButton
+          classes="forward test banner__button"
+          action={handleNextClick}
+        />
+      </div>
     </div>
   );
 };

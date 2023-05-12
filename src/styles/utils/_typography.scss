@@ -1,4 +1,4 @@
-@import "./mixins";
+@import './mixins';
 
 h1 {
   font-weight: 800;
@@ -48,30 +48,4 @@ h4 {
     font-size: 20px;
     line-height: 26px;
   }
-}
-
-.upperCase {
-  font-weight: 700;
-  font-size: 12px;
-  line-height: 11px;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-
-.buttonText {
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 21px;
-}
-
-.bodyText {
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 21px;
-}
-
-.smallText {
-  font-weight: 600;
-  font-size: 12px;
-  line-height: 15px;
 }
