@@ -12,22 +12,12 @@
 
   &__button-container {
     display: flex;
+    gap: 16px;
     justify-content: space-between;
   }
 
   &__slider {
     display: flex;
-  }
-
-  &__button {
-    width: 32px;
-    height: 32px;
-
-    cursor: pointer;
-
-    &:not(:last-child) {
-      margin-right: 16px;
-    }
   }
 }
 
