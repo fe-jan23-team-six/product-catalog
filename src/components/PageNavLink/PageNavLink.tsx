@@ -1,16 +1,24 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import classNames from 'classnames';
 import './PageNavLink.scss';
 
 type Props = {
-  text: string;
   to: string;
+  children?: React.ReactNode;
 };
 
-export const PageNavLink: React.FC<Props> = ({ text, to }) => (
+export const PageNavLink: React.FC<Props> = ({ children, to }) => (
   <NavLink
-    className="PageNavLink"
+    className={({ isActive }) => (
+      classNames(
+        'page-nav-link',
+        {
+          'page-nav-link--active': isActive,
+        },
+      )
+    )}
     to={to}>
-    {text}
+    {children}
   </NavLink>
 );

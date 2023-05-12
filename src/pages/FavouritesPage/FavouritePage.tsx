@@ -1,13 +1,13 @@
 import React from 'react';
 import './FavouritePage.scss';
 import { ProductCard } from '../../components/ProductCard/ProductCard';
-import { BurgerMenu } from '../../components/BurgerMenu/BurgerMenu';
+import { Breadcrumbs } from '../../components/Breadcrumbs';
 
 export const FavouritePage: React.FC = () => {
   return (
     <>
+      <Breadcrumbs />
       <h1>Favourite Page</h1>
-      <BurgerMenu />
       <ProductCard />
     </>
   );
