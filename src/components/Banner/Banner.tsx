@@ -12,15 +12,21 @@ interface SliderImageType {
   url: string;
 }
 
-export const sliderImages: SliderImageType[] = [
-  { id: 1, url: 'img/banners/phones.jpg' },
-  { id: 2, url: 'img/banners/accessories.jpg' },
-  { id: 3, url: 'img/banners/tablets.png' },
-];
+// export const sliderImages: SliderImageType[] = [
+//   { id: 1, url: 'img/banners/phones.jpg' },
+//   { id: 2, url: 'img/banners/accessories.jpg' },
+//   { id: 3, url: 'img/banners/tablets.png' },
+// ];
 // #endregion
 
 export const Banner: React.FC = () => {
   const sliderRef = useRef<Slider>(null);
+
+  const sliderImages: SliderImageType[] = [
+    { id: 1, url: 'img/banners/phones.jpg' },
+    { id: 2, url: 'img/banners/accessories.jpg' },
+    { id: 3, url: 'img/banners/tablets.png' },
+  ];
 
   const settings: Settings = {
     dotsClass: 'slick-dots banner__pagination',
