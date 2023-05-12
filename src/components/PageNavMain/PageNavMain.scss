@@ -1,0 +1,19 @@
+@import '../../styles/utils/mixins';
+@import '../../styles/utils/vars';
+@import '../../styles/utils/extends';
+
+.page-nav-main {
+  &__list {
+    display: flex;
+  }
+
+  &__item {
+    &:not(:last-child) {
+      margin-right: 34px;
+
+      @include onDesktop {
+        margin-right: 64px;
+      }
+    }
+  }
+}
