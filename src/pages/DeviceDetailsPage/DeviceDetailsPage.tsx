@@ -12,11 +12,24 @@ import { useParams } from 'react-router-dom';
 import { Loader } from '../../components/Loader';
 import { NotFoundPage } from '../NotFoundPage';
 
+import { Breadcrumbs } from '../../components/Breadcrumbs';
+import { BreadcrumbItem } from '../../types/BreadcrumbItem';
+
 export const DeviceDetailsPage: FC = () => {
   const [product, setProduct] = useState<PhoneDetails | null>(null);
   const [isDataLoading, setIsDataLoading] = useState(false);
   const [hasError, setHasError] = useState(false);
   const { productId } = useParams();
+
+  const breadcrumbs: BreadcrumbItem[] = [
+    {
+      link: '/phones',
+      text: 'Phones',
+    },
+    {
+      text: 'Apple iPhone 11 Pro Max 64GB Gold (iMT9G2FS/A)',
+    },
+  ];
 
   useEffect(() => {
     const fetchPhone = async() => {
@@ -54,6 +67,10 @@ export const DeviceDetailsPage: FC = () => {
 
           {!isDataLoading && !hasError && product && (
             <main className="device_details">
+              <div className="device_details__breadcrumbs">
+                <Breadcrumbs breadcrumbs={breadcrumbs} />
+              </div>
+
               <h2 className="device_details__title">
                 {product.name}
               </h2>
