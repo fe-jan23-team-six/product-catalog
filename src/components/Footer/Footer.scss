@@ -5,7 +5,7 @@
 .footer {
   display: flex;
   flex-direction: column;
-  align-items: start;
+  align-items: flex-start;
   height: 257px;
   box-shadow: 0px -1px 0px $colorElements;
   padding: 32px 16px;
@@ -14,61 +14,71 @@
     align-self: center;
   }
 
-  @include onTabletAndDesktop() {
+  @include onTabletAndDesktop {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
     height: 96px;
-    padding: 32px;
+  }
+
+  @include onTablet {
+    padding: 32px 32px;
+  }
+
+  @include onDesktop {
+    padding: 32px 152px;
   }
 
   &__logo {
     height: 30px;
     margin-bottom: 32px;
 
-    @include onTabletAndDesktop() {
+    @include onTabletAndDesktop {
       margin: 0;
     }
   }
 
-  &__links {
+  &__list {
     display: flex;
     flex-direction: column;
 
-    @include onTabletAndDesktop() {
+    @include onTabletAndDesktop {
       flex-direction: row;
     }
   }
 
-  &__links__link {
-    color: $colorSecondary;
+  &__item {
+    display: flex;
+    align-items: center;
     margin-bottom: 16px;
-    @extend %upperCase;
 
-    @include onTabletAndDesktop() {
+    @include onTabletAndDesktop {
       margin: 0;
     }
 
     &:not(:last-child) {
-      @include onTablet() {
+      @include onTablet {
         margin-right: 13px;
       }
       
-      @include onDesktop() {
-      margin-right: 106px;
+      @include onDesktop {
+        margin-right: 106px;
+      }
     }
   }
+
+  &__link {
+    @extend %upperCase;
+    color: $colorSecondary;
   }
 
-  &__toTop {
+  &__to-top {
     display: flex;
     justify-content: center;
     align-items: center;
 
     &__text {
-      font-weight: 600;
-      font-size: 12px;
-      line-height: 15px;
+      @extend %smallText;
       color: $colorSecondary;
       margin-right: 16px;
     }
@@ -80,6 +90,10 @@
       height: 32px;
       width: 32px;
       border: 1px solid $colorIcons;
+    }
+
+    &__image {
+      display: flex;
     }
   }
 }

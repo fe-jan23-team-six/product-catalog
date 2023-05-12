@@ -1,31 +1,47 @@
 import React from 'react';
 import './Footer.scss';
-import { PageNavLink } from '../PageNavLink';
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export const Footer: React.FC = () => {
   return (
     <footer className="footer">
       <img
-      className="footer__logo"
-      src="icons/Logo.svg"
-      alt="Logo Nice Gadgets">
+        className="footer__logo"
+        src="icons/Logo.svg"
+        alt="Logo Nice Gadgets">
       </img>
 
-      <div className="footer__links">
+      <ul className="footer__list">
+        <li className="footer__item">
+          <Link to={''} className="footer__link">
+            Github
+          </Link>
+        </li>
 
-      <Link to={''} className="footer__links__link">Github</Link>
+        <li className="footer__item">
+          <Link to={''} className="footer__link">
+            Contacts
+          </Link>
+        </li>
 
-      <Link to={''} className="footer__links__link">Contacts</Link>
+        <li className="footer__item">
+          <Link to={''} className="footer__link">
+            Rights
+          </Link>
+        </li>
+      </ul>
 
-      <Link to={''} className="footer__links__link">Rights</Link>
-      </div>
+      <div className="footer__to-top">
+        <p className="footer__to-top__text">
+          Back to top
+        </p>
 
-      <div className="footer__toTop">
-        <p className="footer__toTop__text">Back to top</p>
-        <div className="footer__toTop__container">
+        <div className="footer__to-top__container">
           <a href="#">
-            <img src="icons/up16x16.svg" alt="Back to top" />
+            <img
+              src="icons/up16x16.svg"
+              alt="Back to top"
+              className="footer__to-top__image"/>
           </a>
         </div>
       </div>
