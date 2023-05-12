@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 
 import { getById, getPhones } from '../../utils/api/phones';
 
-import { PhoneDescription, PhoneMain } from '../../types/phone/phone';
+import { PhoneDetails, PhoneMain } from '../../types/phone/phone';
 
 import './HomePage.scss';
 
@@ -16,7 +16,7 @@ export interface SliderPhotosType {
   image: string,
 }
 
-const sliderPhotoImages: SliderPhotosType[] = [
+export const sliderPhotoImages: SliderPhotosType[] = [
   { id: 1, image: 'img/delete-after-photo-slider/11-photo-1.png' },
   { id: 2, image: 'img/delete-after-photo-slider/11-photo-2.png' },
   { id: 3, image: 'img/delete-after-photo-slider/11-photo-3.png' },
@@ -46,7 +46,7 @@ export const HomePage: React.FC = () => {
 
         // fetchedPhone its for Vale,
         // this example how u can get your elements from api
-        const fetchedPhone: PhoneDescription = await getById(1);
+        const fetchedPhone: PhoneDetails = await getById(1);
 
         global.console.log('fetched:', fetchedPhones);
         global.console.log('phone:', fetchedPhone);

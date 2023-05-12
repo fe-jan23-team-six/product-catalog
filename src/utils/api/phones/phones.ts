@@ -1,5 +1,5 @@
 import { client } from '../fetchingClient';
-import { PhoneDescription, PhoneMain } from '../../../types/phone/phone';
+import { PhoneDetails, PhoneMain } from '../../../types/phone/phone';
 
 const PHONES_ENDPOINT = '/products/';
 
@@ -10,5 +10,5 @@ export const getPhones = () => {
 export const getById = (phoneId: number) => {
   const url = PHONES_ENDPOINT + phoneId;
 
-  return client.getAll<PhoneDescription>(url);
+  return client.getAll<PhoneDetails>(url);
 };

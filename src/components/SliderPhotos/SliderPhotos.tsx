@@ -6,7 +6,7 @@ import type { Swiper as SwiperType } from 'swiper';
 
 import 'swiper/css';
 import 'swiper/css/free-mode';
-import 'swiper/css/navigaion';
+import 'swiper/css/navigation';
 import 'swiper/css/thumbs';
 
 import './SliderPhotos.scss';
@@ -20,17 +20,17 @@ export const SliderPhotos: React.FC<Props> = ({ images }) => {
   const [thumbsSwiper, setThumbsSwiper] = useState<SwiperType | null>(null);
 
   return (
-    <>
+    <div className="slider-photos">
       <Swiper
-        style={{
-          // '--swiper-navigation-color:': '#fff',
-          // '--swiper-pagination-color:': '#fff',
-        }}
         spaceBetween={10}
-        navigation
-        thumbs={{ swiper: thumbsSwiper }}
+        thumbs={{
+          swiper: thumbsSwiper
+            && !thumbsSwiper.destroyed
+            ? thumbsSwiper
+            : null,
+        }}
         modules={[FreeMode, Navigation, Thumbs]}
-        className="mySwiper2"
+        className="slider-photos"
       >
         {images.map(slide => {
           const { image } = slide;
@@ -73,7 +73,7 @@ export const SliderPhotos: React.FC<Props> = ({ images }) => {
           );
         })}
       </Swiper>
-    </>
+    </div>
   );
 };
 

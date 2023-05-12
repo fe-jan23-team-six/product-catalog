@@ -1,6 +1,12 @@
 @import "../../styles/utils";
 
 .device_details {
+  padding: 24px 0 81px;
+
+  &__breadcrumbs {
+    margin-bottom: 40px;
+  }
+
   &__title {
     margin-bottom: 40px;
 
