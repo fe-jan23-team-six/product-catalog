@@ -2,14 +2,15 @@ import React, { useState } from 'react';
 import './ProductCapacityGroup.scss';
 import { CapacitiesButton } from '../CapacitiesButton';
 
-// you should up colors to page top and create context in future
 type Props = {
-  // colors: Array<string>;
+  capacities: Array<string>;
 };
 
-export const ProductCapacityGroup: React.FC<Props> = () => {
-  const [selectedCapacity, setSelectedCapacity] = useState<string>('64GB');
-  const capacities = ['64GB', '128GB', '256GB'];
+export const ProductCapacityGroup: React.FC<Props> = ({ capacities }) => {
+  const [
+    selectedCapacity,
+    setSelectedCapacity,
+  ] = useState<string>(capacities[0]);
 
   const handleCapacityChange = (capacity: string) => (
     setSelectedCapacity(capacity)

@@ -20,20 +20,6 @@
   }
 
   &__characteristics {
-    display: flex;
-    justify-content: space-between;
-  }
-}
-
-.characteristics {
-  &__text {
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 21px;
-    color: #89939a;
-
-    &--black {
-      color: #313237;
-    }
+    @extend %flexTechCharacteristics;
   }
 }

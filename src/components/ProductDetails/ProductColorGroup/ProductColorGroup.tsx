@@ -2,14 +2,12 @@ import React, { useState } from 'react';
 import './ProductColorGroup.scss';
 import { ColoredButton } from '../ColoredButton';
 
-// you should up colors to page top and create context in future
 type Props = {
-  // colors: Array<string>;
+  colors: Array<string>;
 };
 
-export const ProductColorGroup: React.FC<Props> = () => {
+export const ProductColorGroup: React.FC<Props> = ({ colors }) => {
   const [selectedColor, setSelectedColor] = useState<string>('green');
-  const colors = ['red', 'green', 'blue', 'palegreen'];
 
   const handleColorChange = (color: string) => (
     setSelectedColor(color)

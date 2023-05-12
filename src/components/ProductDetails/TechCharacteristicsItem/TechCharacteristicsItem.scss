@@ -1,0 +1,14 @@
+.tech_characteristics {
+  display: flex;
+  justify-content: space-between;
+
+  &__text {
+    font-weight: 600;
+    line-height: 21px;
+    color: #89939a;
+  
+    &--black {
+      color: #313237;
+    }
+  }
+}
