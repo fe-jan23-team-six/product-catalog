@@ -1,5 +1,4 @@
 import React from 'react';
-import './DataLoader.scss';
 import { FetchStatus } from '../../types/FetchStatus';
 import { Loader } from '../Loader';
 
