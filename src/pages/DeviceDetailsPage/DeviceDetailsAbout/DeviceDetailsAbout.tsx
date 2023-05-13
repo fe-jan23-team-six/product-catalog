@@ -4,7 +4,7 @@ import './DeviceDetailsAbout.scss';
 export const DeviceDetailsAbout: FC = () => {
   return (
     <div
-      className="device_details__about about grid__item--desktop-1-12"
+      className="device-details__about about grid__item--desktop-1-12"
     >
       <h3 className="about__title">
         About

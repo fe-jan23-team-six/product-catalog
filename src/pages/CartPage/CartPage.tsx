@@ -15,7 +15,6 @@ export const CartPage = () => {
   } = useCartStorage();
 
   const cartStorage = Object.values(getAllFromCart());
-  console.log(cartStorage);
 
   return (
     <div className="cartPage">

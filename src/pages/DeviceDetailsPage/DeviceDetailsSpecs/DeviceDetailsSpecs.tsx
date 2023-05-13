@@ -12,7 +12,7 @@ type Props = {
 export const DeviceDetailsSpecs: React.FC<Props> = ({ product }) => {
   return (
     <div
-      className="device_details__specs specs grid__item--desktop-14-24"
+      className="device-details__specs specs grid__item--desktop-14-24"
     >
       <h3 className="specs__title">
         Tech Specs

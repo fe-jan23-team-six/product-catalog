@@ -10,7 +10,8 @@ import { SliderProducts } from '../../components/SliderProducts';
 import { DataLoader } from '../../components/DataLoader';
 
 import { Phone } from '../../types/phone/Phone';
-import { getById } from '../../utils/api/phones';
+import { PhoneMain } from '../../types/phone/PhoneMain';
+import { getById, getPhones } from '../../utils/api/phones';
 
 import { Breadcrumbs } from '../../components/Breadcrumbs';
 import { BreadcrumbItem } from '../../types/BreadcrumbItem';
@@ -19,12 +20,15 @@ import { useDataFetcher } from '../../hooks/useDataFetcher';
 
 export const DeviceDetailsPage: FC = () => {
   const [product, setProduct] = useState<Phone | null>(null);
+  const [recommended, setRecommended] = useState<PhoneMain[]>([]);
   const { productId } = useParams();
 
   const [productFetchStatus, fetchProduct] = useDataFetcher();
+  const [recommendedFetchStatus, fetchRecommended] = useDataFetcher();
 
   useEffect(() => {
     fetchProduct(() => getById(Number(productId)).then(setProduct));
+    fetchRecommended(() => getPhones().then(setRecommended));
   }, [productId]);
 
   const productTitle = product
@@ -43,32 +47,32 @@ export const DeviceDetailsPage: FC = () => {
 
   return (
     <DataLoader fetchStatus={productFetchStatus}>
-      <div className="device_details">
+      <div className="device-details">
         {product ? (
           <>
-            <section className="device_details__breadcrumbs">
+            <section className="device-details__breadcrumbs">
               <Breadcrumbs breadcrumbs={breadcrumbs} />
             </section>
 
-            <h1 className="device_details__title">
+            <h1 className="device-details__title">
               {productTitle}
             </h1>
 
             <section
-              className="device_details__product
+              className="device-details__product
               grid grid--mobile-off"
             >
               <DeviceDetailsPictures />
 
               <DeviceDetailsSelector product={product} />
 
-              <p className="device_details__id grid__item--desktop-22-24">
+              <p className="device-details__id grid__item--desktop-22-24">
                 ID: 802390
               </p>
             </section>
 
             <section
-              className="device_details__about-product
+              className="device-details__about-product
               grid grid--mobile-tablet-off"
             >
               <DeviceDetailsAbout />
@@ -76,8 +80,13 @@ export const DeviceDetailsPage: FC = () => {
               <DeviceDetailsSpecs product={product} />
             </section>
 
-            <section className="device_details__slider-products">
-              <SliderProducts title={'You may also like'} products={[]} />
+            <section className="device-details__slider-products">
+              <DataLoader fetchStatus={recommendedFetchStatus}>
+                <SliderProducts
+                  title={'You may also like'}
+                  products={recommended}
+                />
+              </DataLoader>
             </section>
           </>
         ) : (

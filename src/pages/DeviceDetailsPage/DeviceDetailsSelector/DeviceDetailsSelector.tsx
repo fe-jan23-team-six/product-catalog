@@ -31,7 +31,7 @@ export const DeviceDetailsSelector: React.FC<Props> = ({ product }) => {
 
   return (
     <div
-      className="device_details__selector selector
+      className="device-details__selector selector
       grid__item--tablet-7-12 grid__item--desktop-14-20"
     >
       <div className="selector__colours">
