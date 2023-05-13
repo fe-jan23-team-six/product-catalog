@@ -8,9 +8,11 @@ export const App: React.FC = () => {
     <>
       <Header />
 
-      <div className="App">
-        <Outlet />
-      </div>
+      <main className="main">
+        <div className="container">
+          <Outlet />
+        </div>
+      </main>
 
       <Footer />
     </>
