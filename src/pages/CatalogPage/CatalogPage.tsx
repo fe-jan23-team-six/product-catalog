@@ -1,9 +1,21 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import './CatalogPage.scss';
 import { PaginationPannel } from '../../components/PaginationPannel';
 import { ProductList } from '../../components/ProductList';
-import './CatalogPage.scss';
+import { DataLoader } from '../../components/DataLoader';
+
+import { useDataFetcher } from '../../hooks/useDataFetcher';
+import { PhoneMain } from '../../types/phone/PhoneMain';
+import { getPhones } from '../../utils/api/phones';
 
 export const CatalogPage: React.FC = () => {
+  const [products, setProducts] = useState<PhoneMain[]>([]);
+  const [productsFetchStatus, fetchProducts] = useDataFetcher();
+
+  useEffect(() => {
+    fetchProducts(() => getPhones().then(setProducts));
+  }, []);
+
   return (
     <div className="catalog-page">
       <h1>
@@ -17,7 +29,9 @@ export const CatalogPage: React.FC = () => {
       </section>
 
       <section className="catalog-page__product-list">
-        <ProductList />
+        <DataLoader fetchStatus={productsFetchStatus}>
+          <ProductList products={products} />
+        </DataLoader>
       </section>
 
       <section className="catalog-page__pagination-pannel">

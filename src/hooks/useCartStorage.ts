@@ -21,6 +21,8 @@ export const useCartStorage = <P extends object>(): CartActions<P> => {
   const cart = localStorage.getItem('cartStorage');
   const restored = JSON.parse(cart || `{}`);
 
+  global.console.log('rerender');
+
   const [
     cartStorage,
     setCartStorage,
@@ -42,8 +44,12 @@ export const useCartStorage = <P extends object>(): CartActions<P> => {
   }, [cartStorage]);
 
   const addToCart = (id: number, product: P): void => {
+    global.console.log(id);
+
     setCartStorage((prevCartStorage) => {
       const updatedCartStorage = { ...prevCartStorage };
+
+      global.console.log(prevCartStorage);
 
       updatedCartStorage[id] = {
         quantity: 1,

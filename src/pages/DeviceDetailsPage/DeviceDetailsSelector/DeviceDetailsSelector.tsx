@@ -3,17 +3,16 @@ import './DeviceDetailsSelector.scss';
 import {
   ProductColorGroup,
 } from '../../../components/ProductDetails/ProductColorGroup';
-import { ProductManageButtons } from '../../../components/ProductManage';
 import {
   ProductCapacityGroup,
 } from '../../../components/ProductDetails/ProductCapacityGroup';
-import { PhoneDetails } from '../../../types/phone/phone';
+import { Phone } from '../../../types/phone/Phone';
 import {
   TechCharacteristicsItem,
 } from '../../../components/ProductDetails/TechCharacteristicsItem';
 
 type Props = {
-  product: PhoneDetails,
+  product: Phone,
 }
 
 export const DeviceDetailsSelector: React.FC<Props> = ({ product }) => {
@@ -32,7 +31,7 @@ export const DeviceDetailsSelector: React.FC<Props> = ({ product }) => {
 
   return (
     <div
-      className="device_details__selector selector
+      className="device-details__selector selector
       grid__item--tablet-7-12 grid__item--desktop-14-20"
     >
       <div className="selector__colours">

@@ -6,7 +6,7 @@ $indentAbs4px: calc($itemHeight + 2 * $itemVerticalPadding + 4px);
 
 .dropDown {
   cursor: pointer;
-  transition: all 0.2s ease-out;
+  transition: all $animationDuration ease-out;
   border-color: $colorIcons;
   border-style: solid;
   color: $colorPrimary;
@@ -46,7 +46,7 @@ $indentAbs4px: calc($itemHeight + 2 * $itemVerticalPadding + 4px);
     padding: $itemVerticalPadding 0;
 
       &_item {
-        transition: all 0.2s ease-out;
+        transition: all $animationDuration ease-out;
         height: $itemHeight;
         display: flex;
         align-items: center;

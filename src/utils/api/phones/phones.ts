@@ -1,9 +1,6 @@
 import { client } from '../fetchingClient';
-import {
-  PhoneMain,
-  PhoneDescription,
-  PhoneDetailed,
-} from '../../../types/phone/phone';
+import { PhoneMain } from '../../../types/phone/PhoneMain';
+import { Phone } from '../../../types/phone/Phone';
 
 const PHONES_ENDPOINT = '/products/';
 
@@ -14,11 +11,11 @@ export const getPhones = () => {
 export const getById = (phoneId: number) => {
   const url = PHONES_ENDPOINT + phoneId;
 
-  return client.getAll<PhoneDetails>(url);
+  return client.getAll<Phone>(url);
 };
 
 export const getDetailedById = (phoneId: number) => {
   const url = PHONES_ENDPOINT + phoneId;
 
-  return client.getAll<PhoneDetailed>(url);
+  return client.getAll<Phone>(url);
 };
