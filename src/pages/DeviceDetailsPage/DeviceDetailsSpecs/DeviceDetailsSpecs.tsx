@@ -3,10 +3,10 @@ import './DeviceDetailsSpecs.scss';
 import {
   TechCharacteristics,
 } from '../../../components/ProductDetails/TechCharacteristics';
-import { PhoneDetails } from '../../../types/phone/phone';
+import { Phone } from '../../../types/phone/Phone';
 
 type Props = {
-  product: PhoneDetails,
+  product: Phone,
 }
 
 export const DeviceDetailsSpecs: React.FC<Props> = ({ product }) => {

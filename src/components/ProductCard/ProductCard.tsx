@@ -3,7 +3,7 @@ import React from 'react';
 import './ProductCard.scss';
 import { ProductManageButtons } from '../ProductManage';
 
-import { PhoneMain } from '../../types/phone/phone';
+import { PhoneMain } from '../../types/phone/PhoneMain';
 
 import { useCartStorage } from './../../hooks/useCartStorage';
 

@@ -2,7 +2,7 @@
 import React from 'react';
 import { ProductCard } from '../ProductCard';
 import './ProductList.scss';
-import { PhoneMain } from '../../types/phone/phone';
+import { PhoneMain } from '../../types/phone/PhoneMain';
 
 type Props = {
   products: PhoneMain[];

@@ -6,7 +6,7 @@ import { DeviceDetailsSelector } from './DeviceDetailsSelector';
 import { DeviceDetailsAbout } from './DeviceDetailsAbout';
 import { DeviceDetailsSpecs } from './DeviceDetailsSpecs';
 import { SliderProducts } from '../../components/SliderProducts';
-import { PhoneDetails } from '../../types/phone/phone';
+import { Phone } from '../../types/phone/Phone';
 import { getById } from '../../utils/api/phones';
 import { useParams } from 'react-router-dom';
 import { Loader } from '../../components/Loader';
@@ -16,7 +16,7 @@ import { Breadcrumbs } from '../../components/Breadcrumbs';
 import { BreadcrumbItem } from '../../types/BreadcrumbItem';
 
 export const DeviceDetailsPage: FC = () => {
-  const [product, setProduct] = useState<PhoneDetails | null>(null);
+  const [product, setProduct] = useState<Phone | null>(null);
   const [isDataLoading, setIsDataLoading] = useState(false);
   const [hasError, setHasError] = useState(false);
   const { productId } = useParams();
@@ -27,7 +27,7 @@ export const DeviceDetailsPage: FC = () => {
       setHasError(false);
 
       try {
-        const fetchedPhone: PhoneDetails = await getById(Number(productId));
+        const fetchedPhone: Phone = await getById(Number(productId));
 
         setProduct(fetchedPhone);
 

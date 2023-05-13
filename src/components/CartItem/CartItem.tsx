@@ -2,13 +2,13 @@ import React from 'react';
 import './CartItem.scss';
 import classNames from 'classnames';
 
-import { PhoneDetailed } from '../../types/phone/phone';
+import { Phone } from '../../types/phone/Phone';
 // import {
 //   CartItem as CartStorageItem,
 // } from './../../hooks/useCartStorage';
 
 type Props = {
-  cartStorageItem: PhoneDetailed;
+  cartStorageItem: Phone;
   quantity: number,
   editQuantity: (id: number, action: 'plus' | 'minus') => void;
   removeFromCart: (id: number) => void;

@@ -1,9 +1,9 @@
 import React from 'react';
-import { PhoneDetails } from '../../../types/phone/phone';
+import { Phone } from '../../../types/phone/Phone';
 import { TechCharacteristicsItem } from '../TechCharacteristicsItem';
 
 type Props = {
-  product: PhoneDetails;
+  product: Phone;
 }
 
 export const TechCharacteristics: React.FC<Props> = ({ product }) => {

@@ -5,10 +5,10 @@ import {
   CartStorage,
   CartItem as CartStorageItem,
 } from './../../hooks/useCartStorage';
-import { PhoneDetailed } from '../../types/phone/phone';
+import { Phone } from '../../types/phone/Phone';
 
 type Props = {
-  cartStorage: CartStorage<CartStorageItem<PhoneDetailed>>,
+  cartStorage: CartStorage<CartStorageItem<Phone>>,
   clearCart: () => void;
 }
 

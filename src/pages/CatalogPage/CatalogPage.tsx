@@ -5,7 +5,7 @@ import { ProductList } from '../../components/ProductList';
 import { DataLoader } from '../../components/DataLoader';
 
 import { useDataFetcher } from '../../hooks/useDataFetcher';
-import { PhoneMain } from '../../types/phone/phone';
+import { PhoneMain } from '../../types/phone/PhoneMain';
 import { getPhones } from '../../utils/api/phones';
 
 export const CatalogPage: React.FC = () => {

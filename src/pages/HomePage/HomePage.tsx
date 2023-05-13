@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 
 import { getById, getPhones } from '../../utils/api/phones';
 
-import { PhoneDetails, PhoneMain } from '../../types/phone/phone';
+import { Phone } from '../../types/phone/Phone';
+import { PhoneMain } from '../../types/phone/PhoneMain';
 
 import './HomePage.scss';
 
@@ -31,7 +32,7 @@ export const HomePage: React.FC = () => {
       try {
         // fetchedPhone its for Vale,
         // this example how u can get your elements from api
-        const fetchedPhone: PhoneDetails = await getById(1);
+        const fetchedPhone: Phone = await getById(1);
 
         // Here we write images from fetched phone
         const phoneImages = fetchedPhone.images;

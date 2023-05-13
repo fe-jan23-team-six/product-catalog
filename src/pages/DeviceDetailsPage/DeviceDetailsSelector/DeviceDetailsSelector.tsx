@@ -6,13 +6,13 @@ import {
 import {
   ProductCapacityGroup,
 } from '../../../components/ProductDetails/ProductCapacityGroup';
-import { PhoneDetails } from '../../../types/phone/phone';
+import { Phone } from '../../../types/phone/Phone';
 import {
   TechCharacteristicsItem,
 } from '../../../components/ProductDetails/TechCharacteristicsItem';
 
 type Props = {
-  product: PhoneDetails,
+  product: Phone,
 }
 
 export const DeviceDetailsSelector: React.FC<Props> = ({ product }) => {

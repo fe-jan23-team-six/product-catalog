@@ -6,7 +6,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { ProductCard } from '../ProductCard';
 import { ArrowButton } from '../ArrowButton';
-import { PhoneMain } from '../../types/phone/phone';
+import { PhoneMain } from '../../types/phone/PhoneMain';
 
 interface Props {
   title?: string,
