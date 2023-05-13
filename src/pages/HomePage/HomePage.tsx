@@ -1,27 +1,49 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
-import { getById, getPhones } from '../../utils/api/phones';
+import { getById } from '../../utils/api/phones';
 
-import { PhoneDetails, PhoneMain } from '../../types/phone/phone';
+import { PhoneDetails } from '../../types/phone/phone';
 
 import './HomePage.scss';
 
 import { SliderProducts } from '../../components/SliderProducts';
 import { Banner } from '../../components/Banner/Banner';
-import { Loader } from '../../components/Loader';
+import { SliderPhotos } from '../../components/SliderPhotos';
+
+// #region Temporarily items below, please don't waste time on it
+interface SliderImageType {
+  id: number;
+  url: string;
+}
+
+export const sliderImages: SliderImageType[] = [
+  { id: 1, url: 'img/banners/phones.jpg' },
+  { id: 2, url: 'img/banners/accessories.jpg' },
+  { id: 3, url: 'img/banners/tablets.png' },
+];
+// #endregion
 
 export const HomePage: React.FC = () => {
+  // this is an example for Vale
+  // Here u can see how to work with PhotoSlider
+  // here we write images to state from fetched phone
+  const [images, setImages] = useState<string[]>([]);
+
   useEffect(() => {
     const fetchPhones = async() => {
       try {
-        const fetchedPhones: PhoneMain[] = await getPhones();
-
         // fetchedPhone its for Vale,
         // this example how u can get your elements from api
         const fetchedPhone: PhoneDetails = await getById(1);
 
-        global.console.log('fetched:', fetchedPhones);
+        // Here we write images from fetched phone
+        const phoneImages = fetchedPhone.images;
+
+        // write those photo to state
+        setImages(phoneImages);
+
         global.console.log('phone:', fetchedPhone);
+        global.console.log('images:', images);
       } catch {
         global.console.log('error');
       }
@@ -36,7 +58,21 @@ export const HomePage: React.FC = () => {
         Welcome to Nice Gadgets store!
       </h1>
 
-      <Loader />
+      {/* here we give to sliderPhotos our array with images links */}
+      <SliderPhotos images={images}/>
+
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
 
       <section className="home-page__banner">
         <Banner />
