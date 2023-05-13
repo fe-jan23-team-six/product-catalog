@@ -46,7 +46,7 @@ export const products: CardType[] = [
 // #endregion
 
 interface Props {
-  title: string,
+  title?: string,
 }
 
 export const SliderProducts: React.FC<Props> = ({ title }) => {
