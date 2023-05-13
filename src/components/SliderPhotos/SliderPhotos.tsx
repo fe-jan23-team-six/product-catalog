@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { FreeMode, Navigation, Thumbs } from 'swiper';
-
 import type { Swiper as SwiperType } from 'swiper';
 
 import 'swiper/css';
@@ -10,10 +9,9 @@ import 'swiper/css/navigation';
 import 'swiper/css/thumbs';
 
 import './SliderPhotos.scss';
-import { SliderPhotosType } from '../../pages/HomePage';
 
 interface Props {
-  images: SliderPhotosType[],
+  images: string[],
 }
 
 export const SliderPhotos: React.FC<Props> = ({ images }) => {
@@ -29,17 +27,13 @@ export const SliderPhotos: React.FC<Props> = ({ images }) => {
         }}
         modules={[FreeMode, Navigation, Thumbs]}
         className="slider-photos__main-photo-container"
+        spaceBetween={20}
       >
-        {images.map(slide => {
-          const { image } = slide;
-          // do destruct on slide after deleting global
-
-          // global.console.log('image:', image);
-
+        {images.map(image => {
           return (
             <SwiperSlide key={image}>
               <img
-                className="slider-photos__main-photo-container__image"
+                className="slider-photos__main-image"
                 src={image}
                 alt={image}
               />
@@ -56,7 +50,7 @@ export const SliderPhotos: React.FC<Props> = ({ images }) => {
         watchSlidesProgress
         modules={[FreeMode, Navigation, Thumbs]}
         className="slider-photos__gallry-container"
-        direction='horizontal' // 'horizontal'
+        direction='horizontal'
         autoHeight
         breakpoints={{
           639: {
@@ -69,16 +63,11 @@ export const SliderPhotos: React.FC<Props> = ({ images }) => {
           },
         }}
       >
-        {images.map(slide => {
-          const { image } = slide;
-          // do destruct on slide after deleting global
-
-          // global.console.log('image:', image);
-
+        {images.map(image => {
           return (
             <SwiperSlide key={image}>
               <img
-                className="slider-photos__gallry-container__image"
+                className="slider-photos__gallry-image"
                 src={image}
                 alt={image}
               />
