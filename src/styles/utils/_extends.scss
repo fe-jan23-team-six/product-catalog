@@ -23,3 +23,9 @@
   font-size: 12px;
   line-height: 15px;
 }
+
+%flexTechCharacteristics {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}

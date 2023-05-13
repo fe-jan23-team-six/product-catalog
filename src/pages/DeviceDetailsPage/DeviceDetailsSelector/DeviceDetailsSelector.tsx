@@ -1,10 +1,35 @@
-import React, { FC } from 'react';
+import React from 'react';
 import './DeviceDetailsSelector.scss';
-import { ProductColorGroup } from '../../../components/ProductColorGroup';
+import {
+  ProductColorGroup,
+} from '../../../components/ProductDetails/ProductColorGroup';
 import { ProductManageButtons } from '../../../components/ProductManage';
-import { ProductCapacityGroup } from '../../../components/ProductCapacityGroup';
+import {
+  ProductCapacityGroup,
+} from '../../../components/ProductDetails/ProductCapacityGroup';
+import { PhoneDetails } from '../../../types/phone/phone';
+import {
+  TechCharacteristicsItem,
+} from '../../../components/ProductDetails/TechCharacteristicsItem';
 
-export const DeviceDetailsSelector: FC = () => {
+type Props = {
+  product: PhoneDetails,
+}
+
+export const DeviceDetailsSelector: React.FC<Props> = ({ product }) => {
+  const {
+    id,
+    priceRegular,
+    priceDiscount,
+    screen: screenSize,
+    resolution,
+    processor,
+    ram,
+    colorsAvailable,
+    capacityAvailable,
+  } = product;
+  const hasDiscount = priceRegular !== priceDiscount;
+
   return (
     <div
       className="device_details__selector selector
@@ -17,12 +42,12 @@ export const DeviceDetailsSelector: FC = () => {
           </p>
 
           <p className="selector__id">
-            ID: 802390
+            ID: {id}
           </p>
         </div>
 
         <div className="colours">
-          <ProductColorGroup />
+          <ProductColorGroup colors={colorsAvailable} />
         </div>
       </div>
 
@@ -36,37 +61,47 @@ export const DeviceDetailsSelector: FC = () => {
         <div
           className="capacities"
         >
-          <ProductCapacityGroup />
+          <ProductCapacityGroup capacities={capacityAvailable} />
         </div>
       </div>
 
       <div>
         <div className="selector__price">
           <h2 className="selector__price__current">
-            $799
+            ${priceRegular}
           </h2>
 
-          <h3 className="selector__price__old">
-            $1199
-          </h3>
+          {hasDiscount && (
+            <h3 className="selector__price__old">
+              ${priceDiscount}
+            </h3>
+          )}
         </div>
 
         <div className="selector__buttons">
           <ProductManageButtons isBig={true}/>
         </div>
 
-        <div className="selector__characteristics characteristics">
-          <p
-            className="characteristics__text"
-          >
-            Screen
-          </p>
+        <div className="selector__characteristics">
+          <TechCharacteristicsItem
+            characteristic='Screen'
+            details={screenSize}
+          />
 
-          <p
-            className="characteristics__text characteristics__text--black"
-          >
-            6.5” OLED
-          </p>
+          <TechCharacteristicsItem
+            characteristic='Resolution'
+            details={resolution}
+          />
+
+          <TechCharacteristicsItem
+            characteristic='Processor'
+            details={processor}
+          />
+
+          <TechCharacteristicsItem
+            characteristic='RAM'
+            details={ram}
+          />
         </div>
       </div>
     </div>
