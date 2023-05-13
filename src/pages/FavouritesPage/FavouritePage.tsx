@@ -1,22 +1,26 @@
 import React from 'react';
 import './FavouritePage.scss';
 // import { ProductCard } from '../../components/ProductCard/ProductCard';
-// import { Breadcrumbs } from '../../components/Breadcrumbs';
+import { Breadcrumbs } from '../../components/Breadcrumbs';
+import { ProductList } from '../../components/ProductList';
 
 export const FavouritePage: React.FC = () => {
   return (
     <main className="favourite-page">
       <div className="favourite-page__breadcrumbs">
-
+        <Breadcrumbs breadcrumbs={[{ text: 'Favourites' }]}/>
       </div>
 
-      <div className="favourite-page__title">
-      </div>
+      <h1 className="favourite-page__title">
+        Favourites
+      </h1>
 
-      <div className="favourite-page__count">
-      </div>
+      <p className="favourite-page__count">
+        5 items
+      </p>
 
       <div className="favourite-page__products">
+        <ProductList />
       </div>
     </main>
     // <>

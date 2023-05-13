@@ -1,3 +1,5 @@
+@import '../../styles/utils/vars';
+
 .slider {
   margin: 0 auto;
   transition: 0.3s all ease-out;
@@ -23,7 +25,7 @@
 
 // Below temporarily styles, don't waste time on it
 .slider-card {
-  width: 272px;
+  width: $productCardWidth;
 
   transition: transform .3s box-shadow .3s;
 

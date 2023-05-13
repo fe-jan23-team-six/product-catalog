@@ -1,29 +1,31 @@
+@import './vars';
+
 @mixin onPhone {
-  @media (max-width: 639px) {
+  @media (max-width: #{$breakpointTablet - 1}) {
     @content;
   }
 }
 
 @mixin onTablet {
-  @media (min-width: 640px) and (max-width: 1199px) {
+  @media (min-width: $breakpointTablet) and (max-width: #{$breakpointDesktop - 1}) {
     @content;
   }
 }
 
 @mixin onDesktop {
-  @media (min-width: 1200px) {
+  @media (min-width: $breakpointDesktop) {
     @content;
   }
 }
 
 @mixin onPhoneAndTablet {
-  @media (max-width: 1199px) {
+  @media (max-width: #{$breakpointDesktop - 1}) {
     @content;
   }
 }
 
 @mixin onTabletAndDesktop {
-  @media (min-width: 640px) {
+  @media (min-width: $breakpointTablet) {
     @content;
   }
 }

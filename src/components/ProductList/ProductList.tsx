@@ -4,7 +4,7 @@ import './ProductList.scss';
 
 export const ProductList: React.FC = () => {
   return (
-    <div className='product_list catalog'>
+    <div className='product-list'>
       <ProductCard />
       <ProductCard />
       <ProductCard />
