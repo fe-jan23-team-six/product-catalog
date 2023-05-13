@@ -9,6 +9,7 @@ import './HomePage.scss';
 import { SliderProducts } from '../../components/SliderProducts';
 import { Banner } from '../../components/Banner/Banner';
 import { SliderPhotos } from '../../components/SliderPhotos';
+import { ShopByCategory } from '../../components/ShopByCategory';
 
 // #region Temporarily items below, please don't waste time on it
 interface SliderImageType {
@@ -57,6 +58,8 @@ export const HomePage: React.FC = () => {
       <h1 className="home-page__title">
         Welcome to Nice Gadgets store!
       </h1>
+
+      <ShopByCategory />
 
       {/* here we give to sliderPhotos our array with images links */}
       <SliderPhotos images={images}/>
