@@ -124,7 +124,7 @@ export const SliderProducts: React.FC<Props> = ({ title }) => {
           // Element below not my element it will be removed in future
 
             // <Card key={id} image={image} title={product.title} />
-            <ProductCard key={1} />
+            <ProductCard key={product.id} />
           );
         })}
       </Slider>
