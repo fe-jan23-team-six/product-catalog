@@ -1,4 +1,5 @@
 import React, { FC, useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import './DeviceDetailsPage.scss';
 
 import { DeviceDetailsPictures } from './DeviceDetailsPictures';
@@ -6,50 +7,29 @@ import { DeviceDetailsSelector } from './DeviceDetailsSelector';
 import { DeviceDetailsAbout } from './DeviceDetailsAbout';
 import { DeviceDetailsSpecs } from './DeviceDetailsSpecs';
 import { SliderProducts } from '../../components/SliderProducts';
+import { DataLoader } from '../../components/DataLoader';
+
 import { Phone } from '../../types/phone/Phone';
 import { getById } from '../../utils/api/phones';
-import { useParams } from 'react-router-dom';
-import { Loader } from '../../components/Loader';
-import { NotFoundPage } from '../NotFoundPage';
 
 import { Breadcrumbs } from '../../components/Breadcrumbs';
 import { BreadcrumbItem } from '../../types/BreadcrumbItem';
 
+import { useDataFetcher } from '../../hooks/useDataFetcher';
+
 export const DeviceDetailsPage: FC = () => {
   const [product, setProduct] = useState<Phone | null>(null);
-  const [isDataLoading, setIsDataLoading] = useState(false);
-  const [hasError, setHasError] = useState(false);
   const { productId } = useParams();
 
+  const [productFetchStatus, fetchProduct] = useDataFetcher();
+
   useEffect(() => {
-    const fetchPhone = async() => {
-      setIsDataLoading(true);
-      setHasError(false);
-
-      try {
-        const fetchedPhone: Phone = await getById(Number(productId));
-
-        setProduct(fetchedPhone);
-
-        global.console.log('fetched:', fetchedPhone);
-        global.console.log('phone:', fetchedPhone);
-      } catch {
-        setHasError(true);
-
-        global.console.log('error');
-      }
-
-      setIsDataLoading(false);
-    };
-
-    fetchPhone();
+    fetchProduct(() => getById(Number(productId)).then(setProduct));
   }, [productId]);
 
-  let productTitle = '';
-
-  if (product) {
-    productTitle = product.name;
-  }
+  const productTitle = product
+    ? product.name
+    : 'Not loaded model';
 
   const breadcrumbs: BreadcrumbItem[] = [
     {
@@ -62,54 +42,51 @@ export const DeviceDetailsPage: FC = () => {
   ];
 
   return (
-    <>
-      {isDataLoading ? (
-          <Loader />
-      ) : (
-        <>
-          {hasError && (
-            <NotFoundPage />
-          )}
+    <DataLoader fetchStatus={productFetchStatus}>
+      <div className="device_details">
+        {product ? (
+          <>
+            <section className="device_details__breadcrumbs">
+              <Breadcrumbs breadcrumbs={breadcrumbs} />
+            </section>
 
-          {!isDataLoading && !hasError && product && (
-            <div className="device_details">
-              <section className="device_details__breadcrumbs">
-                <Breadcrumbs breadcrumbs={breadcrumbs} />
-              </section>
+            <h1 className="device_details__title">
+              {productTitle}
+            </h1>
 
-              <h2 className="device_details__title">
-                {productTitle}
-              </h2>
+            <section
+              className="device_details__product
+              grid grid--mobile-off"
+            >
+              <DeviceDetailsPictures />
 
-              <section
-                className="device_details__product
-                grid grid--mobile-off"
-              >
-                <DeviceDetailsPictures />
+              <DeviceDetailsSelector product={product} />
 
-                <DeviceDetailsSelector product={product} />
+              <p className="device_details__id grid__item--desktop-22-24">
+                ID: 802390
+              </p>
+            </section>
 
-                <p className="device_details__id grid__item--desktop-22-24">
-                  ID: 802390
-                </p>
-              </section>
+            <section
+              className="device_details__about-product
+              grid grid--mobile-tablet-off"
+            >
+              <DeviceDetailsAbout />
 
-              <section
-                className="device_details__about-product
-                grid grid--mobile-tablet-off"
-              >
-                <DeviceDetailsAbout />
+              <DeviceDetailsSpecs product={product} />
+            </section>
 
-                <DeviceDetailsSpecs product={product} />
-              </section>
+            <section className="device_details__slider-products">
+              <SliderProducts title={'You may also like'} products={[]} />
+            </section>
+          </>
+        ) : (
+          <h1>
+            Failed while loading product
+          </h1>
+        )}
+      </div>
 
-              <section className="device_details__slider-products">
-                <SliderProducts title={'You may also like'} products={[]} />
-              </section>
-            </div>
-          )}
-        </>
-      )}
-    </>
+    </DataLoader>
   );
 };

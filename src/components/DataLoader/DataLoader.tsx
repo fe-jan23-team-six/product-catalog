@@ -15,9 +15,9 @@ export const DataLoader: React.FC<Props> = ({ fetchStatus, children }) => {
       )}
 
       {fetchStatus === FetchStatus.Error && (
-        <div className="notification is-danger" data-cy="CommentsError">
+        <h2>
           Something went wrong
-        </div>
+        </h2>
       )}
 
       {fetchStatus === FetchStatus.Success && (

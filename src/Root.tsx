@@ -22,7 +22,7 @@ export const Root: React.FC = () => (
 
       <Route
         // here must be "device-details/products/:productId"
-        path="device-details"
+        path="device-details/:productId"
         element={<DeviceDetailsPage />}
       />
       <Route path="favourite" element={<FavouritePage />} />
