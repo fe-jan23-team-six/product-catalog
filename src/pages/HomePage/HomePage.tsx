@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 
-import { getById } from '../../utils/api/phones';
+import { getById, getPhones } from '../../utils/api/phones';
 
-import { PhoneDetails } from '../../types/phone/phone';
+import { PhoneDetails, PhoneMain } from '../../types/phone/phone';
 
 import './HomePage.scss';
 
@@ -10,18 +10,7 @@ import { SliderProducts } from '../../components/SliderProducts';
 import { Banner } from '../../components/Banner/Banner';
 import { SliderPhotos } from '../../components/SliderPhotos';
 
-// #region Temporarily items below, please don't waste time on it
-interface SliderImageType {
-  id: number;
-  url: string;
-}
-
-export const sliderImages: SliderImageType[] = [
-  { id: 1, url: 'img/banners/phones.jpg' },
-  { id: 2, url: 'img/banners/accessories.jpg' },
-  { id: 3, url: 'img/banners/tablets.png' },
-];
-// #endregion
+import { useDataFetcher } from '../../hooks/useDataFetcher';
 
 export const HomePage: React.FC = () => {
   // this is an example for Vale
@@ -29,8 +18,14 @@ export const HomePage: React.FC = () => {
   // here we write images to state from fetched phone
   const [images, setImages] = useState<string[]>([]);
 
+  const [newPhones, setNewPhones] = useState<PhoneMain[]>([]);
+  const [discountPhones, setDiscountPhones] = useState<PhoneMain[]>([]);
+
+  const [newPhonesFetchStatus, fetchNewPhones] = useDataFetcher();
+  const [discounthonesFetchStatus, fetchDiscountPhones] = useDataFetcher();
+
   useEffect(() => {
-    const fetchPhones = async() => {
+    const fetchPhone = async() => {
       try {
         // fetchedPhone its for Vale,
         // this example how u can get your elements from api
@@ -49,7 +44,9 @@ export const HomePage: React.FC = () => {
       }
     };
 
-    fetchPhones();
+    fetchPhone();
+    fetchNewPhones(() => getPhones().then(setNewPhones));
+    fetchDiscountPhones(() => getPhones().then(setDiscountPhones));
   }, []);
 
   return (
@@ -79,7 +76,10 @@ export const HomePage: React.FC = () => {
       </section>
 
       <section className="home-page__product-slider">
-        <SliderProducts title="Brand new models" />
+        <SliderProducts
+          title="Brand new models"
+          products={newPhones}
+        />
       </section>
 
       <section className="home-page__categories">
@@ -87,7 +87,10 @@ export const HomePage: React.FC = () => {
       </section>
 
       <section className="home-page__product-slider">
-        <SliderProducts title="Hot prices" />
+        <SliderProducts
+          title="Hot prices"
+          products={discountPhones}
+        />
       </section>
     </div>
   );

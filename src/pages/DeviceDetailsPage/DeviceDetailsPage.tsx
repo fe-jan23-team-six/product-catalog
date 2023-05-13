@@ -104,7 +104,7 @@ export const DeviceDetailsPage: FC = () => {
               </section>
 
               <section className="device_details__slider-products">
-                <SliderProducts title={'You may also like'} />
+                <SliderProducts title={'You may also like'} products={[]} />
               </section>
             </div>
           )}

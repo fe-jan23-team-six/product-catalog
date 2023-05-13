@@ -33,15 +33,16 @@ export const ProductList: React.FC = () => {
   }, [phones]);
 
   return (
-    <div className='product_list catalog'>
-      {phonesDetailes.map(
-        (phoneDetails: PhoneDetailed) => {
-          return <ProductCard
-            key={phoneDetails.id}
-            phoneDetails={phoneDetails}
-          />;
-        },
-      )}
-    </div>
+    <h3>Product List is commented</h3>
+    // <div className='product_list catalog'>
+    //   {phonesDetailes.map(
+    //     (phoneDetails: PhoneDetailed) => {
+    //       return <ProductCard
+    //         key={phoneDetails.id}
+    //         // phoneDetails={phoneDetails}
+    //       />;
+    //     },
+    //   )}
+    // </div>
   );
 };

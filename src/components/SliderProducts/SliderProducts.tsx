@@ -6,16 +6,16 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { ProductCard } from '../ProductCard';
 import { ArrowButton } from '../ArrowButton';
+import { PhoneMain } from '../../types/phone/phone';
 
 interface Props {
   title?: string,
+  products: PhoneMain[],
 }
 
-export const SliderProducts: React.FC<Props> = ({ title }) => {
+export const SliderProducts: React.FC<Props> = ({ title, products }) => {
   const [noSlide, setNoSlide] = useState<number>(0);
   const sliderRef = useRef<Slider>(null);
-
-  const LENGTH = 10;
 
   const settings: Settings = {
     dots: false,
@@ -66,7 +66,7 @@ export const SliderProducts: React.FC<Props> = ({ title }) => {
 
           <ArrowButton
             isForward={true}
-            isDisabled={noSlide === LENGTH - 4}
+            isDisabled={noSlide === products.length - 4}
             onClick={handleNextClick}
           />
         </div>
@@ -77,16 +77,12 @@ export const SliderProducts: React.FC<Props> = ({ title }) => {
         {...settings}
       >
 
-        {Array.from({ length: 10 }).map((_, i) => {
-          // const { id, image } = product;
-
-          return (
-          // Element below not my element it will be removed in future
-
-            // <Card key={id} image={image} title={product.title} />
-            <ProductCard key={i} />
-          );
-        })}
+        {products.map(product => (
+          <ProductCard
+            key={product.id}
+            product={product}
+          />
+        ))}
       </Slider>
 
     </div>

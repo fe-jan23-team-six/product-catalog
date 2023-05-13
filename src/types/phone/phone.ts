@@ -9,6 +9,7 @@ export interface PhoneMain {
   ram: string,
   screen: string,
   slug: string,
+  image: string;
 }
 
 export interface PhoneDescription {

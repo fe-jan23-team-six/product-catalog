@@ -20,6 +20,7 @@
   }
 
   &__model {
+    min-height: 42px;
     margin-bottom: 8px;
     @extend %buttonText;
   }
