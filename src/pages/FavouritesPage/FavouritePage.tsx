@@ -2,7 +2,7 @@ import React from 'react';
 import './FavouritePage.scss';
 // import { ProductCard } from '../../components/ProductCard/ProductCard';
 import { Breadcrumbs } from '../../components/Breadcrumbs';
-import { ProductList } from '../../components/ProductList';
+// import { ProductList } from '../../components/ProductList';
 
 export const FavouritePage: React.FC = () => {
   return (
@@ -20,7 +20,7 @@ export const FavouritePage: React.FC = () => {
       </p>
 
       <div className="favourite-page__products">
-        <ProductList />
+        {/* <ProductList /> */}
       </div>
     </main>
     // <>
