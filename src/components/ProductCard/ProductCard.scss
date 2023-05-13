@@ -11,6 +11,11 @@
   padding: 32px;
 
   color: $colorPrimary;
+  transition: transform $animationDuration ease;
+
+  &:hover {
+    transform: scale($scaleRatio);
+  }
 
   &__image {
     object-fit: contain;
@@ -20,9 +25,10 @@
   }
 
   &__model {
+    @extend %buttonText;
+    color: $colorPrimary;
     min-height: 42px;
     margin-bottom: 8px;
-    @extend %buttonText;
   }
 
   &__price {

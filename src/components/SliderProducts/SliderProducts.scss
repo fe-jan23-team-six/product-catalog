@@ -1,6 +1,8 @@
+@import '../../styles//utils//vars';
+
 .slider-products {
   margin: 0 auto;
-  transition: 0.3s all ease-out;
+  transition: $animationDuration all ease-out;
 
   &__label {
     display: flex;

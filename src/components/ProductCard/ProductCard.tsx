@@ -1,5 +1,6 @@
 /* eslint-disable max-len */
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './ProductCard.scss';
 import { ProductManageButtons } from '../ProductManage';
 
@@ -8,10 +9,11 @@ import { PhoneMain } from '../../types/phone/PhoneMain';
 import { useCartStorage } from './../../hooks/useCartStorage';
 
 type Props = {
-  product: PhoneMain,
-}
+  product: PhoneMain;
+  nextRouteLink?: string;
+};
 
-export const ProductCard: React.FC<Props> = ({ product }) => {
+export const ProductCard: React.FC<Props> = ({ product, nextRouteLink }) => {
   const {
     id,
     name: phoneName,
@@ -34,16 +36,18 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
 
   return (
     <div className="product-card">
-      <img
-        className="product-card__image"
-        src={image}
-        alt={phoneName}
-      >
-      </img>
+      <Link to={nextRouteLink ?? `./${id}`}>
+        <img
+          className="product-card__image"
+          src={image}
+          alt={phoneName}
+        >
+        </img>
 
-      <div className="product-card__model">
-        {phoneName}
-      </div>
+        <div className="product-card__model">
+          {phoneName}
+        </div>
+      </Link>
 
       <div className="product-card__price">
         <h3>{'$'}{priceDiscount}</h3>
