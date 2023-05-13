@@ -8,24 +8,28 @@ import { PhoneDetailed } from '../../types/phone/phone';
 import { useCartStorage } from './../../hooks/useCartStorage';
 
 type Props = {
-  phoneDetails: PhoneDetailed,
+  phoneDetails?: PhoneDetailed,
 }
 
 export const ProductCard: React.FC<Props> = ({ phoneDetails }) => {
   const {
-    id,
-    image,
-    name: phoneName,
-    priceRegular,
-    priceDiscount,
-    screen: screenSize,
-    capacity,
-    ram,
-  } = phoneDetails;
+    id = 1,
+    image = 'img/phones/apple-iphone-11-pro/gold/00.jpg',
+    name: phoneName = 'Apple iPhone 14 Pro 128GB Silver (MQ023)',
+    priceRegular = '$1300',
+    priceDiscount = '128 GB',
+    screen: screenSize = '6.1” OLED',
+    capacity = '128 GB',
+    ram = '128 GB',
+  } = phoneDetails ?? { };
 
   const { addToCart, checkIsInCart } = useCartStorage();
 
-  const handleAddToCart = () => addToCart(id, phoneDetails);
+  const handleAddToCart = phoneDetails
+    ? () => addToCart(id, phoneDetails)
+    : () => {
+      global.console.log('There should be adding');
+    };
   const handleCheckIsInCart = () => checkIsInCart(id);
 
   return (

@@ -61,7 +61,7 @@ export const Banner: React.FC = () => {
     <div className="banner__button-arrow">
       <ArrowButton
         classes="back banner__button"
-        action={handlePrevClick}
+        onClick={handlePrevClick}
       />
     </div>
 
@@ -88,7 +88,7 @@ export const Banner: React.FC = () => {
       <div className="banner__button-arrow">
         <ArrowButton
           classes="forward test banner__button"
-          action={handleNextClick}
+          onClick={handleNextClick}
         />
       </div>
     </div>

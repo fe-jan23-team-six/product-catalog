@@ -1,8 +1,8 @@
 import { client } from '../fetchingClient';
 import {
   PhoneMain,
-  PhoneDescription,
   PhoneDetailed,
+  PhoneDetails,
 } from '../../../types/phone/phone';
 
 const PHONES_ENDPOINT = '/products/';

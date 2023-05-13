@@ -3,7 +3,6 @@ import './DeviceDetailsSelector.scss';
 import {
   ProductColorGroup,
 } from '../../../components/ProductDetails/ProductColorGroup';
-import { ProductManageButtons } from '../../../components/ProductManage';
 import {
   ProductCapacityGroup,
 } from '../../../components/ProductDetails/ProductCapacityGroup';

@@ -94,21 +94,20 @@ export const SliderProducts: React.FC<Props> = ({ title }) => {
   return (
     <div className="slider">
       <div className="slider__label">
-        <h1>{title}</h1>
+        <h2>{title}</h2>
 
 {/* I think this buttons must be custom. What do you think about? */}
 
         <div className="slider__button-container">
           <ArrowButton
-            classes="back"
-            disabled={noSlide === 0}
-            action={handlePrevClick}
+            isDisabled={noSlide === 0}
+            onClick={handlePrevClick}
           />
 
           <ArrowButton
-            classes="forward"
-            disabled={noSlide === products.length - 4}
-            action={handleNextClick}
+            isForward={true}
+            isDisabled={noSlide === products.length - 4}
+            onClick={handleNextClick}
           />
         </div>
       </div>
@@ -125,7 +124,7 @@ export const SliderProducts: React.FC<Props> = ({ title }) => {
           // Element below not my element it will be removed in future
 
             // <Card key={id} image={image} title={product.title} />
-            <ProductCard key={product.id} />
+            <ProductCard key={1} />
           );
         })}
       </Slider>

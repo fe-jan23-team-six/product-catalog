@@ -3,24 +3,26 @@ import classNames from 'classnames';
 import './ArrowButton.scss';
 
 interface Props {
-  classes: string; // 'back' | 'forward',
-  disabled?: boolean,
-  action?: () => void, // ? will be deleted
+  isForward?: boolean;
+  isDisabled?: boolean,
+  onClick?: () => void,
 }
 
 export const ArrowButton: React.FC<Props> = ({
-  classes,
-  disabled,
-  action,
+  isForward = false,
+  isDisabled,
+  onClick,
 }) => {
   return (
     <button className={
       classNames(
-        'button',
-        { disabled },
-        classes,
+        'arrow-button',
+        {
+          'arrow-button--forward': isForward,
+          'arrow-button--disabled': isDisabled,
+        },
       )}
-      onClick={action}
+      onClick={onClick}
     />
   );
 };
