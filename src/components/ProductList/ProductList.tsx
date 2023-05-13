@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 import React from 'react';
-import { ProductCard } from '../ProductCard';
 import './ProductList.scss';
+import { ProductCard } from '../ProductCard';
 import { PhoneMain } from '../../types/phone/PhoneMain';
 
 type Props = {
@@ -9,7 +9,7 @@ type Props = {
 }
 
 export const ProductList: React.FC<Props> = ({ products }) => (
-  <div className='product_list catalog'>
+  <div className='product-list'>
     {products.map(product => (
       <ProductCard
         key={product.id}
