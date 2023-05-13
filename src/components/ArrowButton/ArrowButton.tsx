@@ -5,11 +5,13 @@ import './ArrowButton.scss';
 interface Props {
   isForward?: boolean;
   isDisabled?: boolean,
+  isLong?: boolean,
   onClick?: () => void,
 }
 
 export const ArrowButton: React.FC<Props> = ({
   isForward = false,
+  isLong = false,
   isDisabled,
   onClick,
 }) => {
@@ -18,8 +20,9 @@ export const ArrowButton: React.FC<Props> = ({
       classNames(
         'arrow-button',
         {
-          'arrow-button--forward': isForward,
-          'arrow-button--disabled': isDisabled,
+          'arrow-button--is-forward': isForward,
+          'arrow-button--is-disabled': isDisabled,
+          'arrow-button--is-long': isLong,
         },
       )}
       onClick={onClick}

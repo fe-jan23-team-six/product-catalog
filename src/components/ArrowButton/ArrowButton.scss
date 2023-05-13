@@ -1,4 +1,5 @@
 @import './../../styles/utils/vars';
+@import './../../styles/utils/mixins';
 
 .arrow-button {
   display: flex;
@@ -16,7 +17,7 @@
   background-size: contain;
   background-position: center center;
 
-  &--disabled {
+  &--is-disabled {
     background-image: url('./../../../public/icons/left16x16.svg');
   }
 
@@ -24,7 +25,25 @@
     border-color: $colorPrimary;
   }
 
-  &--forward {
+  &--is-forward {
     transform: rotate(180deg);
+  }
+
+  &--is-long {
+    display: none;
+
+    @include onTablet {
+      display: block;
+      width: 32px;
+      height: 190px;
+    }
+
+    @include onDesktop {
+      display: block;
+      width: 32px;
+      height: 400px;
+    }
+
+    cursor: pointer;
   }
 }
