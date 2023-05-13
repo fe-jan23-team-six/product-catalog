@@ -72,16 +72,19 @@ export const DeviceDetailsPage: FC = () => {
           )}
 
           {!isDataLoading && !hasError && product && (
-            <main className="device_details">
-              <div className="device_details__breadcrumbs">
+            <div className="device_details">
+              <section className="device_details__breadcrumbs">
                 <Breadcrumbs breadcrumbs={breadcrumbs} />
-              </div>
+              </section>
 
               <h2 className="device_details__title">
                 {productTitle}
               </h2>
 
-              <div className="device_details__product grid grid--mobile-off">
+              <section
+                className="device_details__product
+                grid grid--mobile-off"
+              >
                 <DeviceDetailsPictures />
 
                 <DeviceDetailsSelector product={product} />
@@ -89,21 +92,21 @@ export const DeviceDetailsPage: FC = () => {
                 <p className="device_details__id grid__item--desktop-22-24">
                   ID: 802390
                 </p>
-              </div>
+              </section>
 
-              <div
+              <section
                 className="device_details__about-product
                 grid grid--mobile-tablet-off"
               >
                 <DeviceDetailsAbout />
 
                 <DeviceDetailsSpecs product={product} />
-              </div>
+              </section>
 
-              <div className="device_details__slider-products">
+              <section className="device_details__slider-products">
                 <SliderProducts title={'You may also like'} />
-              </div>
-            </main>
+              </section>
+            </div>
           )}
         </>
       )}

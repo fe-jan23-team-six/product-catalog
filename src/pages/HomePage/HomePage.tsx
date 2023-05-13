@@ -53,7 +53,7 @@ export const HomePage: React.FC = () => {
   }, []);
 
   return (
-    <main className="home-page">
+    <div className="home-page">
       <h1 className="home-page__title">
         Welcome to Nice Gadgets store!
       </h1>
@@ -89,6 +89,6 @@ export const HomePage: React.FC = () => {
       <section className="home-page__product-slider">
         <SliderProducts title="Hot prices" />
       </section>
-    </main>
+    </div>
   );
 };
