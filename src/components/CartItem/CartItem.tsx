@@ -1,63 +1,35 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 import './CartItem.scss';
 import classNames from 'classnames';
 
-export interface CartItemInterface {
-  id: string,
-  name: string,
-  price: number,
-  image: string,
-  amount: number,
-  totalPrice: number,
-}
+import { PhoneDetailed } from '../../types/phone/phone';
+// import {
+//   CartItem as CartStorageItem,
+// } from './../../hooks/useCartStorage';
 
 type Props = {
-  cartItem: CartItemInterface,
-  setCartStorage: React.Dispatch<React.SetStateAction<CartItemInterface[]>>,
+  cartStorageItem: PhoneDetailed;
+  quantity: number,
+  editQuantity: (id: number, action: 'plus' | 'minus') => void;
+  removeFromCart: (id: number) => void;
 }
 
-export const CartItem: React.FC<Props> = ({ cartItem, setCartStorage }) => {
-  const { id, name: phoneName, image, amount, totalPrice } = cartItem;
+export const CartItem: React.FC<Props> = ({
+  cartStorageItem,
+  quantity,
+  editQuantity,
+  removeFromCart,
+}) => {
+  const {
+    id,
+    name: phoneName,
+    image,
+    priceRegular,
+  } = cartStorageItem;
 
-  const disabled = amount === 1;
+  const disabled = quantity === 1;
 
-  const handleRemoveFromCart = useCallback((
-    idToRemove: string,
-  ) => {
-    return () =>
-      setCartStorage((prevState) =>
-        prevState.filter((item) => item.id !== idToRemove));
-  }, [setCartStorage]);
-
-  type ActionType = 'plus' | 'minus';
-
-  const handleChangeAmount = useCallback((
-    action: ActionType, idToChange: string,
-  ) => {
-    return () => {
-      setCartStorage((prevState) => {
-        return prevState.map((item) => {
-          if (item.id === idToChange) {
-            if (action === 'plus') {
-              return {
-                ...item,
-                amount: item.amount + 1,
-                totalPrice: item.totalPrice + item.price,
-              };
-            } else {
-              return {
-                ...item,
-                amount: item.amount - 1,
-                totalPrice: item.totalPrice - item.price,
-              };
-            }
-          }
-
-          return item;
-        });
-      });
-    };
-  }, [setCartStorage]);
+  const totalPrice = priceRegular * quantity;
 
   return (
     <article className='cartItem'>
@@ -65,7 +37,7 @@ export const CartItem: React.FC<Props> = ({ cartItem, setCartStorage }) => {
         <div className='cartItem__head_remove'>
           <button
             className='cartItem__head_remove_button'
-            onClick={handleRemoveFromCart(id)}
+            onClick={() => removeFromCart(id)}
           >
             X
           </button>
@@ -77,12 +49,6 @@ export const CartItem: React.FC<Props> = ({ cartItem, setCartStorage }) => {
             src={image}
             alt={phoneName}
           />
-
-          {/* <div
-            className="cartItem__head_cartItem__head_phone_image"
-            data-image-url={image}
-          >
-          </div> */}
 
           <p className='cartItem__head_cartItem__head_phone_name bodyText'>
             {phoneName}
@@ -100,16 +66,20 @@ export const CartItem: React.FC<Props> = ({ cartItem, setCartStorage }) => {
                 { disabled },
               )}
               disabled={disabled}
-              onClick={handleChangeAmount('minus', id)}
+              onClick={() => editQuantity(id, 'minus')}
           >
             -
           </button>
 
-          <span className='cartItem__priceAmount_amount_amount'>{amount}</span>
+          <span
+            className='cartItem__priceAmount_amount_amount'
+          >
+            {quantity}
+          </span>
 
           <button
             className='cartItem__priceAmount_amount_button plus'
-            onClick={handleChangeAmount('plus', id)}
+            onClick={() => editQuantity(id, 'plus')}
           >
             +
           </button>
