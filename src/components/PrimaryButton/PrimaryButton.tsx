@@ -1,14 +1,28 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import classNames from 'classnames';
 import './PrimaryButton.scss';
 
-export const PrimaryButton: React.FC = () => {
+type Props = {
+  handleAddToCart: () => void;
+  handleCheckIsInCart: () => boolean;
+}
+
+export const PrimaryButton: React.FC<Props> = ({
+  handleAddToCart,
+  handleCheckIsInCart,
+}) => {
   const [isSelected, setIsSelected] = useState(false);
+  const isInCart = handleCheckIsInCart();
+
+  useEffect(() => {
+    setIsSelected(isInCart);
+  }, []);
 
   const handlePrimaryButtonSelect = () => {
-    setIsSelected((prevIsSelected) => (
-      !prevIsSelected
-    ));
+    if (!isSelected) {
+      handleAddToCart();
+      setIsSelected(true);
+    }
   };
 
   return (

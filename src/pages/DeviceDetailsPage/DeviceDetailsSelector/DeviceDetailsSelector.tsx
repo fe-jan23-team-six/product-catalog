@@ -79,7 +79,7 @@ export const DeviceDetailsSelector: React.FC<Props> = ({ product }) => {
         </div>
 
         <div className="selector__buttons">
-          <ProductManageButtons isBig={true}/>
+          {/* <ProductManageButtons isBig={true}/> */}
         </div>
 
         <div className="selector__characteristics">
