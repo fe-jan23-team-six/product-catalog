@@ -12,6 +12,8 @@ import { SliderPhotos } from '../../components/SliderPhotos';
 
 import { useDataFetcher } from '../../hooks/useDataFetcher';
 
+import { DataLoader } from '../../components/DataLoader';
+
 export const HomePage: React.FC = () => {
   // this is an example for Vale
   // Here u can see how to work with PhotoSlider
@@ -76,10 +78,12 @@ export const HomePage: React.FC = () => {
       </section>
 
       <section className="home-page__product-slider">
-        <SliderProducts
-          title="Brand new models"
-          products={newPhones}
-        />
+        <DataLoader fetchStatus={newPhonesFetchStatus}>
+          <SliderProducts
+            title="Brand new models"
+            products={newPhones}
+          />
+        </DataLoader>
       </section>
 
       <section className="home-page__categories">
@@ -87,10 +91,12 @@ export const HomePage: React.FC = () => {
       </section>
 
       <section className="home-page__product-slider">
-        <SliderProducts
-          title="Hot prices"
-          products={discountPhones}
-        />
+        <DataLoader fetchStatus={discounthonesFetchStatus}>
+          <SliderProducts
+            title="Hot prices"
+            products={discountPhones}
+          />
+        </DataLoader>
       </section>
     </div>
   );
