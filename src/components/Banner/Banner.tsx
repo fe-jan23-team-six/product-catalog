@@ -6,18 +6,10 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import './Banner.scss';
 
-// #region Temporarily items below, please don't waste time on it
 interface SliderImageType {
   id: number;
   url: string;
 }
-
-// export const sliderImages: SliderImageType[] = [
-//   { id: 1, url: 'img/banners/phones.jpg' },
-//   { id: 2, url: 'img/banners/accessories.jpg' },
-//   { id: 3, url: 'img/banners/tablets.png' },
-// ];
-// #endregion
 
 export const Banner: React.FC = () => {
   const sliderRef = useRef<Slider>(null);
@@ -87,6 +79,7 @@ export const Banner: React.FC = () => {
 
       <div className="banner__button-arrow">
         <ArrowButton
+          isForward={true}
           classes="forward test banner__button"
           onClick={handleNextClick}
         />
