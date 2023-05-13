@@ -1,28 +1,21 @@
 @import "./styles/reset";
 @import "./styles/utils";
 
-@font-face {
-  font-family: 'Mont';
-  src: url('../public/fonts/Mont-Regular.otf') format('opentype');
-  font-weight: 400;
-  font-style: normal;
+// vertical indentation
+.main {
+  padding: 24px 0 56px;
+
+  @include onTablet {
+    padding: 24px 0 64px;
+  }
+
+  @include onDesktop {
+    padding: 24px 0 80px; 
+  }
 }
 
-@font-face {
-  font-family: 'Mont';
-  src: url('../public/fonts/Mont-SemiBold.otf') format('opentype');
-  font-weight: 600;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Mont';
-  src: url('../public/fonts/Mont-Bold.otf') format('opentype');
-  font-weight: 800;
-  font-style: normal;
-}
-
-.App {
+// horizontal indentation
+.container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 16px;
@@ -34,8 +27,4 @@
   @include onDesktop {
     padding: 0 32px;
   }
-}
-
-html * {
-  cursor: url('./../public/cursor.cur') 8 4, pointer;
 }

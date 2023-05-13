@@ -10,19 +10,19 @@ export const CatalogPage: React.FC = () => {
         Mobile Phones
       </h1>
 
-      <div
+      <section
         className="bodyText catalog-page__subtitle"
       >
         95 models
-      </div>
+      </section>
 
-      <div className="catalog-page__product-list">
+      <section className="catalog-page__product-list">
         <ProductList />
-      </div>
+      </section>
 
-      <div className="catalog-page__pagination-pannel">
+      <section className="catalog-page__pagination-pannel">
         <PaginationPannel />
-      </div>
+      </section>
     </div>
   );
 };

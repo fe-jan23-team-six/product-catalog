@@ -1,0 +1,19 @@
+@import '../../../styles/utils/vars';
+
+.capacity-button {
+  padding: 4px 8px;
+
+  background-color: $colorWhite;
+  border: 1px solid $colorIcons;
+  cursor: pointer;
+
+  &:hover:not(.capacity-button--selected) {
+    outline: 1px solid $colorPrimary;
+  }
+
+  &--selected {
+    color: #fff;
+    background-color: $colorPrimary;
+    border: none;
+  }
+}

@@ -12,22 +12,26 @@ interface SliderImageType {
   url: string;
 }
 
-export const sliderImages: SliderImageType[] = [
-  { id: 1, url: 'img/banners/phones.jpg' },
-  { id: 2, url: 'img/banners/accessories.jpg' },
-  { id: 3, url: 'img/banners/tablets.png' },
-];
+// export const sliderImages: SliderImageType[] = [
+//   { id: 1, url: 'img/banners/phones.jpg' },
+//   { id: 2, url: 'img/banners/accessories.jpg' },
+//   { id: 3, url: 'img/banners/tablets.png' },
+// ];
 // #endregion
 
 export const Banner: React.FC = () => {
   const sliderRef = useRef<Slider>(null);
 
-  const isMobileVersion = window.innerWidth < 640;
+  const sliderImages: SliderImageType[] = [
+    { id: 1, url: 'img/banners/phones.jpg' },
+    { id: 2, url: 'img/banners/accessories.jpg' },
+    { id: 3, url: 'img/banners/tablets.png' },
+  ];
 
   const settings: Settings = {
+    dotsClass: 'slick-dots banner__pagination',
     dots: true,
     arrows: false,
-    dotsClass: 'slick-dots banner__pagination',
     infinite: true,
     autoplay: true,
     autoplaySpeed: 5000,
@@ -36,11 +40,7 @@ export const Banner: React.FC = () => {
     slidesToScroll: 1,
     customPaging: (i) => (
       <div
-        style={{
-          position: 'absolute',
-          width: '100%',
-          opacity: 0,
-        }}
+        className='banner__paging'
       >
         {i}
       </div>
@@ -59,12 +59,10 @@ export const Banner: React.FC = () => {
     <div className="banner">
 
     <div className="banner__button-arrow">
-      {!isMobileVersion && (
-        <ArrowButton
-          classes="back banner__button banner__button--left"
-          action={handlePrevClick}
-        />
-      )}
+      <ArrowButton
+        classes="back banner__button"
+        action={handlePrevClick}
+      />
     </div>
 
       <Slider
@@ -88,12 +86,10 @@ export const Banner: React.FC = () => {
       </Slider>
 
       <div className="banner__button-arrow">
-        {!isMobileVersion && (
-          <ArrowButton
-            classes="forward test banner__button banner__button--right"
-            action={handleNextClick}
-          />
-        )}
+        <ArrowButton
+          classes="forward test banner__button"
+          action={handleNextClick}
+        />
       </div>
     </div>
   );

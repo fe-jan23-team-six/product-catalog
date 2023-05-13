@@ -14,7 +14,7 @@ export const getPhones = () => {
 export const getById = (phoneId: number) => {
   const url = PHONES_ENDPOINT + phoneId;
 
-  return client.getAll<PhoneDescription>(url);
+  return client.getAll<PhoneDetails>(url);
 };
 
 export const getDetailedById = (phoneId: number) => {

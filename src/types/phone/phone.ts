@@ -17,7 +17,7 @@ export interface PhoneDescription {
   text: string[],
 }
 
-export interface PhoneDetails {
+export interface PhoneDetails extends PhoneMain {
   id: number,
   color: string,
   year: number,

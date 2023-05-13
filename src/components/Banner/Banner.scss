@@ -2,7 +2,6 @@
 
 .banner {
   min-width: 320px;
-  // margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -52,14 +51,14 @@
     }
 
     cursor: pointer;
+  }
 
-    &--left {
-      // margin-right: 16px;
-    }
-
-    &--right {
-      // margin-left: 16px;
-    }
+  &__paging {
+    position: absolute;
+    margin-top: -10px;
+    padding: 5px;
+    width: 100%;
+    opacity: 0;
   }
 
   &__pagination li {
@@ -79,4 +78,8 @@
       background-color: #313237;
     }
   }
+}
+
+.slick-list {
+  width: 100%;
 }

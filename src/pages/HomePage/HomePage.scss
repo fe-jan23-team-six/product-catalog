@@ -1,18 +1,6 @@
 @import '../../styles/utils';
 
 .home-page {
-  padding-top: 24px;
-  padding-bottom: 64px;
-
-  @include onTablet {
-    padding-top: 32px;
-  }
-
-  @include onDesktop {
-    padding-top: 56px;
-  padding-bottom: 80px;
-  }
-
   &__title {
     margin-bottom: 56px;
 
@@ -33,11 +21,11 @@
     margin-bottom: 80px;
   }
 
-  &__product-slider {
+  &__categories {
     margin-bottom: 80px;
   }
 
-  &__categories {
-    margin-bottom: 80px;
+  &__product-slider {
+    // styles
   }
 }

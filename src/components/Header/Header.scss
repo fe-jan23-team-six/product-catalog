@@ -1,7 +1,29 @@
-.Header {
-  position: sticky;
+.header {
+  $prefix: '.header';
+
   display: flex;
-  align-items: center;
-  background-color: #aaa;
-  height: 70px;
+  flex-direction: column;
+
+  &--menu-opened {
+    height: 100vh;
+
+    #{$prefix}__top {
+      margin-bottom: 24px;
+    }
+
+    #{$prefix}__menu {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      flex-grow: 1;
+    }
+
+    #{$prefix}__icons {
+      height: 64px;
+    }
+  }
+
+  &__menu {
+    display: none;
+  }
 }

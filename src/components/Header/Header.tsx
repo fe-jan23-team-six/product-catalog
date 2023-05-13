@@ -1,30 +1,40 @@
-import React from 'react';
+import React, { useState } from 'react';
+import classNames from 'classnames';
 import './Header.scss';
-import { PageNavLink } from '../PageNavLink';
+
+import { HeaderTop } from '../HeaderTop';
+import { PageNavMain } from '../PageNavMain';
+import { PageNavIcons } from '../PageNavIcons';
 
 export const Header: React.FC = () => {
+  const [isMenuOpened, setIsMenuOpened] = useState(false);
+
+  const handleMenuOpen = () => (
+    setIsMenuOpened((prevState) => !prevState)
+  );
+
   return (
-    <header className="Header">
-      <PageNavLink
-        to="/"
-        text="Home"
-      />
-      <PageNavLink
-        to="/catalog"
-        text="Catalog"
-      />
-      <PageNavLink
-        to="/device-details"
-        text="Device Details"
-      />
-      <PageNavLink
-        to="/favourite"
-        text="fav"
-      />
-      <PageNavLink
-        to="/cart"
-        text="cart"
-      />
+    <header className={classNames(
+      'header',
+      {
+        'header--menu-opened': isMenuOpened,
+      },
+    )}>
+      <div className="header__top">
+        <HeaderTop
+          isMenuOpened={isMenuOpened}
+          onMenuOpen={handleMenuOpen}
+        />
+      </div>
+
+      <div className="header__menu">
+        <div className="header__links">
+          <PageNavMain isVertical />
+        </div>
+        <div className="header__icons">
+          <PageNavIcons isHalf />
+        </div>
+      </div>
     </header>
   );
 };

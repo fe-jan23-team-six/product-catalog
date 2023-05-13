@@ -7,4 +7,11 @@ html {
   font-weight: 500;
   font-size: 14px;
   scroll-behavior: smooth;
+
+  cursor: url('../../../public/cursor.cur') 8 4, pointer;
+}
+
+body {
+  min-height: 100vh;
+  // position: relative;
 }

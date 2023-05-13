@@ -1,1 +1,26 @@
-// styles go here
+.favourite-page {
+  height: 100%;
+
+  &__breadcrumbs {
+    height: 16px;
+    margin-bottom: 40px;
+    background-color: palegoldenrod;
+  }
+
+  &__title {
+    height: 56px;
+    margin-bottom: 8px;
+    background-color: palegreen;
+  }
+
+  &__count {
+    height: 21px;
+    margin-bottom: 40px;
+    background-color: palevioletred;
+  }
+
+  &__products {
+    height: 272px;
+    background-color: blueviolet;
+  }
+}
