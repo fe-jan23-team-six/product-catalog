@@ -1,47 +1,35 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import './FavouritePage.scss';
-// import { ProductCard } from '../../components/ProductCard/ProductCard';
+
 import { Breadcrumbs } from '../../components/Breadcrumbs';
-// import { ProductList } from '../../components/ProductList';
-// import { useFavouriteStorage } from '../../hooks/useFavouriteStorage';
-import { DropDown } from '../../components/DropDown';
+import { ProductList } from '../../components/ProductList';
+import { FavouriteContext } from '../../contexts/FavouriteContext';
+import { getPluralWord } from '../../utils/helpers/helpers';
+import { CATALOG_PAGE } from '../../utils/constants/route';
 
 export const FavouritePage: React.FC = () => {
-  const [selectedOption, setSelectedOption] = useState('Green');
-  const optionList = ['Red', 'Blue', 'Green', 'Yellow'];
+  const { favourite } = useContext(FavouriteContext);
 
   return (
-    <main className="favourite-page">
+    <div className="favourite-page">
       <div className="favourite-page__breadcrumbs">
         <Breadcrumbs breadcrumbs={[{ text: 'Favourites' }]}/>
       </div>
-
-      {/* <button onClick={() => addToFavourite('some text')}>
-        Push
-      </button> */}
 
       <h1 className="favourite-page__title">
         Favourites
       </h1>
 
       <p className="favourite-page__count">
-        5 items
+        {`${getPluralWord('item', favourite.length)}`}
       </p>
 
       <div className="favourite-page__products">
-        {/* <ProductList /> */}
-        <DropDown
-          optionList={optionList}
-          selectedOption={selectedOption}
-          setSelectedOption={setSelectedOption}
-          description='Something'
+        <ProductList
+          products={favourite}
+          nextRouteLink={`${CATALOG_PAGE}`}
         />
       </div>
-    </main>
-    // <>
-    //   {/* <Breadcrumbs />
-    //   <h1>Favourite Page</h1>
-    //   <ProductCard /> */}
-    // </>
+    </div>
   );
 };
