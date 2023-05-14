@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './ProductCard.scss';
@@ -16,6 +15,7 @@ type Props = {
 export const ProductCard: React.FC<Props> = ({ product, nextRouteLink }) => {
   const {
     id,
+    slug,
     name: phoneName,
     priceRegular,
     priceDiscount,
@@ -36,7 +36,7 @@ export const ProductCard: React.FC<Props> = ({ product, nextRouteLink }) => {
 
   return (
     <div className="product-card">
-      <Link to={nextRouteLink ?? `./${id}`}>
+      <Link to={nextRouteLink ?? `./${slug}`}>
         <img
           className="product-card__image"
           src={image}
