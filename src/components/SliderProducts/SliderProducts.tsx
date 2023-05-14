@@ -83,7 +83,7 @@ export const SliderProducts: React.FC<Props> = ({ title, products }) => {
           <ProductCard
             key={product.id}
             product={product}
-            nextRouteLink={`${CATALOG_PAGE}/${product.slug}`}
+            nextRouteLink={`${CATALOG_PAGE}`}
           />
         ))}
       </Slider>

@@ -44,7 +44,7 @@ export const ProductCard: React.FC<Props> = ({ product, nextRouteLink }) => {
 
   return (
     <div className="product-card">
-      <Link to={nextRouteLink ?? `./${slug}`}>
+      <Link to={nextRouteLink ? `${nextRouteLink}/${slug}` : `./${slug}`}>
         <img
           className="product-card__image"
           src={image}
