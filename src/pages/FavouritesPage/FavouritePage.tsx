@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './FavouritePage.scss';
 // import { ProductCard } from '../../components/ProductCard/ProductCard';
 import { Breadcrumbs } from '../../components/Breadcrumbs';
 // import { ProductList } from '../../components/ProductList';
 // import { useFavouriteStorage } from '../../hooks/useFavouriteStorage';
+import { DropDown } from '../../components/DropDown';
 
 export const FavouritePage: React.FC = () => {
+  const [selectedOption, setSelectedOption] = useState('Green');
+  const optionList = ['Red', 'Blue', 'Green', 'Yellow'];
+
   return (
     <main className="favourite-page">
       <div className="favourite-page__breadcrumbs">
@@ -26,6 +30,12 @@ export const FavouritePage: React.FC = () => {
 
       <div className="favourite-page__products">
         {/* <ProductList /> */}
+        <DropDown
+          optionList={optionList}
+          selectedOption={selectedOption}
+          setSelectedOption={setSelectedOption}
+          description='Something'
+        />
       </div>
     </main>
     // <>
