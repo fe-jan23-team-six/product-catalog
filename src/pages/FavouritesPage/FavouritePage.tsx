@@ -3,6 +3,7 @@ import './FavouritePage.scss';
 // import { ProductCard } from '../../components/ProductCard/ProductCard';
 import { Breadcrumbs } from '../../components/Breadcrumbs';
 // import { ProductList } from '../../components/ProductList';
+// import { useFavouriteStorage } from '../../hooks/useFavouriteStorage';
 
 export const FavouritePage: React.FC = () => {
   return (
@@ -10,6 +11,10 @@ export const FavouritePage: React.FC = () => {
       <div className="favourite-page__breadcrumbs">
         <Breadcrumbs breadcrumbs={[{ text: 'Favourites' }]}/>
       </div>
+
+      {/* <button onClick={() => addToFavourite('some text')}>
+        Push
+      </button> */}
 
       <h1 className="favourite-page__title">
         Favourites
