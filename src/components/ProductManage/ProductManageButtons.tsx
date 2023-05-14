@@ -5,14 +5,18 @@ import { PrimaryButton } from '../PrimaryButton';
 
 type Props = {
   isBig?: boolean;
+  isLiked: boolean;
   handleAddToCart: () => void;
   handleCheckIsInCart: () => boolean;
+  onLike: () => void;
 }
 
 export const ProductManageButtons: React.FC<Props> = ({
   isBig = false,
+  isLiked,
   handleAddToCart,
   handleCheckIsInCart,
+  onLike,
 }) => {
   return (
     <div className="product-manage-buttons">
@@ -23,7 +27,10 @@ export const ProductManageButtons: React.FC<Props> = ({
 
       <div
         className="product-manage-buttons__like">
-        <LikeButton isBig={isBig} />
+        <LikeButton
+          isLiked={isLiked}
+          isBig={isBig}
+          onClick={onLike}/>
       </div>
     </div>
   );

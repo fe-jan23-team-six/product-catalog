@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import './ProductCard.scss';
 import { ProductManageButtons } from '../ProductManage';
@@ -6,6 +6,8 @@ import { ProductManageButtons } from '../ProductManage';
 import { PhoneMain } from '../../types/phone/PhoneMain';
 
 import { useCartStorage } from './../../hooks/useCartStorage';
+
+import { FavouriteContext } from '../../contexts/FavouriteContext';
 
 type Props = {
   product: PhoneMain;
@@ -26,6 +28,12 @@ export const ProductCard: React.FC<Props> = ({ product, nextRouteLink }) => {
   } = product;
 
   const { addToCart, checkIsInCart } = useCartStorage();
+  const { toggleFavourite, isInFavourite } = useContext(FavouriteContext);
+
+  const isLiked = isInFavourite(product.id);
+  const handleLike = () => (
+    toggleFavourite(product)
+  );
 
   const handleAddToCart = product
     ? () => addToCart(id, product)
@@ -74,6 +82,8 @@ export const ProductCard: React.FC<Props> = ({ product, nextRouteLink }) => {
       </div>
 
       <ProductManageButtons
+        isLiked={isLiked}
+        onLike={handleLike}
         handleAddToCart={handleAddToCart}
         handleCheckIsInCart={handleCheckIsInCart}
       />

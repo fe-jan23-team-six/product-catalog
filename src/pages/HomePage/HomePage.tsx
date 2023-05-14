@@ -36,7 +36,7 @@ export const HomePage: React.FC = () => {
         <DataLoader fetchStatus={newPhonesFetchStatus}>
           <SliderProducts
             title="Brand new models"
-            products={newPhones}
+            products={newPhones.slice(0, 4)}
           />
         </DataLoader>
       </section>
@@ -49,7 +49,7 @@ export const HomePage: React.FC = () => {
         <DataLoader fetchStatus={discounthonesFetchStatus}>
           <SliderProducts
             title="Hot prices"
-            products={discountPhones}
+            products={discountPhones.slice(0, 4)}
           />
         </DataLoader>
       </section>
