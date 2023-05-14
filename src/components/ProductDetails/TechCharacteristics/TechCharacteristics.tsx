@@ -1,64 +1,27 @@
 import React from 'react';
-import { Phone } from '../../../types/phone/Phone';
 import { TechCharacteristicsItem } from '../TechCharacteristicsItem';
+import {
+  PhoneCharacteristics,
+} from '../../../types/phone/PhoneCharacteristics';
 
 type Props = {
-  product: Phone;
+  characteristics: PhoneCharacteristics;
 }
 
-export const TechCharacteristics: React.FC<Props> = ({ product }) => {
-  const {
-    screen: screenSize,
-    resolution,
-    processor,
-    ram,
-    capacity,
-    camera,
-    zoom,
-    cell,
-  } = product;
-
+export const TechCharacteristics: React.FC<Props> = ({ characteristics }) => {
   return (
     <>
-      <TechCharacteristicsItem
-        characteristic='Screen'
-        details={screenSize}
-      />
+      {Object.entries(characteristics).map(([key, value]) => {
+        const characteristic = key.slice(0, 1).toUpperCase() + key.slice(1);
 
-      <TechCharacteristicsItem
-        characteristic='Resolution'
-        details={resolution}
-      />
-
-      <TechCharacteristicsItem
-        characteristic='Processor'
-        details={processor}
-      />
-
-      <TechCharacteristicsItem
-        characteristic='RAM'
-        details={ram}
-      />
-
-      <TechCharacteristicsItem
-        characteristic='Built in memory'
-        details={capacity}
-      />
-
-      <TechCharacteristicsItem
-        characteristic='Camera'
-        details={camera}
-      />
-
-      <TechCharacteristicsItem
-        characteristic='Zoom'
-        details={zoom}
-      />
-
-      <TechCharacteristicsItem
-        characteristic='Cell'
-        details={cell.join(', ')}
-      />
+        return (
+          <TechCharacteristicsItem
+            key={key}
+            characteristic={characteristic}
+            details={value}
+          />
+        );
+      })}
     </>
   );
 };
