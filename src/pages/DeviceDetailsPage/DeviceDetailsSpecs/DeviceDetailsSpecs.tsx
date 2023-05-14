@@ -10,6 +10,28 @@ type Props = {
 }
 
 export const DeviceDetailsSpecs: React.FC<Props> = ({ product }) => {
+  const {
+    screen,
+    resolution,
+    processor,
+    ram,
+    capacity,
+    camera,
+    zoom,
+    cell,
+  } = product;
+
+  const productCharacteristics = {
+    screen,
+    resolution,
+    processor,
+    ram,
+    capacity,
+    camera,
+    zoom,
+    cell,
+  };
+
   return (
     <div
       className="device-details__specs specs grid__item--desktop-14-24"
@@ -19,7 +41,7 @@ export const DeviceDetailsSpecs: React.FC<Props> = ({ product }) => {
       </h3>
 
       <div className="specs__characteristics">
-        <TechCharacteristics product={product} />
+        <TechCharacteristics characteristics={productCharacteristics} />
       </div>
     </div>
   );
