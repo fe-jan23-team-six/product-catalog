@@ -3,6 +3,8 @@
 
 // vertical indentation
 .main {
+  height: 100%;
+  flex: 1 1 auto;
   padding: 24px 0 56px;
 
   @include onTablet {
@@ -14,8 +16,15 @@
   }
 }
 
+body {
+  height: 100%;
+}
+
 // horizontal indentation
 .container {
+  min-height: calc(100vh - 257px);
+  display: flex;
+  flex-direction: column;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 16px;
