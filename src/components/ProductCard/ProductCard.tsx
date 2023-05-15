@@ -12,9 +12,16 @@ import { FavouriteContext } from '../../contexts/FavouriteContext';
 type Props = {
   product: PhoneMain;
   nextRouteLink?: string;
+  handleAddToCart: () => void;
+  handleCheckIsInCart: () => boolean;
 };
 
-export const ProductCard: React.FC<Props> = ({ product, nextRouteLink }) => {
+export const ProductCard: React.FC<Props> = ({
+  product,
+  nextRouteLink,
+  handleAddToCart,
+  handleCheckIsInCart,
+}) => {
   const {
     id,
     slug,

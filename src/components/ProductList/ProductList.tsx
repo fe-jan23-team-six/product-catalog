@@ -1,8 +1,8 @@
-/* eslint-disable max-len */
 import React from 'react';
 import './ProductList.scss';
 import { ProductCard } from '../ProductCard';
 import { PhoneMain } from '../../types/phone/PhoneMain';
+import { useCartStorage } from './../../hooks/useCartStorage';
 
 type Props = {
   products: PhoneMain[];

@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { TechCharacteristicsItem } from '../TechCharacteristicsItem';
 import {
   PhoneCharacteristics,
