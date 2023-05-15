@@ -1,10 +1,9 @@
 @import '../../styles/utils/vars';
+@import '../../styles/utils/extends';
 
 .Loader {
-  display: flex;
+  @extend %flexCenter;
   width: 100%;
-  justify-content: center;
-  align-items: center;
 
   &__content {
     border-radius: 50%;

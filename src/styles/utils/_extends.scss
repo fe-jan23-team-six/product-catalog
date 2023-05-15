@@ -39,6 +39,30 @@
   align-items: center;
 }
 
+%flexSpaceBetweenCenter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+%flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+%userMessage {
+  background: $colorYellow;
+  border-radius: 4px;
+  width: 50%;
+  height: auto;
+  font-family: 'Manrope', monospace;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: $colorBlack;
+}
+
 %devicePageTitleSpecs {
   margin-bottom: 48px;
   font-weight: $fontWeightBlack;

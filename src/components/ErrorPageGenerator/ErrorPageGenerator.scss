@@ -1,0 +1,26 @@
+@import '../../styles/utils/vars';
+@import '../../styles/utils/extends';
+
+.error_page {
+  @extend %flexColumnCenter;
+  text-align: center;
+
+  &__image {
+    max-width: 300px;
+    margin-bottom: $marginBottomBig;
+
+    @include onPhone {
+      display: none;
+    }
+  }
+
+  &__title {
+    margin-bottom: $marginBottomTheSmallest;
+  }
+
+  &__button {
+    @extend %flexCenter;
+    max-width: 200px;
+    padding: 10px 0;
+  }
+}
