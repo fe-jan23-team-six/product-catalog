@@ -1,7 +1,7 @@
 import React from 'react';
 import './DeviceDetailsAbout.scss';
 import { ProductAbout } from '../../../components/ProductDetails/ProductAbout';
-import { PhoneDescription } from '../../../types/phone/PhoneDescription';
+import { PhoneDescription } from '../../../types/PhoneDescription';
 
 type Props = {
   descriptions: PhoneDescription[],

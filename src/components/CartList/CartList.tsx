@@ -1,35 +1,23 @@
 import React from 'react';
 import './CartList.scss';
-import { CartItem as CartItemElement } from '../CartItem';
-import {
-  CartItem as CartStorageType,
-} from './../../hooks/useCartStorage';
+import { CartItem } from '../CartItem';
+import { CartItemType } from '../../types/CartItemType';
 
 type Props = {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  cartStorage: CartStorageType<any>[];
-  editQuantity: (id: number, action: 'plus' | 'minus') => void;
-  removeFromCart: (id: number) => void;
+  cart: CartItemType[];
 }
 
 export const CartList: React.FC<Props> = ({
-  cartStorage,
-  editQuantity,
-  removeFromCart,
+  cart,
 }) => {
   return (
     <div className='cartList'>
-      {cartStorage.map((cartStorageItem) => {
-        return (
-          <CartItemElement
-            key={+cartStorageItem.product.id}
-            cartStorageItem={cartStorageItem.product}
-            quantity={cartStorageItem.quantity}
-            editQuantity={editQuantity}
-            removeFromCart={removeFromCart}
-          />
-        );
-      })
+      {cart.map((cartItem) => (
+        <CartItem
+          key={cartItem.id}
+          cartItem={cartItem}
+        />
+      ))
       }
     </div>
   );
