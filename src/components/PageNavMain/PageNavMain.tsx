@@ -35,8 +35,11 @@ export const PageNavMain: React.FC<Props> = ({ isVertical = false }) => {
           </PageNavLink>
         </li>
 
+        {/* for testing */}
         <li className="page-nav-main__item">
-          <PageNavLink to="/device-details">
+          <PageNavLink
+            to="/device-details/apple-iphone-11-pro-max-256gb-midnightgreen"
+          >
             Details
           </PageNavLink>
         </li>

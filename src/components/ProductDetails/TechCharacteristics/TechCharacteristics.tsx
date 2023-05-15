@@ -1,8 +1,9 @@
 import React from 'react';
+
 import { TechCharacteristicsItem } from '../TechCharacteristicsItem';
 import {
   PhoneCharacteristics,
-} from '../../../types/phone/PhoneCharacteristics';
+} from '../../../types/PhoneCharacteristics';
 
 type Props = {
   characteristics: PhoneCharacteristics;

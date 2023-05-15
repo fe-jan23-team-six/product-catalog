@@ -3,7 +3,7 @@ import './DeviceDetailsSpecs.scss';
 import {
   TechCharacteristics,
 } from '../../../components/ProductDetails/TechCharacteristics';
-import { Phone } from '../../../types/phone/Phone';
+import { Phone } from '../../../types/Phone';
 
 type Props = {
   product: Phone,

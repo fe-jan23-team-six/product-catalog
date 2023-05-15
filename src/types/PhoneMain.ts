@@ -2,7 +2,7 @@ export interface PhoneMain {
   id: number,
   slug: string,
   category: string,
-  nameSpaceId: string,
+  namespaceId: string,
   name: string,
   image: string;
   capacity: string,

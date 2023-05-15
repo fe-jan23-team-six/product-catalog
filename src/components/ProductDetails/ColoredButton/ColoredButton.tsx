@@ -1,29 +1,39 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import classNames from 'classnames';
 import './ColoredButton.scss';
+import { getColorOfDevice } from '../../../utils/helpers/helpers';
+import { Link } from 'react-router-dom';
+import { Phone } from '../../../types/Phone';
 
 type Props = {
-  color: string;
-  isSelected: boolean,
-  onSelect: (color: string) => void;
+  deviceColor: string,
+  product: Phone,
 }
 
 export const ColoredButton: React.FC<Props> = ({
-  color,
-  isSelected,
-  onSelect,
+  deviceColor,
+  product,
 }) => {
+  const {
+    namespaceId,
+    capacity,
+    color,
+  } = product;
+
+  const colorHex = useCallback(() => getColorOfDevice(
+    deviceColor.slice(0, 1).toUpperCase() + deviceColor.slice(1),
+  ), [deviceColor]);
+
   return (
-    <button className={
-      classNames(
+    <Link
+      className={classNames(
         'colored-button',
         {
-          'colored-button--selected': isSelected,
+          'colored-button--selected': deviceColor === color,
         },
       )}
-      style={{ backgroundColor: color }}
-      onClick={() => onSelect(color)}
-    >
-    </button>
+      style={{ backgroundColor: colorHex() }}
+      to={`/catalog/${namespaceId}-${capacity.toLowerCase()}-${deviceColor}`}
+    />
   );
 };

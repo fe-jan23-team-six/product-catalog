@@ -1,29 +1,35 @@
 import React from 'react';
 import classNames from 'classnames';
 import './CapacitiesButton.scss';
+import { Phone } from '../../../types/Phone';
+import { Link } from 'react-router-dom';
 
 type Props = {
-  capacity: string;
-  isSelected: boolean,
-  onSelect: (capacity: string) => void;
+  deviceCapacity: string,
+  product: Phone,
 }
 
 export const CapacitiesButton: React.FC<Props> = ({
-  capacity,
-  isSelected,
-  onSelect,
+  deviceCapacity,
+  product,
 }) => {
+  const {
+    namespaceId,
+    capacity,
+    color,
+  } = product;
+
   return (
-    <button className={
-      classNames(
+    <Link
+      className={classNames(
         'capacity-button',
         {
-          'capacity-button--selected': isSelected,
+          'capacity-button--selected': deviceCapacity === capacity,
         },
       )}
-      onClick={() => onSelect(capacity)}
+      to={`/catalog/${namespaceId}-${deviceCapacity.toLowerCase()}-${color}`}
     >
-      {capacity}
-    </button>
+      {deviceCapacity}
+    </Link>
   );
 };

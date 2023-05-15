@@ -13,6 +13,12 @@ export const Header: React.FC = () => {
     setIsMenuOpened((prevState) => !prevState)
   );
 
+  if (isMenuOpened) {
+    document.body.style.overflow = 'hidden';
+  } else {
+    document.body.style.overflow = 'scroll';
+  }
+
   return (
     <header className={classNames(
       'header',
