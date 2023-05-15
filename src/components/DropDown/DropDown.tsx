@@ -38,7 +38,7 @@ export const DropDown: FC<Props> = ({
         ? selectedOptionIndex - 1
         : selectedOptionIndex + 1;
 
-      setSelectedOption(optionList[nextIndex].toLocaleLowerCase());
+      setSelectedOption(optionList[nextIndex]);
     }
 
     if (selectedOptionIndex === 0) {
@@ -46,7 +46,7 @@ export const DropDown: FC<Props> = ({
         ? optionList.length - 1
         : selectedOptionIndex + 1;
 
-      setSelectedOption(optionList[nextIndex].toLocaleLowerCase());
+      setSelectedOption(optionList[nextIndex]);
     }
 
     if (selectedOptionIndex === optionList.length - 1) {
@@ -54,7 +54,7 @@ export const DropDown: FC<Props> = ({
         ? selectedOptionIndex - 1
         : 0;
 
-      setSelectedOption(optionList[nextIndex].toLocaleLowerCase());
+      setSelectedOption(optionList[nextIndex]);
     }
   };
 
@@ -143,7 +143,7 @@ export const DropDown: FC<Props> = ({
       data-dropdown-description={description}
     >
       <p className='drop-down__text'>
-        {selectedOption.slice(0, 1).toUpperCase() + selectedOption.slice(1)}
+        {selectedOption}
       </p>
 
       <menu
@@ -160,7 +160,7 @@ export const DropDown: FC<Props> = ({
             key={uuidv4()}
             onClick={handleSelectOption}
           >
-            { option.slice(0, 1).toUpperCase() + option.slice(1) }
+            { option }
           </li>
         ))}
       </menu>
