@@ -1,11 +1,5 @@
 import { DeviceColors } from '../../types/enums/DeviceColors';
 
-/* export function findDeviceIdByColor(
-  tabs: Tab[], selectedTabId?: string
-): Tab | undefined {
-  return tabs.find(({ id }) => id === selectedTabId);
-} */
-
 export const getColorOfDevice = (color: string | undefined): DeviceColors => {
   switch (color) {
     case 'Black':
