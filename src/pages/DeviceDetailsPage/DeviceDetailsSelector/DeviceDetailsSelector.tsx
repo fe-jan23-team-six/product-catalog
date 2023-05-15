@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './DeviceDetailsSelector.scss';
 import {
   ProductColorGroup,
@@ -10,6 +10,10 @@ import { Phone } from '../../../types/Phone';
 import {
   TechCharacteristics,
 } from '../../../components/ProductDetails/TechCharacteristics';
+import { ProductManageButtons } from '../../../components/ProductManage';
+
+import { FavouriteContext } from '../../../contexts/FavouriteContext';
+import { CartContext } from '../../../contexts/CartContext';
 
 type Props = {
   product: Phone,
@@ -27,6 +31,14 @@ export const DeviceDetailsSelector: React.FC<Props> = ({ product }) => {
     colorsAvailable,
     capacityAvailable,
   } = product;
+
+  const { toggleFavourite, isInFavourite } = useContext(FavouriteContext);
+  const { addToCart, isInCart } = useContext(CartContext);
+
+  const isLiked = isInFavourite(product.id);
+  const hasAddedInCart = isInCart(product.id);
+  const handleLike = () => toggleFavourite(product);
+  const handleAddToCart = () => addToCart(product);
 
   const productCharacteristics = {
     screen,
@@ -92,7 +104,12 @@ export const DeviceDetailsSelector: React.FC<Props> = ({ product }) => {
         </div>
 
         <div className="selector__buttons">
-          {/* <ProductManageButtons isBig={true}/> */}
+          <ProductManageButtons
+            isBig={true}
+            isLiked={isLiked}
+            onLike={handleLike}
+            isInCart={hasAddedInCart}
+            onCartAdd={handleAddToCart}/>
         </div>
 
         <div className="selector__characteristics">
