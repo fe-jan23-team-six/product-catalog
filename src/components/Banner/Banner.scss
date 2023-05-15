@@ -68,7 +68,7 @@
     height: 4px;
     background-color: $colorElements;
   
-    transition: transform .3s background-color .3s;
+    transition: transform $animationDuration background-color $animationDuration;
 
     &:hover {
       transform: scale(1.2);

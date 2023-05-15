@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { TypeCatalogContent } from '../../types/TypeCatalogContent';
 import { CategoryLink } from '../CategoryLink';
 import { getAmountPhones } from '../../utils/api/phones';
 import './ShopByCategory.scss';
 import { useDataFetcher } from '../../hooks/useDataFetcher';
 import { DataLoader } from '../DataLoader';
+import {
+  PHONES_CATALOG,
+  TABLETS_CATALOG,
+  ACCESSORIES_CATALOG,
+} from '../../utils/constants/route';
 
 interface TypeAmountThings {
   phones: number,
@@ -71,7 +75,7 @@ export const ShopByCategory: React.FC = () => {
         >
           <DataLoader fetchStatus={phonesFetchStatus}>
             <CategoryLink
-              path={TypeCatalogContent.PHONES}
+              path={PHONES_CATALOG}
               amount={amountsThings.phones}
             />
           </DataLoader>
@@ -86,7 +90,7 @@ export const ShopByCategory: React.FC = () => {
         >
           <DataLoader fetchStatus={tabletsFetchStatus}>
             <CategoryLink
-              path={TypeCatalogContent.TABLETS}
+              path={TABLETS_CATALOG}
               amount={amountsThings.tablets}
             />
           </DataLoader>
@@ -101,7 +105,7 @@ export const ShopByCategory: React.FC = () => {
         >
           <DataLoader fetchStatus={accessoriesFetchStatus}>
             <CategoryLink
-              path={TypeCatalogContent.ACCESSORIES}
+              path={ACCESSORIES_CATALOG}
               amount={amountsThings.accessories}
             />
           </DataLoader>

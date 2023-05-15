@@ -5,10 +5,10 @@
     height: 288px;
     margin-bottom: 24px;
 
-    transition: transform .3s;
+    transition: transform $animationDuration;
 
     &:hover {
-      transform: scale(1.05);
+      transform: scale($scaleRatio);
     }
 
     @include onTablet {
@@ -77,9 +77,7 @@
   }
 
   &__description {
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 21px;
+    @extend %bodyText;
     color: $colorSecondary;
   }
 }
