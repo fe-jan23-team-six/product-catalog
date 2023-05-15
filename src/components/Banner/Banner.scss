@@ -35,6 +35,24 @@
     }
   }
 
+  &__button {
+    display: none;
+
+    @include onTablet {
+      display: block;
+      width: 32px;
+      height: 190px;
+    }
+
+    @include onDesktop {
+      display: block;
+      width: 32px;
+      height: 400px;
+    }
+
+    cursor: pointer;
+  }
+
   &__paging {
     position: absolute;
     margin-top: -10px;
@@ -50,7 +68,7 @@
     height: 4px;
     background-color: #e2e6e9;;
   
-    transition: transform $animationDuration background-color $animationDuration ;
+    transition: transform .3s background-color .3s;
 
     &:hover {
       transform: scale(1.2);

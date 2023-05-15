@@ -31,28 +31,11 @@ export const HomePage: React.FC = () => {
         Welcome to Nice Gadgets store!
       </h1>
 
-      <ShopByCategory />
-
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-
       <section className="home-page__banner">
         <Banner />
       </section>
 
-      <section className="home-page__product-slider">
+      <section className="home-page__product-slider--new-phones">
         <DataLoader fetchStatus={newPhonesFetchStatus}>
           <SliderProducts
             title="Brand new models"
@@ -62,7 +45,7 @@ export const HomePage: React.FC = () => {
       </section>
 
       <section className="home-page__categories">
-        Here will be section with links by categories
+        <ShopByCategory />
       </section>
 
       <section className="home-page__product-slider">
