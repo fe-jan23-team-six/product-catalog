@@ -1,10 +1,10 @@
 import React from 'react';
 import './CartList.scss';
 import { CartItem } from '../CartItem';
-import { CartEntity } from '../../types/CartEntity';
+import { CartItemType } from '../../types/CartItemType';
 
 type Props = {
-  cart: CartEntity[];
+  cart: CartItemType[];
 }
 
 export const CartList: React.FC<Props> = ({
@@ -12,14 +12,12 @@ export const CartList: React.FC<Props> = ({
 }) => {
   return (
     <div className='cartList'>
-      {cart.map((cartItem) => {
-        return (
-          <CartItem
-            key={cartItem.id}
-            cartEntity={cartItem}
-          />
-        );
-      })
+      {cart.map((cartItem) => (
+        <CartItem
+          key={cartItem.id}
+          cartItem={cartItem}
+        />
+      ))
       }
     </div>
   );

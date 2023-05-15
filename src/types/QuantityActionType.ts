@@ -1,1 +1,4 @@
-export type QuantityActionType = 'PLUS' | 'MINUS';
+export enum QuantityActionType {
+  PLUS = 'Plus',
+  MINUS = 'Minus',
+}

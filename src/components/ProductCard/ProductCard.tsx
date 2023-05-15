@@ -81,7 +81,6 @@ export const ProductCard: React.FC<Props> = ({
         isLiked={isLiked}
         onLike={handleLike}
         isInCart={isInCart(product.id)}
-        // eslint-disable-next-line @typescript-eslint/no-empty-function
         onCartAdd={handleAddToCart}
       />
     </div>

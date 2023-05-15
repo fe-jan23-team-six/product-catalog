@@ -1,11 +1,11 @@
 import React, { useMemo } from 'react';
-import { CartEntity } from '../types/CartEntity';
+import { CartItemType } from '../types/CartItemType';
 import { PhoneMain } from '../types/PhoneMain';
 import { QuantityActionType } from '../types/QuantityActionType';
 import { useCartStorage } from '../hooks/useCartStorage';
 
 type CartContextType = {
-  cart: CartEntity[];
+  cart: CartItemType[];
   addToCart: (product: PhoneMain) => void;
   removeFromCart: (id: number) => void;
   clearCart: () => void;
@@ -71,7 +71,7 @@ export const CartProvider: React.FC<CartProviderType> = ({
     setCart((prevCart) => (
       prevCart.map(cartProduct => {
         if (cartProduct.id === id) {
-          const newQuantity = action === 'PLUS'
+          const newQuantity = action === QuantityActionType.PLUS
             ? cartProduct.quantity + 1
             : cartProduct.quantity - 1;
 

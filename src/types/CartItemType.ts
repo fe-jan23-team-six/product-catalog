@@ -1,5 +1,5 @@
 import { PhoneMain } from './PhoneMain';
 
-export interface CartEntity extends PhoneMain {
+export interface CartItemType extends PhoneMain {
   quantity: number,
 }

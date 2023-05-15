@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { CartEntity } from '../types/CartEntity';
+import { CartItemType } from '../types/CartItemType';
 import { useDidUpdateEffect } from './useDidUpdateEffect';
 import {
   LOCAL_STORAGE_CART_KEY as cartKey,
@@ -14,10 +14,10 @@ const readFromLocalStorage = () => {
 };
 
 export const useCartStorage = (): [
-  CartEntity[],
-  React.Dispatch<React.SetStateAction<CartEntity[]>>
+  CartItemType[],
+  React.Dispatch<React.SetStateAction<CartItemType[]>>
 ] => {
-  const [cart, setCart] = useState<CartEntity[]>(
+  const [cart, setCart] = useState<CartItemType[]>(
     readFromLocalStorage(),
   );
 
