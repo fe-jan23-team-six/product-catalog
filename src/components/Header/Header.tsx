@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import classNames from 'classnames';
 import './Header.scss';
 
 import { HeaderTop } from '../HeaderTop';
 import { PageNavMain } from '../PageNavMain';
 import { PageNavIcons } from '../PageNavIcons';
+
+import { disablePageScroll } from '../../utils/helpers/disablePageScroll';
 
 export const Header: React.FC = () => {
   const [isMenuOpened, setIsMenuOpened] = useState(false);
@@ -13,11 +15,9 @@ export const Header: React.FC = () => {
     setIsMenuOpened((prevState) => !prevState)
   );
 
-  if (isMenuOpened) {
-    document.body.style.overflow = 'hidden';
-  } else {
-    document.body.style.overflow = 'scroll';
-  }
+  useEffect(() => {
+    disablePageScroll(isMenuOpened);
+  }, [isMenuOpened]);
 
   return (
     <header className={classNames(

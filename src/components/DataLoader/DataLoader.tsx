@@ -1,6 +1,7 @@
 import React from 'react';
 import { FetchStatus } from '../../types/FetchStatus';
 import { Loader } from '../Loader';
+import { ErrorComponent } from '../ErrorComponent';
 
 type Props = {
   fetchStatus: FetchStatus;
@@ -15,9 +16,7 @@ export const DataLoader: React.FC<Props> = ({ fetchStatus, children }) => {
       )}
 
       {fetchStatus === FetchStatus.Error && (
-        <h2>
-          Something went wrong
-        </h2>
+        <ErrorComponent />
       )}
 
       {fetchStatus === FetchStatus.Success && (

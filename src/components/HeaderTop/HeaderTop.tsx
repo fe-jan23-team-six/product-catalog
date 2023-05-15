@@ -3,6 +3,7 @@ import './HeaderTop.scss';
 import { PageNavMain } from '../PageNavMain';
 import { PageNavIcons } from '../PageNavIcons';
 import { MenuToggleButton } from '../MenuToggleButton';
+import { Logo } from '../Logo';
 
 type Props = {
   isMenuOpened: boolean;
@@ -13,11 +14,9 @@ export const HeaderTop: React.FC<Props> = ({ isMenuOpened, onMenuOpen }) => {
   return (
     <nav className="header-top">
       <div className="header-top__main">
-        <img
-          className="header-top__logo"
-          src="./icons/Logo.svg"
-          alt="logo"
-        />
+        <div className="header-top__logo">
+          <Logo />
+        </div>
 
         {!isMenuOpened && (
           <div className="header-top__links">

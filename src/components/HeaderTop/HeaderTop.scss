@@ -1,10 +1,9 @@
 @import '../../styles/utils/vars';
 @import '../../styles/utils/mixins';
+@import '../../styles/utils/extends';
 
 .header-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  @extend %flexSpaceBetweenCenter;
   background: $colorWhite;
   box-shadow: 0 1px 0 $colorElements;
 
@@ -29,7 +28,8 @@
   }
 
   &__logo {
-    display: block;
+    display: flex;
+    align-items: center;
     width: 80px;
     margin-right: 32px;
     margin-left: 16px;

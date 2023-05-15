@@ -25,6 +25,7 @@ export const ArrowButton: React.FC<Props> = ({
           'arrow-button--is-long': isLong,
         },
       )}
+      disabled={isDisabled}
       onClick={onClick}
     />
   );

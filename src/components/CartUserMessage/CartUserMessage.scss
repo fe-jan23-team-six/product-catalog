@@ -1,0 +1,24 @@
+@import '../../styles/utils/extends';
+@import '../../styles/utils/vars';
+
+.user-message {
+  @extend %flexTechCharacteristics;
+  width: 100%;
+  align-items: center;
+
+  &__image {
+    margin-bottom: $marginBottomMiddle;
+  }
+
+  &__text {
+    width: 50%;
+    height: auto;
+
+    background: $colorBorder;
+    font-size: 16px;
+    line-height: 40px;
+    color: $colorBlack;
+    text-align: center;
+    letter-spacing: 4px;
+  }
+}
