@@ -6,6 +6,7 @@ import { ProductManageButtons } from '../ProductManage';
 import { PhoneMain } from '../../types/PhoneMain';
 
 import { FavouriteContext } from '../../contexts/FavouriteContext';
+import { CartContext } from '../../contexts/CartContext';
 
 type Props = {
   product: PhoneMain;
@@ -28,11 +29,14 @@ export const ProductCard: React.FC<Props> = ({
   } = product;
 
   const { toggleFavourite, isInFavourite } = useContext(FavouriteContext);
+  const { addToCart, isInCart } = useContext(CartContext);
 
   const isLiked = isInFavourite(product.id);
   const handleLike = () => (
     toggleFavourite(product)
   );
+
+  const handleAddToCart = () => addToCart(product);
 
   return (
     <div className="product-card">
@@ -76,9 +80,8 @@ export const ProductCard: React.FC<Props> = ({
       <ProductManageButtons
         isLiked={isLiked}
         onLike={handleLike}
-        // eslint-disable-next-line @typescript-eslint/no-empty-function
-        handleAddToCart={() => {}}
-        handleCheckIsInCart={() => false}
+        isInCart={isInCart(product.id)}
+        onCartAdd={handleAddToCart}
       />
     </div>
   );

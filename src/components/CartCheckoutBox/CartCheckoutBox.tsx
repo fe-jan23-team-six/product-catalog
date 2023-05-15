@@ -1,19 +1,13 @@
-import React, { useCallback, useMemo } from 'react';
+import React, { useCallback, useContext, useMemo } from 'react';
 import './CartCheckoutBox.scss';
 import { CartCheckoutButton } from '../CartCheckoutButton';
-import { CartEntity } from '../../types/CartEntity';
+import { CartContext } from '../../contexts/CartContext';
 
-type Props = {
-  cartStorage: CartEntity[];
-  // getAllFromCart: () => CartEntity[],
-}
+export const CartCheckoutBox: React.FC = () => {
+  const { cart } = useContext(CartContext);
 
-export const CartCheckoutBox: React.FC<Props> = ({
-  cartStorage,
-  // getAllFromCart,
-}) => {
   const computedAllCartPrices = useCallback(() => {
-    return cartStorage
+    return cart
       .reduce((
         sum,
         {
@@ -21,9 +15,9 @@ export const CartCheckoutBox: React.FC<Props> = ({
           priceRegular,
         },
       ) => sum + (quantity * priceRegular), 0);
-  }, [cartStorage]);
+  }, [cart]);
 
-  const itemsInCart = useMemo(() => cartStorage.length, [cartStorage]);
+  const itemsInCart = useMemo(() => cart.length, [cart]);
 
   return (
     <div className='cartCheckoutBox'>

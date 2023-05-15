@@ -1,31 +1,23 @@
 import React from 'react';
 import './CartList.scss';
 import { CartItem } from '../CartItem';
-import { CartEntity } from '../../types/CartEntity';
+import { CartItemType } from '../../types/CartItemType';
 
 type Props = {
-  cartStorage: CartEntity[];
-  editQuantity: (id: number, action: 'plus' | 'minus') => void;
-  removeFromCart: (id: number) => void;
+  cart: CartItemType[];
 }
 
 export const CartList: React.FC<Props> = ({
-  cartStorage,
-  editQuantity,
-  removeFromCart,
+  cart,
 }) => {
   return (
     <div className='cartList'>
-      {cartStorage.map((cartEntity) => {
-        return (
-          <CartItem
-            key={cartEntity.id}
-            cartEntity={cartEntity}
-            editQuantity={editQuantity}
-            removeFromCart={removeFromCart}
-          />
-        );
-      })
+      {cart.map((cartItem) => (
+        <CartItem
+          key={cartItem.id}
+          cartItem={cartItem}
+        />
+      ))
       }
     </div>
   );

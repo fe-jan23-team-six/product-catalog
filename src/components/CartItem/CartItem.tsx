@@ -1,18 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './CartItem.scss';
 import classNames from 'classnames';
-import { CartEntity } from '../../types/CartEntity';
+import { CartItemType } from '../../types/CartItemType';
+import { CartContext } from '../../contexts/CartContext';
+import { QuantityActionType } from '../../types/QuantityActionType';
 
 type Props = {
-  cartEntity: CartEntity;
-  editQuantity: (id: number, action: 'plus' | 'minus') => void;
-  removeFromCart: (id: number) => void;
+  cartItem: CartItemType;
 }
 
 export const CartItem: React.FC<Props> = ({
-  cartEntity,
-  editQuantity,
-  removeFromCart,
+  cartItem,
 }) => {
   const {
     id,
@@ -20,11 +18,13 @@ export const CartItem: React.FC<Props> = ({
     image,
     priceRegular,
     quantity,
-  } = cartEntity;
+  } = cartItem;
 
   const disabled = quantity === 1;
 
   const totalPrice = priceRegular * quantity;
+
+  const { removeFromCart, changeQuantity } = useContext(CartContext);
 
   return (
     <article className='cartItem'>
@@ -61,7 +61,7 @@ export const CartItem: React.FC<Props> = ({
                 { disabled },
               )}
               disabled={disabled}
-              onClick={() => editQuantity(id, 'minus')}
+              onClick={() => changeQuantity(id, QuantityActionType.MINUS)}
           >
             -
           </button>
@@ -74,7 +74,7 @@ export const CartItem: React.FC<Props> = ({
 
           <button
             className='cartItem__priceAmount_amount_button plus'
-            onClick={() => editQuantity(id, 'plus')}
+            onClick={() => changeQuantity(id, QuantityActionType.PLUS)}
           >
             +
           </button>
