@@ -1,8 +1,6 @@
 @import "../../../styles/utils";
 
 .pictures {
-  background-color: #000;
-
   @include onPhone {
     margin-bottom: 40px;
   }

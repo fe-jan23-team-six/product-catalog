@@ -1,68 +1,61 @@
 @import './../../styles/utils/vars';
+@import './../../styles/utils/extends';
 
-$itemHeight: 32px;
-$itemVerticalPadding: 4px;
-$indentAbs4px: calc($itemHeight + 2 * $itemVerticalPadding + 4px);
-
-.dropDown {
-  cursor: pointer;
-  transition: all $animationDuration ease-out;
-  border-color: $colorIcons;
-  border-style: solid;
-  color: $colorPrimary;
-  border-width: 1px;
-  height: calc($itemHeight + 2 * $itemVerticalPadding);
+.drop-down {
+  @extend %bodyText;
   position: relative;
-  display: flex;
-  align-items: center;
-  padding-left: 12px;
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 21px;
 
-  &::before {
-    position: absolute;
-    content: attr(data-dropdown-description);
-    font-family: inherit;
-    font-weight: 600;
-    font-size: 12px;
-    line-height: 15px;
-    color: $colorSecondary;
-    bottom: $indentAbs4px;
-    left: 0;
+  height: $dropDownHeight;
+  padding-left: $dropDownLeftPadding;
+  border: $dropDownBorder solid $colorIcons;
+
+  color: $colorPrimary;
+  transition: all $animationDuration ease-out;
+  cursor: pointer;
+
+  &__text {
+    height: 100%;
+    display: flex;
+    align-items: center;
   }
 
   &__menu {
-    box-sizing: border-box;
-    margin: 0;
+    display: block;
     position: absolute;
-    width: calc(100% + 2 * 1px);
-    left: -1px;
-    top: $indentAbs4px;
-    list-style: none;
-    background: #FFFFFF;
-    border: 1px solid #E2E6E9;
-    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.05);
-    padding: $itemVerticalPadding 0;
+    left: -$dropDownBorder;
 
-      &_item {
-        transition: all $animationDuration ease-out;
-        height: $itemHeight;
+    box-sizing: content-box;
+
+    width: 100%;
+    padding: 4px 0;
+    border: $dropDownBorder solid $colorElements;
+
+    background: $colorWhite;
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.05);
+
+    &--closed {
+      display: none;
+    }
+
+      &__item {
+        height: $idropDownIemHeight;
         display: flex;
         align-items: center;
-        padding-left: 12px;
+        padding-left: $dropDownLeftPadding;
         font-weight: 500;
-        color: $colorSecondary; /* Gray / Secondary */
+        color: $colorSecondary;
+        transition: all $animationDuration ease-out;
 
         &:hover {
           font-weight: inherit;
           color: inherit;
+          background-color: $colorHoverAndBG;
         }
       }
   }
 
   &:hover {
-    border-color: $colorSecondary;  /* Gray / Secondary */
+    border-color: $colorSecondary;
   }
 
   &:focus {
@@ -71,12 +64,13 @@ $indentAbs4px: calc($itemHeight + 2 * $itemVerticalPadding + 4px);
 
   &::after {
     position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+
     content: "";
     width: 10px;
     height: 6px;
-    top: 17px;
-    right: 15px;
-    bottom: 17px;
   }
 
   &:not(:focus)::after,  &:not(.clicked):focus::after {
@@ -85,6 +79,6 @@ $indentAbs4px: calc($itemHeight + 2 * $itemVerticalPadding + 4px);
 
   &.clicked:focus::after {
     background-image: url('../../../public/icons/dropDown_arrow.svg');
-    transform: rotate(180deg);
+    transform: translateY(-50%) rotate(180deg);
   }
 }

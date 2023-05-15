@@ -17,7 +17,7 @@ export const Root: React.FC = () => (
 
       <Route path="catalog">
         <Route index element={<CatalogPage />} />
-        <Route path=":productId" element={<DeviceDetailsPage />} />
+        <Route path=":productSlug" element={<DeviceDetailsPage />} />
       </Route>
 
       <Route

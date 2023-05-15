@@ -8,8 +8,8 @@ import {
 } from '../../../components/ProductDetails/ProductCapacityGroup';
 import { Phone } from '../../../types/phone/phone';
 import {
-  TechCharacteristicsItem,
-} from '../../../components/ProductDetails/TechCharacteristicsItem';
+  TechCharacteristics,
+} from '../../../components/ProductDetails/TechCharacteristics';
 
 type Props = {
   product: Phone,
@@ -20,13 +20,21 @@ export const DeviceDetailsSelector: React.FC<Props> = ({ product }) => {
     id,
     priceRegular,
     priceDiscount,
-    screen: screenSize,
+    screen,
     resolution,
     processor,
     ram,
     colorsAvailable,
     capacityAvailable,
   } = product;
+
+  const productCharacteristics = {
+    screen,
+    resolution,
+    processor,
+    ram,
+  };
+
   const hasDiscount = priceRegular !== priceDiscount;
 
   return (
@@ -82,24 +90,8 @@ export const DeviceDetailsSelector: React.FC<Props> = ({ product }) => {
         </div>
 
         <div className="selector__characteristics">
-          <TechCharacteristicsItem
-            characteristic='Screen'
-            details={screenSize}
-          />
-
-          <TechCharacteristicsItem
-            characteristic='Resolution'
-            details={resolution}
-          />
-
-          <TechCharacteristicsItem
-            characteristic='Processor'
-            details={processor}
-          />
-
-          <TechCharacteristicsItem
-            characteristic='RAM'
-            details={ram}
+          <TechCharacteristics
+            characteristics={productCharacteristics}
           />
         </div>
       </div>

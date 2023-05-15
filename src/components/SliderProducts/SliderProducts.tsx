@@ -93,11 +93,9 @@ export const SliderProducts: React.FC<Props> = ({ title, products }) => {
           return <ProductCard
             key={product.id}
             product={product}
-            nextRouteLink={`${CATALOG_PAGE}/${product.id}`}
-            handleAddToCart={handleAddToCart}
-            handleCheckIsInCart={handleCheckIsInCart}
-          />;
-        })}
+            nextRouteLink={`${CATALOG_PAGE}`}
+          />
+        ))}
       </Slider>
 
     </div>
