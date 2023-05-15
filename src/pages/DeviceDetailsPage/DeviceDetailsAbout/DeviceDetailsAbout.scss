@@ -1,22 +1,14 @@
-@import "../../../styles/utils";
+@import '../../../styles/utils/vars';
+@import '../../../styles/utils/extends';
+@import '../../../styles/utils/mixins';
 
 .about {
   &__title {
-    margin-bottom: 48px;
-    font-weight: 800;
-    font-size: 22px;
-    line-height: 140%;
-
-    color: #313237;
+    @extend %devicePageTitleSpecs;
   }
 
   &__title:after {
-    content: "";
-    display: block;
-    position: relative;
-    top: 16px;
-    height: 1px;
-    background-color: #e2e6e9;
+    @extend %devicePageTitleSpecsAfter;
   }
 
   &__details {
@@ -26,7 +18,7 @@
     gap: 32px;
 
     @include onTablet {
-      margin-bottom: 64px;
+      margin-bottom: $marginBottomBig;
     }
 
     @include onDesktop {
@@ -34,18 +26,16 @@
     }
 
     &__subtitle {
-      margin-bottom: 16px;
-      font-weight: 700;
+      margin-bottom: $marginBottomTheSmallest;
+      font-weight: $fontWeightBold;
       font-size: 20px;
       line-height: 26px;
-      color: #313237;
+      color: $colorPrimary;
     }
 
     &__text {
-      font-weight: 500;
-      font-size: 14px;
-      line-height: 21px;
-      color: #89939a;
+      @extend %bodyText;
+      color: $colorSecondary;
     }
   }
 }

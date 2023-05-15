@@ -1,5 +1,5 @@
-@import '../../styles/utils/mixins';
 @import '../../styles/utils/vars';
+@import '../../styles/utils/mixins';
 @import '../../styles/utils/extends';
 
 .footer {
@@ -50,7 +50,7 @@
   &__item {
     display: flex;
     align-items: center;
-    margin-bottom: 16px;
+    margin-bottom: $marginBottomTheSmallest;
 
     @include onTabletAndDesktop {
       margin: 0;
