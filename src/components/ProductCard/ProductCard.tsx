@@ -3,9 +3,7 @@ import { Link } from 'react-router-dom';
 import './ProductCard.scss';
 import { ProductManageButtons } from '../ProductManage';
 
-import { PhoneMain } from '../../types/phone/PhoneMain';
-
-import { useCartStorage } from './../../hooks/useCartStorage';
+import { PhoneMain } from '../../types/PhoneMain';
 
 import { FavouriteContext } from '../../contexts/FavouriteContext';
 
@@ -14,9 +12,11 @@ type Props = {
   nextRouteLink?: string;
 };
 
-export const ProductCard: React.FC<Props> = ({ product, nextRouteLink }) => {
+export const ProductCard: React.FC<Props> = ({
+  product,
+  nextRouteLink,
+}) => {
   const {
-    id,
     slug,
     name: phoneName,
     priceRegular,
@@ -27,20 +27,12 @@ export const ProductCard: React.FC<Props> = ({ product, nextRouteLink }) => {
     image,
   } = product;
 
-  const { addToCart, checkIsInCart } = useCartStorage();
   const { toggleFavourite, isInFavourite } = useContext(FavouriteContext);
 
   const isLiked = isInFavourite(product.id);
   const handleLike = () => (
     toggleFavourite(product)
   );
-
-  const handleAddToCart = product
-    ? () => addToCart(id, product)
-    : () => {
-      global.console.log('There should be adding');
-    };
-  const handleCheckIsInCart = () => checkIsInCart(id);
 
   return (
     <div className="product-card">
@@ -84,8 +76,9 @@ export const ProductCard: React.FC<Props> = ({ product, nextRouteLink }) => {
       <ProductManageButtons
         isLiked={isLiked}
         onLike={handleLike}
-        handleAddToCart={handleAddToCart}
-        handleCheckIsInCart={handleCheckIsInCart}
+        // eslint-disable-next-line @typescript-eslint/no-empty-function
+        handleAddToCart={() => {}}
+        handleCheckIsInCart={() => false}
       />
     </div>
   );

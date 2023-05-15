@@ -1,109 +1,83 @@
 import { useState, useEffect } from 'react';
+import { PhoneMain } from '../types/PhoneMain';
+import { CartEntity } from '../types/CartEntity';
 
-export type CartItem<P> = {
-  quantity: number;
-  product: P;
-};
-
-export type CartStorage<P> = Record<number, CartItem<P>>;
-
-export type CartActions<P> = {
-  addToCart: (id: number, product: P) => void;
-  removeFromCart: (id: number) => void;
-  editQuantity: (id: number, action: 'plus' | 'minus') => void;
-  getAllFromCart: () => CartStorage<P>;
-  clearCart: () => void;
-  checkIsInCart: (id: number) => boolean;
-  getFromCartById: (id: number) => CartItem<P> | undefined;
-};
-
-export const useCartStorage = <P extends object>(): CartActions<P> => {
-  const cart = localStorage.getItem('cartStorage');
-  const restored = JSON.parse(cart || `{}`);
+export const useCartStorage = () => {
+  const restored = localStorage.getItem('cartStorage');
+  const restoredCartArray = JSON.parse(restored || `[]`);
 
   const [
     cartStorage,
     setCartStorage,
-  ] = useState<CartStorage<P>>(restored || {});
-
-  useEffect(() => {
-    // Check if cartStorage is already set
-    if (Object.keys(cartStorage).length === 0) {
-      const storedCart = localStorage.getItem('cartStorage');
-
-      if (storedCart) {
-        setCartStorage(JSON.parse(storedCart));
-      }
-    }
-  }, [cartStorage]);
+  ] = useState<CartEntity[]>(restoredCartArray || []);
 
   useEffect(() => {
     localStorage.setItem('cartStorage', JSON.stringify(cartStorage));
   }, [cartStorage]);
 
-  const addToCart = (id: number, product: P): void => {
-    global.console.log(id);
+  const addToCart = (product: PhoneMain) => {
+    const existingItem = cartStorage.find((item) => item.id === product.id);
 
-    setCartStorage((prevCartStorage) => {
-      const updatedCartStorage = { ...prevCartStorage };
-
-      global.console.log(prevCartStorage);
-
-      updatedCartStorage[id] = {
-        quantity: 1,
-        product,
-      };
-
-      return updatedCartStorage;
-    });
+    if (!existingItem) {
+      setCartStorage((prevState) => [
+        ...prevState,
+        {
+          id: product.id,
+          category: product.category,
+          name: product.name,
+          image: product.image,
+          priceDiscount: product.priceDiscount,
+          priceRegular: product.priceRegular,
+          quantity: 1,
+          totalDiscount: product.priceDiscount,
+          totalPrice: product.priceRegular,
+        },
+      ]);
+    }
   };
 
-  const removeFromCart = (id: number): void => {
-    setCartStorage((prevCartStorage) => {
-      const updatedCartStorage = { ...prevCartStorage };
-
-      delete updatedCartStorage[id];
-
-      return updatedCartStorage;
-    });
+  const removeFromCart = (id: number) => {
+    setCartStorage((prevState) => prevState.filter((item) => item.id !== id));
   };
 
-  const editQuantity = (id: number, action: 'plus' | 'minus'): void => {
-    setCartStorage((prevCartStorage) => {
-      const updatedCartStorage = { ...prevCartStorage };
-      const item = updatedCartStorage[id];
+  const editQuantity = (id: number, action: 'plus' | 'minus') => {
+    setCartStorage((prevState) =>
+      prevState.map((item) => {
+        if (item.id === id) {
+          const newQuantity = action === 'plus'
+            ? item.quantity + 1
+            : item.quantity - 1;
 
-      if (item) {
-        const targetQuantity = action === 'plus'
-          ? item.quantity + 1
-          : item.quantity - 1;
-
-        if (targetQuantity >= 0) {
-          updatedCartStorage[id] = { ...item, quantity: targetQuantity };
+          return {
+            ...item,
+            quantity: newQuantity,
+            totalDiscount: item.priceDiscount * newQuantity,
+            totalPrice: item.priceRegular * newQuantity,
+          };
         }
-      }
 
-      return updatedCartStorage;
-    });
+        return item;
+      }));
   };
 
-  const getAllFromCart = (): CartStorage<P> => {
+  const getAllFromCart = (): CartEntity[] => {
     return cartStorage;
   };
 
-  const clearCart = (): void => {
-    setCartStorage({});
+  const clearCart = () => {
+    localStorage.removeItem('cartStorage');
+    setCartStorage([]);
   };
 
   const checkIsInCart = (id: number): boolean => {
-    return Boolean(cartStorage[id]);
+    return cartStorage.some((item) => item.id === id);
   };
 
-  const getFromCartById = (id: number): CartItem<P> | undefined => {
-    return cartStorage[id];
+  const getFromCartById = (id: number): CartEntity | undefined => {
+    return cartStorage.find((item) => item.id === id);
   };
 
-  const cartActions: CartActions<P> = {
+  return {
     addToCart,
     removeFromCart,
     editQuantity,
@@ -112,6 +86,4 @@ export const useCartStorage = <P extends object>(): CartActions<P> => {
     checkIsInCart,
     getFromCartById,
   };
-
-  return cartActions;
 };

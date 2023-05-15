@@ -1,5 +1,5 @@
 import React, { useMemo, useCallback } from 'react';
-import { PhoneMain } from '../types/phone/PhoneMain';
+import { PhoneMain } from '../types/PhoneMain';
 import { useFavouriteStorage } from '../hooks/useFavouriteStorage';
 
 type FavouriteContextType = {

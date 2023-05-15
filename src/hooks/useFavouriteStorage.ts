@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { PhoneMain } from '../types/phone/PhoneMain';
+import { PhoneMain } from '../types/PhoneMain';
 import { useDidUpdateEffect } from './useDidUpdateEffect';
 import {
   LOCAL_STORAGE_FAVOURITE_KEY as favouriteKey,
