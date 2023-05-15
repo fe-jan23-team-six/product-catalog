@@ -9,6 +9,7 @@ import { ProductCard } from '../ProductCard';
 import { ArrowButton } from '../ArrowButton';
 import { PhoneMain } from '../../types/phone/PhoneMain';
 import { CATALOG_PAGE } from '../../utils/constants/route';
+import { useCartStorage } from './../../hooks/useCartStorage';
 
 interface Props {
   title?: string,
@@ -18,6 +19,7 @@ interface Props {
 export const SliderProducts: React.FC<Props> = ({ title, products }) => {
   const [noSlide, setNoSlide] = useState<number>(0);
   const sliderRef = useRef<Slider>(null);
+  const { addToCart, checkIsInCart } = useCartStorage();
 
   const settings: Settings = {
     dots: false,
@@ -79,13 +81,23 @@ export const SliderProducts: React.FC<Props> = ({ title, products }) => {
         {...settings}
       >
 
-        {products.map(product => (
-          <ProductCard
+        {products.map(product => {
+          const handleAddToCart = product
+            ? () => addToCart(product)
+            : () => {
+              global.console.log('There should be adding');
+            };
+
+          const handleCheckIsInCart = () => checkIsInCart(product.id);
+
+          return <ProductCard
             key={product.id}
             product={product}
             nextRouteLink={`${CATALOG_PAGE}/${product.id}`}
-          />
-        ))}
+            handleAddToCart={handleAddToCart}
+            handleCheckIsInCart={handleCheckIsInCart}
+          />;
+        })}
       </Slider>
 
     </div>

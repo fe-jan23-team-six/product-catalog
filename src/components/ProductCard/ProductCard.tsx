@@ -6,14 +6,19 @@ import { ProductManageButtons } from '../ProductManage';
 
 import { PhoneMain } from '../../types/phone/PhoneMain';
 
-import { useCartStorage } from './../../hooks/useCartStorage';
-
 type Props = {
   product: PhoneMain;
   nextRouteLink?: string;
+  handleAddToCart: () => void;
+  handleCheckIsInCart: () => boolean;
 };
 
-export const ProductCard: React.FC<Props> = ({ product, nextRouteLink }) => {
+export const ProductCard: React.FC<Props> = ({
+  product,
+  nextRouteLink,
+  handleAddToCart,
+  handleCheckIsInCart,
+}) => {
   const {
     id,
     name: phoneName,
@@ -24,15 +29,6 @@ export const ProductCard: React.FC<Props> = ({ product, nextRouteLink }) => {
     ram,
     image,
   } = product;
-
-  const { addToCart, checkIsInCart } = useCartStorage();
-
-  const handleAddToCart = product
-    ? () => addToCart(id, product)
-    : () => {
-      global.console.log('There should be adding');
-    };
-  const handleCheckIsInCart = () => checkIsInCart(id);
 
   return (
     <div className="product-card">

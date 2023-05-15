@@ -1,22 +1,16 @@
 import React from 'react';
 import './CartItem.scss';
 import classNames from 'classnames';
-
-import { Phone } from '../../types/phone/Phone';
-// import {
-//   CartItem as CartStorageItem,
-// } from './../../hooks/useCartStorage';
+import { CartEntity } from '../../types/CartEntity';
 
 type Props = {
-  cartStorageItem: Phone;
-  quantity: number,
+  cartEntity: CartEntity;
   editQuantity: (id: number, action: 'plus' | 'minus') => void;
   removeFromCart: (id: number) => void;
 }
 
 export const CartItem: React.FC<Props> = ({
-  cartStorageItem,
-  quantity,
+  cartEntity,
   editQuantity,
   removeFromCart,
 }) => {
@@ -25,7 +19,8 @@ export const CartItem: React.FC<Props> = ({
     name: phoneName,
     image,
     priceRegular,
-  } = cartStorageItem;
+    quantity,
+  } = cartEntity;
 
   const disabled = quantity === 1;
 

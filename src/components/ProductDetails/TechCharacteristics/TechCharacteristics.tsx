@@ -1,5 +1,5 @@
 import React from 'react';
-import { Phone } from '../../../types/phone/Phone';
+import { Phone } from '../../../types/phone/phone';
 import { TechCharacteristicsItem } from '../TechCharacteristicsItem';
 
 type Props = {

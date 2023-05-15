@@ -1,6 +1,6 @@
 import { client } from './fetchingClient';
+import { Phone } from '../../types/phone/phone';
 import { PhoneMain } from '../../types/phone/PhoneMain';
-import { Phone } from '../../types/phone/Phone';
 
 const PHONES_ENDPOINT = '/products/';
 

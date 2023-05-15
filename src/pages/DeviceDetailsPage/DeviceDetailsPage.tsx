@@ -9,7 +9,7 @@ import { DeviceDetailsSpecs } from './DeviceDetailsSpecs';
 import { SliderProducts } from '../../components/SliderProducts';
 import { DataLoader } from '../../components/DataLoader';
 
-import { Phone } from '../../types/phone/Phone';
+import { Phone } from '../../types/phone/phone';
 import { PhoneMain } from '../../types/phone/PhoneMain';
 import { getById, getPhones } from '../../utils/api/phones';
 

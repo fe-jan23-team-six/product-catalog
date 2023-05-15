@@ -2,7 +2,7 @@ import React from 'react';
 import './CartPage.scss';
 import './../../styles/utils/_typography.scss';
 import { CartList } from '../../components/CartList';
-// import { CartCheckoutBox } from '../../components/CartCheckoutBox';
+import { CartCheckoutBox } from '../../components/CartCheckoutBox';
 
 import { useCartStorage } from './../../hooks/useCartStorage';
 
@@ -11,10 +11,12 @@ export const CartPage = () => {
     removeFromCart,
     editQuantity,
     getAllFromCart,
-    // clearCart,
   } = useCartStorage();
 
-  const cartStorage = Object.values(getAllFromCart());
+  const cartStorage = getAllFromCart();
+
+  // eslint-disable-next-line no-console
+  console.log(cartStorage);
 
   return (
     <div className="cartPage">
@@ -26,7 +28,11 @@ export const CartPage = () => {
           editQuantity={editQuantity}
           removeFromCart={removeFromCart}
         />
-    {/* <CartCheckoutBox cartStorage={cartStorage} clearCart={clearCart} /> */}
+
+        <CartCheckoutBox
+          cartStorage={cartStorage}
+          // getAllFromCart={getAllFromCart}
+        />
       </section>
     </div>
   );

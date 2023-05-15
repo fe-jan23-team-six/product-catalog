@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import { getById, getPhones } from '../../utils/api/phones';
 
-import { Phone } from '../../types/phone/Phone';
+import { Phone } from '../../types/phone/phone';
 import { PhoneMain } from '../../types/phone/PhoneMain';
 
 import './HomePage.scss';
