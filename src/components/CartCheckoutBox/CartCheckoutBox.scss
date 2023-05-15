@@ -1,28 +1,33 @@
 @import './../../styles/utils/extends';
 @import './../../styles/utils/vars';
+@import './../../styles/utils/mixins';
 
 .cartCheckoutBox {
   border: 1px solid $colorElements;
+  @extend %flexColumnCenter;
+  padding: 24px ;
 
-  display: flex;
-  flex-direction: column;
+  &__head {
+    width: 100%;
+    @extend %flexColumnCenter;
 
-  align-items: center;
+    &_mainValue {
+      line-height: 41px;
+      color: $colorPrimary;
 
-  &__mainValue {
-    font-weight: 800;
-    font-size: 32px;
-    line-height: 41px;
-    color: $colorPrimary;
-
-    &::before {
-      content: '$';
+      &::before {
+        content: '$';
+      }
     }
-  }
 
-  &__itemsTotal {
-    @extend %buttonText;
+    &_itemsTotal {
+      @extend %buttonText;
 
-    color: $colorSecondary;
+      color: $colorSecondary;
+    }
+
+    padding-bottom: 16px;
+    border-bottom: 1px solid $colorElements;
+    margin-bottom: 16px;
   }
 }
