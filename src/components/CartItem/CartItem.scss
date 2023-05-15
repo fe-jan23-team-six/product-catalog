@@ -6,27 +6,29 @@
   width: 100%;
   border: 1px solid $colorElements;
 
+  justify-content: space-between;
+
   padding: 16px 16px 16px 0;
 
   @include onTabletAndDesktop {
     padding: 24px 24px 24px 0;
+
+    display: flex;
+    align-items: center;
+    gap: 24px;
   }
 
   &__head {
-    height: 80px;
     display: flex;
-    // justify-content: space-between;
 
     &_remove {
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
 
       width: 48px;
 
-      @include onTabletAndDesktop {
-        width: 64px;
-      }
 
       &_button {
         color: transparent;
@@ -34,11 +36,14 @@
         width: 10px;
         height: 10px;
         background-size: contain;
+        margin: auto 19px;
       }
     }
 
     &_phone {
+      height: 80px;
       display: flex;
+      align-items: center;
       gap: 16px;
 
       @include onTabletAndDesktop {
@@ -46,18 +51,39 @@
       }
 
       &_image {
-        width: 80px;
-        height: auto;
+        max-width: 100%;
+        min-width: 80px;
+        display: flex;
+        justify-content: center;
+
+        &_img {
+          width: auto;
+          height: 66px;
+          margin: 7px;
+        }
       }
 
       &_name {
         color: $colorPrimary;
+
+        align-self: start;
+        margin-top: 8.5px;
+
+        @include onTabletAndDesktop {
+          gap: 24px;
+          align-self: center;
+        }
 
         @extend %bodyText;
       }
     }
 
     margin-bottom: $marginBottomTheSmallest;
+
+    @include onTabletAndDesktop {
+      align-items: center;
+      margin-bottom: 0;
+    }
   }
 
   &__priceAmount {
@@ -69,10 +95,13 @@
     padding-left: 16px;
 
     @include onTabletAndDesktop {
-      padding-left: 24px;
+      display: flex;
+      align-items: center;
+      gap: 24px;
     }
 
     &_amount {
+      width: 96px;
 
       &_amount {
         display: inline-flex;
@@ -113,9 +142,14 @@
 
     &_price {
       color: $colorPrimary;
+      text-align: right;
 
       &::before {
         content: '$';
+      }
+
+      @include onTabletAndDesktop {
+        width: 80px;
       }
     }
   }

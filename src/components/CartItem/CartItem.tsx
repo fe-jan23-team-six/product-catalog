@@ -39,13 +39,15 @@ export const CartItem: React.FC<Props> = ({
         </div>
 
         <div className='cartItem__head_phone'>
-          <img
-            className='cartItem__head_cartItem__head_phone_image'
-            src={image}
-            alt={phoneName}
-          />
+          <div className='cartItem__head_phone_image'>
+            <img
+              className='cartItem__head_phone_image_img'
+              src={image}
+              alt={phoneName}
+            />
+          </div>
 
-          <p className='cartItem__head_cartItem__head_phone_name bodyText'>
+          <p className='cartItem__head_phone_name bodyText'>
             {phoneName}
           </p>
         </div>

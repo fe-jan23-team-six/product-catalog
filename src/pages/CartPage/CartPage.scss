@@ -1,5 +1,6 @@
 @import './../../styles/utils/mixins';
 @import './../../styles/utils/vars';
+@import './../../styles/utils/extends';
 
 .cartPage {
   display: flex;
@@ -31,6 +32,17 @@
 
     @include onDesktop {
       flex-direction: row;
+    }
+  }
+
+  .userMessage {
+    @extend %flexTechCharacteristics;
+    width: 100%;
+    align-items: center;
+    &__text {
+      @extend %userMessage;
+      text-align: center;
+      letter-spacing: 4px;
     }
   }
 }
