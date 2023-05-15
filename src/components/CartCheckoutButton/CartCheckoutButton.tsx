@@ -1,15 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import classNames from 'classnames';
 import './CartCheckoutButton.scss';
-
-import { useCartStorage } from './../../hooks/useCartStorage';
-
-// type Props = {
-//   clearCart: () => void;
-// }
+import { CartContext } from '../../contexts/CartContext';
 
 export const CartCheckoutButton: React.FC = () => {
-  const { clearCart } = useCartStorage();
+  const { clearCart } = useContext(CartContext);
+
   const handleCheckoutButtonClick = () => {
     if (
       confirm('Checkout is not implemented yet. Do you want to clear the Cart?')

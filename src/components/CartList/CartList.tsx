@@ -4,25 +4,19 @@ import { CartItem } from '../CartItem';
 import { CartEntity } from '../../types/CartEntity';
 
 type Props = {
-  cartStorage: CartEntity[];
-  editQuantity: (id: number, action: 'plus' | 'minus') => void;
-  removeFromCart: (id: number) => void;
+  cart: CartEntity[];
 }
 
 export const CartList: React.FC<Props> = ({
-  cartStorage,
-  editQuantity,
-  removeFromCart,
+  cart,
 }) => {
   return (
     <div className='cartList'>
-      {cartStorage.map((cartEntity) => {
+      {cart.map((cartItem) => {
         return (
           <CartItem
-            key={cartEntity.id}
-            cartEntity={cartEntity}
-            editQuantity={editQuantity}
-            removeFromCart={removeFromCart}
+            key={cartItem.id}
+            cartEntity={cartItem}
           />
         );
       })
