@@ -8,6 +8,22 @@ export const getPhones = () => {
   return client.get<PhoneMain[]>(PHONES_ENDPOINT);
 };
 
+export const getTotalAmount = () => {
+  const response = client.get<{'amount': 'string'}>(PHONES_ENDPOINT + 'amount');
+
+  return response;
+};
+
+export const getPhonesPage = (
+  page = 1,
+  limit = 16,
+  sort = 'default',
+) => {
+  const query = `?page=${page}&limit=${limit}&sort=${sort}`;
+
+  return client.get<PhoneMain[]>(PHONES_ENDPOINT + query);
+};
+
 export const getById = (phoneId: number) => {
   const url = PHONES_ENDPOINT + phoneId;
 
