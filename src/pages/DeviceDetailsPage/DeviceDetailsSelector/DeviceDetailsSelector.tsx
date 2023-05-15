@@ -71,7 +71,10 @@ export const DeviceDetailsSelector: React.FC<Props> = ({ product }) => {
         <div
           className="capacities"
         >
-          <ProductCapacityGroup capacities={capacityAvailable} />
+          <ProductCapacityGroup
+            capacities={capacityAvailable}
+            product={product}
+          />
         </div>
       </div>
 

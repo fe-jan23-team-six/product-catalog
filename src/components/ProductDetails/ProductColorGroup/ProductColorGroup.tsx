@@ -1,6 +1,6 @@
 import React from 'react';
 import { ColoredButton } from '../ColoredButton';
-import { Phone } from '../../../types/phone/Phone';
+import { Phone } from '../../../types/Phone';
 
 type Props = {
   colors: Array<string>,

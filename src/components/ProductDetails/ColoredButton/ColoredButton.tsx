@@ -3,12 +3,10 @@ import classNames from 'classnames';
 import './ColoredButton.scss';
 import { getColorOfDevice } from '../../../utils/helpers/helpers';
 import { Link } from 'react-router-dom';
-import { Phone } from '../../../types/phone/Phone';
+import { Phone } from '../../../types/Phone';
 
 type Props = {
-  deviceColor: string;
-  /* isSelected: boolean,
-  onSelect: (color: string) => void; */
+  deviceColor: string,
   product: Phone,
 }
 
