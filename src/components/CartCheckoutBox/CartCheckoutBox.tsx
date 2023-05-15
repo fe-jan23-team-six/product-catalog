@@ -21,15 +21,17 @@ export const CartCheckoutBox: React.FC = () => {
 
   return (
     <div className='cartCheckoutBox'>
-      <div className="cartCheckoutBox__mainValue">
-        {computedAllCartPrices()}
-      </div>
+      <section className="cartCheckoutBox__head">
+        <h2 className="cartCheckoutBox__head_mainValue">
+          {computedAllCartPrices()}
+        </h2>
 
-      <p className="cartCheckoutBox__itemsTotal">
-        {'Total for '}
-        {itemsInCart}
-        {' items'}
-      </p>
+        <p className="cartCheckoutBox__head_itemsTotal">
+          {'Total for '}
+          {itemsInCart}
+          {' items'}
+        </p>
+      </section>
 
       <CartCheckoutButton />
     </div>
