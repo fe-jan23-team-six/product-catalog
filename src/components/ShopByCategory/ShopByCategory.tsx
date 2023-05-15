@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { TypeCatalogContent } from '../../types/TypeCatalogContent';
 import { CategoryLink } from '../CategoryLink';
-import { getPhones } from '../../utils/api/phones';
+import { getAmountPhones } from '../../utils/api/phones';
 import './ShopByCategory.scss';
 import { useDataFetcher } from '../../hooks/useDataFetcher';
 import { DataLoader } from '../DataLoader';
@@ -24,31 +24,31 @@ export const ShopByCategory: React.FC = () => {
   const [accessoriesFetchStatus, fetchAccessories] = useDataFetcher();
 
   useEffect(() => {
-    fetchPhones(() => getPhones().then(response => {
+    fetchPhones(() => getAmountPhones().then(res => {
       setAmountThings(prev => {
         const copyAmount = { ...prev };
 
-        copyAmount.phones = response.length;
+        copyAmount.phones = res.amount;
 
         return copyAmount;
       });
     }));
 
-    fetchTablets(() => getPhones().then(response => {
+    fetchTablets(() => getAmountPhones().then(res => {
       setAmountThings(prev => {
         const copyAmount = { ...prev };
 
-        copyAmount.tablets = response.length;
+        copyAmount.tablets = res.amount;
 
         return copyAmount;
       });
     }));
 
-    fetchAccessories(() => getPhones().then(response => {
+    fetchAccessories(() => getAmountPhones().then(res => {
       setAmountThings(prev => {
         const copyAmount = { ...prev };
 
-        copyAmount.accessories = response.length;
+        copyAmount.accessories = res.amount;
 
         return copyAmount;
       });
