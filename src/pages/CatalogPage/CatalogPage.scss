@@ -9,6 +9,11 @@
     margin-bottom: 8px;
   }
 
+  &__content {
+    display: flex;
+    flex-direction: column;
+  }
+
   &__subtitle {
     margin-bottom: $marginBottomMiddle;
     color: $colorSecondary;
@@ -64,10 +69,7 @@
   }
 
   &__pagination-pannel {
+    // flex-grow: 1;
     align-self: center;
   }
-}
-
-.isLoading {
-  visibility: hidden;
 }

@@ -8,15 +8,35 @@ import { useDataFetcher } from '../../hooks/useDataFetcher';
 import { PhoneMain } from '../../types/PhoneMain';
 import { getPhonesPage, getTotalAmount } from '../../utils/api/phones';
 import { useSearchParams } from 'react-router-dom';
-import classNames from 'classnames';
+
+import { useDidUpdateEffect } from '../../hooks/useDidUpdateEffect';
+
+import { DropDown } from '../../components/DropDown';
 
 export const CatalogPage: React.FC = () => {
   const [products, setProducts] = useState<PhoneMain[]>([]);
   const [totalAmount, setTotalAmount] = useState('');
-  const [isTotalLoading, setIsTotalLoading] = useState(true);
-  const [productsFetchStatus, fetchProducts] = useDataFetcher();
+  const [fetchProductsAndAmountStatus, , fetchAll] = useDataFetcher();
 
   const [searchParams, setSearchParams] = useSearchParams();
+
+  const [currentSort, setCurrentSort] = useState(
+    searchParams.get('sort') || 'alphabetically',
+  );
+  const [currentPerPage, setCurrentPerPage] = useState(
+    searchParams.get('limit') || '16',
+  );
+
+  useEffect(() => {
+    searchParams.set('sort', currentSort.toLowerCase());
+    setSearchParams(searchParams);
+  }, [currentSort]);
+
+  useEffect(() => {
+    searchParams.set('limit', currentPerPage.toLowerCase());
+    setSearchParams(searchParams);
+  }, [currentPerPage]);
+
   const page = searchParams.get('page') || '1';
   const limit = searchParams.get('limit') || '16';
   const sort = searchParams.get('sort') || 'alphabetically';
@@ -46,84 +66,97 @@ export const CatalogPage: React.FC = () => {
     setSearchParams(searchParams);
   };
 
-  useEffect(() => {
-    fetchProducts(() => {
-      return getPhonesPage(+page, +limit, sort)
-        .then(setProducts);
-    });
-  }, [page, limit, sort]);
+  useDidUpdateEffect(() => {
+    const handleProductsFetch = () => (
+      getPhonesPage(+page, +limit, sort).then(setProducts)
+    );
 
-  useEffect(() => {
-    getTotalAmount()
-      .then((data) => [setTotalAmount(data.amount), setIsTotalLoading(false)]);
-  }, [totalAmount]);
+    const handleAmountFetch = totalAmount === ''
+      ? () => getTotalAmount().then(({ amount }) => setTotalAmount(amount))
+      : () => Promise.resolve();
+
+    fetchAll([
+      handleProductsFetch,
+      handleAmountFetch,
+    ]);
+  }, [page, limit, sort]);
 
   return (
     <div className="catalog-page">
-      <h1>
+      <h1 className="catalog-page__title">
         Mobile Phones
       </h1>
 
-      <section
-        className={classNames(
-          'bodyText catalog-page__subtitle',
-          { 'isLoading': isTotalLoading },
-        )}
-      >
-        {`${totalAmount} models`}
-      </section>
-
-      <section className="catalog-page__dropdown-block">
-        <div
-          className="catalog-page__dropdown-left catalog-page__dropdown-item"
-        >
-          <select
-            onChange={handleChangeLimit}
-            value={limit}
+      <div className="catalog-page__content">
+        <DataLoader fetchStatus={fetchProductsAndAmountStatus}>
+          <section
+            className="bodyText catalog-page__subtitle"
           >
-            <option value="4">4</option>
-            <option value="8">8</option>
-            <option value="16">16</option>
-          </select>
+            {`${totalAmount} models`}
+          </section>
 
-          <select
-            onChange={handleChangeSort}
-            value={sort}
+          <section className="catalog-page__dropdown-block">
+            <div
+              className="catalog-page__dropdown-left
+              catalog-page__dropdown-item"
+            >
+              <select
+                onChange={handleChangeLimit}
+                value={limit}
+              >
+                <option value="4">4</option>
+                <option value="8">8</option>
+                <option value="16">16</option>
+              </select>
+
+              <select
+                onChange={handleChangeSort}
+                value={sort}
+              >
+                <option value="newest">Newest</option>
+                <option value="alphabetically">Alphabetically</option>
+                <option value="price-lowest">Cheapest</option>
+              </select>
+
+              <DropDown
+                optionList={['4', '8', '16']}
+                selectedOption={currentPerPage}
+                setSelectedOption={setCurrentPerPage}
+                description='Something'
+              />
+            </div>
+
+            <div
+              className="catalog-page__dropdown-right
+              catalog-page__dropdown-item"
+            >
+              <DropDown
+                optionList={['newest', 'alphabetically', 'price-lowest']}
+                selectedOption={currentSort}
+                setSelectedOption={setCurrentSort}
+                description='Something'
+              />
+            </div>
+          </section>
+
+          <section className="catalog-page__product-list">
+            <ProductList products={products} />
+          </section>
+
+          <section
+            className="catalog-page__pagination-pannel"
           >
-            <option value="newest">Newest</option>
-            <option value="alphabetically">Alphabetically</option>
-            <option value="price-lowest">Cheapest</option>
-          </select>
-        </div>
-
-        <div
-          className="catalog-page__dropdown-right catalog-page__dropdown-item"
-        >
-        {/* Custom dropdown was here */}
-        </div>
-      </section>
-
-      <section className="catalog-page__product-list">
-        <DataLoader fetchStatus={productsFetchStatus}>
-          <ProductList products={products} />
+            <PaginationPannel
+              handleChangePage={handleChangePage}
+              handlePrevPage={handlePrevPage}
+              handleNextPage={handleNextPage}
+              page={+page}
+              limit={+limit}
+              totalAmmount={+totalAmount}
+            />
+          </section>
         </DataLoader>
-      </section>
-
-      <section
-        className={classNames(
-          'catalog-page__pagination-pannel',
-          { 'isLoading': isTotalLoading },
-        )}
-      >
-        <PaginationPannel
-          handleChangePage={handleChangePage}
-          handlePrevPage={handlePrevPage}
-          handleNextPage={handleNextPage}
-          page={+page}
-          limit={+limit}
-          totalAmmount={+totalAmount}
-        />
-      </section>
+      </div>
     </div>
   );
 };
