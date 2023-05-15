@@ -9,8 +9,8 @@ import { DeviceDetailsSpecs } from './DeviceDetailsSpecs';
 import { SliderProducts } from '../../components/SliderProducts';
 import { DataLoader } from '../../components/DataLoader';
 
-import { Phone } from '../../types/phone/phone';
-import { PhoneMain } from '../../types/phone/PhoneMain';
+import { Phone } from '../../types/Phone';
+import { PhoneMain } from '../../types/PhoneMain';
 import { getBySlug, getPhones } from '../../utils/api/phones';
 
 import { Breadcrumbs } from '../../components/Breadcrumbs';
