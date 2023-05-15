@@ -1,7 +1,8 @@
 @import './vars';
+@import './mixins';
 
 %upperCase {
-  font-weight: 700;
+  font-weight: $fontWeightBold;
   font-size: 12px;
   line-height: 11px;
   letter-spacing: 0.04em;
@@ -9,19 +10,19 @@
 }
 
 %buttonText {
-  font-weight: 600;
+  font-weight: $fontWeightSemiBold;
   font-size: 14px;
   line-height: 21px;
 }
 
 %bodyText {
-  font-weight: 500;
+  font-weight: $fontWeightRegular;
   font-size: 14px;
   line-height: 21px;
 }
 
 %smallText {
-  font-weight: 600;
+  font-weight: $fontWeightSemiBold;
   font-size: 12px;
   line-height: 15px;
 }
@@ -48,4 +49,55 @@
   font-size: 16px;
   line-height: 24px;
   color: $colorBlack;
+=======
+%devicePageTitleSpecs {
+  margin-bottom: 48px;
+  font-weight: $fontWeightBlack;
+  font-size: 22px;
+  line-height: 31px;
+  color: $colorPrimary;
+}
+
+%devicePageTitleSpecsAfter {
+  content: "";
+  display: block;
+  position: relative;
+  top: 16px;
+  height: 1px;
+  background-color: $colorElements;
+}
+
+%devicePageProductId {
+  display: none;
+  float: right;
+  font-weight: $fontWeightBold;
+  font-size: 12px;
+  line-height: 15px;
+  text-align: right;  
+  color: $colorIcons;
+}
+
+%devicePageAboutMargins {
+  margin-bottom: 56px;
+
+  @include onTablet {
+    margin-bottom: $marginBottomBig;
+  }
+
+  @include onDesktop {
+    margin-bottom: $marginBottomTheBiggest;
+  }
+}
+
+%devicePageSelectors {
+  display: flex;
+  gap: 8px;
+  margin-bottom: $marginBottomSmall;
+}
+
+%devicePageSelectorsAfter {
+  content: "";
+  display: block;
+  height: 1px;
+  background-color: $colorElements;
 }

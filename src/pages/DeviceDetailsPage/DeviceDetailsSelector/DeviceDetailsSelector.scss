@@ -1,5 +1,6 @@
-@import "../../../styles/utils";
 @import '../../../styles/utils/extends';
+@import '../../../styles/utils/vars';
+@import '../../../styles/utils/mixins';
 
 .selector {
   display: flex;
@@ -7,21 +8,12 @@
 
   &__title {
     margin-bottom: 8px;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 12px;
-    line-height: 15px;
-    color: #89939a;
+    @extend %smallText;
+    color: $colorSecondary;
   }
 
   &__id {
-    display: none;
-    float: right;
-    font-weight: 700;
-    font-size: 12px;
-    line-height: 15px;
-    text-align: right;  
-    color: #b4bdc4;
+    @extend %devicePageProductId;
 
     @include onPhoneAndTablet {
       display: inline-block;
@@ -29,7 +21,7 @@
   }
 
   &__colours {
-    margin-bottom: 24px;
+    margin-bottom: $marginBottomSmall;
 
     &__text {
       display: flex;
@@ -38,10 +30,7 @@
   }
 
   &__colours:after {
-    content: "";
-    display: block;
-    height: 1px;
-    background-color: #e2e6e9;
+    @extend %devicePageSelectorsAfter;
   }
 
   &__capacity {
@@ -49,34 +38,31 @@
   }
 
   &__capacity:after {
-    content: "";
-    display: block;
-    height: 1px;
-    background-color: #e2e6e9;
+    @extend %devicePageSelectorsAfter;
   }
 
   &__price {
     display: flex;
     align-items: center;
     gap: 8px;
-    margin-bottom: 16px;
+    margin-bottom: $marginBottomTheSmallest;
 
     &__current {  
-      font-weight: 800;
+      font-weight: $fontWeightBlack;
       font-size: 32px;
       line-height: 41px;
       letter-spacing: -0.01em;
   
-      color: #313237;
+      color: $colorPrimary;
     }
   
     &__old {
-      font-weight: 500;
+      font-weight: $fontWeightRegular;
       font-size: 22px;
       line-height: 28px;
       text-decoration-line: line-through;
       
-      color: #89939a;
+      color: $colorSecondary;
     }
   }
 
@@ -91,13 +77,9 @@
 }
 
 .colours {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 24px;
+  @extend %devicePageSelectors;
 }
 
 .capacities {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 24px;
+  @extend %devicePageSelectors;
 }

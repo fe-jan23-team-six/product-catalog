@@ -1,5 +1,5 @@
 @import './../../styles/utils/vars';
-@import './../../styles/utils/extends';
+@import '../../styles/utils/extends';
 
 .drop-down {
   @extend %bodyText;
@@ -42,7 +42,7 @@
         display: flex;
         align-items: center;
         padding-left: $dropDownLeftPadding;
-        font-weight: 500;
+        font-weight: $fontWeightRegular;
         color: $colorSecondary;
         transition: all $animationDuration ease-out;
 

@@ -1,8 +1,10 @@
+@import '../../styles/utils/vars';
+
 .favourite-page {
   height: 100%;
 
   &__breadcrumbs {
-    margin-bottom: 24px;
+    margin-bottom: $marginBottomSmall;
   }
 
   &__title {

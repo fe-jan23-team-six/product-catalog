@@ -78,7 +78,7 @@
       }
     }
 
-    margin-bottom: 16px;
+    margin-bottom: $marginBottomTheSmallest;
 
     @include onTabletAndDesktop {
       align-items: center;

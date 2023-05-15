@@ -10,13 +10,13 @@
   }
 
   &__subtitle {
-    margin-bottom: 40px;
+    margin-bottom: $marginBottomMiddle;
     color: $colorSecondary;
   }
 
   &__dropdown-block {
     display: flex;
-    margin-bottom: 24px;
+    margin-bottom: $marginBottomSmall;
   }
 
   &__dropdown-item {
@@ -60,7 +60,7 @@
   }
 
   &__product-list {
-    margin-bottom: 40px;
+    margin-bottom: $marginBottomMiddle;
   }
 
   &__pagination-pannel {
