@@ -7,15 +7,15 @@ import { Header } from './components/Header';
 export const App: React.FC = () => {
   return (
     <FavouriteProvider>
-      <Header />
+        <Header />
 
-      <main className="main">
-        <div className="container">
-          <Outlet />
-        </div>
-      </main>
+        <main className="main">
+          <div className="container">
+            <Outlet />
+          </div>
+        </main>
 
-      <Footer />
+        <Footer />
     </FavouriteProvider>
   );
 };
