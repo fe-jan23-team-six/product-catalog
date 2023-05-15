@@ -32,6 +32,21 @@ export const HomePage: React.FC = () => {
 
       <ShopByCategory />
 
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+
       <section className="home-page__banner">
         <Banner />
       </section>
