@@ -21,7 +21,7 @@ export const useCartStorage = <P extends object>(): CartActions<P> => {
   const cart = localStorage.getItem('cartStorage');
   const restored = JSON.parse(cart || `{}`);
 
-  global.console.log('rerender');
+  /*   global.console.log('rerender'); */
 
   const [
     cartStorage,

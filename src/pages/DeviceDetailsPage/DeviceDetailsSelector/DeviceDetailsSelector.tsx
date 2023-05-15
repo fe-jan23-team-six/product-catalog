@@ -54,7 +54,10 @@ export const DeviceDetailsSelector: React.FC<Props> = ({ product }) => {
         </div>
 
         <div className="colours">
-          <ProductColorGroup colors={colorsAvailable} />
+          <ProductColorGroup
+            colors={colorsAvailable}
+            product={product}
+          />
         </div>
       </div>
 
