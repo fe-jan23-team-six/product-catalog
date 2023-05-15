@@ -3,6 +3,8 @@
 
 // vertical indentation
 .main {
+  height: 100%;
+  flex: 1 1 auto;
   padding: 24px 0 56px;
 
   @include onTablet {
@@ -12,6 +14,16 @@
   @include onDesktop {
     padding: 24px 0 80px; 
   }
+}
+
+body {
+  height: 100%;
+}
+
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 // horizontal indentation

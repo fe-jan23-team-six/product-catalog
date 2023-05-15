@@ -36,15 +36,23 @@ export const Footer: React.FC = () => {
           Back to top
         </p>
 
-        <div className="footer__to-top__container">
-          <a href="#">
-            <img
-              src="icons/up16x16.svg"
-              alt="Back to top"
-              className="footer__to-top__image"/>
-          </a>
+        <div
+          onClick={() => {
+            window.scrollTo({
+              top: 0,
+              left: 0,
+              behavior: 'smooth',
+            });
+          }}
+          style={{ background: 'red' }} className="footer__to-top__container"
+          id="btn-up"
+        >
+          <img
+            src="icons/up16x16.svg"
+            alt="Back to top"
+            className="footer__to-top__image" />
         </div>
       </div>
-      </footer>
+    </footer>
   );
 };
