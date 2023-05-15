@@ -14,5 +14,5 @@ const request = <T>(
 };
 
 export const client = {
-  getAll: <T>(url: string) => request<T>(url),
+  get: <T>(url: string) => request<T>(url),
 };

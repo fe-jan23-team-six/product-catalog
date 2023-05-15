@@ -1,45 +1,61 @@
-/* eslint-disable max-len */
-import React from 'react';
+import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import './ProductCard.scss';
 import { ProductManageButtons } from '../ProductManage';
 
-import { PhoneDetailed } from '../../types/phone/phone';
+import { PhoneMain } from '../../types/phone/PhoneMain';
 
 import { useCartStorage } from './../../hooks/useCartStorage';
 
-type Props = {
-  phoneDetails: PhoneDetailed,
-}
+import { FavouriteContext } from '../../contexts/FavouriteContext';
 
-export const ProductCard: React.FC<Props> = ({ phoneDetails }) => {
+type Props = {
+  product: PhoneMain;
+  nextRouteLink?: string;
+};
+
+export const ProductCard: React.FC<Props> = ({ product, nextRouteLink }) => {
   const {
     id,
-    image,
+    slug,
     name: phoneName,
     priceRegular,
     priceDiscount,
     screen: screenSize,
     capacity,
     ram,
-  } = phoneDetails;
+    image,
+  } = product;
 
   const { addToCart, checkIsInCart } = useCartStorage();
+  const { toggleFavourite, isInFavourite } = useContext(FavouriteContext);
 
-  const handleAddToCart = () => addToCart(id, phoneDetails);
+  const isLiked = isInFavourite(product.id);
+  const handleLike = () => (
+    toggleFavourite(product)
+  );
+
+  const handleAddToCart = product
+    ? () => addToCart(id, product)
+    : () => {
+      global.console.log('There should be adding');
+    };
   const handleCheckIsInCart = () => checkIsInCart(id);
 
   return (
     <div className="product-card">
-      <img
-        className="product-card__image"
-        src={image}
-        alt={phoneName}
-      >
-      </img>
+      <Link to={nextRouteLink ? `${nextRouteLink}/${slug}` : `./${slug}`}>
+        <img
+          className="product-card__image"
+          src={image}
+          alt={phoneName}
+        >
+        </img>
 
-      <div className="product-card__model">
-        {phoneName}
-      </div>
+        <div className="product-card__model">
+          {phoneName}
+        </div>
+      </Link>
 
       <div className="product-card__price">
         <h3>{'$'}{priceDiscount}</h3>
@@ -66,6 +82,8 @@ export const ProductCard: React.FC<Props> = ({ phoneDetails }) => {
       </div>
 
       <ProductManageButtons
+        isLiked={isLiked}
+        onLike={handleLike}
         handleAddToCart={handleAddToCart}
         handleCheckIsInCart={handleCheckIsInCart}
       />

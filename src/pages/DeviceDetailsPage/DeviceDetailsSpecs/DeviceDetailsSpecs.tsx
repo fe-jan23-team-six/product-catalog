@@ -3,23 +3,45 @@ import './DeviceDetailsSpecs.scss';
 import {
   TechCharacteristics,
 } from '../../../components/ProductDetails/TechCharacteristics';
-import { PhoneDetails } from '../../../types/phone/phone';
+import { Phone } from '../../../types/phone/Phone';
 
 type Props = {
-  product: PhoneDetails,
+  product: Phone,
 }
 
 export const DeviceDetailsSpecs: React.FC<Props> = ({ product }) => {
+  const {
+    screen,
+    resolution,
+    processor,
+    ram,
+    capacity,
+    camera,
+    zoom,
+    cell,
+  } = product;
+
+  const productCharacteristics = {
+    screen,
+    resolution,
+    processor,
+    ram,
+    capacity,
+    camera,
+    zoom,
+    cell,
+  };
+
   return (
     <div
-      className="device_details__specs specs grid__item--desktop-14-24"
+      className="device-details__specs specs grid__item--desktop-14-24"
     >
       <h3 className="specs__title">
         Tech Specs
       </h3>
 
       <div className="specs__characteristics">
-        <TechCharacteristics product={product} />
+        <TechCharacteristics characteristics={productCharacteristics} />
       </div>
     </div>
   );

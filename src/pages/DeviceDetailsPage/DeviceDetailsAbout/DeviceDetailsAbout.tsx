@@ -1,10 +1,16 @@
-import React, { FC } from 'react';
+import React from 'react';
 import './DeviceDetailsAbout.scss';
+import { ProductAbout } from '../../../components/ProductDetails/ProductAbout';
+import { PhoneDescription } from '../../../types/phone/PhoneDescription';
 
-export const DeviceDetailsAbout: FC = () => {
+type Props = {
+  descriptions: PhoneDescription[],
+}
+
+export const DeviceDetailsAbout: React.FC<Props> = ({ descriptions }) => {
   return (
     <div
-      className="device_details__about about grid__item--desktop-1-12"
+      className="device-details__about about grid__item--desktop-1-12"
     >
       <h3 className="about__title">
         About
@@ -13,47 +19,12 @@ export const DeviceDetailsAbout: FC = () => {
       <div
         className="about__details"
       >
-        <div>
-          <h4 className="about__details__subtitle">
-            And then there was Pro
-          </h4>
-
-          <p className="about__details__text">
-            A transformative triple‑camera system that adds tons of capability
-            without complexity. An unprecedented leap in battery life. And
-            a mind‑blowing chip that doubles down on machine learning and
-            pushes the boundaries of what a smartphone can do. Welcome to
-            the first iPhone powerful enough to be called Pro.
-          </p>
-        </div>
-
-        <div>
-          <h4 className="about__details__subtitle">
-            And then there was Pro
-          </h4>
-
-          <p className="about__details__text">
-            A transformative triple‑camera system that adds tons of capability
-            without complexity. An unprecedented leap in battery life. And
-            a mind‑blowing chip that doubles down on machine learning and
-            pushes the boundaries of what a smartphone can do. Welcome to
-            the first iPhone powerful enough to be called Pro.
-          </p>
-        </div>
-
-        <div>
-          <h4 className="about__details__subtitle">
-            And then there was Pro
-          </h4>
-
-          <p className="about__details__text">
-            A transformative triple‑camera system that adds tons of capability
-            without complexity. An unprecedented leap in battery life. And
-            a mind‑blowing chip that doubles down on machine learning and
-            pushes the boundaries of what a smartphone can do. Welcome to
-            the first iPhone powerful enough to be called Pro.
-          </p>
-        </div>
+        {descriptions.map(description => (
+          <ProductAbout
+            description={description}
+            key={description.title}
+          />
+        ))}
       </div>
     </div>
   );

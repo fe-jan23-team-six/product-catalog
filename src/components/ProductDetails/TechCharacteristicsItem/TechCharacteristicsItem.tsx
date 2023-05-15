@@ -3,7 +3,7 @@ import './TechCharacteristicsItem.scss';
 
 type Props = {
   characteristic: string,
-  details: string,
+  details: string | string[],
 }
 
 export const TechCharacteristicsItem: React.FC<Props> = (props) => {
@@ -21,7 +21,10 @@ export const TechCharacteristicsItem: React.FC<Props> = (props) => {
         className="tech_characteristics__text
         tech_characteristics__text--black"
       >
-        {details}
+        {Array.isArray(details)
+          ? details.join(', ')
+          : details
+        }
       </p>
     </div>
   );

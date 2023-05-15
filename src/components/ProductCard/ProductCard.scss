@@ -6,22 +6,29 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 272px;
+  width: $productCardWidth;
   border: 1px solid $colorElements;
   padding: 32px;
 
   color: $colorPrimary;
+  transition: box-shadow $animationDuration ease;
+
+  &:hover {
+    box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.1);
+  }
 
   &__image {
-    object-fit: contain;
+    object-fit: contain; 
     width: 208px;
     height: 196px;
     margin-bottom: 24px;
   }
 
   &__model {
-    margin-bottom: 8px;
     @extend %buttonText;
+    color: $colorPrimary;
+    min-height: 42px;
+    margin-bottom: 8px;
   }
 
   &__price {

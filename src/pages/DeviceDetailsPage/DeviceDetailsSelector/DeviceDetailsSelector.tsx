@@ -3,17 +3,16 @@ import './DeviceDetailsSelector.scss';
 import {
   ProductColorGroup,
 } from '../../../components/ProductDetails/ProductColorGroup';
-import { ProductManageButtons } from '../../../components/ProductManage';
 import {
   ProductCapacityGroup,
 } from '../../../components/ProductDetails/ProductCapacityGroup';
-import { PhoneDetails } from '../../../types/phone/phone';
+import { Phone } from '../../../types/phone/Phone';
 import {
-  TechCharacteristicsItem,
-} from '../../../components/ProductDetails/TechCharacteristicsItem';
+  TechCharacteristics,
+} from '../../../components/ProductDetails/TechCharacteristics';
 
 type Props = {
-  product: PhoneDetails,
+  product: Phone,
 }
 
 export const DeviceDetailsSelector: React.FC<Props> = ({ product }) => {
@@ -21,18 +20,26 @@ export const DeviceDetailsSelector: React.FC<Props> = ({ product }) => {
     id,
     priceRegular,
     priceDiscount,
-    screen: screenSize,
+    screen,
     resolution,
     processor,
     ram,
     colorsAvailable,
     capacityAvailable,
   } = product;
+
+  const productCharacteristics = {
+    screen,
+    resolution,
+    processor,
+    ram,
+  };
+
   const hasDiscount = priceRegular !== priceDiscount;
 
   return (
     <div
-      className="device_details__selector selector
+      className="device-details__selector selector
       grid__item--tablet-7-12 grid__item--desktop-14-20"
     >
       <div className="selector__colours">
@@ -83,24 +90,8 @@ export const DeviceDetailsSelector: React.FC<Props> = ({ product }) => {
         </div>
 
         <div className="selector__characteristics">
-          <TechCharacteristicsItem
-            characteristic='Screen'
-            details={screenSize}
-          />
-
-          <TechCharacteristicsItem
-            characteristic='Resolution'
-            details={resolution}
-          />
-
-          <TechCharacteristicsItem
-            characteristic='Processor'
-            details={processor}
-          />
-
-          <TechCharacteristicsItem
-            characteristic='RAM'
-            details={ram}
+          <TechCharacteristics
+            characteristics={productCharacteristics}
           />
         </div>
       </div>

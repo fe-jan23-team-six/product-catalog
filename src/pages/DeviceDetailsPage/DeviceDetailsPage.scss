@@ -1,8 +1,6 @@
 @import "../../styles/utils";
 
-.device_details {
-  padding: 24px 0 81px;
-
+.device-details {
   &__breadcrumbs {
     margin-bottom: 40px;
   }
@@ -51,19 +49,7 @@
       margin-bottom: 64px;
     }
 
-    @include onDesktop {
-      margin-bottom: 80px;
-    }
-  }
-
-  &__slider-products {
-    margin-bottom: 56px;
-
-    @include onTablet {
-      margin-bottom: 64px;
-    }
-
-    @include onDesktop {
+    @include onDesktop { 
       margin-bottom: 80px;
     }
   }
