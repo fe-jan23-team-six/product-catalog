@@ -8,6 +8,14 @@ export const getPhones = () => {
   return client.get<PhoneMain[]>(PHONES_ENDPOINT);
 };
 
+export const getNewPhones = () => {
+  return client.get<PhoneMain[]>(PHONES_ENDPOINT + 'new');
+};
+
+export const getDiscountPhones = () => {
+  return client.get<PhoneMain[]>(PHONES_ENDPOINT + 'discount');
+};
+
 export const getById = (phoneId: number) => {
   const url = PHONES_ENDPOINT + phoneId;
 

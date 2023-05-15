@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './HomePage.scss';
 
-import { getPhones } from '../../utils/api/phones';
+import { getDiscountPhones, getNewPhones } from '../../utils/api/phones';
 
 import { PhoneMain } from '../../types/PhoneMain';
 
@@ -21,8 +21,8 @@ export const HomePage: React.FC = () => {
   const [discounthonesFetchStatus, fetchDiscountPhones] = useDataFetcher();
 
   useEffect(() => {
-    fetchNewPhones(() => getPhones().then(setNewPhones));
-    fetchDiscountPhones(() => getPhones().then(setDiscountPhones));
+    fetchNewPhones(() => getNewPhones().then(setNewPhones));
+    fetchDiscountPhones(() => getDiscountPhones().then(setDiscountPhones));
   }, []);
 
   return (
