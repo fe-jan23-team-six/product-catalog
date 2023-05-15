@@ -32,15 +32,4 @@
       flex-direction: row;
     }
   }
-
-  .userMessage {
-    @extend %flexTechCharacteristics;
-    width: 100%;
-    align-items: center;
-    &__text {
-      @extend %userMessage;
-      text-align: center;
-      letter-spacing: 4px;
-    }
-  }
 }

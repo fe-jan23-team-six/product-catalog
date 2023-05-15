@@ -1,4 +1,6 @@
 import React from 'react';
+import './App.scss';
+
 import { FavouriteProvider } from './contexts/FavouriteContext';
 import { CartProvider } from './contexts/CartContext';
 
@@ -10,15 +12,17 @@ export const App: React.FC = () => {
   return (
     <CartProvider>
       <FavouriteProvider>
-        <Header />
+        <div className="App">
+          <Header />
 
-        <main className="main">
-          <div className="container">
-            <Outlet />
-          </div>
-        </main>
+          <main className="main">
+            <div className="container">
+              <Outlet />
+            </div>
+          </main>
 
-        <Footer />
+          <Footer />
+        </div>
       </FavouriteProvider>
     </CartProvider>
   );
