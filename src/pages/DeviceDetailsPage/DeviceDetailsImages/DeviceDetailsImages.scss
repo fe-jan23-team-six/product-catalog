@@ -1,7 +1,8 @@
-@import "../../../styles/utils";
+@import '../../../styles/utils/vars';
+@import '../../../styles/utils/mixins';
 
 .pictures {
   @include onPhone {
-    margin-bottom: 40px;
+    margin-bottom: $marginBottomMiddle;
   }
 }

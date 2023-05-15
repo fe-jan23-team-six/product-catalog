@@ -4,9 +4,9 @@
   width: 100%;
   height: 40px;
   background-color: $colorGrayPrimary;
-  color: $white;
+  color: $colorWhite;
   font-family: inherit;
-  font-weight: 700;
+  font-weight: $fontWeightBold;
   font-size: 14px;
   line-height: 21px;
 
@@ -15,8 +15,8 @@
   }
 
   &.selected {
-    background-color: $white;
-    border: 1px solid #E2E6E9;
-    color: $green;
+    background-color: $colorWhite;
+    border: 1px solid $colorElements;
+    color: $colorGreen;
   }
 }

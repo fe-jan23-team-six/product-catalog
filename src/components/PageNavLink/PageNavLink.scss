@@ -1,5 +1,5 @@
-@import '../../styles/utils/vars';
 @import '../../styles/utils/extends';
+@import '../../styles/utils/vars';
 
 .page-nav-link {
   @extend %upperCase;
@@ -9,7 +9,7 @@
   justify-content: center;
   height: 100%;
   width: 100%;
-  font-weight: 800;
+  font-weight: $fontWeightBlack;
   color: $colorSecondary;
 
   &:hover,
