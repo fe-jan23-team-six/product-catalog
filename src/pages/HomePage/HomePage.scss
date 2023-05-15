@@ -27,6 +27,8 @@
   }
 
   &__product-slider {
-    // styles
+    &--new-phones {
+      margin-bottom: 80px;
+    }
   }
 }

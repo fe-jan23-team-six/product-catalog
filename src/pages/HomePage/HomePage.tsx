@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import './HomePage.scss';
 
-import { getPhones } from '../../utils/api/phones';
+import { getDiscountPhones, getNewPhones } from '../../utils/api/phones';
 
 import { PhoneMain } from '../../types/PhoneMain';
 
 import { SliderProducts } from '../../components/SliderProducts';
 import { Banner } from '../../components/Banner/Banner';
 import { DataLoader } from '../../components/DataLoader';
+
+import { ShopByCategory } from '../../components/ShopByCategory';
 
 import { useDataFetcher } from '../../hooks/useDataFetcher';
 
@@ -19,8 +21,8 @@ export const HomePage: React.FC = () => {
   const [discounthonesFetchStatus, fetchDiscountPhones] = useDataFetcher();
 
   useEffect(() => {
-    fetchNewPhones(() => getPhones().then(setNewPhones));
-    fetchDiscountPhones(() => getPhones().then(setDiscountPhones));
+    fetchNewPhones(() => getNewPhones().then(setNewPhones));
+    fetchDiscountPhones(() => getDiscountPhones().then(setDiscountPhones));
   }, []);
 
   return (
@@ -33,7 +35,7 @@ export const HomePage: React.FC = () => {
         <Banner />
       </section>
 
-      <section className="home-page__product-slider">
+      <section className="home-page__product-slider--new-phones">
         <DataLoader fetchStatus={newPhonesFetchStatus}>
           <SliderProducts
             title="Brand new models"
@@ -43,7 +45,7 @@ export const HomePage: React.FC = () => {
       </section>
 
       <section className="home-page__categories">
-        Here will be section with links by categories
+        <ShopByCategory />
       </section>
 
       <section className="home-page__product-slider">

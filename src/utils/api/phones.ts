@@ -1,12 +1,24 @@
 import { client } from './fetchingClient';
 import { Phone } from '../../types/Phone';
 import { PhoneMain } from '../../types/PhoneMain';
+import { TypeAmount } from '../../types/TypeAmount';
 
 const PHONES_ENDPOINT = '/products/';
 
 export const getPhones = () => {
   return client.get<PhoneMain[]>(PHONES_ENDPOINT);
 };
+
+export const getNewPhones = () => {
+  return client.get<PhoneMain[]>(PHONES_ENDPOINT + 'new');
+};
+
+export const getDiscountPhones = () => {
+  return client.get<PhoneMain[]>(PHONES_ENDPOINT + 'discount');
+};
+
+export const getAmountPhones = () => {
+  return client.get<TypeAmount>(PHONES_ENDPOINT + 'amount');
 
 export const getTotalAmount = () => {
   const response = client.get<{'amount': 'string'}>(PHONES_ENDPOINT + 'amount');
