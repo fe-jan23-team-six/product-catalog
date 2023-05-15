@@ -2,13 +2,12 @@
 @import '../../styles/utils/vars';
 
 .page-nav-link {
-  @extend %upperCase;
-  display: flex;
+  @extend %flexCenter;
   position: relative;
-  align-items: center;
-  justify-content: center;
   height: 100%;
   width: 100%;
+
+  @extend %upperCase;
   font-weight: $fontWeightBlack;
   color: $colorSecondary;
 

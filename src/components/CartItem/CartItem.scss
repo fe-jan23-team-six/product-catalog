@@ -22,10 +22,8 @@
     display: flex;
 
     &_remove {
-      display: flex;
+      @extend %flexCenter;
       flex-direction: column;
-      justify-content: center;
-      align-items: center;
 
       width: 48px;
 
@@ -87,10 +85,8 @@
   }
 
   &__priceAmount {
+    @extend %flexSpaceBetweenCenter;
     height: 32px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
 
     padding-left: 16px;
 

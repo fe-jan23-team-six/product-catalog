@@ -1,0 +1,15 @@
+@import '../../styles/utils/extends';
+
+.error_page {
+  @extend %flexColumnCenter;
+  gap: 16px;
+
+  &__image {
+    max-width: 300px;
+  }
+
+  &__button {
+    @extend %flexCenter;
+    max-width: 200px;
+  }
+}

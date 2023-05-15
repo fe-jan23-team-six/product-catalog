@@ -73,9 +73,7 @@
   }
 
   &__to-top {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @extend %flexCenter;
 
     &__text {
       @extend %smallText;
@@ -84,9 +82,7 @@
     }
 
     &__container {
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      @extend %flexCenter;
       height: 32px;
       width: 32px;
       border: 1px solid $colorIcons;
