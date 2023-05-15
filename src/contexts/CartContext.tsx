@@ -2,7 +2,10 @@ import React, { useMemo } from 'react';
 import { CartItemType } from '../types/CartItemType';
 import { PhoneMain } from '../types/PhoneMain';
 import { QuantityActionType } from '../types/QuantityActionType';
-import { useCartStorage } from '../hooks/useCartStorage';
+import { useLocalStorage } from '../hooks/useLocalStorage';
+import {
+  LOCAL_STORAGE_CART_KEY as cartKey,
+} from '../utils/constants/localStorage';
 
 type CartContextType = {
   cart: CartItemType[];
@@ -37,7 +40,7 @@ type CartProviderType = {
 export const CartProvider: React.FC<CartProviderType> = ({
   children,
 }) => {
-  const [cart, setCart] = useCartStorage();
+  const [cart, setCart] = useLocalStorage<CartItemType>(cartKey);
 
   const isInCart = (id: number): boolean => (
     cart.some(cartProduct => cartProduct.id === id)
