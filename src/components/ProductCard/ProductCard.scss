@@ -11,14 +11,14 @@
   padding: 32px;
 
   color: $colorPrimary;
-  transition: transform $animationDuration ease;
+  transition: box-shadow $animationDuration ease;
 
   &:hover {
-    transform: scale($scaleRatio);
+    box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.1);
   }
 
   &__image {
-    object-fit: contain;
+    object-fit: contain; 
     width: 208px;
     height: 196px;
     margin-bottom: 24px;

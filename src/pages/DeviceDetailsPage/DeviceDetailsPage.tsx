@@ -46,8 +46,6 @@ export const DeviceDetailsPage: FC = () => {
     },
   ];
 
-  console.log(product?.nameSpaceId);
-
   return (
     <DataLoader fetchStatus={productFetchStatus}>
       <div className="device-details">

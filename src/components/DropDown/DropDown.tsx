@@ -1,6 +1,7 @@
 import React, { FC, useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import './DropDown.scss';
+import classNames from 'classnames';
 
 type Props = {
   optionList: string[],
@@ -132,8 +133,8 @@ export const DropDown: FC<Props> = ({
 
   return (
     <div
-      className='dropDown'
-      tabIndex={1} // ??? whatta gonna do with this onTab behaviour ?
+      className='drop-down'
+      tabIndex={1}
       onClick={handleClickOnItSelf}
       onBlur={() => setIsMenuOpened(false)}
       onFocus={handleFocus}
@@ -141,21 +142,27 @@ export const DropDown: FC<Props> = ({
       onKeyDown={handleKeyBoardArrows}
       data-dropdown-description={description}
     >
-      {selectedOption}
+      <p className='drop-down__text'>
+        {selectedOption}
+      </p>
+
       <menu
-        className="dropDown__menu"
-        style={{ display: isMenuOpened ? 'block' : 'none' }}
+        className={classNames(
+          'drop-down__menu',
+          {
+            'drop-down__menu--closed': !isMenuOpened,
+          },
+        )}
       >
-        {isMenuOpened && optionList
-          .map(option => {
-            return <li
-              key={uuidv4()}
-              onClick={handleSelectOption}
-              className='dropDown__menu_item'
-            >
-              { option }
-            </li>;
-          })}
+        {isMenuOpened && optionList.map(option => (
+          <li
+            className='drop-down__menu__item'
+            key={uuidv4()}
+            onClick={handleSelectOption}
+          >
+            { option }
+          </li>
+        ))}
       </menu>
     </div>
   );

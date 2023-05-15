@@ -1,31 +1,26 @@
-import React, { useState } from 'react';
+import React from 'react';
 import classNames from 'classnames';
 import './LikeButton.scss';
 
 type Props = {
-  // Like button define the size of ProductManagerButtons
-  isBig?: boolean; // 40 or 48 px.
+  isBig?: boolean;
+  isLiked: boolean;
+  onClick: () => void;
 }
 
-export const LikeButton: React.FC<Props> = ({ isBig = false }) => {
-  const [isSelected, setIsSelected] = useState(false);
-
-  const handleLikeButtonSelect = () => {
-    setIsSelected((prevIsSelected) => (
-      !prevIsSelected
-    ));
-  };
-
-  return (
-    <button
-      className={classNames(
-        'like-button',
-        {
-          'like-button--selected': isSelected,
-          'like-button--big': isBig,
-        },
-      )}
-      onClick={handleLikeButtonSelect}
-    />
-  );
-};
+export const LikeButton: React.FC<Props> = React.memo(({
+  isBig = false,
+  isLiked,
+  onClick,
+}) => (
+  <button
+    className={classNames(
+      'like-button',
+      {
+        'like-button--selected': isLiked,
+        'like-button--big': isBig,
+      },
+    )}
+    onClick={onClick}
+  />
+));

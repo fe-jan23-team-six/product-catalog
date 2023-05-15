@@ -1,12 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './FavouritePage.scss';
-// import { ProductCard } from '../../components/ProductCard/ProductCard';
+
 import { Breadcrumbs } from '../../components/Breadcrumbs';
-// import { ProductList } from '../../components/ProductList';
+import { ProductList } from '../../components/ProductList';
+import { FavouriteContext } from '../../contexts/FavouriteContext';
+import { getPluralWord } from '../../utils/helpers/helpers';
+import { CATALOG_PAGE } from '../../utils/constants/route';
 
 export const FavouritePage: React.FC = () => {
+  const { favourite } = useContext(FavouriteContext);
+
   return (
-    <main className="favourite-page">
+    <div className="favourite-page">
       <div className="favourite-page__breadcrumbs">
         <Breadcrumbs breadcrumbs={[{ text: 'Favourites' }]}/>
       </div>
@@ -16,17 +21,15 @@ export const FavouritePage: React.FC = () => {
       </h1>
 
       <p className="favourite-page__count">
-        5 items
+        {`${getPluralWord('item', favourite.length)}`}
       </p>
 
       <div className="favourite-page__products">
-        {/* <ProductList /> */}
+        <ProductList
+          products={favourite}
+          nextRouteLink={`${CATALOG_PAGE}`}
+        />
       </div>
-    </main>
-    // <>
-    //   {/* <Breadcrumbs />
-    //   <h1>Favourite Page</h1>
-    //   <ProductCard /> */}
-    // </>
+    </div>
   );
 };

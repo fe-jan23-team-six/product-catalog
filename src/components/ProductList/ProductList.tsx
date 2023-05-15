@@ -6,14 +6,16 @@ import { PhoneMain } from '../../types/phone/PhoneMain';
 
 type Props = {
   products: PhoneMain[];
+  nextRouteLink?: string;
 }
 
-export const ProductList: React.FC<Props> = ({ products }) => (
+export const ProductList: React.FC<Props> = ({ products, nextRouteLink }) => (
   <div className='product-list'>
     {products.map(product => (
       <ProductCard
         key={product.id}
         product={product}
+        nextRouteLink={nextRouteLink}
       />
     ))}
   </div>
