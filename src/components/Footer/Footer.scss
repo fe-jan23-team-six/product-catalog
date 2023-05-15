@@ -30,10 +30,9 @@
   }
 
   &__logo {
-    height: 30px;
     margin-bottom: 32px;
 
-    @include onTabletAndDesktop {
+    @include onTabletAndDesktop() {
       margin: 0;
     }
   }

@@ -1,15 +1,14 @@
 import React from 'react';
 import './Footer.scss';
 import { Link } from 'react-router-dom';
+import { Logo } from '../Logo';
 
 export const Footer: React.FC = () => {
   return (
     <footer className="footer">
-      <img
-        className="footer__logo"
-        src="icons/Logo.svg"
-        alt="Logo Nice Gadgets">
-      </img>
+      <div className="footer__logo">
+        <Logo />
+      </div>
 
       <ul className="footer__list">
         <li className="footer__item">
