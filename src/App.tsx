@@ -7,7 +7,6 @@ import { Header } from './components/Header';
 export const App: React.FC = () => {
   return (
     <FavouriteProvider>
-      <div className="wrapper">
       <Header />
 
       <main className="main">
@@ -17,7 +16,6 @@ export const App: React.FC = () => {
       </main>
 
       <Footer />
-      </div>
     </FavouriteProvider>
   );
 };

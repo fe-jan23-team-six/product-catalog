@@ -20,14 +20,11 @@ body {
   height: 100%;
 }
 
-.wrapper {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
 // horizontal indentation
 .container {
+  min-height: calc(100vh - 257px);
+  display: flex;
+  flex-direction: column;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 16px;

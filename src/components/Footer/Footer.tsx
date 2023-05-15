@@ -44,7 +44,7 @@ export const Footer: React.FC = () => {
               behavior: 'smooth',
             });
           }}
-          style={{ background: 'red' }} className="footer__to-top__container"
+          className="footer__to-top__container"
           id="btn-up"
         >
           <img
