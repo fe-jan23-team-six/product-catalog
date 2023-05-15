@@ -1,29 +1,25 @@
-@import "../../styles/utils";
+@import '../../styles/utils/vars';
+@import '../../styles/utils/extends';
+@import '../../styles/utils/mixins';
 
 .device-details {
   &__breadcrumbs {
-    margin-bottom: 40px;
+    margin-bottom: $marginBottomMiddle;
   }
 
   &__title {
-    margin-bottom: 40px;
+    margin-bottom: $marginBottomMiddle;
 
-    font-weight: 800;
+    font-weight: $fontWeightBlack;
     font-size: 32px;
     line-height: 41px;
     letter-spacing: -0.01em;
 
-    color: #313237;
+    color: $colorPrimary;
   }
 
   &__id {
-    display: none;
-    float: right;
-    font-weight: 700;
-    font-size: 12px;
-    line-height: 15px;
-    text-align: right;  
-    color: #b4bdc4;
+    @extend %devicePageProductId;
 
     @include onDesktop {
       display: inline-block;
@@ -31,26 +27,10 @@
   }
 
   &__product {
-    margin-bottom: 56px;
-
-    @include onTablet {
-      margin-bottom: 64px;
-    }
-
-    @include onDesktop {
-      margin-bottom: 80px;
-    }
+    @extend %devicePageAboutMargins;
   }
 
   &__about-product {
-    margin-bottom: 56px;
-
-    @include onTablet {
-      margin-bottom: 64px;
-    }
-
-    @include onDesktop { 
-      margin-bottom: 80px;
-    }
+    @extend %devicePageAboutMargins;
   }
 }

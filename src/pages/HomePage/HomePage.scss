@@ -1,10 +1,11 @@
-@import '../../styles/utils';
+@import '../../styles/utils/vars';
+@import '../../styles/utils/mixins';
 
 .home-page {
   &__title {
     margin-bottom: 56px;
 
-    font-weight: 800;
+    font-weight: $fontWeightBlack;
     font-size: 32px;
     line-height: 41px;
     letter-spacing: -1%;
@@ -18,11 +19,11 @@
   }
 
   &__banner {
-    margin-bottom: 80px;
+    margin-bottom: $marginBottomTheBiggest;
   }
 
   &__categories {
-    margin-bottom: 80px;
+    margin-bottom: $marginBottomTheBiggest;
   }
 
   &__product-slider {

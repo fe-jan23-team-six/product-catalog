@@ -1,14 +1,15 @@
+@import '../../../styles/utils/vars';
+@import '../../../styles/utils/extends';
+
 .about__details__subtitle {
-  margin-bottom: 16px;
-  font-weight: 700;
+  margin-bottom: $marginBottomTheSmallest;
+  font-weight: $fontWeightBold;
   font-size: 20px;
   line-height: 26px;
-  color: #313237;
+  color: $colorPrimary;
 }
 
 .about__details__text {
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 21px;
-  color: #89939a;
+  @extend %bodyText;
+  color: $colorSecondary;
 }

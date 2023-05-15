@@ -1,6 +1,5 @@
-@import '../../styles/utils/mixins';
 @import '../../styles/utils/vars';
-@import '../../styles/utils/extends';
+@import '../../styles/utils/mixins';
 
 .page-nav-main {
   $prefix: ".page-nav-main";
@@ -37,10 +36,10 @@
       margin-right: 0;
 
       &:not(:last-child) {
-        margin-bottom: 16px;
+        margin-bottom: $marginBottomTheSmallest;
   
         @include onDesktop {
-          margin-bottom: 24px;
+          margin-bottom: $marginBottomSmall;
         }
       }
     }
