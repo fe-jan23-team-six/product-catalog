@@ -1,4 +1,5 @@
-@import '../../styles/utils';
+@import '../../styles/utils/mixins';
+@import '../../styles/utils/vars';
 
 .slider-photos {
   display: flex;
@@ -26,7 +27,7 @@
     width: 288px;
     height: 288px;
 
-    margin-bottom: 16px;
+    margin-bottom: $marginBottomTheSmallest;
 
     @include onTablet {
       width: 288px;
@@ -74,7 +75,7 @@
     }
 
     & .swiper-slide-thumb-active img {
-      border-color: #313237;
+      border-color: $colorPrimary;
     }
   }
 

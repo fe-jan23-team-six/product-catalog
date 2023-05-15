@@ -1,22 +1,13 @@
-@import "../../../styles/utils";
+@import '../../../styles/utils/vars';
+@import '../../../styles/utils/extends';
 
 .specs {
   &__title {
-    margin-bottom: 48px;
-    font-weight: 800;
-    font-size: 22px;
-    line-height: 140%;
-
-    color: #313237;
+    @extend %devicePageTitleSpecs;
   }
 
   &__title:after {
-    content: "";
-    display: block;
-    position: relative;
-    top: 16px;
-    height: 1px;
-    background-color: #e2e6e9;
+    @extend %devicePageTitleSpecsAfter;;
   }
 
   &__characteristics {

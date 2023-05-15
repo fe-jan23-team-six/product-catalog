@@ -1,5 +1,5 @@
-@import './../../styles/utils/extends';
 @import './../../styles/utils/vars';
+@import './../../styles/utils/extends';
 
 .cartCheckoutBox {
   border: 1px solid $colorElements;
@@ -10,7 +10,7 @@
   align-items: center;
 
   &__mainValue {
-    font-weight: 800;
+    font-weight: $fontWeightBlack;
     font-size: 32px;
     line-height: 41px;
     color: $colorPrimary;

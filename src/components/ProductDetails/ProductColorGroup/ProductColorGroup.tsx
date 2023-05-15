@@ -1,26 +1,20 @@
-import React, { useState } from 'react';
-import './ProductColorGroup.scss';
+import React from 'react';
 import { ColoredButton } from '../ColoredButton';
+import { Phone } from '../../../types/Phone';
 
 type Props = {
-  colors: Array<string>;
+  colors: Array<string>,
+  product: Phone,
 };
 
-export const ProductColorGroup: React.FC<Props> = ({ colors }) => {
-  const [selectedColor, setSelectedColor] = useState<string>('green');
-
-  const handleColorChange = (color: string) => (
-    setSelectedColor(color)
-  );
-
+export const ProductColorGroup: React.FC<Props> = ({ colors, product }) => {
   return (
     <>
       {colors.map(color => (
         <ColoredButton
           key={color}
-          color={color}
-          isSelected={color === selectedColor}
-          onSelect={handleColorChange}
+          deviceColor={color}
+          product={product}
         />
       ))}
     </>
