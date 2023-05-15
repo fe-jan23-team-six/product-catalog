@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { PhoneMain } from '../types/phone/PhoneMain';
+import { PhoneMain } from '../types/PhoneMain';
 import { CartEntity } from '../types/CartEntity';
 
 export const useCartStorage = () => {

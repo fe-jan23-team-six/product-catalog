@@ -3,7 +3,7 @@ import './HomePage.scss';
 
 import { getPhones } from '../../utils/api/phones';
 
-import { PhoneMain } from '../../types/phone/PhoneMain';
+import { PhoneMain } from '../../types/PhoneMain';
 
 import { SliderProducts } from '../../components/SliderProducts';
 import { Banner } from '../../components/Banner/Banner';

@@ -6,7 +6,7 @@ import {
 import {
   ProductCapacityGroup,
 } from '../../../components/ProductDetails/ProductCapacityGroup';
-import { Phone } from '../../../types/phone/phone';
+import { Phone } from '../../../types/Phone';
 import {
   TechCharacteristics,
 } from '../../../components/ProductDetails/TechCharacteristics';
