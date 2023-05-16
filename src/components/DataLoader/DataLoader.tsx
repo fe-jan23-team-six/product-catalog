@@ -11,6 +11,9 @@ type Props = {
 export const DataLoader: React.FC<Props> = ({ fetchStatus, children }) => {
   return (
     <>
+      {fetchStatus === FetchStatus.Uninitialized && (
+        <h2>{'unitin'}</h2>
+      )}
       {fetchStatus === FetchStatus.Loading && (
         <Loader />
       )}
