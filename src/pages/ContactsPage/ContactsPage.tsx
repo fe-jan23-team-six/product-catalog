@@ -1,7 +1,7 @@
 import React from 'react';
 import './ContactsPage.scss';
 
-import { projectCreators } from './projectCreators';
+import { projectCreators } from '../../utils/constants/projectCreators';
 import { ContactCard } from '../../components/ContactCard';
 
 export const ContactsPage: React.FC = () => {
