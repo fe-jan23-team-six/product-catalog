@@ -5,6 +5,20 @@
   margin: 0 auto;
   transition: $animationDuration all ease-out;
 
+  &__container {
+    @include onPhone {
+      width: calc(100% + 16px);
+    }
+
+    @include onTablet {
+      width: calc(100% + 24px);
+    }
+
+    @include onDesktop {
+      width: 100%;
+    }
+  }
+
   &__label {
     @extend %flexSpaceBetweenCenter;
 
