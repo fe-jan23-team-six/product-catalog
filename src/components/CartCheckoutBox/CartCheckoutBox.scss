@@ -3,9 +3,14 @@
 @import './../../styles/utils/extends';
 
 .cartCheckoutBox {
+  height: fit-content;
   border: 1px solid $colorElements;
   @extend %flexColumnCenter;
   padding: 24px ;
+
+  @include onDesktop {
+    margin-top: 32px;
+  }
 
   &__head {
     width: 100%;

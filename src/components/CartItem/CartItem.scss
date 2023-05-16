@@ -49,14 +49,13 @@
       }
 
       &_image {
-        max-width: 100%;
-        min-width: 80px;
+        width: 80px;
         display: flex;
         justify-content: center;
 
         &_img {
-          width: auto;
           height: 66px;
+          width: auto;
           margin: 7px;
         }
       }

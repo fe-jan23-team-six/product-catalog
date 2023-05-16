@@ -30,6 +30,7 @@
 
     @include onDesktop {
       flex-direction: row;
+      gap: 16px;
     }
   }
 }
