@@ -16,16 +16,16 @@ export const useLocalStorage = <T>(
   T[],
   React.Dispatch<React.SetStateAction<T[]>>
 ] => {
-  const [favourite, setFavourite] = useState<T[]>(
+  const [localStorageState, setLocalStorageState] = useState<T[]>(
     readFromLocalStorage<T>(storageKey),
   );
 
   useDidUpdateEffect(() => {
-    localStorage.setItem(storageKey, JSON.stringify(favourite));
-  }, [favourite]);
+    localStorage.setItem(storageKey, JSON.stringify(localStorageState));
+  }, [localStorageState]);
 
   return [
-    favourite,
-    setFavourite,
+    localStorageState,
+    setLocalStorageState,
   ];
 };

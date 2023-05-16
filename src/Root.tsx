@@ -8,6 +8,7 @@ import { DeviceDetailsPage } from './pages/DeviceDetailsPage';
 import { FavouritePage } from './pages/FavouritesPage';
 import { CartPage } from './pages/CartPage';
 import { NotFoundPage } from './pages/NotFoundPage';
+import { ContactsPage } from './pages/ContactsPage';
 
 export const Root: React.FC = () => (
   <Routes>
@@ -23,6 +24,11 @@ export const Root: React.FC = () => (
       <Route
         path="device-details/:productSlug"
         element={<DeviceDetailsPage />}
+      />
+
+      <Route
+        path="contacts"
+        element={<ContactsPage />}
       />
 
       <Route path="favourite" element={<FavouritePage />} />
