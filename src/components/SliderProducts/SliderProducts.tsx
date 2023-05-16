@@ -75,6 +75,7 @@ export const SliderProducts: React.FC<Props> = ({ title, products }) => {
       </div>
 
       <Slider
+        className='slider-products__container'
         ref={sliderRef}
         {...settings}
       >

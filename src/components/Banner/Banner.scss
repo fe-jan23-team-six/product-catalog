@@ -16,8 +16,7 @@
   &__container {
     display: flex;
     width: calc(100% + 32px);
-    margin-left: -20px;
-    margin-right: -20px;
+    margin-left: -16px;
 
     @include onTablet {
       width: 100%;
@@ -50,6 +49,10 @@
     }
 
     cursor: pointer;
+  }
+
+  &__image {
+    object-fit: contain;
   }
 
   &__paging {
