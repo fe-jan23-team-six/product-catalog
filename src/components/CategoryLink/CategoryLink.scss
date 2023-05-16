@@ -2,7 +2,8 @@
 
 .category {
   &__image {
-    height: 288px;
+    aspect-ratio: 1 / 1;
+    min-height: 288px;
     margin-bottom: 24px;
 
     transition: transform $animationDuration;
@@ -12,26 +13,30 @@
     }
 
     @include onTablet {
-      height: 188px;
+      aspect-ratio: 1 / 1;
+      min-height: 188px;
+      height: 75%;
     }
 
     @include onDesktop {
-      height: 368px;
+      min-height: 368px;
     }
 
     &--phones {
       background-color: #6D6474;
       background-image: url('../../../public/img/shop-by-category/phones.png');
-      background-position: top 30px left 60px;
+      background-position: top 30px left 110px;
       background-size: 90%;
       background-repeat: no-repeat;
 
       @include onTablet {
         background-size: 85%;
+        background-position: top 30px left 60px;
       }
 
       @include onDesktop {
         background-size: 100%;
+        background-position: top 30px left 60px;
       }
     }
 
