@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/product-catalog/static/css/main.62881194.css",
+    "main.js": "/product-catalog/static/js/main.f968dbbe.js",
+    "static/media/Mont-Regular.otf": "/product-catalog/static/media/Mont-Regular.1d26d89f7339866d3133.otf",
+    "static/media/Mont-SemiBold.otf": "/product-catalog/static/media/Mont-SemiBold.8979d71a3146ca1d761f.otf",
+    "static/media/Mont-Bold.otf": "/product-catalog/static/media/Mont-Bold.03c8c2f6127c1da0fc39.otf",
+    "static/media/cursor.cur": "/product-catalog/static/media/cursor.5c197b56ff45eea62b9b.cur",
+    "static/media/slick.svg": "/product-catalog/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/product-catalog/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/product-catalog/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/favAddFav16x16.svg": "/product-catalog/static/media/favAddFav16x16.8b204efcfb5a53cadd96.svg",
+    "static/media/slick.woff": "/product-catalog/static/media/slick.295183786cd8a1389865.woff",
+    "static/media/favIsFav16x16.svg": "/product-catalog/static/media/favIsFav16x16.d554a185325e4fb06092.svg",
+    "index.html": "/product-catalog/index.html",
+    "static/media/close16x16.svg": "/product-catalog/static/media/close16x16.3ea864f59fecb8596c4b.svg",
+    "static/media/plus16x16.svg": "/product-catalog/static/media/plus16x16.dbd60e32281dcc8fa80b.svg",
+    "static/media/left16x16.svg": "/product-catalog/static/media/left16x16.1691829d404d1855003b.svg",
+    "static/media/leftBlack16x16.svg": "/product-catalog/static/media/leftBlack16x16.79ddda870df64b31990d.svg",
+    "static/media/minus16x16_disabled.svg": "/product-catalog/static/media/minus16x16_disabled.4b7c4fa33c66c0b35185.svg",
+    "static/media/minus16x16.svg": "/product-catalog/static/media/minus16x16.cecb4be39afa7b933ec1.svg",
+    "main.62881194.css.map": "/product-catalog/static/css/main.62881194.css.map",
+    "main.f968dbbe.js.map": "/product-catalog/static/js/main.f968dbbe.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.62881194.css",
+    "static/js/main.f968dbbe.js"
+  ]
+}
