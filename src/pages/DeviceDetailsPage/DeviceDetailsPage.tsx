@@ -11,7 +11,10 @@ import { DataLoader } from '../../components/DataLoader';
 
 import { Phone } from '../../types/Phone';
 import { PhoneMain } from '../../types/PhoneMain';
-import { getBySlug, getPhones } from '../../utils/api/phones';
+import {
+  getBySlug,
+  getPhones,
+} from '../../utils/api/phones';
 
 import { Breadcrumbs } from '../../components/Breadcrumbs';
 import { BreadcrumbItem } from '../../types/BreadcrumbItem';

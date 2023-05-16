@@ -19,6 +19,7 @@ export const getDiscountPhones = () => {
 
 export const getAmountPhones = () => {
   return client.get<TypeAmount>(PHONES_ENDPOINT + 'amount');
+};
 
 export const getTotalAmount = () => {
   const response = client.get<{'amount': 'string'}>(PHONES_ENDPOINT + 'amount');
