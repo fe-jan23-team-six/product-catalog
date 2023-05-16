@@ -6,7 +6,7 @@ import { DataLoader } from '../../components/DataLoader';
 
 import { useDataFetcher } from '../../hooks/useDataFetcher';
 import { PhoneMain } from '../../types/PhoneMain';
-import { getPhonesPage, getTotalAmount } from '../../utils/api/phones';
+import { getAmountPhones, getPhonesPage } from '../../utils/api/phones';
 import { useSearchParams } from 'react-router-dom';
 
 import { DropDown } from '../../components/DropDown';
@@ -60,7 +60,7 @@ export const CatalogPage: React.FC = () => {
     );
 
     const handleAmountFetch = totalAmount === ''
-      ? () => getTotalAmount().then(({ amount }) => setTotalAmount(amount))
+      ? () => getAmountPhones().then(({ amount }) => setTotalAmount(amount))
       : () => Promise.resolve();
 
     fetchAll([

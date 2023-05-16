@@ -1,3 +1,3 @@
 export interface TypeAmount {
-  amount: number;
+  amount: string;
 }

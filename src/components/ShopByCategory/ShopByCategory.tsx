@@ -32,7 +32,7 @@ export const ShopByCategory: React.FC = () => {
       setAmountThings(prev => {
         const copyAmount = { ...prev };
 
-        copyAmount.phones = res.amount;
+        copyAmount.phones = +res.amount;
 
         return copyAmount;
       });
@@ -42,7 +42,7 @@ export const ShopByCategory: React.FC = () => {
       setAmountThings(prev => {
         const copyAmount = { ...prev };
 
-        copyAmount.tablets = res.amount;
+        copyAmount.tablets = +res.amount;
 
         return copyAmount;
       });
@@ -52,7 +52,7 @@ export const ShopByCategory: React.FC = () => {
       setAmountThings(prev => {
         const copyAmount = { ...prev };
 
-        copyAmount.accessories = res.amount;
+        copyAmount.accessories = +res.amount;
 
         return copyAmount;
       });

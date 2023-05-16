@@ -12,7 +12,7 @@ import { DataLoader } from '../../components/DataLoader';
 import { Phone } from '../../types/Phone';
 import { PhoneMain } from '../../types/PhoneMain';
 import {
-  getBySlug,
+  getPhoneBySlug,
   getPhones,
 } from '../../utils/api/phones';
 
@@ -31,7 +31,7 @@ export const DeviceDetailsPage: FC = () => {
   const [recommendedFetchStatus, fetchRecommended] = useDataFetcher();
 
   useEffect(() => {
-    fetchProduct(() => getBySlug(String(productSlug)).then(setProduct));
+    fetchProduct(() => getPhoneBySlug(String(productSlug)).then(setProduct));
     fetchRecommended(() => getPhones().then(setRecommended));
   }, [productSlug]);
 

@@ -4,27 +4,22 @@ import { PhoneMain } from '../../types/PhoneMain';
 import { TypeAmount } from '../../types/TypeAmount';
 
 const PHONES_ENDPOINT = '/products/';
+// const PHONES_ENDPOINT = '/phones/';
 
 export const getPhones = () => {
   return client.get<PhoneMain[]>(PHONES_ENDPOINT);
 };
 
 export const getNewPhones = () => {
-  return client.get<PhoneMain[]>(PHONES_ENDPOINT + 'new');
+  return client.getNew<PhoneMain[]>(PHONES_ENDPOINT);
 };
 
 export const getDiscountPhones = () => {
-  return client.get<PhoneMain[]>(PHONES_ENDPOINT + 'discount');
+  return client.getDiscount<PhoneMain[]>(PHONES_ENDPOINT);
 };
 
 export const getAmountPhones = () => {
-  return client.get<TypeAmount>(PHONES_ENDPOINT + 'amount');
-};
-
-export const getTotalAmount = () => {
-  const response = client.get<{'amount': 'string'}>(PHONES_ENDPOINT + 'amount');
-
-  return response;
+  return client.getAmount<TypeAmount>(PHONES_ENDPOINT);
 };
 
 export const getPhonesPage = (
@@ -37,20 +32,10 @@ export const getPhonesPage = (
   return client.get<PhoneMain[]>(PHONES_ENDPOINT + query);
 };
 
-export const getById = (phoneId: number) => {
-  const url = PHONES_ENDPOINT + phoneId;
-
-  return client.get<Phone>(url);
+export const getPhoneById = (phoneId: number) => {
+  return client.get<Phone>(PHONES_ENDPOINT + phoneId);
 };
 
-export const getBySlug = (phoneSlug: string) => {
-  const url = PHONES_ENDPOINT + phoneSlug;
-
-  return client.get<Phone>(url);
-};
-
-export const getDetailedById = (phoneId: number) => {
-  const url = PHONES_ENDPOINT + phoneId;
-
-  return client.get<Phone>(url);
+export const getPhoneBySlug = (phoneSlug: string) => {
+  return client.get<Phone>(PHONES_ENDPOINT + phoneSlug);
 };
