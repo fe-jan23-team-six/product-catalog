@@ -9,8 +9,6 @@ import { PhoneMain } from '../../types/PhoneMain';
 import { getPhonesPage, getTotalAmount } from '../../utils/api/phones';
 import { useSearchParams } from 'react-router-dom';
 
-import { useDidUpdateEffect } from '../../hooks/useDidUpdateEffect';
-
 import { DropDown } from '../../components/DropDown';
 
 export const CatalogPage: React.FC = () => {
@@ -56,7 +54,7 @@ export const CatalogPage: React.FC = () => {
     setSearchParams(searchParams);
   };
 
-  useDidUpdateEffect(() => {
+  useEffect(() => {
     const handleProductsFetch = () => (
       getPhonesPage(+page, +limit, sort).then(setProducts)
     );
