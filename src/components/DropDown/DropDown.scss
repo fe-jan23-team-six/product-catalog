@@ -5,6 +5,15 @@
   @extend %bodyText;
   position: relative;
 
+  &__description {
+    @extend %smallText;
+    position: absolute;
+    color: $colorSecondary;
+    top: 0;
+    left: 0;
+    transform: translateY(calc(-100% - 4px));
+  }
+
   height: $dropDownHeight;
   padding-left: $dropDownLeftPadding;
   border: $dropDownBorder solid $colorIcons;

@@ -140,8 +140,11 @@ export const DropDown: FC<Props> = ({
       onFocus={handleFocus}
       onMouseDown={handleMouseDown}
       onKeyDown={handleKeyBoardArrows}
-      data-dropdown-description={description}
     >
+      <div className="drop-down__description">
+        {description}
+      </div>
+
       <p className='drop-down__text'>
         {selectedOption.slice(0, 1).toUpperCase() + selectedOption.slice(1)}
       </p>

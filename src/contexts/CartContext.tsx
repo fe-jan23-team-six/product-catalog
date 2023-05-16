@@ -56,6 +56,9 @@ export const CartProvider: React.FC<CartProviderType> = ({
         ...prevCart,
         {
           ...product,
+          image: product
+            .image.replace(/0(?!.*0)/, '1') // to put appropriate tile
+            || product.image,
           quantity: 1,
         },
       ]

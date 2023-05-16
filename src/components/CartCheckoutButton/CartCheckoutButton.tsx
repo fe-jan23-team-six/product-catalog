@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import classNames from 'classnames';
 import './CartCheckoutButton.scss';
 import { CartContext } from '../../contexts/CartContext';
 
@@ -17,14 +16,8 @@ export const CartCheckoutButton: React.FC = () => {
 
   return (
     <button
-      className={classNames(
-        'primary-button',
-        {
-          // 'primary-button--selected': isSelected,
-        },
-      )}
+      className='checkout-button'
       onClick={handleCheckoutButtonClick}
-      // onDoubleClick={() => clearCart()}
     >
       {'Checkout'}
     </button>

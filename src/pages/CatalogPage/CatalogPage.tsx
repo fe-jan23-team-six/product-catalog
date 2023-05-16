@@ -41,16 +41,6 @@ export const CatalogPage: React.FC = () => {
   const limit = searchParams.get('limit') || '16';
   const sort = searchParams.get('sort') || 'alphabetically';
 
-  const handleChangeLimit = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    searchParams.set('limit', event.target.value);
-    setSearchParams(searchParams);
-  };
-
-  const handleChangeSort = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    searchParams.set('sort', event.target.value);
-    setSearchParams(searchParams);
-  };
-
   const handlePrevPage = () => {
     searchParams.set('page', `${+page - 1}`);
     setSearchParams(searchParams);
@@ -100,29 +90,11 @@ export const CatalogPage: React.FC = () => {
               className="catalog-page__dropdown-left
               catalog-page__dropdown-item"
             >
-              <select
-                onChange={handleChangeLimit}
-                value={limit}
-              >
-                <option value="4">4</option>
-                <option value="8">8</option>
-                <option value="16">16</option>
-              </select>
-
-              <select
-                onChange={handleChangeSort}
-                value={sort}
-              >
-                <option value="newest">Newest</option>
-                <option value="alphabetically">Alphabetically</option>
-                <option value="price-lowest">Cheapest</option>
-              </select>
-
               <DropDown
-                optionList={['4', '8', '16']}
-                selectedOption={currentPerPage}
-                setSelectedOption={setCurrentPerPage}
-                description='Something'
+                optionList={['newest', 'alphabetically', 'price-lowest']}
+                selectedOption={currentSort}
+                setSelectedOption={setCurrentSort}
+                description='Sort by'
               />
             </div>
 
@@ -131,10 +103,10 @@ export const CatalogPage: React.FC = () => {
               catalog-page__dropdown-item"
             >
               <DropDown
-                optionList={['newest', 'alphabetically', 'price-lowest']}
-                selectedOption={currentSort}
-                setSelectedOption={setCurrentSort}
-                description='Something'
+                optionList={['4', '8', '16']}
+                selectedOption={currentPerPage}
+                setSelectedOption={setCurrentPerPage}
+                description='Items on page'
               />
             </div>
           </section>
