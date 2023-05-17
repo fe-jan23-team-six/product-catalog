@@ -43,7 +43,7 @@ export const CartItem: React.FC<Props> = ({
           <div className='cartItem__head_phone_image'>
             <Picture
               className='cartItem__head_phone_image_img'
-              src={'https://product-catalog-api-0h4z.onrender.com/' + image}
+              src={image}
               alt={phoneName}
             />
           </div>
