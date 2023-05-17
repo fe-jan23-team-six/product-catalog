@@ -19,16 +19,16 @@
 
     .slick-track {
       display: grid;
-      grid-template-columns: repeat(auto-fit, 272px); // 212px
+      grid-template-columns: repeat(auto-fit, $PhoneProductCardWidth); // 212px
       grid-auto-flow: column dense;
       gap: 16px;
 
       @include onTablet {
-        grid-template-columns: repeat(auto-fit, 272px); // 237px
+        grid-template-columns: repeat(auto-fit, $TabletProductCardWidth); // 237px
       }
 
       @include onDesktop {
-        grid-template-columns: repeat(auto-fit, 272px);
+        grid-template-columns: repeat(auto-fit, $DesktopProductCardWidth);
       }
     }
 
