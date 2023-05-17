@@ -9,6 +9,7 @@ import { FavouritePage } from './pages/FavouritesPage';
 import { CartPage } from './pages/CartPage';
 import { NotFoundPage } from './pages/NotFoundPage';
 import { ContactsPage } from './pages/ContactsPage';
+import { ProductTypes } from './types/enums/ProductTypes';
 
 export const Root: React.FC = () => (
   <Routes>
@@ -16,8 +17,27 @@ export const Root: React.FC = () => (
       <Route index element={<HomePage />} />
       <Route path="home" element={<Navigate to="/" replace />} />
 
-      <Route path="catalog">
-        <Route index element={<CatalogPage />} />
+      <Route path="phones">
+        <Route
+          index
+          element={<CatalogPage productType={ProductTypes.PHONES} />}
+        />
+        <Route path=":productSlug" element={<DeviceDetailsPage />} />
+      </Route>
+
+      <Route path="tablets">
+        <Route
+          index
+          element={<CatalogPage productType={ProductTypes.TABLETS} />}
+        />
+        <Route path=":productSlug" element={<DeviceDetailsPage />} />
+      </Route>
+
+      <Route path="accessories">
+        <Route
+          index
+          element={<CatalogPage productType={ProductTypes.ACCESSORIES} />}
+      />
         <Route path=":productSlug" element={<DeviceDetailsPage />} />
       </Route>
 

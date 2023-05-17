@@ -23,15 +23,21 @@ export const PageNavMain: React.FC<Props> = ({ isVertical = false }) => {
         </li>
 
         <li className="page-nav-main__item">
-          <PageNavLink to="/catalog">
+          <PageNavLink to="/phones">
             Phones
           </PageNavLink>
 
         </li>
 
         <li className="page-nav-main__item">
-          <PageNavLink to="/catalog">
+          <PageNavLink to="/tablets">
             Tablets
+          </PageNavLink>
+        </li>
+
+        <li className="page-nav-main__item">
+          <PageNavLink to="/accessories">
+            Accessories
           </PageNavLink>
         </li>
 
