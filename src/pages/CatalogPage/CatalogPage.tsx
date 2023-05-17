@@ -5,14 +5,14 @@ import { ProductList } from '../../components/ProductList';
 import { DataLoader } from '../../components/DataLoader';
 
 import { useDataFetcher } from '../../hooks/useDataFetcher';
-import { PhoneMain } from '../../types/PhoneMain';
-import { getPhonesPage, getTotalAmount } from '../../utils/api/phones';
+import { ProductMain } from '../../types/ProductMain';
+import { getProducts, getTotalAmount } from '../../utils/api/products';
 import { useSearchParams } from 'react-router-dom';
 
 import { DropDown } from '../../components/DropDown';
 
 export const CatalogPage: React.FC = () => {
-  const [products, setProducts] = useState<PhoneMain[]>([]);
+  const [products, setProducts] = useState<ProductMain[]>([]);
   const [totalAmount, setTotalAmount] = useState('');
   const [fetchProductsAndAmountStatus, , fetchAll] = useDataFetcher();
 
@@ -55,8 +55,12 @@ export const CatalogPage: React.FC = () => {
   };
 
   useEffect(() => {
+    // const handleProductsFetch = () => (
+    //   getPhonesPage(+page, +limit, sort).then(setProducts)
+    // );
+
     const handleProductsFetch = () => (
-      getPhonesPage(+page, +limit, sort).then(setProducts)
+      getProducts().then(setProducts)
     );
 
     const handleAmountFetch = totalAmount === ''

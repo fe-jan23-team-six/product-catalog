@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { CategoryLink } from '../CategoryLink';
-import { getAmountPhones } from '../../utils/api/phones';
+import { getAmountProducts } from '../../utils/api/products';
 import './ShopByCategory.scss';
 import { useDataFetcher } from '../../hooks/useDataFetcher';
 import { DataLoader } from '../DataLoader';
@@ -28,7 +28,7 @@ export const ShopByCategory: React.FC = () => {
   const [accessoriesFetchStatus, fetchAccessories] = useDataFetcher();
 
   useEffect(() => {
-    fetchPhones(() => getAmountPhones().then(res => {
+    fetchPhones(() => getAmountProducts().then(res => {
       setAmountThings(prev => {
         const copyAmount = { ...prev };
 
@@ -38,7 +38,7 @@ export const ShopByCategory: React.FC = () => {
       });
     }));
 
-    fetchTablets(() => getAmountPhones().then(res => {
+    fetchTablets(() => getAmountProducts().then(res => {
       setAmountThings(prev => {
         const copyAmount = { ...prev };
 
@@ -48,7 +48,7 @@ export const ShopByCategory: React.FC = () => {
       });
     }));
 
-    fetchAccessories(() => getAmountPhones().then(res => {
+    fetchAccessories(() => getAmountProducts().then(res => {
       setAmountThings(prev => {
         const copyAmount = { ...prev };
 

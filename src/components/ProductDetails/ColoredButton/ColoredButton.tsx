@@ -3,11 +3,11 @@ import classNames from 'classnames';
 import './ColoredButton.scss';
 import { getColorOfDevice } from '../../../utils/helpers/helpers';
 import { Link } from 'react-router-dom';
-import { Phone } from '../../../types/Phone';
+import { Product } from '../../../types/Product';
 
 type Props = {
   deviceColor: string,
-  product: Phone,
+  product: Product,
 }
 
 export const ColoredButton: React.FC<Props> = ({

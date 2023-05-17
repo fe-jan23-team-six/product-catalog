@@ -1,10 +1,10 @@
 import React from 'react';
 import './ProductList.scss';
 import { ProductCard } from '../ProductCard';
-import { PhoneMain } from '../../types/PhoneMain';
+import { ProductMain } from '../../types/ProductMain';
 
 type Props = {
-  products: PhoneMain[];
+  products: ProductMain[];
   nextRouteLink?: string;
 }
 

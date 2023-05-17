@@ -1,14 +1,14 @@
 import React, { useMemo, useCallback } from 'react';
-import { PhoneMain } from '../types/PhoneMain';
+import { ProductMain } from '../types/ProductMain';
 import { useLocalStorage } from '../hooks/useLocalStorage';
 import {
   LOCAL_STORAGE_FAVOURITE_KEY as favouriteKey,
 } from '../utils/constants/localStorage';
 
 type FavouriteContextType = {
-  favourite: PhoneMain[];
-  isInFavourite: (id: number) => boolean;
-  toggleFavourite: (product: PhoneMain) => void;
+  favourite: ProductMain[];
+  isInFavourite: (id: string) => boolean;
+  toggleFavourite: (product: ProductMain) => void;
 };
 
 export const FavouriteContext = React.createContext<FavouriteContextType>({
@@ -26,15 +26,15 @@ type FavouriteProviderType = {
 export const FavouriteProvider: React.FC<FavouriteProviderType> = ({
   children,
 }) => {
-  const [favourite, setFavourite] = useLocalStorage<PhoneMain>(
+  const [favourite, setFavourite] = useLocalStorage<ProductMain>(
     favouriteKey,
   );
 
-  const isInFavourite = useCallback((id: number): boolean => (
+  const isInFavourite = useCallback((id: string): boolean => (
     favourite.some(favouriteProduct => favouriteProduct.id === id)
   ), [favourite]);
 
-  const toggleFavourite = useCallback((product: PhoneMain): void => {
+  const toggleFavourite = useCallback((product: ProductMain): void => {
     if (isInFavourite(product.id)) {
       setFavourite((prevFavourite) => (
         prevFavourite.filter(favouriteProduct => (

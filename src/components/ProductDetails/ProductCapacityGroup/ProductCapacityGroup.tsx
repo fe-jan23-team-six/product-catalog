@@ -1,10 +1,10 @@
 import React from 'react';
 import { CapacitiesButton } from '../CapacitiesButton';
-import { Phone } from '../../../types/Phone';
+import { Product } from '../../../types/Product';
 
 type Props = {
   capacities: Array<string>,
-  product: Phone,
+  product: Product,
 };
 
 export const ProductCapacityGroup: React.FC<Props> = ({

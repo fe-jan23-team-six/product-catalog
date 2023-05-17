@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { CartItemType } from '../types/CartItemType';
-import { PhoneMain } from '../types/PhoneMain';
+import { ProductMain } from '../types/ProductMain';
 import { QuantityActionType } from '../types/QuantityActionType';
 import { useLocalStorage } from '../hooks/useLocalStorage';
 import {
@@ -9,11 +9,11 @@ import {
 
 type CartContextType = {
   cart: CartItemType[];
-  addToCart: (product: PhoneMain) => void;
-  removeFromCart: (id: number) => void;
+  addToCart: (product: ProductMain) => void;
+  removeFromCart: (id: string) => void;
   clearCart: () => void;
-  isInCart: (id: number) => boolean;
-  changeQuantity: (id: number, action: QuantityActionType) => void;
+  isInCart: (id: string) => boolean;
+  changeQuantity: (id: string, action: QuantityActionType) => void;
 };
 
 export const CartContext = React.createContext<CartContextType>({
@@ -42,11 +42,11 @@ export const CartProvider: React.FC<CartProviderType> = ({
 }) => {
   const [cart, setCart] = useLocalStorage<CartItemType>(cartKey);
 
-  const isInCart = (id: number): boolean => (
+  const isInCart = (id: string): boolean => (
     cart.some(cartProduct => cartProduct.id === id)
   );
 
-  const addToCart = (product: PhoneMain): void => {
+  const addToCart = (product: ProductMain): void => {
     if (isInCart(product.id)) {
       return;
     }
@@ -65,7 +65,7 @@ export const CartProvider: React.FC<CartProviderType> = ({
     ));
   };
 
-  const removeFromCart = (id: number): void => (
+  const removeFromCart = (id: string): void => (
     setCart((prevCart) => (
       prevCart.filter(cartProduct => cartProduct.id !== id)
     ))
@@ -73,7 +73,7 @@ export const CartProvider: React.FC<CartProviderType> = ({
 
   const clearCart = () => setCart([]);
 
-  const changeQuantity = (id: number, action: QuantityActionType): void => (
+  const changeQuantity = (id: string, action: QuantityActionType): void => (
     setCart((prevCart) => (
       prevCart.map(cartProduct => {
         if (cartProduct.id === id) {

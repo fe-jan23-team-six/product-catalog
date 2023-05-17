@@ -1,12 +1,12 @@
 import React from 'react';
 import classNames from 'classnames';
 import './CapacitiesButton.scss';
-import { Phone } from '../../../types/Phone';
+import { Product } from '../../../types/Product';
 import { Link } from 'react-router-dom';
 
 type Props = {
   deviceCapacity: string,
-  product: Phone,
+  product: Product,
 }
 
 export const CapacitiesButton: React.FC<Props> = ({

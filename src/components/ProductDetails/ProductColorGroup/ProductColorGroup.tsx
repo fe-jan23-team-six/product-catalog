@@ -1,10 +1,10 @@
 import React from 'react';
 import { ColoredButton } from '../ColoredButton';
-import { Phone } from '../../../types/Phone';
+import { Product } from '../../../types/Product';
 
 type Props = {
   colors: Array<string>,
-  product: Phone,
+  product: Product,
 };
 
 export const ProductColorGroup: React.FC<Props> = ({ colors, product }) => {

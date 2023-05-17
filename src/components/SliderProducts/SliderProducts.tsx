@@ -7,12 +7,12 @@ import 'slick-carousel/slick/slick-theme.css';
 
 import { ProductCard } from '../ProductCard';
 import { ArrowButton } from '../ArrowButton';
-import { PhoneMain } from '../../types/PhoneMain';
+import { ProductMain } from '../../types/ProductMain';
 import { CATALOG_PAGE } from '../../utils/constants/route';
 
 interface Props {
   title?: string,
-  products: PhoneMain[],
+  products: ProductMain[],
 }
 
 export const SliderProducts: React.FC<Props> = ({ title, products }) => {
