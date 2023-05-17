@@ -14,6 +14,7 @@ import { ProductManageButtons } from '../../../components/ProductManage';
 
 import { FavouriteContext } from '../../../contexts/FavouriteContext';
 import { CartContext } from '../../../contexts/CartContext';
+import { convertSlugToDigit } from '../../../utils/helpers/converSlugInId';
 
 type Props = {
   product: Product,
@@ -60,8 +61,8 @@ export const DeviceDetailsSelector: React.FC<Props> = ({ product }) => {
             Available colours
           </p>
 
-          <p className="selector__id">
-            ID: {id}
+          <p className="selector__id grid__item--desktop-22-24">
+            {`ID ${convertSlugToDigit(id)}`}
           </p>
         </div>
 
