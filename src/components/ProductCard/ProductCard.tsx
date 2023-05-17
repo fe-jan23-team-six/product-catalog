@@ -7,6 +7,7 @@ import { ProductMain } from '../../types/ProductMain';
 
 import { FavouriteContext } from '../../contexts/FavouriteContext';
 import { CartContext } from '../../contexts/CartContext';
+import { Picture } from '../Picture';
 
 type Props = {
   product: ProductMain;
@@ -41,12 +42,11 @@ export const ProductCard: React.FC<Props> = ({
   return (
     <div className="product-card">
       <Link to={nextRouteLink ? `${nextRouteLink}/${id}` : `./${id}`}>
-        <img
+        <Picture
           className="product-card__image"
           src={image}
           alt={productName}
-        >
-        </img>
+        />
 
         <div className="product-card__model">
           {productName}
