@@ -76,7 +76,7 @@ export const Banner: React.FC = () => {
 
       <div className="banner__button-arrow grid__item--attach-to-end">
         <ArrowButton
-          isForward={true}
+          isRight={true}
           isLong={true}
           onClick={handleNextClick}
         />

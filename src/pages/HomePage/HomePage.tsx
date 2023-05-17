@@ -12,6 +12,7 @@ import { DataLoader } from '../../components/DataLoader';
 import { ShopByCategory } from '../../components/ShopByCategory';
 
 import { useDataFetcher } from '../../hooks/useDataFetcher';
+import { ArrowButton } from '../../components/ArrowButton';
 
 export const HomePage: React.FC = () => {
   const [newProducts, setNewProducts] = useState<ProductMain[]>([]);
@@ -33,6 +34,8 @@ export const HomePage: React.FC = () => {
       <h1 className="home-page__title">
         Welcome to Nice Gadgets store!
       </h1>
+
+      <ArrowButton isDown />
 
       <section className="home-page__banner">
         <Banner />

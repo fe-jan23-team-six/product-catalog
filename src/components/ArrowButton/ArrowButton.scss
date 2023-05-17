@@ -18,14 +18,23 @@
 
   &--is-disabled {
     background-image: url('./../../../public/icons/left16x16.svg');
+    pointer-events: none;
   }
 
-  &:not(.button--disabled):hover {
+  &:hover {
     border-color: $colorPrimary;
   }
 
-  &--is-forward {
+  &--is-right {
     transform: rotate(180deg);
+  }
+  
+  &--is-up {
+    transform: rotate(90deg);
+  }
+  
+  &--is-down {
+    transform: rotate(-90deg);
   }
 
   &--is-long {

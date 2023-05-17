@@ -67,7 +67,7 @@ export const SliderProducts: React.FC<Props> = ({ title, products }) => {
           />
 
           <ArrowButton
-            isForward={true}
+            isRight={true}
             isDisabled={noSlide === products.length - 4}
             onClick={handleNextClick}
           />

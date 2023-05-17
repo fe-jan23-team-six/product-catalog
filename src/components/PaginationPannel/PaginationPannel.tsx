@@ -71,7 +71,7 @@ export const PaginationPannel: React.FC<Props> = ({
         className="pagination pagination__item pagination__item-prev"
       >
         <ArrowButton
-          isForward={false}
+          isRight={false}
           isLong={false}
           isDisabled={isFirst}
           onClick={handlePrevPage}
@@ -96,7 +96,7 @@ export const PaginationPannel: React.FC<Props> = ({
         className="pagination pagination__item pagination__item-next"
       >
         <ArrowButton
-          isForward={true}
+          isRight={true}
           isLong={false}
           isDisabled={isLast}
           onClick={handleNextPage}
