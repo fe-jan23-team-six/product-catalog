@@ -33,13 +33,13 @@
     gap: 32px;
   }
 
-  &__item {
-    &--attach-to-end {
-      @include onTablet {
-        grid-column-start: -1;
-      }
+  &--banner {
+    @include onTablet {
+      grid-template-columns: 32px repeat(10, 1fr) 32px;
     }
-
+  }
+  
+  &__item {
     @for $start from 1 through 4 {
       @for $end from $start through 4 {
         &--mobile-#{$start}-#{$end} {
