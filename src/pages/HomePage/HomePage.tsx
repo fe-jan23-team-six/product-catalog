@@ -6,7 +6,7 @@ import { getDiscountProducts, getNewProducts } from '../../utils/api/products';
 import { ProductMain } from '../../types/ProductMain';
 
 import { SliderProducts } from '../../components/SliderProducts';
-import { Banner } from '../../components/Banner/Banner';
+// import { Banner } from '../../components/Banner/Banner';
 import { DataLoader } from '../../components/DataLoader';
 
 import { ShopByCategory } from '../../components/ShopByCategory';
@@ -35,7 +35,7 @@ export const HomePage: React.FC = () => {
       </h1>
 
       <section className="home-page__banner">
-        <Banner />
+        {/* <Banner /> */}
       </section>
 
       <section className="home-page__product-slider--new-products">
