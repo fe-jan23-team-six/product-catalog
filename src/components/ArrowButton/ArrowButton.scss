@@ -1,23 +1,23 @@
 @import './../../styles/utils/vars';
 @import './../../styles/utils/mixins';
 @import './../../styles/utils/extends';
+@import '../../styles/utils';
 
 .arrow-button {
   @extend %flexCenter;
-  
   width: 32px;
   height: 32px;
-  border-radius: 0;
-  background-color: transparent;
-  border: 1px solid $colorElements;
+  border: 1px solid $colorIcons;
 
   background-image: url('./../../../public/icons/leftBlack16x16.svg');
   background-repeat: no-repeat;
-  background-size: contain;
   background-position: center center;
+
+  transition: border-color $animationDuration;
 
   &--is-disabled {
     background-image: url('./../../../public/icons/left16x16.svg');
+    border-color: $colorElements;
     pointer-events: none;
   }
 

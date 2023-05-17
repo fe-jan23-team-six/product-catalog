@@ -1,8 +1,8 @@
-@import '../../styles/utils/mixins';
-@import '../../styles/utils/extends';
+@import '../../styles/utils';
 
 .banner {
   @extend %flexSpaceBetweenCenter;
+  box-sizing: border-box;
   min-width: 320px;
 
   @include onTablet {
@@ -55,7 +55,7 @@
   }
 
   &__image {
-    object-fit: contain;
+    object-fit: cover;
   }
 
   &__paging {

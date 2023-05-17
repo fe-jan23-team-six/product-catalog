@@ -32,6 +32,9 @@ export const SliderProducts: React.FC<Props> = ({ title, products }) => {
     },
   };
 
+  const isLeftButtonDisabled = noSlide === 0;
+  const isRightButtonDisabled = noSlide === products.length - 4;
+
   const handlePrevClick = () => {
     sliderRef.current?.slickPrev();
   };
@@ -47,13 +50,13 @@ export const SliderProducts: React.FC<Props> = ({ title, products }) => {
 
         <div className="slider-products__buttons">
           <ArrowButton
-            isDisabled={noSlide === 0}
+            isDisabled={isLeftButtonDisabled}
             onClick={handlePrevClick}
           />
 
           <ArrowButton
-            isRight={true}
-            isDisabled={noSlide === products.length - 4}
+            isRight
+            isDisabled={isRightButtonDisabled}
             onClick={handleNextClick}
           />
         </div>
