@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import { CartItemType } from '../../types/CartItemType';
 import { CartContext } from '../../contexts/CartContext';
 import { QuantityActionType } from '../../types/QuantityActionType';
+import { Picture } from '../Picture';
 
 type Props = {
   cartItem: CartItemType;
@@ -40,9 +41,9 @@ export const CartItem: React.FC<Props> = ({
 
         <div className='cartItem__head_phone'>
           <div className='cartItem__head_phone_image'>
-            <img
+            <Picture
               className='cartItem__head_phone_image_img'
-              src={image}
+              src={'https://product-catalog-api-0h4z.onrender.com/' + image}
               alt={phoneName}
             />
           </div>
