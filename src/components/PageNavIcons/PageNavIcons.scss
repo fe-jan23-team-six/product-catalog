@@ -27,11 +27,11 @@
       align-items: center;
       justify-content: center;
 
-      border: 1px solid $colorWhite;
+      border: 1px solid var(--whiteColor);
       border-radius: 14px;
       font-weight: 600;
       font-size: 9px;
-      color: $colorWhite;
+      color: var(--whiteColor);
       background-color: $colorRed;
     }
 

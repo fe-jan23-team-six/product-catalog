@@ -18,7 +18,7 @@
   padding-left: $dropDownLeftPadding;
   border: $dropDownBorder solid $colorIcons;
 
-  color: $colorPrimary;
+  color: var(--primaryColor);
   transition: all $animationDuration ease-out;
   cursor: pointer;
 
@@ -39,7 +39,7 @@
     padding: 4px 0;
     border: $dropDownBorder solid $colorElements;
 
-    background: $colorWhite;
+    background: var(--whiteColor);
     box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.05);
 
     &--closed {
@@ -68,7 +68,7 @@
   }
 
   &:focus {
-    border-color: $colorPrimary;
+    border-color: var(--primaryColor);
   }
 
   &::after {

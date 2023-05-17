@@ -9,7 +9,7 @@
   border: 1px solid $colorElements;
   padding: 32px;
 
-  color: $colorPrimary;
+  color: var(--primaryColor);
   transition: box-shadow $animationDuration ease;
 
   &:hover {
@@ -25,7 +25,7 @@
 
   &__model {
     @extend %buttonText;
-    color: $colorPrimary;
+    color: var(--primaryColor);
     min-height: 42px;
     margin-bottom: 8px;
   }
@@ -64,6 +64,6 @@
   &__info-value {
     @extend %smallText;
     font-weight: $fontWeightBold;
-    color: $colorPrimary;
+    color: var(--primaryColor);
   }
 }

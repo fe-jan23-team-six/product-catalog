@@ -13,7 +13,7 @@
 
   &:hover,
   &--active {
-    color: $colorPrimary;
+    color: var(--primaryColor);
 
     &::after {
       content: "";
@@ -21,7 +21,7 @@
       bottom: 0;
       width: 100%;
       height: 4px;
-      background: $colorPrimary;
+      background: var(--primaryColor);
       border-radius: 2px;
     }
   }

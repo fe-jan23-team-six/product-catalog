@@ -26,6 +26,8 @@ h1 {
   font-size: 32px;
   line-height: 41px;
 
+  color: var(--primaryColor);
+
   @include onTabletAndDesktop {
     font-weight: 800;
     font-size: 48px;

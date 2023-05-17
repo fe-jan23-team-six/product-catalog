@@ -3,18 +3,18 @@
 
 .primary-button {
   @extend %buttonText;
-  color: $colorWhite;
+  color: var(--whiteColor);
   box-shadow: none;
   width: 100%;
   border: 1px solid transparent;
-  background: $colorPrimary;
+  background: var(--primaryColor);
 
   &:hover {
     box-shadow: 0px 3px 13px rgba(23, 32, 49, 0.4);
   }
 
   &--selected {
-    background: $colorWhite;
+    background: var(--whiteColor);
     border: 1px solid $colorElements;
     color: $colorGreen;
 

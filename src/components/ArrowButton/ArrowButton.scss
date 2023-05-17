@@ -21,7 +21,7 @@
   }
 
   &:not(.button--disabled):hover {
-    border-color: $colorPrimary;
+    border-color: var(--primaryColor);
   }
 
   &--is-forward {

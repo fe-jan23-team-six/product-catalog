@@ -20,7 +20,7 @@
     max-width: 1136px;
     width: 100%;
     text-align: left;
-    color: $colorPrimary;
+    color: var(--primaryColor);
   }
 
   &__content {

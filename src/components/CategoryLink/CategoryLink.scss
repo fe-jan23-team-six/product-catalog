@@ -76,7 +76,7 @@
     line-height: 26px;
     text-transform: capitalize;
 
-    color: $colorPrimary;
+    color: var(--primaryColor);
   }
 
   &__description {

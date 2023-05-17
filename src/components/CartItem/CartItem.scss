@@ -61,7 +61,7 @@
       }
 
       &_name {
-        color: $colorPrimary;
+        color: var(--primaryColor);
 
         align-self: start;
         margin-top: 8.5px;
@@ -136,7 +136,7 @@
     }
 
     &_price {
-      color: $colorPrimary;
+      color: var(--primaryColor);
       text-align: right;
 
       &::before {

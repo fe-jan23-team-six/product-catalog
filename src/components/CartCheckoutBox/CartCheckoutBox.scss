@@ -18,7 +18,7 @@
 
     &_mainValue {
       line-height: 41px;
-      color: $colorPrimary;
+      color: var(--primaryColor);
 
       &::before {
         content: '$';

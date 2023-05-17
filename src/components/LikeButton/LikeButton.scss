@@ -10,7 +10,7 @@
   background-position: center;
 
   &:hover {
-    border-color: $colorPrimary;
+    border-color: var(--primaryColor);
   }
   
   &--selected {

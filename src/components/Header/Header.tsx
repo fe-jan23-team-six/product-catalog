@@ -7,6 +7,7 @@ import { PageNavMain } from '../PageNavMain';
 import { PageNavIcons } from '../PageNavIcons';
 
 import { disablePageScroll } from '../../utils/helpers/disablePageScroll';
+import ToggleTheme from '../ToggleTheme/ToggleTheme';
 
 export const Header: React.FC = () => {
   const [isMenuOpened, setIsMenuOpened] = useState(false);
@@ -32,6 +33,8 @@ export const Header: React.FC = () => {
           onMenuOpen={handleMenuOpen}
         />
       </div>
+
+      <ToggleTheme />
 
       <div className="header__menu">
         <div className="header__links">

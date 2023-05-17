@@ -10,7 +10,7 @@
     color: $colorSecondary;
   
     &--black {
-      color: $colorPrimary;
+      color: var(--primaryColor);
     }
   }
 }

@@ -4,7 +4,7 @@
   width: 100%;
   height: 40px;
   background-color: $colorGrayPrimary;
-  color: $colorWhite;
+  color: var(--whiteColor);
   font-family: inherit;
   font-weight: $fontWeightBold;
   font-size: 14px;
@@ -15,7 +15,7 @@
   }
 
   &.selected {
-    background-color: $colorWhite;
+    background-color: var(--whiteColor);
     border: 1px solid $colorElements;
     color: $colorGreen;
   }

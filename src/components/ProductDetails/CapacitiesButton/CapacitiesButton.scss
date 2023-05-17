@@ -3,16 +3,16 @@
 .capacity-button {
   padding: 4px 8px;
 
-  background-color: $colorWhite;
+  background-color: var(--whiteColor);
   border: 1px solid $colorIcons;
 
   &:hover:not(.capacity-button--selected) {
-    outline: 1px solid $colorPrimary;
+    outline: 1px solid var(--primaryColor);
   }
 
   &--selected {
-    color: $colorWhite;
-    background-color: $colorPrimary;
+    color: var(--whiteColor);
+    background-color: var(--primaryColor);
     border: none;
   }
 }

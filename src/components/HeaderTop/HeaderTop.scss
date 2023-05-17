@@ -4,7 +4,7 @@
 
 .header-top {
   @extend %flexSpaceBetweenCenter;
-  background: $colorWhite;
+  background: var(--whiteColor);
   box-shadow: 0 1px 0 $colorElements;
 
   &__main {

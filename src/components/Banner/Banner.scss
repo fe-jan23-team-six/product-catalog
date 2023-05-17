@@ -77,7 +77,7 @@
     }
 
     &.slick-active {
-      background-color: $colorPrimary;
+      background-color: var(--primaryColor);
     }
   }
 }

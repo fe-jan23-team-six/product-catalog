@@ -12,12 +12,12 @@
   line-height: 16px;
 
   &:hover {
-    border-color: $colorPrimary;
+    border-color: var(--primaryColor);
   }
 
   &.selected {
-    border-color: $colorPrimary;
-    background-color: $colorPrimary;
-    color: $colorWhite;
+    border-color: var(--primaryColor);
+    background-color: var(--primaryColor);
+    color: var(--whiteColor);
   }
 }

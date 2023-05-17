@@ -1,0 +1,49 @@
+@import './../../styles/utils/mixins';
+
+.themeToggle {
+  background-color: var(--whiteColor);
+  color: var(--primaryColor);
+  line-height: 100%;
+  border: none;
+
+  --size: 48px;
+
+  @media (min-width: 1200px) {
+    --size: 64px;
+  }
+
+  width: var(--size);
+  height: var(--size);
+
+  position: absolute;
+
+  top: 0;
+  right: var(--size);
+
+  @include onTabletAndDesktop {
+    right: calc(2 * var(--size));
+  }
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+  }
+
+  &::before {
+    top: 0;
+    left: 0;
+    border-width: 0 var(--size) var(--size) 0;
+    border-color: transparent var(--primaryColor) transparent transparent;
+  }
+
+  &::after {
+    bottom: 0;
+    right: 0;
+    border-width: var(--size) 0 0 var(--size);
+    border-color: transparent transparent transparent var(--whiteColor);
+  }
+}

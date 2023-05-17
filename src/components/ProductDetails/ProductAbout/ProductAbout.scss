@@ -6,7 +6,7 @@
   font-weight: $fontWeightBold;
   font-size: 20px;
   line-height: 26px;
-  color: $colorPrimary;
+  color: var(--primaryColor);
 }
 
 .about__details__text {
