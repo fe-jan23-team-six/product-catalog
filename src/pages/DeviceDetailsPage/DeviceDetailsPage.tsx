@@ -1,5 +1,6 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { useQuery } from '@tanstack/react-query';
 import './DeviceDetailsPage.scss';
 
 import { DeviceDetailsImages } from './DeviceDetailsImages';
@@ -7,7 +8,6 @@ import { DeviceDetailsSelector } from './DeviceDetailsSelector';
 import { DeviceDetailsAbout } from './DeviceDetailsAbout';
 import { DeviceDetailsSpecs } from './DeviceDetailsSpecs';
 import { SliderProducts } from '../../components/SliderProducts';
-import { DataLoader } from '../../components/DataLoader';
 
 import { Product } from '../../types/Product';
 import { ProductMain } from '../../types/ProductMain';
@@ -19,22 +19,36 @@ import {
 import { Breadcrumbs } from '../../components/Breadcrumbs';
 import { BreadcrumbItem } from '../../types/BreadcrumbItem';
 
-import { useDataFetcher } from '../../hooks/useDataFetcher';
 import { convertSlugToDigit } from '../../utils/helpers/converSlugInId';
+import {
+  DeviceDetailsLoadPage,
+} from '../../components/LoadingComponents/DeviceDetailsLoadPage';
 
 export const DeviceDetailsPage: FC = () => {
-  const [product, setProduct] = useState<Product | null>(null);
-  const [recommended, setRecommended] = useState<ProductMain[]>([]);
+  const { productSlug = '' } = useParams();
 
-  const { productSlug } = useParams();
+  const productQuery = useQuery<Product>({
+    queryKey: ['product'],
+    queryFn: () => getById(productSlug),
+  });
 
-  const [productFetchStatus, fetchProduct] = useDataFetcher();
-  const [recommendedFetchStatus, fetchRecommended] = useDataFetcher();
+  const recommendedQuery = useQuery<ProductMain[]>({
+    queryKey: ['recommended'],
+    queryFn: () => getProducts(),
+  });
 
   useEffect(() => {
-    fetchProduct(() => getById(String(productSlug)).then(setProduct));
-    fetchRecommended(() => getProducts().then(setRecommended));
+    productQuery.refetch();
+    recommendedQuery.refetch();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [productSlug]);
+
+  /*   useEffect(() => {
+    console.log('loading', productQuery.data, productQuery.isFetching);
+  }, [productQuery.isFetching]); */
+
+  const product = productQuery.data;
+  const recommended = recommendedQuery.data;
 
   const productTitle = product
     ? product.name
@@ -51,9 +65,12 @@ export const DeviceDetailsPage: FC = () => {
   ];
 
   return (
-    <DataLoader fetchStatus={productFetchStatus}>
       <div className="device-details">
-        {product ? (
+        {productQuery.isFetching ? (
+          <DeviceDetailsLoadPage
+            breadcrumbs={breadcrumbs}
+          />
+        ) : (
           <>
             <section className="device-details__breadcrumbs">
               <Breadcrumbs breadcrumbs={breadcrumbs} />
@@ -63,44 +80,42 @@ export const DeviceDetailsPage: FC = () => {
               {productTitle}
             </h1>
 
-            <section
-              className="device-details__product
-              grid grid--mobile-off"
-            >
-              <DeviceDetailsImages images={product.images} />
+            {product && (
+              <>
+                <section
+                className="device-details__product
+                grid grid--mobile-off"
+              >
+                <DeviceDetailsImages images={product.images} />
 
-              <DeviceDetailsSelector product={product} />
+                <DeviceDetailsSelector product={product} />
 
               <p className="device-details__id grid__item--desktop-22-24">
                 {`ID ${convertSlugToDigit(product.id)}`}
               </p>
             </section>
 
-            <section
-              className="device-details__about-product
-              grid grid--mobile-tablet-off"
-            >
-              <DeviceDetailsAbout descriptions={product.description} />
+              <section
+                className="device-details__about-product
+                grid grid--mobile-tablet-off"
+              >
+                <DeviceDetailsAbout descriptions={product.description} />
 
-              <DeviceDetailsSpecs product={product} />
-            </section>
+                <DeviceDetailsSpecs product={product} />
+              </section>
+              </>
+            )}
 
-            <section className="device-details__slider-products">
-              <DataLoader fetchStatus={recommendedFetchStatus}>
-                <SliderProducts
-                  title={'You may also like'}
-                  products={recommended}
-                />
-              </DataLoader>
-            </section>
+            {recommended && (
+              <section className="device-details__slider-products">
+              <SliderProducts
+                title={'You may also like'}
+                products={recommended}
+              />
+          </section>
+            )}
           </>
-        ) : (
-          <h1>
-            Failed while loading product
-          </h1>
         )}
       </div>
-
-    </DataLoader>
   );
 };

@@ -110,7 +110,8 @@ export const DeviceDetailsSelector: React.FC<Props> = ({ product }) => {
             isLiked={isLiked}
             onLike={handleLike}
             isInCart={hasAddedInCart}
-            onCartAdd={handleAddToCart}/>
+            onCartAdd={handleAddToCart}
+          />
         </div>
 
         <div className="selector__characteristics">
