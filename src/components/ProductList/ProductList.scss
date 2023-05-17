@@ -3,13 +3,13 @@
 .product-list {
   display: grid;
   justify-content: center;
-  grid-template-columns: $productCardWidth;
+  grid-template-columns: $DesktopProductCardWidth;
   column-gap: 16px;
   row-gap: 40px;
 
   @each $breakpoint, $columnCount in $productListColumns {
     @media (min-width: $breakpoint) {
-      grid-template-columns: repeat($columnCount, $productCardWidth);
+      grid-template-columns: repeat($columnCount, $DesktopProductCardWidth);
     }
   }
 }

@@ -1,11 +1,20 @@
-@import '../../styles/utils/vars';
-@import '../../styles/utils/extends';
+@import '../../styles/utils';
 
 .product-card {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: $productCardWidth;
+
+  width: $PhoneProductCardWidth;
+
+  @include onTablet {
+    width: $TabletProductCardWidth;
+  }
+
+  @include onDesktop {
+    width: $DesktopProductCardWidth;
+  }
+
   border: 1px solid $colorElements;
   padding: 32px;
 
@@ -17,10 +26,21 @@
   }
 
   &__image {
-    object-fit: contain; 
-    width: 208px;
-    height: 196px;
+    width: 148px;
+    height: 129px;
+
+    object-fit: contain;
     margin-bottom: $marginBottomSmall;
+    
+    @include onTablet {
+      width: 173px;
+      height: 202px;
+    }
+    
+    @include onDesktop {
+      width: 208px;
+      height: 196px;
+    }
   }
 
   &__model {
