@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { CategoryLink } from '../CategoryLink';
-import { getAmountProducts } from '../../utils/api/products';
+import { getTotalAmount } from '../../utils/api/products';
 import './ShopByCategory.scss';
 import { useDataFetcher } from '../../hooks/useDataFetcher';
 import { DataLoader } from '../DataLoader';
@@ -9,53 +9,21 @@ import {
   TABLETS_CATALOG,
   ACCESSORIES_CATALOG,
 } from '../../utils/constants/route';
-
-interface TypeAmountThings {
-  phones: number,
-  tablets: number,
-  accessories: number,
-}
+import { TypeAmount } from '../../types/TypeAmount';
 
 export const ShopByCategory: React.FC = () => {
-  const [amountsThings, setAmountThings] = useState<TypeAmountThings>({
-    phones: 0,
-    tablets: 0,
-    accessories: 0,
+  const [amountsThings, setAmountThings] = useState<TypeAmount>({
+    phones: '',
+    tablets: '',
+    accessories: '',
   });
 
-  const [phonesFetchStatus, fetchPhones] = useDataFetcher();
-  const [tabletsFetchStatus, fetchTablets] = useDataFetcher();
-  const [accessoriesFetchStatus, fetchAccessories] = useDataFetcher();
+  const [amountFetchStatus, fetchAmount] = useDataFetcher();
 
   useEffect(() => {
-    fetchPhones(() => getAmountProducts().then(res => {
-      setAmountThings(prev => {
-        const copyAmount = { ...prev };
-
-        copyAmount.phones = res.amount;
-
-        return copyAmount;
-      });
-    }));
-
-    fetchTablets(() => getAmountProducts().then(res => {
-      setAmountThings(prev => {
-        const copyAmount = { ...prev };
-
-        copyAmount.tablets = res.amount;
-
-        return copyAmount;
-      });
-    }));
-
-    fetchAccessories(() => getAmountProducts().then(res => {
-      setAmountThings(prev => {
-        const copyAmount = { ...prev };
-
-        copyAmount.accessories = res.amount;
-
-        return copyAmount;
-      });
+    fetchAmount(() => getTotalAmount().then(res => {
+      global.console.log('res:', res);
+      setAmountThings(res);
     }));
   }, []);
 
@@ -65,52 +33,46 @@ export const ShopByCategory: React.FC = () => {
         Shop by category
       </h2>
 
-      <div className="shop-by-category__categories grid grid--mobile-gap">
-        <div
-          className="
-            grid__item--desktop-1-8
-            grid__item--tablet-1-4
-            grid__item--mobile-1-4
-          "
-        >
-          <DataLoader fetchStatus={phonesFetchStatus}>
+      <DataLoader fetchStatus={amountFetchStatus}>
+        <div className="shop-by-category__categories grid grid--mobile-gap">
+          <div
+            className="
+              grid__item--desktop-1-8
+              grid__item--tablet-1-4
+              grid__item--mobile-1-4
+            "
+          >
             <CategoryLink
               path={PHONES_CATALOG}
               amount={amountsThings.phones}
             />
-          </DataLoader>
-        </div>
-
-        <div
-          className="
-            grid__item--desktop-9-16
-            grid__item--tablet-5-8
-            grid__item--mobile-1-4
-          "
-        >
-          <DataLoader fetchStatus={tabletsFetchStatus}>
+          </div>
+          <div
+            className="
+              grid__item--desktop-9-16
+              grid__item--tablet-5-8
+              grid__item--mobile-1-4
+            "
+          >
             <CategoryLink
               path={TABLETS_CATALOG}
               amount={amountsThings.tablets}
             />
-          </DataLoader>
-        </div>
-
-        <div
-          className="
-            grid__item--desktop-17-24
-            grid__item--tablet-9-12
-            grid__item--mobile-1-4
-          "
-        >
-          <DataLoader fetchStatus={accessoriesFetchStatus}>
+          </div>
+          <div
+            className="
+              grid__item--desktop-17-24
+              grid__item--tablet-9-12
+              grid__item--mobile-1-4
+            "
+          >
             <CategoryLink
               path={ACCESSORIES_CATALOG}
               amount={amountsThings.accessories}
             />
-          </DataLoader>
+          </div>
         </div>
-      </div>
+      </DataLoader>
     </div>
   );
 };

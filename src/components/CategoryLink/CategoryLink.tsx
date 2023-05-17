@@ -4,7 +4,7 @@ import './CategoryLink.scss';
 
 interface Props {
   path: string;
-  amount: number;
+  amount: string;
 }
 
 export const CategoryLink: React.FC<Props> = ({

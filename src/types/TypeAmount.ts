@@ -1,3 +1,5 @@
 export interface TypeAmount {
-  amount: number;
+  phones: string;
+  tablets: string;
+  accessories: string;
 }
