@@ -30,21 +30,6 @@ export const SliderProducts: React.FC<Props> = ({ title, products }) => {
     afterChange: (currentNo: number) => {
       setNoSlide(currentNo);
     },
-    responsive: [
-      {
-        breakpoint: 1200,
-        settings: {
-          slidesToShow: 2.5,
-        },
-      },
-      {
-        breakpoint: 649,
-        settings: {
-          slidesToShow: 1.4,
-          slidesToScroll: 1,
-        },
-      },
-    ],
   };
 
   const handlePrevClick = () => {

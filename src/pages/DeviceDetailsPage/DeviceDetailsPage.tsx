@@ -19,6 +19,7 @@ import {
 import { Breadcrumbs } from '../../components/Breadcrumbs';
 import { BreadcrumbItem } from '../../types/BreadcrumbItem';
 
+import { convertSlugToDigit } from '../../utils/helpers/converSlugInId';
 import { Loader } from '../../components/Loader';
 
 export const DeviceDetailsPage: FC = () => {
@@ -81,10 +82,10 @@ export const DeviceDetailsPage: FC = () => {
 
                 <DeviceDetailsSelector product={product} />
 
-                <p className="device-details__id grid__item--desktop-22-24">
-                  ID: {product.id}
-                </p>
-              </section>
+              <p className="device-details__id grid__item--desktop-22-24">
+                {`ID ${convertSlugToDigit(product.id)}`}
+              </p>
+            </section>
 
               <section
                 className="device-details__about-product
