@@ -20,6 +20,7 @@ import { Breadcrumbs } from '../../components/Breadcrumbs';
 import { BreadcrumbItem } from '../../types/BreadcrumbItem';
 
 import { useDataFetcher } from '../../hooks/useDataFetcher';
+import { convertSlugToDigit } from '../../utils/helpers/converSlugInId';
 
 export const DeviceDetailsPage: FC = () => {
   const [product, setProduct] = useState<Product | null>(null);
@@ -71,7 +72,7 @@ export const DeviceDetailsPage: FC = () => {
               <DeviceDetailsSelector product={product} />
 
               <p className="device-details__id grid__item--desktop-22-24">
-                ID: {product.id}
+                {`ID ${convertSlugToDigit(product.id)}`}
               </p>
             </section>
 
