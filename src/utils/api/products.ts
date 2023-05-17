@@ -22,11 +22,7 @@ export const getAmountProducts = () => {
 };
 
 export const getTotalAmount = () => {
-  const response = client.get<{
-    'phones': 'string',
-    'tablets': 'string',
-    'accessories': 'string',
-  }>(endpoints.ENDPOINT_AMOUNT);
+  const response = client.get<TypeAmount>(endpoints.ENDPOINT_AMOUNT);
 
   return response;
 };
