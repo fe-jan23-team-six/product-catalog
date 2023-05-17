@@ -6,12 +6,22 @@ import { DataLoader } from '../../components/DataLoader';
 
 import { useDataFetcher } from '../../hooks/useDataFetcher';
 import { ProductMain } from '../../types/ProductMain';
-import { getProducts, getTotalAmount } from '../../utils/api/products';
+import { getProductPage } from '../../utils/api/products';
 import { useSearchParams } from 'react-router-dom';
 
 import { DropDown } from '../../components/DropDown';
+import { ProductTypes } from '../../types/enums/ProductTypes';
+import {
+  getEndpoint,
+  getHandleAmountFetch,
+  getPageTitle,
+} from '../../utils/helpers/helpers';
 
-export const CatalogPage: React.FC = () => {
+type Props = {
+  productType: ProductTypes,
+};
+
+export const CatalogPage: React.FC<Props> = ({ productType }) => {
   const [products, setProducts] = useState<ProductMain[]>([]);
   const [totalAmount, setTotalAmount] = useState('');
   const [fetchProductsAndAmountStatus, , fetchAll] = useDataFetcher();
@@ -24,6 +34,9 @@ export const CatalogPage: React.FC = () => {
   const [currentPerPage, setCurrentPerPage] = useState(
     searchParams.get('limit') || '16',
   );
+
+  const endpoint = getEndpoint(productType);
+  const pageTitle = getPageTitle(productType);
 
   useEffect(() => {
     searchParams.set('sort', currentSort.toLowerCase());
@@ -55,28 +68,25 @@ export const CatalogPage: React.FC = () => {
   };
 
   useEffect(() => {
-    // const handleProductsFetch = () => (
-    //   getPhonesPage(+page, +limit, sort).then(setProducts)
-    // );
-
     const handleProductsFetch = () => (
-      getProducts().then(setProducts)
+      getProductPage(endpoint, +page, +limit, sort).then(setProducts)
     );
 
-    const handleAmountFetch = totalAmount === ''
-      ? () => getTotalAmount().then(({ amount }) => setTotalAmount(amount))
-      : () => Promise.resolve();
+    const handleAmountFetch = getHandleAmountFetch(
+      productType,
+      setTotalAmount,
+    );
 
     fetchAll([
       handleProductsFetch,
       handleAmountFetch,
     ]);
-  }, [page, limit, sort]);
+  }, [page, limit, sort, pageTitle, endpoint]);
 
   return (
     <div className="catalog-page">
       <h1 className="catalog-page__title">
-        Mobile Phones
+        {pageTitle}
       </h1>
 
       <div className="catalog-page__content">
@@ -93,7 +103,7 @@ export const CatalogPage: React.FC = () => {
               catalog-page__dropdown-item"
             >
               <DropDown
-                optionList={['newest', 'alphabetically', 'price-lowest']}
+                optionList={['newest', 'alphabetically', 'cheapest']}
                 selectedOption={currentSort}
                 setSelectedOption={setCurrentSort}
                 description='Sort by'

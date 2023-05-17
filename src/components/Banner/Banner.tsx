@@ -41,11 +41,17 @@ export const Banner: React.FC = () => {
   };
 
   return (
-    <div className="banner grid">
+  <div className="banner grid grid--banner">
 
-    <div className="banner__button-arrow grid__item--tablet-1-1">
+    <div
+      className="
+        banner__button-arrow
+        grid__item--desktop-1-1
+        grid__item--tablet-1-1
+      "
+    >
       <ArrowButton
-        isLong={true}
+        isLong
         onClick={handlePrevClick}
       />
     </div>
@@ -54,7 +60,8 @@ export const Banner: React.FC = () => {
         ref={sliderRef}
         className="
           banner__container
-          grid__item--tablet-2-12
+          grid__item--desktop-2-22
+          grid__item--tablet-2-11
           grid__item--mobile-1-4
         "
         {...settings}
@@ -74,10 +81,15 @@ export const Banner: React.FC = () => {
         })}
       </Slider>
 
-      <div className="banner__button-arrow grid__item--attach-to-end">
+      <div
+        className="
+          banner__button-arrow
+          grid__item--desktop-24
+          grid__item--tablet-12
+        ">
         <ArrowButton
-          isForward={true}
-          isLong={true}
+          isRight
+          isLong
           onClick={handleNextClick}
         />
       </div>

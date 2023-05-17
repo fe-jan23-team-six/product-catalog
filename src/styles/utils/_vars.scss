@@ -16,7 +16,9 @@ $breakpointDesktop: 1200px;
 $scaleRatio: 1.05;
 $animationDuration: 0.3s;
 
-$productCardWidth: 272px;
+$DesktopProductCardWidth: 272px;
+$TabletProductCardWidth: 237px;
+$PhoneProductCardWidth: 212px;
 
 $productListColumns:
   $breakpointTablet 2,
