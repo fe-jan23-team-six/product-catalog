@@ -1,4 +1,11 @@
 import { DeviceColors } from '../../types/enums/DeviceColors';
+import { ProductTypes } from '../../types/enums/ProductTypes';
+import {
+  ACCESSORIES_CATALOG,
+  PHONES_CATALOG,
+  TABLETS_CATALOG,
+} from '../../utils/constants/route';
+import { getTotalAmount } from '../api/products';
 
 export const getColorOfDevice = (color: string | undefined): DeviceColors => {
   switch (color) {
@@ -47,4 +54,44 @@ export const getPluralWord = (word: string, count: number): string => {
   return count === 1
     ? label
     : label + 's';
+};
+
+export const getEndpoint = (productType: ProductTypes) => {
+  switch (productType) {
+    case ProductTypes.TABLETS:
+      return TABLETS_CATALOG;
+    case ProductTypes.ACCESSORIES:
+      return ACCESSORIES_CATALOG;
+    case ProductTypes.PHONES:
+    default:
+      return PHONES_CATALOG;
+  }
+};
+
+export const getHandleAmountFetch = (
+  productType: ProductTypes,
+  setTotalAmount: (amount: string) => void,
+) => {
+  switch (productType) {
+    case ProductTypes.PHONES:
+      return () => getTotalAmount()
+        .then(({ phones }) => setTotalAmount(phones));
+    case ProductTypes.TABLETS:
+      return () => getTotalAmount()
+        .then(({ tablets }) => setTotalAmount(tablets));
+    case ProductTypes.ACCESSORIES:
+      return () => getTotalAmount()
+        .then(({ accessories }) => setTotalAmount(accessories));
+  }
+};
+
+export const getPageTitle = (productType: ProductTypes) => {
+  switch (productType) {
+    case ProductTypes.PHONES:
+      return 'Mobile phones';
+    case ProductTypes.TABLETS:
+      return 'Tablets';
+    case ProductTypes.ACCESSORIES:
+      return 'Accessories';
+  }
 };

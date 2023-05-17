@@ -3,8 +3,6 @@ import { ArrowButton } from '../ArrowButton';
 import { NumberButton } from '../NumberButton';
 import './PaginationPannel.scss';
 
-// const buttons = ['1', '2', '3', '4'];
-
 const getVisibleButtons = (currentPage: number, lastPage: number) => {
   const result = [];
 
@@ -71,7 +69,6 @@ export const PaginationPannel: React.FC<Props> = ({
         className="pagination pagination__item pagination__item-prev"
       >
         <ArrowButton
-          isRight
           isLong
           isDisabled={isFirst}
           onClick={handlePrevPage}

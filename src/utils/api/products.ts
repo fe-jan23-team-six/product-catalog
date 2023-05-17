@@ -22,20 +22,25 @@ export const getAmountProducts = () => {
 };
 
 export const getTotalAmount = () => {
-  const response = client.get<{'amount': 'string'}>(endpoints.ENDPOINT_AMOUNT);
+  const response = client.get<{
+    'phones': 'string',
+    'tablets': 'string',
+    'accessories': 'string',
+  }>(endpoints.ENDPOINT_AMOUNT);
 
   return response;
 };
 
-// export const getPhonesPage = (
-//   page = 1,
-//   limit = 16,
-//   sort = 'default',
-// ) => {
-//   const query = `?page=${page}&limit=${limit}&sort=${sort}`;
+export const getProductPage = (
+  endpoint: string,
+  page = 1,
+  limit = 16,
+  sort = 'alphabetically',
+) => {
+  const query = `?page=${page}&limit=${limit}&sort=${sort}`;
 
-//   return client.get<ProductMain[]>(PHONES_ENDPOINT + query);
-// };
+  return client.get<ProductMain[]>('/products' + endpoint + query);
+};
 
 export const getById = (id: string) => {
   return client.get<Product>(endpoints.ENDPOINT_PRODUCTS + '/' + id);
