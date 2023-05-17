@@ -18,7 +18,7 @@ export const ProductCard: React.FC<Props> = ({
   nextRouteLink,
 }) => {
   const {
-    slug,
+    id,
     name: phoneName,
     priceRegular,
     priceDiscount,
@@ -40,7 +40,7 @@ export const ProductCard: React.FC<Props> = ({
 
   return (
     <div className="product-card">
-      <Link to={nextRouteLink ? `${nextRouteLink}/${slug}` : `./${slug}`}>
+      <Link to={nextRouteLink ? `${nextRouteLink}/${id}` : `./${id}`}>
         <img
           className="product-card__image"
           src={image}

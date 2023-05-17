@@ -1,0 +1,19 @@
+export const ENDPOINT_PRODUCTS = '/products';
+
+export const ENDPOINT_PHONES = ENDPOINT_PRODUCTS + '/phones';
+export const ENDPOINT_TABLETS = ENDPOINT_PRODUCTS + '/tablets';
+export const ENDPOINT_ACCESSORIES = ENDPOINT_PRODUCTS + '/accessories';
+
+export const ENDPOINT_NEW = ENDPOINT_PRODUCTS + '/new';
+export const ENDPOINT_DISCOUNT = ENDPOINT_PRODUCTS + '/discount';
+export const ENDPOINT_AMOUNT = ENDPOINT_PRODUCTS + '/amount';
+
+export default {
+  ENDPOINT_PRODUCTS,
+  ENDPOINT_PHONES,
+  ENDPOINT_TABLETS,
+  ENDPOINT_ACCESSORIES,
+  ENDPOINT_NEW,
+  ENDPOINT_DISCOUNT,
+  ENDPOINT_AMOUNT,
+};

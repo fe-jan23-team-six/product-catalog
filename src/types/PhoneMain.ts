@@ -1,13 +1,12 @@
 export interface PhoneMain {
-  id: number,
-  slug: string,
-  category: string,
+  id: string,
   namespaceId: string,
+  category: string,
   name: string,
-  image: string;
-  capacity: string,
   priceDiscount: number,
   priceRegular: number,
-  ram: string,
   screen: string,
+  capacity: string,
+  ram: string,
+  image: string;
 }

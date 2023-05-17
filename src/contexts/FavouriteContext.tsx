@@ -7,7 +7,7 @@ import {
 
 type FavouriteContextType = {
   favourite: PhoneMain[];
-  isInFavourite: (id: number) => boolean;
+  isInFavourite: (id: string) => boolean;
   toggleFavourite: (product: PhoneMain) => void;
 };
 
@@ -30,7 +30,7 @@ export const FavouriteProvider: React.FC<FavouriteProviderType> = ({
     favouriteKey,
   );
 
-  const isInFavourite = useCallback((id: number): boolean => (
+  const isInFavourite = useCallback((id: string): boolean => (
     favourite.some(favouriteProduct => favouriteProduct.id === id)
   ), [favourite]);
 
