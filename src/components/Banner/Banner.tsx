@@ -45,7 +45,7 @@ export const Banner: React.FC = () => {
 
     <div className="banner__button-arrow grid__item--tablet-1-1">
       <ArrowButton
-        isLong={true}
+        isLong
         onClick={handlePrevClick}
       />
     </div>
@@ -76,8 +76,8 @@ export const Banner: React.FC = () => {
 
       <div className="banner__button-arrow grid__item--attach-to-end">
         <ArrowButton
-          isForward={true}
-          isLong={true}
+          isRight
+          isLong
           onClick={handleNextClick}
         />
       </div>

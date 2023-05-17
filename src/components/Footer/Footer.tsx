@@ -2,6 +2,7 @@ import React from 'react';
 import './Footer.scss';
 import { Link } from 'react-router-dom';
 import { Logo } from '../Logo';
+import { ArrowButton } from '../ArrowButton';
 
 export const Footer: React.FC = () => {
   return (
@@ -35,22 +36,10 @@ export const Footer: React.FC = () => {
           Back to top
         </p>
 
-        <div
-          onClick={() => {
-            window.scrollTo({
-              top: 0,
-              left: 0,
-              behavior: 'smooth',
-            });
-          }}
-          className="footer__to-top__container"
-          id="btn-up"
-        >
-          <img
-            src="icons/up16x16.svg"
-            alt="Back to top"
-            className="footer__to-top__image" />
-        </div>
+        <ArrowButton
+          isUp
+          onClick={() => window.scrollTo({ top: 0 })}
+        />
       </div>
     </footer>
   );

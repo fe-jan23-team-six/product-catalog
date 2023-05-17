@@ -79,16 +79,5 @@
       color: $colorSecondary;
       margin-right: 16px;
     }
-
-    &__container {
-      @extend %flexCenter;
-      height: 32px;
-      width: 32px;
-      border: 1px solid $colorIcons;
-    }
-
-    &__image {
-      display: flex;
-    }
   }
 }
