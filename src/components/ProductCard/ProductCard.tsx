@@ -3,13 +3,13 @@ import { Link } from 'react-router-dom';
 import './ProductCard.scss';
 import { ProductManageButtons } from '../ProductManage';
 
-import { PhoneMain } from '../../types/PhoneMain';
+import { ProductMain } from '../../types/ProductMain';
 
 import { FavouriteContext } from '../../contexts/FavouriteContext';
 import { CartContext } from '../../contexts/CartContext';
 
 type Props = {
-  product: PhoneMain;
+  product: ProductMain;
   nextRouteLink?: string;
 };
 
@@ -19,7 +19,7 @@ export const ProductCard: React.FC<Props> = ({
 }) => {
   const {
     id,
-    name: phoneName,
+    name: productName,
     priceRegular,
     priceDiscount,
     screen: screenSize,
@@ -44,12 +44,12 @@ export const ProductCard: React.FC<Props> = ({
         <img
           className="product-card__image"
           src={image}
-          alt={phoneName}
+          alt={productName}
         >
         </img>
 
         <div className="product-card__model">
-          {phoneName}
+          {productName}
         </div>
       </Link>
 

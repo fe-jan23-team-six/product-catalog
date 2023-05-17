@@ -6,7 +6,7 @@ import {
 import {
   ProductCapacityGroup,
 } from '../../../components/ProductDetails/ProductCapacityGroup';
-import { Phone } from '../../../types/Phone';
+import { Product } from '../../../types/Product';
 import {
   TechCharacteristics,
 } from '../../../components/ProductDetails/TechCharacteristics';
@@ -16,7 +16,7 @@ import { FavouriteContext } from '../../../contexts/FavouriteContext';
 import { CartContext } from '../../../contexts/CartContext';
 
 type Props = {
-  product: Phone,
+  product: Product,
 }
 
 export const DeviceDetailsSelector: React.FC<Props> = ({ product }) => {

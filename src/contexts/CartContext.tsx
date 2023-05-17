@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { CartItemType } from '../types/CartItemType';
-import { PhoneMain } from '../types/PhoneMain';
+import { ProductMain } from '../types/ProductMain';
 import { QuantityActionType } from '../types/QuantityActionType';
 import { useLocalStorage } from '../hooks/useLocalStorage';
 import {
@@ -9,7 +9,7 @@ import {
 
 type CartContextType = {
   cart: CartItemType[];
-  addToCart: (product: PhoneMain) => void;
+  addToCart: (product: ProductMain) => void;
   removeFromCart: (id: string) => void;
   clearCart: () => void;
   isInCart: (id: string) => boolean;
@@ -46,7 +46,7 @@ export const CartProvider: React.FC<CartProviderType> = ({
     cart.some(cartProduct => cartProduct.id === id)
   );
 
-  const addToCart = (product: PhoneMain): void => {
+  const addToCart = (product: ProductMain): void => {
     if (isInCart(product.id)) {
       return;
     }

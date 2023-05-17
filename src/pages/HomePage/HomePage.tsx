@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import './HomePage.scss';
 
-import { getDiscountPhones, getNewPhones } from '../../utils/api/phones';
+import { getDiscountProducts, getNewProducts } from '../../utils/api/products';
 
-import { PhoneMain } from '../../types/PhoneMain';
+import { ProductMain } from '../../types/ProductMain';
 
 import { SliderProducts } from '../../components/SliderProducts';
 import { Banner } from '../../components/Banner/Banner';
@@ -14,15 +14,18 @@ import { ShopByCategory } from '../../components/ShopByCategory';
 import { useDataFetcher } from '../../hooks/useDataFetcher';
 
 export const HomePage: React.FC = () => {
-  const [newPhones, setNewPhones] = useState<PhoneMain[]>([]);
-  const [discountPhones, setDiscountPhones] = useState<PhoneMain[]>([]);
+  const [newProducts, setNewProducts] = useState<ProductMain[]>([]);
+  const [discountProducts, setDiscountProducts] = useState<ProductMain[]>([]);
 
-  const [newPhonesFetchStatus, fetchNewPhones] = useDataFetcher();
-  const [discounthonesFetchStatus, fetchDiscountPhones] = useDataFetcher();
+  const [newProductsFetchStatus, fetchNewProducts] = useDataFetcher();
+  const [discountProductsFetchStatus, fetchDiscountProducts] = useDataFetcher();
 
   useEffect(() => {
-    fetchNewPhones(() => getNewPhones().then(setNewPhones));
-    fetchDiscountPhones(() => getDiscountPhones().then(setDiscountPhones));
+    fetchNewProducts(() => getNewProducts().then(setNewProducts));
+
+    fetchDiscountProducts(() => (
+      getDiscountProducts().then(setDiscountProducts)
+    ));
   }, []);
 
   return (
@@ -35,11 +38,11 @@ export const HomePage: React.FC = () => {
         <Banner />
       </section>
 
-      <section className="home-page__product-slider--new-phones">
-        <DataLoader fetchStatus={newPhonesFetchStatus}>
+      <section className="home-page__product-slider--new-products">
+        <DataLoader fetchStatus={newProductsFetchStatus}>
           <SliderProducts
             title="Brand new models"
-            products={newPhones}
+            products={newProducts}
           />
         </DataLoader>
       </section>
@@ -49,10 +52,10 @@ export const HomePage: React.FC = () => {
       </section>
 
       <section className="home-page__product-slider">
-        <DataLoader fetchStatus={discounthonesFetchStatus}>
+        <DataLoader fetchStatus={discountProductsFetchStatus}>
           <SliderProducts
             title="Hot prices"
-            products={discountPhones}
+            products={discountProducts}
           />
         </DataLoader>
       </section>

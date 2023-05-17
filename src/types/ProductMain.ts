@@ -1,4 +1,4 @@
-export interface PhoneMain {
+export interface ProductMain {
   id: string,
   namespaceId: string,
   category: string,

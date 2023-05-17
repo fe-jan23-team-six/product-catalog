@@ -1,12 +1,13 @@
 import React from 'react';
-
 import { TechCharacteristicsItem } from '../TechCharacteristicsItem';
-import {
-  PhoneCharacteristics,
-} from '../../../types/PhoneCharacteristics';
 
 type Props = {
-  characteristics: PhoneCharacteristics;
+  characteristics: {
+    screen: string,
+    resolution: string,
+    processor: string,
+    ram: string,
+  };
 }
 
 export const TechCharacteristics: React.FC<Props> = ({ characteristics }) => {

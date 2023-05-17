@@ -9,12 +9,12 @@ import { DeviceDetailsSpecs } from './DeviceDetailsSpecs';
 import { SliderProducts } from '../../components/SliderProducts';
 import { DataLoader } from '../../components/DataLoader';
 
-import { Phone } from '../../types/Phone';
-import { PhoneMain } from '../../types/PhoneMain';
+import { Product } from '../../types/Product';
+import { ProductMain } from '../../types/ProductMain';
 import {
   getById,
-  getPhones,
-} from '../../utils/api/phones';
+  getProducts,
+} from '../../utils/api/products';
 
 import { Breadcrumbs } from '../../components/Breadcrumbs';
 import { BreadcrumbItem } from '../../types/BreadcrumbItem';
@@ -22,8 +22,8 @@ import { BreadcrumbItem } from '../../types/BreadcrumbItem';
 import { useDataFetcher } from '../../hooks/useDataFetcher';
 
 export const DeviceDetailsPage: FC = () => {
-  const [product, setProduct] = useState<Phone | null>(null);
-  const [recommended, setRecommended] = useState<PhoneMain[]>([]);
+  const [product, setProduct] = useState<Product | null>(null);
+  const [recommended, setRecommended] = useState<ProductMain[]>([]);
 
   const { productSlug } = useParams();
 
@@ -32,7 +32,7 @@ export const DeviceDetailsPage: FC = () => {
 
   useEffect(() => {
     fetchProduct(() => getById(String(productSlug)).then(setProduct));
-    fetchRecommended(() => getPhones().then(setRecommended));
+    fetchRecommended(() => getProducts().then(setRecommended));
   }, [productSlug]);
 
   const productTitle = product
