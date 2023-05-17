@@ -1,0 +1,128 @@
+@import '../../../styles/utils/vars';
+@import '../../../styles/utils/extends';
+@import '../../../styles/utils/mixins';
+
+.device-details_load {
+  &__breadcrumbs {
+    margin-bottom: $marginBottomMiddle;
+  }
+
+  &__title {
+    margin-bottom: $marginBottomMiddle;
+    font-size: 32px;
+  }
+
+  &__id {
+    @extend %devicePageProductId;
+
+    @include onDesktop {
+      display: inline-block;
+    }
+  }
+
+  &__pictures--mobile {
+    @include onTabletAndDesktop {
+      display: none;
+    }
+  }
+
+  &__pictures--desktop {
+    @include onPhone {
+      display: none;
+    }
+  }
+
+  &__pictures {
+    @include onPhone {
+      margin-bottom: $marginBottomMiddle;
+    }
+  }
+
+  &__product {
+    @extend %devicePageAboutMargins;
+  }
+
+  &__about-product {
+    @extend %devicePageAboutMargins;
+  }
+}
+
+.selector_load {
+  display: flex;
+  flex-direction: column;
+
+  &__title {
+    margin-bottom: 8px;
+    @extend %smallText;
+    color: $colorSecondary;
+  }
+
+  &__id {
+    @extend %devicePageProductId;
+
+    @include onPhoneAndTablet {
+      display: inline-block;
+    }
+  }
+
+  &__colours {
+    margin-bottom: $marginBottomSmall;
+
+    &__text {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &__selector {
+      margin-bottom: $marginBottomSmall;
+    }
+  }
+
+  &__colours:after {
+    @extend %devicePageSelectorsAfter;
+  }
+
+  &__capacity {
+    margin-bottom: 32px;
+
+    &__selector {
+      margin-bottom: $marginBottomSmall;
+    }
+  }
+
+  &__capacity:after {
+    @extend %devicePageSelectorsAfter;
+  }
+
+  &__price {
+    margin-bottom: $marginBottomTheSmallest;
+  }
+
+  &__buttons {
+    margin-bottom: 32px;
+  }
+}
+
+.about__load {
+  &__title {
+    @extend %devicePageTitleSpecs;
+  }
+
+  &__title:after {
+    @extend %devicePageTitleSpecsAfter;
+  }
+}
+
+.specs__load {
+  @include onPhoneAndTablet {
+    display: none;
+  }
+
+  &__title {
+    @extend %devicePageTitleSpecs;
+  }
+
+  &__title:after {
+    @extend %devicePageTitleSpecsAfter;;
+  }
+}

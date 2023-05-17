@@ -20,7 +20,9 @@ import { Breadcrumbs } from '../../components/Breadcrumbs';
 import { BreadcrumbItem } from '../../types/BreadcrumbItem';
 
 import { convertSlugToDigit } from '../../utils/helpers/converSlugInId';
-import { Loader } from '../../components/Loader';
+import {
+  DeviceDetailsLoadPage,
+} from '../../components/LoadingComponents/DeviceDetailsLoadPage';
 
 export const DeviceDetailsPage: FC = () => {
   const { productSlug = '' } = useParams();
@@ -41,6 +43,10 @@ export const DeviceDetailsPage: FC = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [productSlug]);
 
+  /*   useEffect(() => {
+    console.log('loading', productQuery.data, productQuery.isFetching);
+  }, [productQuery.isFetching]); */
+
   const product = productQuery.data;
   const recommended = recommendedQuery.data;
 
@@ -60,8 +66,10 @@ export const DeviceDetailsPage: FC = () => {
 
   return (
       <div className="device-details">
-        {productQuery.isInitialLoading ? (
-          <Loader />
+        {productQuery.isFetching ? (
+          <DeviceDetailsLoadPage
+            breadcrumbs={breadcrumbs}
+          />
         ) : (
           <>
             <section className="device-details__breadcrumbs">
