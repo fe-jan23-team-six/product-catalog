@@ -18,6 +18,7 @@ import {
 
 import { Breadcrumbs } from '../../components/Breadcrumbs';
 
+import { BackButton } from '../../components/BackButton';
 import { convertSlugToDigit } from '../../utils/helpers/converSlugInId';
 import {
   DeviceDetailsLoadPage,
@@ -57,6 +58,7 @@ export const DeviceDetailsPage: FC = () => {
       <div className="device-details">
         <section className="device-details__breadcrumbs">
           <Breadcrumbs />
+          <BackButton />
         </section>
 
         {productQuery.isFetching ? (
