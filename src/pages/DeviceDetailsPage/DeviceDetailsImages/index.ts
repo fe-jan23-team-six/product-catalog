@@ -1,1 +1,1 @@
-export * from './DeviceDetailsPictures';
+export * from './DeviceDetailsImages';

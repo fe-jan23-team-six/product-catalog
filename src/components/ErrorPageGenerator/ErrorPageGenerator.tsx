@@ -3,13 +3,15 @@ import './ErrorPageGenerator.scss';
 import { Link } from 'react-router-dom';
 
 type Props = {
-  imageName: string;
-  errorTitle: string;
+  imageName: string,
+  errorTitle: string,
+  buttonTitle: string,
 }
 
 export const ErrorPageGenerator: React.FC<Props> = ({
   imageName,
   errorTitle,
+  buttonTitle,
 }) => {
   return (
     <div className="error_page">
@@ -19,12 +21,12 @@ export const ErrorPageGenerator: React.FC<Props> = ({
         className="error_page__image"
       />
 
-      <h1 className="error_page__title ">
+      <h2 className="error_page__title ">
         {errorTitle}
-      </h1>
+      </h2>
 
       <Link to="/" className="primary-button error_page__button">
-        Go to Home Page
+        {buttonTitle}
       </Link>
     </div>
   );

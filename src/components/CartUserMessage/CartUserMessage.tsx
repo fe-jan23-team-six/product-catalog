@@ -1,19 +1,14 @@
 import React from 'react';
 import './CartUserMessage.scss';
+import catMoney from '../../images/catMoney.gif';
+import { ErrorPageGenerator } from '../ErrorPageGenerator';
 
 export const CartUserMessage: React.FC = () => (
-  <article className='user-message'>
-    <img
-      className='user-message__image'
-      alt='Your cart is empty'
-      height="128"
-      width="128"
-      // eslint-disable-next-line max-len
-      src="//s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/shopping-cart.png"
+  <article className="cart_user_message">
+    <ErrorPageGenerator
+      imageName={catMoney}
+      errorTitle="Your cart is empty &#128546;"
+      buttonTitle="Go shopping &#128722;"
     />
-
-    <p className='user-message__text'>
-      Your cart is empty &#128722;
-    </p>
   </article>
 );

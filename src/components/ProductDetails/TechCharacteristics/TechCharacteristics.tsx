@@ -14,6 +14,10 @@ export const TechCharacteristics: React.FC<Props> = ({ characteristics }) => {
   return (
     <>
       {Object.entries(characteristics).map(([key, value]) => {
+        if (value === null) {
+          return;
+        }
+
         const characteristic = key.slice(0, 1).toUpperCase() + key.slice(1);
 
         return (
