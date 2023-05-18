@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useMemo, useRef, useState } from 'react';
 import Slider, { Settings } from 'react-slick';
 
 import './SliderProducts.scss';
@@ -8,6 +8,9 @@ import 'slick-carousel/slick/slick-theme.css';
 import { ProductCard } from '../ProductCard';
 import { ArrowButton } from '../ArrowButton';
 import { ProductMain } from '../../types/ProductMain';
+import {
+  getNumberDependingWidth,
+} from '../../utils/helpers/getNumberDependingWidth';
 
 interface Props {
   title?: string,
@@ -23,16 +26,41 @@ export const SliderProducts: React.FC<Props> = ({ title, products = [] }) => {
     arrows: false,
     infinite: false,
     speed: 300,
+    variableWidth: true,
+    focusOnSelect: true,
     slidesToShow: 4,
-    slidesToScroll: 1,
     initialSlide: 0,
     afterChange: (currentNo: number) => {
       setNoSlide(currentNo);
     },
+    responsive: [
+      {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 4,
+        },
+      },
+      {
+        breakpoint: 900,
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ],
   };
 
-  const isLeftButtonDisabled = noSlide === 0;
-  const isRightButtonDisabled = noSlide === products.length - 4;
+  const isLeftButtonDisabled = useMemo(() => noSlide === 0, [noSlide]);
+  const isRightButtonDisabled = useMemo(() => (
+    noSlide === products.length - getNumberDependingWidth(
+      window.innerWidth,
+    )),
+  [noSlide, window.innerWidth]);
 
   const handlePrevClick = () => {
     sliderRef.current?.slickPrev();
