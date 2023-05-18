@@ -108,11 +108,11 @@ export const DeviceDetailsPage: FC = () => {
 
             {recommended && (
               <section className="device-details__slider-products">
-              <SliderProducts
-                title={'You may also like'}
-                products={recommended}
-              />
-          </section>
+                <SliderProducts
+                  title={'You may also like'}
+                  products={recommended}
+               />
+              </section>
             )}
           </>
         )}

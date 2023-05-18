@@ -4,8 +4,8 @@ import './LikeButton.scss';
 
 type Props = {
   isBig?: boolean;
-  isLiked: boolean;
-  onClick: () => void;
+  isLiked?: boolean;
+  onClick?: () => void;
 }
 
 export const LikeButton: React.FC<Props> = React.memo(({

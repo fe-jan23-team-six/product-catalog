@@ -10,6 +10,9 @@ import {
   ACCESSORIES_CATALOG,
 } from '../../utils/constants/route';
 import { TypeAmount } from '../../types/TypeAmount';
+import {
+  ShopByCategorySkeleton,
+} from '../LoadingComponents/HomePageSkeletons/ShopByCategorySkeleton';
 
 export const ShopByCategory: React.FC = () => {
   const [amountsThings, setAmountThings] = useState<TypeAmount>({
@@ -17,12 +20,10 @@ export const ShopByCategory: React.FC = () => {
     tablets: '',
     accessories: '',
   });
-
   const [amountFetchStatus, fetchAmount] = useDataFetcher();
 
   useEffect(() => {
     fetchAmount(() => getTotalAmount().then(res => {
-      global.console.log('res:', res);
       setAmountThings(res);
     }));
   }, []);
@@ -33,7 +34,10 @@ export const ShopByCategory: React.FC = () => {
         Shop by category
       </h2>
 
-      <DataLoader fetchStatus={amountFetchStatus}>
+      <DataLoader
+        fetchStatus={amountFetchStatus}
+        loader={<ShopByCategorySkeleton />}
+      >
         <div className="shop-by-category__categories grid grid--mobile-gap">
           <div
             className="

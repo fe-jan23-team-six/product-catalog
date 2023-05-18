@@ -1,0 +1,1 @@
+export { CatalogPageSkeleton } from './CatalogPageSkeleton';

@@ -16,6 +16,10 @@ import {
   getHandleAmountFetch,
   getPageTitle,
 } from '../../utils/helpers/helpers';
+import {
+  CatalogPageSkeleton,
+} from '../../components/LoadingComponents/CatalogPageSkeleton';
+import Skeleton from 'react-loading-skeleton';
 
 type Props = {
   productType: ProductTypes,
@@ -51,6 +55,8 @@ export const CatalogPage: React.FC<Props> = ({ productType }) => {
   const page = searchParams.get('page') || '1';
   const limit = searchParams.get('limit') || '16';
   const sort = searchParams.get('sort') || 'alphabetically';
+
+  global.console.log('limit:', limit);
 
   const handlePrevPage = () => {
     searchParams.set('page', `${+page - 1}`);
@@ -90,38 +96,52 @@ export const CatalogPage: React.FC<Props> = ({ productType }) => {
       </h1>
 
       <div className="catalog-page__content">
-        <DataLoader fetchStatus={fetchProductsAndAmountStatus}>
+        <DataLoader
+          loader={(
+            <Skeleton
+              containerClassName="bodyText catalog-page__subtitle"
+              width={80}
+            />
+          )}
+          fetchStatus={fetchProductsAndAmountStatus}
+        >
           <section
             className="bodyText catalog-page__subtitle"
           >
             {`${totalAmount} models`}
           </section>
+        </DataLoader>
 
-          <section className="catalog-page__dropdown-block">
-            <div
-              className="catalog-page__dropdown-left
-              catalog-page__dropdown-item"
-            >
-              <DropDown
-                optionList={['newest', 'alphabetically', 'cheapest']}
-                selectedOption={currentSort}
-                setSelectedOption={setCurrentSort}
-                description='Sort by'
-              />
-            </div>
+        <section className="catalog-page__dropdown-block">
+          <div
+            className="catalog-page__dropdown-left
+            catalog-page__dropdown-item"
+          >
+            <DropDown
+              optionList={['newest', 'alphabetically', 'cheapest']}
+              selectedOption={currentSort}
+              setSelectedOption={setCurrentSort}
+              description='Sort by'
+            />
+          </div>
 
-            <div
-              className="catalog-page__dropdown-right
-              catalog-page__dropdown-item"
-            >
-              <DropDown
-                optionList={['4', '8', '16']}
-                selectedOption={currentPerPage}
-                setSelectedOption={setCurrentPerPage}
-                description='Items on page'
-              />
-            </div>
-          </section>
+          <div
+            className="catalog-page__dropdown-right
+            catalog-page__dropdown-item"
+          >
+            <DropDown
+              optionList={['4', '8', '16']}
+              selectedOption={currentPerPage}
+              setSelectedOption={setCurrentPerPage}
+              description='Items on page'
+            />
+          </div>
+        </section>
+
+        <DataLoader
+          loader={<CatalogPageSkeleton amount={Number(limit)} />}
+          fetchStatus={fetchProductsAndAmountStatus}
+        >
 
           <section className="catalog-page__product-list">
             <ProductList products={products} />
