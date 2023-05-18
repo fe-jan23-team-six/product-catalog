@@ -62,7 +62,7 @@ export const DeviceDetailsPage: FC = () => {
 
   return (
       <div className="device-details">
-        {productQuery.isInitialLoading ? (
+        {productQuery.isFetching ? (
           <DeviceDetailsLoadPage
             slug={productSlug}
             breadcrumbs={breadcrumbs}
