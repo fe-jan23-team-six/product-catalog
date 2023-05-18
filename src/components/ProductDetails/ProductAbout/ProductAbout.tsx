@@ -1,9 +1,9 @@
 import React from 'react';
 import './ProductAbout.scss';
-import { PhoneDescription } from '../../../types/PhoneDescription';
+import { ProductDescription } from '../../../types/ProductDescription';
 
 type Props = {
-  description: PhoneDescription,
+  description: ProductDescription,
 }
 
 export const ProductAbout: React.FC<Props> = ({ description }) => {

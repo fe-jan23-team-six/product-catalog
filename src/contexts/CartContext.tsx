@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { CartItemType } from '../types/CartItemType';
-import { PhoneMain } from '../types/PhoneMain';
+import { ProductMain } from '../types/ProductMain';
 import { QuantityActionType } from '../types/QuantityActionType';
 import { useLocalStorage } from '../hooks/useLocalStorage';
 import {
@@ -9,11 +9,11 @@ import {
 
 type CartContextType = {
   cart: CartItemType[];
-  addToCart: (product: PhoneMain) => void;
-  removeFromCart: (id: number) => void;
+  addToCart: (product: ProductMain) => void;
+  removeFromCart: (id: string) => void;
   clearCart: () => void;
-  isInCart: (id: number) => boolean;
-  changeQuantity: (id: number, action: QuantityActionType) => void;
+  checkIsInCart: (id: string) => boolean;
+  changeQuantity: (id: string, action: QuantityActionType) => void;
 };
 
 export const CartContext = React.createContext<CartContextType>({
@@ -27,7 +27,7 @@ export const CartContext = React.createContext<CartContextType>({
   clearCart: () => {
     global.console.warn('No implementation of clearCart');
   },
-  isInCart: () => false,
+  checkIsInCart: () => false,
   changeQuantity: () => {
     global.console.warn('No implementation of changeQuantity');
   },
@@ -42,12 +42,12 @@ export const CartProvider: React.FC<CartProviderType> = ({
 }) => {
   const [cart, setCart] = useLocalStorage<CartItemType>(cartKey);
 
-  const isInCart = (id: number): boolean => (
+  const checkIsInCart = (id: string): boolean => (
     cart.some(cartProduct => cartProduct.id === id)
   );
 
-  const addToCart = (product: PhoneMain): void => {
-    if (isInCart(product.id)) {
+  const addToCart = (product: ProductMain): void => {
+    if (checkIsInCart(product.id)) {
       return;
     }
 
@@ -56,13 +56,16 @@ export const CartProvider: React.FC<CartProviderType> = ({
         ...prevCart,
         {
           ...product,
+          image: product
+            .image.replace(/0(?!.*0)/, '1') // to put appropriate tile
+            || product.image,
           quantity: 1,
         },
       ]
     ));
   };
 
-  const removeFromCart = (id: number): void => (
+  const removeFromCart = (id: string): void => (
     setCart((prevCart) => (
       prevCart.filter(cartProduct => cartProduct.id !== id)
     ))
@@ -70,7 +73,7 @@ export const CartProvider: React.FC<CartProviderType> = ({
 
   const clearCart = () => setCart([]);
 
-  const changeQuantity = (id: number, action: QuantityActionType): void => (
+  const changeQuantity = (id: string, action: QuantityActionType): void => (
     setCart((prevCart) => (
       prevCart.map(cartProduct => {
         if (cartProduct.id === id) {
@@ -97,7 +100,7 @@ export const CartProvider: React.FC<CartProviderType> = ({
       addToCart,
       removeFromCart,
       clearCart,
-      isInCart,
+      checkIsInCart,
       changeQuantity,
     }
   ), [cart]);

@@ -1,0 +1,6 @@
+@import '../../styles/utils/extends';
+
+.cart_user_message {
+  @extend %flexCenter;
+  width: 100%;
+}

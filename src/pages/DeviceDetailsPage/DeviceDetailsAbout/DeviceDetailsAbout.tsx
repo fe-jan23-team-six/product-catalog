@@ -1,10 +1,10 @@
 import React from 'react';
 import './DeviceDetailsAbout.scss';
 import { ProductAbout } from '../../../components/ProductDetails/ProductAbout';
-import { PhoneDescription } from '../../../types/PhoneDescription';
+import { ProductDescription } from '../../../types/ProductDescription';
 
 type Props = {
-  descriptions: PhoneDescription[],
+  descriptions: ProductDescription[],
 }
 
 export const DeviceDetailsAbout: React.FC<Props> = ({ descriptions }) => {

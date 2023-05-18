@@ -5,12 +5,22 @@
   @extend %bodyText;
   position: relative;
 
+  transition: all $animationDuration ease-out;
+
+  &__description {
+    @extend %smallText;
+    position: absolute;
+    color: $colorSecondary;
+    top: 0;
+    left: 0;
+    transform: translateY(calc(-100% - 4px));
+  }
+
   height: $dropDownHeight;
   padding-left: $dropDownLeftPadding;
   border: $dropDownBorder solid $colorIcons;
 
   color: $colorPrimary;
-  transition: all $animationDuration ease-out;
   cursor: pointer;
 
   &__text {
@@ -35,6 +45,10 @@
 
     &--closed {
       display: none;
+    }
+
+    &--is-transition {
+      transform: translateY(100%);
     }
 
       &__item {

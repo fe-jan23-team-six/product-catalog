@@ -1,5 +1,6 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { useQuery } from '@tanstack/react-query';
 import './DeviceDetailsPage.scss';
 
 import { DeviceDetailsImages } from './DeviceDetailsImages';
@@ -7,98 +8,99 @@ import { DeviceDetailsSelector } from './DeviceDetailsSelector';
 import { DeviceDetailsAbout } from './DeviceDetailsAbout';
 import { DeviceDetailsSpecs } from './DeviceDetailsSpecs';
 import { SliderProducts } from '../../components/SliderProducts';
-import { DataLoader } from '../../components/DataLoader';
 
-import { Phone } from '../../types/Phone';
-import { PhoneMain } from '../../types/PhoneMain';
-import { getBySlug, getPhones } from '../../utils/api/phones';
+import { Product } from '../../types/Product';
+import { ProductMain } from '../../types/ProductMain';
+import {
+  getById,
+  getProducts,
+} from '../../utils/api/products';
 
 import { Breadcrumbs } from '../../components/Breadcrumbs';
-import { BreadcrumbItem } from '../../types/BreadcrumbItem';
 
-import { useDataFetcher } from '../../hooks/useDataFetcher';
 import { BackButton } from '../../components/BackButton';
+import { convertSlugToDigit } from '../../utils/helpers/converSlugInId';
+import {
+  DeviceDetailsLoadPage,
+} from '../../components/LoadingComponents/DeviceDetailsLoadPage';
 
 export const DeviceDetailsPage: FC = () => {
-  const [product, setProduct] = useState<Phone | null>(null);
-  const [recommended, setRecommended] = useState<PhoneMain[]>([]);
+  const { productSlug = '' } = useParams();
 
-  const { productSlug } = useParams();
+  const productQuery = useQuery<Product>({
+    queryKey: [`${productSlug}`],
+    queryFn: () => getById(productSlug),
+  });
 
-  const [productFetchStatus, fetchProduct] = useDataFetcher();
-  const [recommendedFetchStatus, fetchRecommended] = useDataFetcher();
+  const recommendedQuery = useQuery<ProductMain[]>({
+    queryKey: ['recommended'],
+    queryFn: () => getProducts(),
+  });
 
   useEffect(() => {
-    fetchProduct(() => getBySlug(String(productSlug)).then(setProduct));
-    fetchRecommended(() => getPhones().then(setRecommended));
+    productQuery.refetch();
+    recommendedQuery.refetch();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [productSlug]);
+
+  const product = productQuery.data;
+  const recommended = recommendedQuery.data;
 
   const productTitle = product
     ? product.name
     : 'Not loaded model';
 
-  const breadcrumbs: BreadcrumbItem[] = [
-    {
-      link: '/phones',
-      text: 'Phones',
-    },
-    {
-      text: productTitle,
-    },
-  ];
-
   return (
-    <DataLoader fetchStatus={productFetchStatus}>
       <div className="device-details">
-        {product ? (
-          <>
-            <section className="device-details__breadcrumbs">
-              <Breadcrumbs breadcrumbs={breadcrumbs} />
-              <BackButton />
-            </section>
+        <section className="device-details__breadcrumbs">
+          <Breadcrumbs />
+          <BackButton />
+        </section>
 
+        {productQuery.isFetching ? (
+          <DeviceDetailsLoadPage slug={productSlug} />
+        ) : (
+          <>
             <h1 className="device-details__title">
               {productTitle}
             </h1>
 
-            <section
-              className="device-details__product
-              grid grid--mobile-off"
-            >
-              <DeviceDetailsImages images={product.images} />
+            {product && (
+              <>
+                <section
+                  className="device-details__product
+                  grid grid--mobile-off"
+                >
+                  <DeviceDetailsImages images={product.images} />
 
-              <DeviceDetailsSelector product={product} />
+                  <DeviceDetailsSelector product={product} />
 
-              <p className="device-details__id grid__item--desktop-22-24">
-                ID: {product.id}
-              </p>
-            </section>
+                <p className="device-details__id grid__item--desktop-22-24">
+                  {`ID ${convertSlugToDigit(product.id)}`}
+                </p>
+              </section>
 
-            <section
-              className="device-details__about-product
-              grid grid--mobile-tablet-off"
-            >
-              <DeviceDetailsAbout descriptions={product.description} />
+              <section
+                className="device-details__about-product
+                grid grid--mobile-tablet-off"
+              >
+                <DeviceDetailsAbout descriptions={product.description} />
 
-              <DeviceDetailsSpecs product={product} />
-            </section>
+                <DeviceDetailsSpecs product={product} />
+              </section>
+              </>
+            )}
 
-            <section className="device-details__slider-products">
-              <DataLoader fetchStatus={recommendedFetchStatus}>
+            {recommended && (
+              <section className="device-details__slider-products">
                 <SliderProducts
                   title={'You may also like'}
                   products={recommended}
                 />
-              </DataLoader>
-            </section>
+              </section>
+            )}
           </>
-        ) : (
-          <h1>
-            Failed while loading product
-          </h1>
         )}
       </div>
-
-    </DataLoader>
   );
 };

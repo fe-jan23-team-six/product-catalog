@@ -1,39 +1,34 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 import classNames from 'classnames';
 import './ColoredButton.scss';
-import { getColorOfDevice } from '../../../utils/helpers/helpers';
 import { Link } from 'react-router-dom';
-import { Phone } from '../../../types/Phone';
+import { Product } from '../../../types/Product';
+import {
+  getHexColorOfDevice,
+} from '../../../utils/helpers/getHexColorOfDevice';
+import { resolveProductSlug } from '../../../utils/helpers/resolveProductSlug';
 
 type Props = {
-  deviceColor: string,
-  product: Phone,
+  currentColor: string,
+  product: Product,
 }
 
 export const ColoredButton: React.FC<Props> = ({
-  deviceColor,
-  product,
-}) => {
-  const {
+  currentColor,
+  product: {
     namespaceId,
     capacity,
     color,
-  } = product;
-
-  const colorHex = useCallback(() => getColorOfDevice(
-    deviceColor.slice(0, 1).toUpperCase() + deviceColor.slice(1),
-  ), [deviceColor]);
-
-  return (
-    <Link
-      className={classNames(
-        'colored-button',
-        {
-          'colored-button--selected': deviceColor === color,
-        },
-      )}
-      style={{ backgroundColor: colorHex() }}
-      to={`/catalog/${namespaceId}-${capacity.toLowerCase()}-${deviceColor}`}
-    />
-  );
-};
+  },
+}) => (
+  <Link
+    className={classNames(
+      'colored-button',
+      {
+        'colored-button--selected': currentColor === color,
+      },
+    )}
+    style={{ backgroundColor: getHexColorOfDevice(currentColor) }}
+    to={`../${resolveProductSlug(namespaceId, capacity, currentColor)}`}
+  />
+);

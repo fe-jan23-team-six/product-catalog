@@ -8,6 +8,8 @@ import { DeviceDetailsPage } from './pages/DeviceDetailsPage';
 import { FavouritePage } from './pages/FavouritesPage';
 import { CartPage } from './pages/CartPage';
 import { NotFoundPage } from './pages/NotFoundPage';
+import { ContactsPage } from './pages/ContactsPage';
+import { Category } from './types/enums/Category';
 
 export const Root: React.FC = () => (
   <Routes>
@@ -15,14 +17,38 @@ export const Root: React.FC = () => (
       <Route index element={<HomePage />} />
       <Route path="home" element={<Navigate to="/" replace />} />
 
-      <Route path="catalog">
-        <Route index element={<CatalogPage />} />
+      <Route path="phones">
+        <Route
+          index
+          element={<CatalogPage productType={Category.PHONES} />}
+        />
+        <Route path=":productSlug" element={<DeviceDetailsPage />} />
+      </Route>
+
+      <Route path="tablets">
+        <Route
+          index
+          element={<CatalogPage productType={Category.TABLETS} />}
+        />
+        <Route path=":productSlug" element={<DeviceDetailsPage />} />
+      </Route>
+
+      <Route path="accessories">
+        <Route
+          index
+          element={<CatalogPage productType={Category.ACCESSORIES} />}
+      />
         <Route path=":productSlug" element={<DeviceDetailsPage />} />
       </Route>
 
       <Route
         path="device-details/:productSlug"
         element={<DeviceDetailsPage />}
+      />
+
+      <Route
+        path="contacts"
+        element={<ContactsPage />}
       />
 
       <Route path="favourite" element={<FavouritePage />} />

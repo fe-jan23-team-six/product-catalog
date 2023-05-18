@@ -1,45 +1,5 @@
-import { DeviceColors } from '../../types/enums/DeviceColors';
-
-export const getColorOfDevice = (color: string | undefined): DeviceColors => {
-  switch (color) {
-    case 'Black':
-      return DeviceColors.Black;
-
-    case 'Silver':
-      return DeviceColors.Silver;
-
-    case 'Gold':
-      return DeviceColors.Gold;
-
-    case 'Rosegold':
-      return DeviceColors.Rosegold;
-
-    case 'Spacegray':
-      return DeviceColors.Spacegray;
-
-    case 'Purple':
-      return DeviceColors.Purple;
-
-    case 'Red':
-      return DeviceColors.Red;
-
-    case 'Green':
-      return DeviceColors.Green;
-
-    case 'Yellow':
-      return DeviceColors.Yellow;
-
-    case 'MidnightGreen':
-      return DeviceColors.MidnightGreen;
-
-    case 'Coral':
-      return DeviceColors.Coral;
-
-    case 'White':
-    default:
-      return DeviceColors.White;
-  }
-};
+import { Category } from '../../types/enums/Category';
+import { getTotalAmount } from '../api/products';
 
 export const getPluralWord = (word: string, count: number): string => {
   const label = `${count} ${word}`;
@@ -47,4 +7,32 @@ export const getPluralWord = (word: string, count: number): string => {
   return count === 1
     ? label
     : label + 's';
+};
+
+export const getHandleAmountFetch = (
+  productType: Category,
+  setTotalAmount: (amount: string) => void,
+) => {
+  switch (productType) {
+    case Category.PHONES:
+      return () => getTotalAmount()
+        .then(({ phones }) => setTotalAmount(phones));
+    case Category.TABLETS:
+      return () => getTotalAmount()
+        .then(({ tablets }) => setTotalAmount(tablets));
+    case Category.ACCESSORIES:
+      return () => getTotalAmount()
+        .then(({ accessories }) => setTotalAmount(accessories));
+  }
+};
+
+export const getPageTitle = (productType: Category) => {
+  switch (productType) {
+    case Category.PHONES:
+      return 'Mobile phones';
+    case Category.TABLETS:
+      return 'Tablets';
+    case Category.ACCESSORIES:
+      return 'Accessories';
+  }
 };

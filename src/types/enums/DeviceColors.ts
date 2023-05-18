@@ -13,4 +13,5 @@ export enum DeviceColors {
   Coral = '#f05d49',
   Pink = '#e3d0cd',
   Grey = '#504f54',
+  Blue = '#4892db',
 }

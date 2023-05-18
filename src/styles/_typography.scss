@@ -1,0 +1,51 @@
+@import './utils/mixins';
+
+h1 {
+  font-weight: 800;
+  font-size: 32px;
+  line-height: 41px;
+
+  @include onTabletAndDesktop {
+    font-weight: 800;
+    font-size: 48px;
+    line-height: 56px;
+    letter-spacing: -0.01em;
+  }
+}
+
+h2 {
+  font-weight: 800;
+  font-size: 22px;
+  line-height: 140%;
+
+  @include onTabletAndDesktop {
+    font-weight: 800;
+    font-size: 32px;
+    line-height: 41px;
+    letter-spacing: -0.01em;
+  }
+}
+
+h3 {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 26px;
+
+  @include onTabletAndDesktop {
+    font-weight: 800;
+    font-size: 22px;
+    line-height: 140%;
+  }
+}
+
+h4 {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+
+  @include onTabletAndDesktop {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 26px;
+  }
+}

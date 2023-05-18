@@ -1,5 +1,5 @@
-import { PhoneMain } from './PhoneMain';
+import { ProductMain } from './ProductMain';
 
-export interface CartItemType extends PhoneMain {
+export interface CartItemType extends ProductMain {
   quantity: number,
 }

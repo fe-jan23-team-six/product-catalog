@@ -9,6 +9,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/thumbs';
 
 import './SliderPhotos.scss';
+import { Picture } from '../Picture';
 
 interface Props {
   images: string[],
@@ -32,7 +33,7 @@ export const SliderPhotos: React.FC<Props> = ({ images }) => {
         {images.map(image => {
           return (
             <SwiperSlide key={image}>
-              <img
+              <Picture
                 className="slider-photos__main-image"
                 src={image}
                 alt={image}
@@ -66,7 +67,7 @@ export const SliderPhotos: React.FC<Props> = ({ images }) => {
         {images.map(image => {
           return (
             <SwiperSlide key={image}>
-              <img
+              <Picture
                 className="slider-photos__gallry-image"
                 src={image}
                 alt={image}

@@ -1,7 +1,13 @@
 import React from 'react';
+import catNotFoundPage from '../../images/catNotFoundPage.gif';
+import { ErrorPageGenerator } from '../../components/ErrorPageGenerator';
 
 export const NotFoundPage: React.FC = () => {
   return (
-    <h1>Page Not Found</h1>
+    <ErrorPageGenerator
+      imageName={catNotFoundPage}
+      errorTitle="404 Uh-oh, page not found"
+      buttonTitle="Go to Home Page"
+    />
   );
 };

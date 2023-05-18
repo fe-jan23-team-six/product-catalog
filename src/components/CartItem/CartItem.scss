@@ -22,10 +22,8 @@
     display: flex;
 
     &_remove {
-      display: flex;
+      @extend %flexCenter;
       flex-direction: column;
-      justify-content: center;
-      align-items: center;
 
       width: 48px;
 
@@ -51,14 +49,13 @@
       }
 
       &_image {
-        max-width: 100%;
-        min-width: 80px;
+        width: 80px;
         display: flex;
         justify-content: center;
 
         &_img {
-          width: auto;
           height: 66px;
+          width: auto;
           margin: 7px;
         }
       }
@@ -87,10 +84,8 @@
   }
 
   &__priceAmount {
+    @extend %flexSpaceBetweenCenter;
     height: 32px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
 
     padding-left: 16px;
 

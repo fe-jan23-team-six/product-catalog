@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './DeviceDetailsSelector.scss';
 import {
   ProductColorGroup,
@@ -6,13 +6,18 @@ import {
 import {
   ProductCapacityGroup,
 } from '../../../components/ProductDetails/ProductCapacityGroup';
-import { Phone } from '../../../types/Phone';
+import { Product } from '../../../types/Product';
 import {
   TechCharacteristics,
 } from '../../../components/ProductDetails/TechCharacteristics';
+import { ProductManageButtons } from '../../../components/ProductManage';
+
+import { FavouriteContext } from '../../../contexts/FavouriteContext';
+import { CartContext } from '../../../contexts/CartContext';
+import { convertSlugToDigit } from '../../../utils/helpers/converSlugInId';
 
 type Props = {
-  product: Phone,
+  product: Product,
 }
 
 export const DeviceDetailsSelector: React.FC<Props> = ({ product }) => {
@@ -24,9 +29,15 @@ export const DeviceDetailsSelector: React.FC<Props> = ({ product }) => {
     resolution,
     processor,
     ram,
-    colorsAvailable,
-    capacityAvailable,
   } = product;
+
+  const { toggleFavourite, checkIsInFavourite } = useContext(FavouriteContext);
+  const { addToCart, checkIsInCart } = useContext(CartContext);
+
+  const isLiked = checkIsInFavourite(product.id);
+  const hasAddedInCart = checkIsInCart(product.id);
+  const handleLike = () => toggleFavourite(product);
+  const handleAddToCart = () => addToCart(product);
 
   const productCharacteristics = {
     screen,
@@ -48,16 +59,13 @@ export const DeviceDetailsSelector: React.FC<Props> = ({ product }) => {
             Available colours
           </p>
 
-          <p className="selector__id">
-            ID: {id}
+          <p className="selector__id grid__item--desktop-22-24">
+            {`ID ${convertSlugToDigit(id)}`}
           </p>
         </div>
 
         <div className="colours">
-          <ProductColorGroup
-            colors={colorsAvailable}
-            product={product}
-          />
+          <ProductColorGroup product={product} />
         </div>
       </div>
 
@@ -71,28 +79,33 @@ export const DeviceDetailsSelector: React.FC<Props> = ({ product }) => {
         <div
           className="capacities"
         >
-          <ProductCapacityGroup
-            capacities={capacityAvailable}
-            product={product}
-          />
+          <ProductCapacityGroup product={product} />
         </div>
       </div>
 
       <div>
         <div className="selector__price">
           <h2 className="selector__price__current">
-            ${priceRegular}
+            {hasDiscount
+              ? `$${priceDiscount}`
+              : `$${priceRegular}`}
           </h2>
 
           {hasDiscount && (
             <h3 className="selector__price__old">
-              ${priceDiscount}
+              ${priceRegular}
             </h3>
           )}
         </div>
 
         <div className="selector__buttons">
-          {/* <ProductManageButtons isBig={true}/> */}
+          <ProductManageButtons
+            isBig={true}
+            isLiked={isLiked}
+            onLike={handleLike}
+            isInCart={hasAddedInCart}
+            onCartAdd={handleAddToCart}
+          />
         </div>
 
         <div className="selector__characteristics">

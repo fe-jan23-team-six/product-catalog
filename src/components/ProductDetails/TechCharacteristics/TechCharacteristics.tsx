@@ -1,18 +1,23 @@
 import React from 'react';
-
 import { TechCharacteristicsItem } from '../TechCharacteristicsItem';
-import {
-  PhoneCharacteristics,
-} from '../../../types/PhoneCharacteristics';
 
 type Props = {
-  characteristics: PhoneCharacteristics;
+  characteristics: {
+    screen: string,
+    resolution: string,
+    processor: string,
+    ram: string,
+  };
 }
 
 export const TechCharacteristics: React.FC<Props> = ({ characteristics }) => {
   return (
     <>
       {Object.entries(characteristics).map(([key, value]) => {
+        if (value === null) {
+          return;
+        }
+
         const characteristic = key.slice(0, 1).toUpperCase() + key.slice(1);
 
         return (

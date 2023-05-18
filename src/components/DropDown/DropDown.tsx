@@ -17,7 +17,10 @@ export const DropDown: FC<Props> = ({
   description,
 }) => {
   const [isMenuOpened, setIsMenuOpened] = useState(false);
+  const [isMenuAnimated, setIsMenuAnimated] = useState(false);
   const [lastInputDevice, setLastInputDevice] = useState<string | null>(null);
+
+  useEffect(() => setIsMenuAnimated(!isMenuOpened), [isMenuOpened]);
 
   const handleMouseDown = () => {
     setLastInputDevice('mouse');
@@ -38,7 +41,7 @@ export const DropDown: FC<Props> = ({
         ? selectedOptionIndex - 1
         : selectedOptionIndex + 1;
 
-      setSelectedOption(optionList[nextIndex]);
+      setSelectedOption(optionList[nextIndex].toLocaleLowerCase());
     }
 
     if (selectedOptionIndex === 0) {
@@ -46,7 +49,7 @@ export const DropDown: FC<Props> = ({
         ? optionList.length - 1
         : selectedOptionIndex + 1;
 
-      setSelectedOption(optionList[nextIndex]);
+      setSelectedOption(optionList[nextIndex].toLocaleLowerCase());
     }
 
     if (selectedOptionIndex === optionList.length - 1) {
@@ -54,7 +57,7 @@ export const DropDown: FC<Props> = ({
         ? selectedOptionIndex - 1
         : 0;
 
-      setSelectedOption(optionList[nextIndex]);
+      setSelectedOption(optionList[nextIndex].toLocaleLowerCase());
     }
   };
 
@@ -140,10 +143,13 @@ export const DropDown: FC<Props> = ({
       onFocus={handleFocus}
       onMouseDown={handleMouseDown}
       onKeyDown={handleKeyBoardArrows}
-      data-dropdown-description={description}
     >
+      <div className="drop-down__description">
+        {description}
+      </div>
+
       <p className='drop-down__text'>
-        {selectedOption}
+        {selectedOption.slice(0, 1).toUpperCase() + selectedOption.slice(1)}
       </p>
 
       <menu
@@ -151,6 +157,7 @@ export const DropDown: FC<Props> = ({
           'drop-down__menu',
           {
             'drop-down__menu--closed': !isMenuOpened,
+            'drop-down__menu--is-transition': isMenuAnimated,
           },
         )}
       >
@@ -160,7 +167,7 @@ export const DropDown: FC<Props> = ({
             key={uuidv4()}
             onClick={handleSelectOption}
           >
-            { option }
+            { option.slice(0, 1).toUpperCase() + option.slice(1) }
           </li>
         ))}
       </menu>

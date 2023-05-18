@@ -7,12 +7,11 @@ import 'slick-carousel/slick/slick-theme.css';
 
 import { ProductCard } from '../ProductCard';
 import { ArrowButton } from '../ArrowButton';
-import { PhoneMain } from '../../types/PhoneMain';
-import { CATALOG_PAGE } from '../../utils/constants/route';
+import { ProductMain } from '../../types/ProductMain';
 
 interface Props {
   title?: string,
-  products: PhoneMain[],
+  products: ProductMain[],
 }
 
 export const SliderProducts: React.FC<Props> = ({ title, products }) => {
@@ -30,22 +29,10 @@ export const SliderProducts: React.FC<Props> = ({ title, products }) => {
     afterChange: (currentNo: number) => {
       setNoSlide(currentNo);
     },
-    responsive: [
-      {
-        breakpoint: 1200,
-        settings: {
-          slidesToShow: 2.5,
-        },
-      },
-      {
-        breakpoint: 649,
-        settings: {
-          slidesToShow: 1.4,
-          slidesToScroll: 1,
-        },
-      },
-    ],
   };
+
+  const isLeftButtonDisabled = noSlide === 0;
+  const isRightButtonDisabled = noSlide === products.length - 4;
 
   const handlePrevClick = () => {
     sliderRef.current?.slickPrev();
@@ -62,19 +49,20 @@ export const SliderProducts: React.FC<Props> = ({ title, products }) => {
 
         <div className="slider-products__buttons">
           <ArrowButton
-            isDisabled={noSlide === 0}
+            isDisabled={isLeftButtonDisabled}
             onClick={handlePrevClick}
           />
 
           <ArrowButton
-            isForward={true}
-            isDisabled={noSlide === products.length - 4}
+            isRight
+            isDisabled={isRightButtonDisabled}
             onClick={handleNextClick}
           />
         </div>
       </div>
 
       <Slider
+        className='slider-products__container'
         ref={sliderRef}
         {...settings}
       >
@@ -83,7 +71,6 @@ export const SliderProducts: React.FC<Props> = ({ title, products }) => {
           <ProductCard
             key={product.id}
             product={product}
-            nextRouteLink={`${CATALOG_PAGE}`}
           />
         ))}
       </Slider>

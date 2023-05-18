@@ -27,6 +27,8 @@
   }
 
   &__product-slider {
-    // styles
+    &--new-products {
+      margin-bottom: 80px;
+    }
   }
 }

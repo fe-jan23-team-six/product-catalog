@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { HashRouter as Router } from 'react-router-dom';
+import './styles/global.scss';
 import { Root } from './Root';
-import './App.scss';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement,

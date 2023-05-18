@@ -3,23 +3,21 @@ import { Link } from 'react-router-dom';
 import './ProductCard.scss';
 import { ProductManageButtons } from '../ProductManage';
 
-import { PhoneMain } from '../../types/PhoneMain';
+import { ProductMain } from '../../types/ProductMain';
 
 import { FavouriteContext } from '../../contexts/FavouriteContext';
 import { CartContext } from '../../contexts/CartContext';
+import { Picture } from '../Picture';
+import { getRouteByCategory } from '../../utils/helpers/getRouteByCategory';
 
 type Props = {
-  product: PhoneMain;
-  nextRouteLink?: string;
+  product: ProductMain;
 };
 
-export const ProductCard: React.FC<Props> = ({
-  product,
-  nextRouteLink,
-}) => {
+export const ProductCard: React.FC<Props> = ({ product }) => {
   const {
-    slug,
-    name: phoneName,
+    id,
+    name: productName,
     priceRegular,
     priceDiscount,
     screen: screenSize,
@@ -28,10 +26,10 @@ export const ProductCard: React.FC<Props> = ({
     image,
   } = product;
 
-  const { toggleFavourite, isInFavourite } = useContext(FavouriteContext);
-  const { addToCart, isInCart } = useContext(CartContext);
+  const { toggleFavourite, checkIsInFavourite } = useContext(FavouriteContext);
+  const { addToCart, checkIsInCart } = useContext(CartContext);
 
-  const isLiked = isInFavourite(product.id);
+  const isLiked = checkIsInFavourite(product.id);
   const handleLike = () => (
     toggleFavourite(product)
   );
@@ -40,16 +38,18 @@ export const ProductCard: React.FC<Props> = ({
 
   return (
     <div className="product-card">
-      <Link to={nextRouteLink ? `${nextRouteLink}/${slug}` : `./${slug}`}>
-        <img
+      <Link
+        to={`${getRouteByCategory(product.category)}/${id}`}
+        className="product-card__link"
+      >
+        <Picture
           className="product-card__image"
           src={image}
-          alt={phoneName}
-        >
-        </img>
+          alt={productName}
+        />
 
         <div className="product-card__model">
-          {phoneName}
+          {productName}
         </div>
       </Link>
 
@@ -80,7 +80,7 @@ export const ProductCard: React.FC<Props> = ({
       <ProductManageButtons
         isLiked={isLiked}
         onLike={handleLike}
-        isInCart={isInCart(product.id)}
+        isInCart={checkIsInCart(product.id)}
         onCartAdd={handleAddToCart}
       />
     </div>

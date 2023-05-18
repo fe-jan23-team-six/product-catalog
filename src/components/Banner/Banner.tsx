@@ -18,6 +18,8 @@ export const Banner: React.FC = () => {
     infinite: true,
     autoplay: true,
     autoplaySpeed: 5000,
+    centerMode: true,
+    centerPadding: '0px',
     speed: 300,
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -39,18 +41,29 @@ export const Banner: React.FC = () => {
   };
 
   return (
-    <div className="banner">
+  <div className="banner grid grid--banner">
 
-    <div className="banner__button-arrow">
+    <div
+      className="
+        banner__button-arrow
+        grid__item--desktop-1-1
+        grid__item--tablet-1-1
+      "
+    >
       <ArrowButton
-        isLong={true}
+        isLong
         onClick={handlePrevClick}
       />
     </div>
 
       <Slider
         ref={sliderRef}
-        className="banner__container"
+        className="
+          banner__container
+          grid__item--desktop-2-22
+          grid__item--tablet-2-11
+          grid__item--mobile-1-4
+        "
         {...settings}
       >
 
@@ -68,10 +81,15 @@ export const Banner: React.FC = () => {
         })}
       </Slider>
 
-      <div className="banner__button-arrow">
+      <div
+        className="
+          banner__button-arrow
+          grid__item--desktop-24
+          grid__item--tablet-12
+        ">
         <ArrowButton
-          isForward={true}
-          isLong={true}
+          isRight
+          isLong
           onClick={handleNextClick}
         />
       </div>
