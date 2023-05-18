@@ -11,10 +11,10 @@ import { ProductMain } from '../../types/ProductMain';
 
 interface Props {
   title?: string,
-  products: ProductMain[],
+  products?: ProductMain[],
 }
 
-export const SliderProducts: React.FC<Props> = ({ title, products }) => {
+export const SliderProducts: React.FC<Props> = ({ title, products = [] }) => {
   const [noSlide, setNoSlide] = useState<number>(0);
   const sliderRef = useRef<Slider>(null);
 

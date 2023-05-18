@@ -5,6 +5,9 @@ import 'react-loading-skeleton/dist/skeleton.css';
 import { ProductManageButtons } from '../../ProductManage';
 import { CartContext } from '../../../contexts/CartContext';
 import { FavouriteContext } from '../../../contexts/FavouriteContext';
+import {
+  SliderProductsSkeleton,
+} from '../HomePageSkeletons/SliderProductsSkeleton';
 
 type Props = {
   slug: string;
@@ -119,6 +122,12 @@ export const DeviceDetailsLoadPage: React.FC<Props> = ({ slug }) => {
 
           <Skeleton count={5} />
         </div>
+      </section>
+
+      <section className="device-details__slider-products">
+        <SliderProductsSkeleton
+          title={'You may also like'}
+        />
       </section>
     </>
   );
