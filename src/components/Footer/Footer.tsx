@@ -29,7 +29,7 @@ export const Footer: React.FC = () => {
         </li>
 
         <li className="footer__item">
-          <Link to={''} className="footer__link">
+          <Link to={'/notfound'} className="footer__link">
             Rights
           </Link>
         </li>
