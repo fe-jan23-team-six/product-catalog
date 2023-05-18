@@ -15,7 +15,7 @@
 
     #{$prefix}__top {
       margin-bottom: $marginBottomSmall;
-      transition: margin-bottom 0.3s ease;
+      transition: margin-bottom $animationDuration ease;
     }
 
     #{$prefix}__menu {
