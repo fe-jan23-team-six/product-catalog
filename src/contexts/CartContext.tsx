@@ -12,7 +12,7 @@ type CartContextType = {
   addToCart: (product: ProductMain) => void;
   removeFromCart: (id: string) => void;
   clearCart: () => void;
-  isInCart: (id: string) => boolean;
+  checkIsInCart: (id: string) => boolean;
   changeQuantity: (id: string, action: QuantityActionType) => void;
 };
 
@@ -27,7 +27,7 @@ export const CartContext = React.createContext<CartContextType>({
   clearCart: () => {
     global.console.warn('No implementation of clearCart');
   },
-  isInCart: () => false,
+  checkIsInCart: () => false,
   changeQuantity: () => {
     global.console.warn('No implementation of changeQuantity');
   },
@@ -42,12 +42,12 @@ export const CartProvider: React.FC<CartProviderType> = ({
 }) => {
   const [cart, setCart] = useLocalStorage<CartItemType>(cartKey);
 
-  const isInCart = (id: string): boolean => (
+  const checkIsInCart = (id: string): boolean => (
     cart.some(cartProduct => cartProduct.id === id)
   );
 
   const addToCart = (product: ProductMain): void => {
-    if (isInCart(product.id)) {
+    if (checkIsInCart(product.id)) {
       return;
     }
 
@@ -100,7 +100,7 @@ export const CartProvider: React.FC<CartProviderType> = ({
       addToCart,
       removeFromCart,
       clearCart,
-      isInCart,
+      checkIsInCart,
       changeQuantity,
     }
   ), [cart]);

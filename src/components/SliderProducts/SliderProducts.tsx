@@ -8,7 +8,6 @@ import 'slick-carousel/slick/slick-theme.css';
 import { ProductCard } from '../ProductCard';
 import { ArrowButton } from '../ArrowButton';
 import { ProductMain } from '../../types/ProductMain';
-import { CATALOG_PAGE } from '../../utils/constants/route';
 
 interface Props {
   title?: string,
@@ -72,7 +71,6 @@ export const SliderProducts: React.FC<Props> = ({ title, products }) => {
           <ProductCard
             key={product.id}
             product={product}
-            nextRouteLink={`${CATALOG_PAGE}`}
           />
         ))}
       </Slider>

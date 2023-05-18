@@ -3,17 +3,16 @@ import { ColoredButton } from '../ColoredButton';
 import { Product } from '../../../types/Product';
 
 type Props = {
-  colors: Array<string>,
   product: Product,
 };
 
-export const ProductColorGroup: React.FC<Props> = ({ colors, product }) => {
+export const ProductColorGroup: React.FC<Props> = ({ product }) => {
   return (
     <>
-      {colors.map(color => (
+      {product.colorsAvailable.map(color => (
         <ColoredButton
           key={color}
-          deviceColor={color}
+          currentColor={color}
           product={product}
         />
       ))}

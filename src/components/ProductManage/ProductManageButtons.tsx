@@ -13,16 +13,16 @@ type Props = {
 
 export const ProductManageButtons: React.FC<Props> = ({
   isBig = false,
-  isLiked,
-  isInCart,
-  onCartAdd,
-  onLike,
+  isLiked = false,
+  isInCart = false,
+  onCartAdd = () => undefined,
+  onLike = () => undefined,
 }) => (
-  <div className="product-manage-buttons">
-    <PrimaryButton
-      isInCart={isInCart}
-      onCartAdd={onCartAdd}
-    />
+    <div className="product-manage-buttons">
+      <PrimaryButton
+        isInCart={isInCart}
+        onCartAdd={onCartAdd}
+      />
 
     <div
       className="product-manage-buttons__like">

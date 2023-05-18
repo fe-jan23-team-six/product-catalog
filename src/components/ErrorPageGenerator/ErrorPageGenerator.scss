@@ -6,7 +6,7 @@
   text-align: center;
 
   &__image {
-    max-width: 300px;
+    max-width: 200px;
     margin-bottom: $marginBottomBig;
 
     @include onPhone {

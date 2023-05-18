@@ -1,7 +1,9 @@
+import { Category } from './enums/Category';
+
 export interface ProductMain {
   id: string,
   namespaceId: string,
-  category: string,
+  category: Category,
   name: string,
   priceDiscount: number,
   priceRegular: number,

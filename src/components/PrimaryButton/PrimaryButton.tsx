@@ -8,8 +8,8 @@ type Props = {
 }
 
 export const PrimaryButton: React.FC<Props> = ({
-  onCartAdd,
-  isInCart,
+  onCartAdd = () => undefined,
+  isInCart = false,
 }) => (
   <button
     className={classNames(

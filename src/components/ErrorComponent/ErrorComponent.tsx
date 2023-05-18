@@ -6,7 +6,8 @@ export const ErrorComponent: React.FC = () => {
   return (
     <ErrorPageGenerator
       imageName={catError}
-      errorTitle="Sorry, something went wrong:("
+      errorTitle="Sorry, something went wrong &#128546;"
+      buttonTitle="Go to Home Page"
     />
   );
 };

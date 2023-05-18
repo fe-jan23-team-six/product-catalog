@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import './CapacitiesButton.scss';
 import { Product } from '../../../types/Product';
 import { Link } from 'react-router-dom';
+import { resolveProductSlug } from '../../../utils/helpers/resolveProductSlug';
 
 type Props = {
   deviceCapacity: string,
@@ -11,14 +12,12 @@ type Props = {
 
 export const CapacitiesButton: React.FC<Props> = ({
   deviceCapacity,
-  product,
-}) => {
-  const {
+  product: {
     namespaceId,
     capacity,
     color,
-  } = product;
-
+  },
+}) => {
   return (
     <Link
       className={classNames(
@@ -27,7 +26,7 @@ export const CapacitiesButton: React.FC<Props> = ({
           'capacity-button--selected': deviceCapacity === capacity,
         },
       )}
-      to={`/catalog/${namespaceId}-${deviceCapacity.toLowerCase()}-${color}`}
+      to={`../${resolveProductSlug(namespaceId, deviceCapacity, color)}`}
     >
       {deviceCapacity}
     </Link>

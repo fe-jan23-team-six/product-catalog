@@ -17,7 +17,6 @@ import {
 } from '../../utils/api/products';
 
 import { Breadcrumbs } from '../../components/Breadcrumbs';
-import { BreadcrumbItem } from '../../types/BreadcrumbItem';
 
 import { convertSlugToDigit } from '../../utils/helpers/converSlugInId';
 import {
@@ -28,7 +27,7 @@ export const DeviceDetailsPage: FC = () => {
   const { productSlug = '' } = useParams();
 
   const productQuery = useQuery<Product>({
-    queryKey: ['product'],
+    queryKey: [`${productSlug}`],
     queryFn: () => getById(productSlug),
   });
 
@@ -43,10 +42,6 @@ export const DeviceDetailsPage: FC = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [productSlug]);
 
-  /*   useEffect(() => {
-    console.log('loading', productQuery.data, productQuery.isFetching);
-  }, [productQuery.isFetching]); */
-
   const product = productQuery.data;
   const recommended = recommendedQuery.data;
 
@@ -54,28 +49,16 @@ export const DeviceDetailsPage: FC = () => {
     ? product.name
     : 'Not loaded model';
 
-  const breadcrumbs: BreadcrumbItem[] = [
-    {
-      link: '/phones',
-      text: 'Phones',
-    },
-    {
-      text: productTitle,
-    },
-  ];
-
   return (
       <div className="device-details">
+        <section className="device-details__breadcrumbs">
+          <Breadcrumbs />
+        </section>
+
         {productQuery.isFetching ? (
-          <DeviceDetailsLoadPage
-            breadcrumbs={breadcrumbs}
-          />
+          <DeviceDetailsLoadPage slug={productSlug} />
         ) : (
           <>
-            <section className="device-details__breadcrumbs">
-              <Breadcrumbs breadcrumbs={breadcrumbs} />
-            </section>
-
             <h1 className="device-details__title">
               {productTitle}
             </h1>
@@ -83,17 +66,17 @@ export const DeviceDetailsPage: FC = () => {
             {product && (
               <>
                 <section
-                className="device-details__product
-                grid grid--mobile-off"
-              >
-                <DeviceDetailsImages images={product.images} />
+                  className="device-details__product
+                  grid grid--mobile-off"
+                >
+                  <DeviceDetailsImages images={product.images} />
 
-                <DeviceDetailsSelector product={product} />
+                  <DeviceDetailsSelector product={product} />
 
-              <p className="device-details__id grid__item--desktop-22-24">
-                {`ID ${convertSlugToDigit(product.id)}`}
-              </p>
-            </section>
+                <p className="device-details__id grid__item--desktop-22-24">
+                  {`ID ${convertSlugToDigit(product.id)}`}
+                </p>
+              </section>
 
               <section
                 className="device-details__about-product
@@ -111,7 +94,7 @@ export const DeviceDetailsPage: FC = () => {
                 <SliderProducts
                   title={'You may also like'}
                   products={recommended}
-               />
+                />
               </section>
             )}
           </>

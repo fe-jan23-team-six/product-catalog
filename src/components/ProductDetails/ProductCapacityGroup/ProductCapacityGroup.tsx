@@ -3,17 +3,13 @@ import { CapacitiesButton } from '../CapacitiesButton';
 import { Product } from '../../../types/Product';
 
 type Props = {
-  capacities: Array<string>,
   product: Product,
 };
 
-export const ProductCapacityGroup: React.FC<Props> = ({
-  capacities,
-  product,
-}) => {
+export const ProductCapacityGroup: React.FC<Props> = ({ product }) => {
   return (
     <>
-      {capacities.map(capacity => (
+      {product.capacityAvailable.map(capacity => (
         <CapacitiesButton
           key={capacity}
           deviceCapacity={capacity}

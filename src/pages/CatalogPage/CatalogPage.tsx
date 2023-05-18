@@ -10,19 +10,19 @@ import { getProductPage } from '../../utils/api/products';
 import { useSearchParams } from 'react-router-dom';
 
 import { DropDown } from '../../components/DropDown';
-import { ProductTypes } from '../../types/enums/ProductTypes';
+import { Category } from '../../types/enums/Category';
 import {
-  getEndpoint,
   getHandleAmountFetch,
   getPageTitle,
 } from '../../utils/helpers/helpers';
+import { getRouteByCategory } from '../../utils/helpers/getRouteByCategory';
 import {
   CatalogPageSkeleton,
 } from '../../components/LoadingComponents/CatalogPageSkeleton';
 import Skeleton from 'react-loading-skeleton';
 
 type Props = {
-  productType: ProductTypes,
+  productType: Category,
 };
 
 export const CatalogPage: React.FC<Props> = ({ productType }) => {
@@ -39,7 +39,7 @@ export const CatalogPage: React.FC<Props> = ({ productType }) => {
     searchParams.get('limit') || '16',
   );
 
-  const endpoint = getEndpoint(productType);
+  const endpoint = getRouteByCategory(productType);
   const pageTitle = getPageTitle(productType);
 
   useEffect(() => {
@@ -55,8 +55,6 @@ export const CatalogPage: React.FC<Props> = ({ productType }) => {
   const page = searchParams.get('page') || '1';
   const limit = searchParams.get('limit') || '16';
   const sort = searchParams.get('sort') || 'alphabetically';
-
-  global.console.log('limit:', limit);
 
   const handlePrevPage = () => {
     searchParams.set('page', `${+page - 1}`);
