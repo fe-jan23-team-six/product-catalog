@@ -1,16 +1,28 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './DeviceDetailsLoadPage.scss';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import { Breadcrumbs } from '../../Breadcrumbs';
 import { BreadcrumbItem } from '../../../types/BreadcrumbItem';
-import { ProductManageLoad } from '../ProductManageLoad';
+import { ProductManageButtons } from '../../ProductManage';
+import { CartContext } from '../../../contexts/CartContext';
+import { FavouriteContext } from '../../../contexts/FavouriteContext';
 
 type Props = {
+  slug: string;
   breadcrumbs?: BreadcrumbItem[];
 }
 
-export const DeviceDetailsLoadPage: React.FC<Props> = ({ breadcrumbs }) => {
+export const DeviceDetailsLoadPage: React.FC<Props> = ({
+  slug,
+  breadcrumbs,
+}) => {
+  const { checkIsInCart } = useContext(CartContext);
+  const { checkIsInFavourite } = useContext(FavouriteContext);
+
+  const isInCart = checkIsInCart(slug);
+  const isLiked = checkIsInFavourite(slug);
+
   return (
     <SkeletonTheme baseColor="#ececec" highlightColor="#fafbfc">
       <section className="device-details-load__breadcrumbs">
@@ -74,7 +86,11 @@ export const DeviceDetailsLoadPage: React.FC<Props> = ({ breadcrumbs }) => {
             </div>
 
             <div className="selector_load__buttons">
-              <ProductManageLoad />
+              <ProductManageButtons
+                isBig
+                isLiked={isLiked}
+                isInCart={isInCart}
+              />
             </div>
 
             <div className="selector_load__characteristics">

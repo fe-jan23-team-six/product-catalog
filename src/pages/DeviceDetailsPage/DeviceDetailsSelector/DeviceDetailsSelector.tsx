@@ -31,11 +31,11 @@ export const DeviceDetailsSelector: React.FC<Props> = ({ product }) => {
     ram,
   } = product;
 
-  const { toggleFavourite, isInFavourite } = useContext(FavouriteContext);
-  const { addToCart, isInCart } = useContext(CartContext);
+  const { toggleFavourite, checkIsInFavourite } = useContext(FavouriteContext);
+  const { addToCart, checkIsInCart } = useContext(CartContext);
 
-  const isLiked = isInFavourite(product.id);
-  const hasAddedInCart = isInCart(product.id);
+  const isLiked = checkIsInFavourite(product.id);
+  const hasAddedInCart = checkIsInCart(product.id);
   const handleLike = () => toggleFavourite(product);
   const handleAddToCart = () => addToCart(product);
 

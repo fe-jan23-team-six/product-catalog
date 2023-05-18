@@ -7,13 +7,13 @@ import {
 
 type FavouriteContextType = {
   favourite: ProductMain[];
-  isInFavourite: (id: string) => boolean;
+  checkIsInFavourite: (id: string) => boolean;
   toggleFavourite: (product: ProductMain) => void;
 };
 
 export const FavouriteContext = React.createContext<FavouriteContextType>({
   favourite: [],
-  isInFavourite: () => false,
+  checkIsInFavourite: () => false,
   toggleFavourite: () => {
     global.console.warn('No implementation of toggleFavourite');
   },
@@ -30,12 +30,12 @@ export const FavouriteProvider: React.FC<FavouriteProviderType> = ({
     favouriteKey,
   );
 
-  const isInFavourite = useCallback((id: string): boolean => (
+  const checkIsInFavourite = useCallback((id: string): boolean => (
     favourite.some(favouriteProduct => favouriteProduct.id === id)
   ), [favourite]);
 
   const toggleFavourite = useCallback((product: ProductMain): void => {
-    if (isInFavourite(product.id)) {
+    if (checkIsInFavourite(product.id)) {
       setFavourite((prevFavourite) => (
         prevFavourite.filter(favouriteProduct => (
           favouriteProduct.id !== product.id
@@ -53,7 +53,7 @@ export const FavouriteProvider: React.FC<FavouriteProviderType> = ({
   const contextValue = useMemo(() => (
     {
       favourite,
-      isInFavourite,
+      checkIsInFavourite,
       toggleFavourite,
     }
   ), [favourite]);

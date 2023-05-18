@@ -26,10 +26,10 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
     image,
   } = product;
 
-  const { toggleFavourite, isInFavourite } = useContext(FavouriteContext);
-  const { addToCart, isInCart } = useContext(CartContext);
+  const { toggleFavourite, checkIsInFavourite } = useContext(FavouriteContext);
+  const { addToCart, checkIsInCart } = useContext(CartContext);
 
-  const isLiked = isInFavourite(product.id);
+  const isLiked = checkIsInFavourite(product.id);
   const handleLike = () => (
     toggleFavourite(product)
   );
@@ -77,7 +77,7 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
       <ProductManageButtons
         isLiked={isLiked}
         onLike={handleLike}
-        isInCart={isInCart(product.id)}
+        isInCart={checkIsInCart(product.id)}
         onCartAdd={handleAddToCart}
       />
     </div>
