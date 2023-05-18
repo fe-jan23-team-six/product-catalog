@@ -13,7 +13,11 @@ export const Footer: React.FC = () => {
 
       <ul className="footer__list">
         <li className="footer__item">
-          <Link to={''} className="footer__link">
+          <Link
+            to={'https://github.com/orgs/fe-jan23-team-six/repositories'}
+            className="footer__link"
+            target="_blank"
+          >
             Github
           </Link>
         </li>
