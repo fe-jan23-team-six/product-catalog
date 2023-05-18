@@ -26,12 +26,10 @@ import {
 
 export const DeviceDetailsPage: FC = () => {
   const { productSlug = '' } = useParams();
-
   const productQuery = useQuery<Product>({
     queryKey: ['product'],
     queryFn: () => getById(productSlug),
   });
-
   const recommendedQuery = useQuery<ProductMain[]>({
     queryKey: ['recommended'],
     queryFn: () => getProducts(),
@@ -43,21 +41,16 @@ export const DeviceDetailsPage: FC = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [productSlug]);
 
-  /*   useEffect(() => {
-    console.log('loading', productQuery.data, productQuery.isFetching);
-  }, [productQuery.isFetching]); */
-
   const product = productQuery.data;
   const recommended = recommendedQuery.data;
-
   const productTitle = product
     ? product.name
     : 'Not loaded model';
-
+  const currentCategory = product?.category;
   const breadcrumbs: BreadcrumbItem[] = [
     {
-      link: '/phones',
-      text: 'Phones',
+      link: `/${currentCategory}`,
+      text: `${currentCategory}`,
     },
     {
       text: productTitle,

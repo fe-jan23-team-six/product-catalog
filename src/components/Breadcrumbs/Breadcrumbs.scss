@@ -19,6 +19,8 @@
     display: flex;
     color: black;
     text-decoration: none;
+    text-transform: capitalize;
+
     cursor: pointer;
 
     &:hover {
