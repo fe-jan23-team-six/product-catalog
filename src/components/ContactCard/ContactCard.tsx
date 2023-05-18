@@ -42,6 +42,7 @@ export const ContactCard: React.FC<Props> = ({ creator }) => {
           <Link
             to={linkedInLink}
             className="contact_card__information__links__link"
+            target="_blank"
           >
             LinkedIn
           </Link>
@@ -49,6 +50,7 @@ export const ContactCard: React.FC<Props> = ({ creator }) => {
           <Link
             to={gitHubLink}
             className="contact_card__information__links__link"
+            target="_blank"
           >
             GitHub
           </Link>
