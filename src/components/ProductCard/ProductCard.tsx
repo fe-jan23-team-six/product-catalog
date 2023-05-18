@@ -38,7 +38,10 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
 
   return (
     <div className="product-card">
-      <Link to={`${getRouteByCategory(product.category)}/${id}`}>
+      <Link
+        to={`${getRouteByCategory(product.category)}/${id}`}
+        className="product-card__link"
+      >
         <Picture
           className="product-card__image"
           src={image}
