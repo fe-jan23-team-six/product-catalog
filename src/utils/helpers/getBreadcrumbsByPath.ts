@@ -12,7 +12,9 @@ export const getBreadcrumbsByPath = (location: Location): BreadcrumbItem[] => {
   return pathParts.map((part, i, fullpath) => (
     {
       text: formatateSlug(part),
-      link: i !== fullpath.length - 1 ? '/' + fullpath.join('/') : undefined,
+      link: i !== fullpath.length - 1
+        ? '/' + fullpath.slice(0, i + 1).join('/')
+        : undefined,
     }
   ));
 };

@@ -1,5 +1,6 @@
 import React from 'react';
 import './Breadcrumbs.scss';
+import { HOME_PAGE } from '../../utils/constants/route';
 import { Link, useLocation } from 'react-router-dom';
 import { getBreadcrumbsByPath } from '../../utils/helpers/getBreadcrumbsByPath';
 
@@ -10,7 +11,7 @@ export const Breadcrumbs: React.FC = () => {
   return (
     <div className="breadcrumbs">
       <div className="breadcrumbs__child">
-        <Link to={'/home'} className="breadcrumbs__link">
+        <Link to={HOME_PAGE} className="breadcrumbs__link">
           <img src="icons/home16x16.svg" alt="Home link icon" />
         </Link>
       </div>
@@ -23,7 +24,7 @@ export const Breadcrumbs: React.FC = () => {
 
           <div className="breadcrumbs__child">
             {breadcrumb.link ? (
-              <Link to="/catalog" className="breadcrumbs__link">
+              <Link to={breadcrumb.link} className="breadcrumbs__link">
                 {breadcrumb.text}
               </Link>
             ) : (

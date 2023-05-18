@@ -39,7 +39,7 @@ export const DeviceDetailsPage: FC = () => {
   useEffect(() => {
     productQuery.refetch();
     recommendedQuery.refetch();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0 });
   }, [productSlug]);
 
   const product = productQuery.data;
