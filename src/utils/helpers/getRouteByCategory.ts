@@ -1,15 +1,15 @@
 import { Category } from '../../types/enums/Category';
-import { ACCESSORIES_CATALOG,
-  PHONES_CATALOG, TABLETS_CATALOG } from '../constants/route';
+import { ACCESSORIES_PAGE,
+  PHONES_PAGE, TABLETS_PAGE } from '../constants/route';
 
 export const getRouteByCategory = (productType: Category) => {
   switch (productType) {
     case Category.TABLETS:
-      return TABLETS_CATALOG;
+      return TABLETS_PAGE;
     case Category.ACCESSORIES:
-      return ACCESSORIES_CATALOG;
+      return ACCESSORIES_PAGE;
     case Category.PHONES:
     default:
-      return PHONES_CATALOG;
+      return PHONES_PAGE;
   }
 };
