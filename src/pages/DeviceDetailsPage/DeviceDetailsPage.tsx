@@ -17,7 +17,6 @@ import {
 } from '../../utils/api/products';
 
 import { Breadcrumbs } from '../../components/Breadcrumbs';
-import { BreadcrumbItem } from '../../types/BreadcrumbItem';
 
 import { convertSlugToDigit } from '../../utils/helpers/converSlugInId';
 import {
@@ -40,12 +39,8 @@ export const DeviceDetailsPage: FC = () => {
   useEffect(() => {
     productQuery.refetch();
     recommendedQuery.refetch();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: 'auto' });
   }, [productSlug]);
-
-  /*   useEffect(() => {
-    console.log('loading', productQuery.data, productQuery.isFetching);
-  }, [productQuery.isFetching]); */
 
   const product = productQuery.data;
   const recommended = recommendedQuery.data;
@@ -54,28 +49,16 @@ export const DeviceDetailsPage: FC = () => {
     ? product.name
     : 'Not loaded model';
 
-  const breadcrumbs: BreadcrumbItem[] = [
-    {
-      link: '/phones',
-      text: 'Phones',
-    },
-    {
-      text: productTitle,
-    },
-  ];
-
   return (
       <div className="device-details">
+        <section className="device-details__breadcrumbs">
+          <Breadcrumbs />
+        </section>
+
         {productQuery.isFetching ? (
-          <DeviceDetailsLoadPage
-            breadcrumbs={breadcrumbs}
-          />
+          <DeviceDetailsLoadPage slug={productSlug} />
         ) : (
           <>
-            <section className="device-details__breadcrumbs">
-              <Breadcrumbs breadcrumbs={breadcrumbs} />
-            </section>
-
             <h1 className="device-details__title">
               {productTitle}
             </h1>
@@ -105,16 +88,16 @@ export const DeviceDetailsPage: FC = () => {
               </section>
               </>
             )}
-
-            {recommended && (
-              <section className="device-details__slider-products">
-              <SliderProducts
-                title={'You may also like'}
-                products={recommended}
-              />
-          </section>
-            )}
           </>
+        )}
+
+        {recommended && (
+          <section className="device-details__slider-products">
+            <SliderProducts
+              title={'You may also like'}
+              products={recommended}
+            />
+          </section>
         )}
       </div>
   );

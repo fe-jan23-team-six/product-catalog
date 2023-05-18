@@ -9,7 +9,7 @@ import { FavouritePage } from './pages/FavouritesPage';
 import { CartPage } from './pages/CartPage';
 import { NotFoundPage } from './pages/NotFoundPage';
 import { ContactsPage } from './pages/ContactsPage';
-import { ProductTypes } from './types/enums/ProductTypes';
+import { Category } from './types/enums/Category';
 
 export const Root: React.FC = () => (
   <Routes>
@@ -20,7 +20,7 @@ export const Root: React.FC = () => (
       <Route path="phones">
         <Route
           index
-          element={<CatalogPage productType={ProductTypes.PHONES} />}
+          element={<CatalogPage productType={Category.PHONES} />}
         />
         <Route path=":productSlug" element={<DeviceDetailsPage />} />
       </Route>
@@ -28,7 +28,7 @@ export const Root: React.FC = () => (
       <Route path="tablets">
         <Route
           index
-          element={<CatalogPage productType={ProductTypes.TABLETS} />}
+          element={<CatalogPage productType={Category.TABLETS} />}
         />
         <Route path=":productSlug" element={<DeviceDetailsPage />} />
       </Route>
@@ -36,7 +36,7 @@ export const Root: React.FC = () => (
       <Route path="accessories">
         <Route
           index
-          element={<CatalogPage productType={ProductTypes.ACCESSORIES} />}
+          element={<CatalogPage productType={Category.ACCESSORIES} />}
       />
         <Route path=":productSlug" element={<DeviceDetailsPage />} />
       </Route>

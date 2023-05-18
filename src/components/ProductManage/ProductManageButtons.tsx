@@ -5,18 +5,18 @@ import { PrimaryButton } from '../PrimaryButton';
 
 type Props = {
   isBig?: boolean;
-  isLiked: boolean;
-  isInCart: boolean;
-  onCartAdd: () => void;
-  onLike: () => void;
+  isLiked?: boolean;
+  isInCart?: boolean;
+  onCartAdd?: () => void;
+  onLike?: () => void;
 }
 
 export const ProductManageButtons: React.FC<Props> = ({
   isBig = false,
-  isLiked,
-  isInCart,
-  onCartAdd,
-  onLike,
+  isLiked = false,
+  isInCart = false,
+  onCartAdd = () => undefined,
+  onLike = () => undefined,
 }) => {
   return (
     <div className="product-manage-buttons">

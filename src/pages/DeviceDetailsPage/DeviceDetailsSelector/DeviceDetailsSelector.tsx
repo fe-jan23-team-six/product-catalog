@@ -29,15 +29,13 @@ export const DeviceDetailsSelector: React.FC<Props> = ({ product }) => {
     resolution,
     processor,
     ram,
-    colorsAvailable,
-    capacityAvailable,
   } = product;
 
-  const { toggleFavourite, isInFavourite } = useContext(FavouriteContext);
-  const { addToCart, isInCart } = useContext(CartContext);
+  const { toggleFavourite, checkIsInFavourite } = useContext(FavouriteContext);
+  const { addToCart, checkIsInCart } = useContext(CartContext);
 
-  const isLiked = isInFavourite(product.id);
-  const hasAddedInCart = isInCart(product.id);
+  const isLiked = checkIsInFavourite(product.id);
+  const hasAddedInCart = checkIsInCart(product.id);
   const handleLike = () => toggleFavourite(product);
   const handleAddToCart = () => addToCart(product);
 
@@ -67,10 +65,7 @@ export const DeviceDetailsSelector: React.FC<Props> = ({ product }) => {
         </div>
 
         <div className="colours">
-          <ProductColorGroup
-            colors={colorsAvailable}
-            product={product}
-          />
+          <ProductColorGroup product={product} />
         </div>
       </div>
 
@@ -84,10 +79,7 @@ export const DeviceDetailsSelector: React.FC<Props> = ({ product }) => {
         <div
           className="capacities"
         >
-          <ProductCapacityGroup
-            capacities={capacityAvailable}
-            product={product}
-          />
+          <ProductCapacityGroup product={product} />
         </div>
       </div>
 

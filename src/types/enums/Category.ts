@@ -1,4 +1,4 @@
-export enum ProductTypes {
+export enum Category {
   PHONES = 'phones',
   TABLETS = 'tablets',
   ACCESSORIES = 'accessories'

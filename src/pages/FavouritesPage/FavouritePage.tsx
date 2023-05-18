@@ -5,7 +5,6 @@ import { Breadcrumbs } from '../../components/Breadcrumbs';
 import { ProductList } from '../../components/ProductList';
 import { FavouriteContext } from '../../contexts/FavouriteContext';
 import { getPluralWord } from '../../utils/helpers/helpers';
-import { CATALOG_PAGE } from '../../utils/constants/route';
 
 export const FavouritePage: React.FC = () => {
   const { favourite } = useContext(FavouriteContext);
@@ -13,7 +12,7 @@ export const FavouritePage: React.FC = () => {
   return (
     <div className="favourite-page">
       <div className="favourite-page__breadcrumbs">
-        <Breadcrumbs breadcrumbs={[{ text: 'Favourites' }]}/>
+        <Breadcrumbs />
       </div>
 
       <h1 className="favourite-page__title">
@@ -25,10 +24,7 @@ export const FavouritePage: React.FC = () => {
       </p>
 
       <div className="favourite-page__products">
-        <ProductList
-          products={favourite}
-          nextRouteLink={`${CATALOG_PAGE}`}
-        />
+        <ProductList products={favourite} />
       </div>
     </div>
   );

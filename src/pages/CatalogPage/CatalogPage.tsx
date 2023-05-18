@@ -10,15 +10,15 @@ import { getProductPage } from '../../utils/api/products';
 import { useSearchParams } from 'react-router-dom';
 
 import { DropDown } from '../../components/DropDown';
-import { ProductTypes } from '../../types/enums/ProductTypes';
+import { Category } from '../../types/enums/Category';
 import {
-  getEndpoint,
   getHandleAmountFetch,
   getPageTitle,
 } from '../../utils/helpers/helpers';
+import { getRouteByCategory } from '../../utils/helpers/getRouteByCategory';
 
 type Props = {
-  productType: ProductTypes,
+  productType: Category,
 };
 
 export const CatalogPage: React.FC<Props> = ({ productType }) => {
@@ -35,7 +35,7 @@ export const CatalogPage: React.FC<Props> = ({ productType }) => {
     searchParams.get('limit') || '16',
   );
 
-  const endpoint = getEndpoint(productType);
+  const endpoint = getRouteByCategory(productType);
   const pageTitle = getPageTitle(productType);
 
   useEffect(() => {

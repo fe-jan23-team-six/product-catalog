@@ -26,19 +26,16 @@
   }
 
   &__image {
-    width: 148px;
     height: 129px;
 
     object-fit: contain;
     margin-bottom: $marginBottomSmall;
     
     @include onTablet {
-      width: 173px;
       height: 202px;
     }
     
     @include onDesktop {
-      width: 208px;
       height: 196px;
     }
   }
@@ -48,6 +45,14 @@
     color: $colorPrimary;
     min-height: 42px;
     margin-bottom: 8px;
+  }
+
+  &__link {
+    display: flex;
+    flex-direction: column;
+
+    // to fix bug with redundant outline
+    outline: none;
   }
 
   &__price {

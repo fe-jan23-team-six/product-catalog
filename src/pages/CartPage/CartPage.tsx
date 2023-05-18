@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import './CartPage.scss';
-import './../../styles/utils/_typography.scss';
 import { CartList } from '../../components/CartList';
 import { CartCheckoutBox } from '../../components/CartCheckoutBox';
 import { CartContext } from '../../contexts/CartContext';
