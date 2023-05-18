@@ -16,6 +16,9 @@ import {
   SliderProductsSkeleton,
 // eslint-disable-next-line max-len
 } from '../../components/LoadingComponents/HomePageSkeletons/SliderProductsSkeleton';
+import {
+  BannerSkeleton,
+} from '../../components/LoadingComponents/HomePageSkeletons/BannerSkeleton';
 
 export const HomePage: React.FC = () => {
   const [newProducts, setNewProducts] = useState<ProductMain[]>([]);
@@ -38,7 +41,12 @@ export const HomePage: React.FC = () => {
       </h1>
 
       <section className="home-page__banner">
-        <Banner />
+        <DataLoader
+          fetchStatus={newProductsFetchStatus}
+          loader={<BannerSkeleton />}
+        >
+          <Banner />
+        </DataLoader>
       </section>
 
       <section className="home-page__product-slider--new-products">
