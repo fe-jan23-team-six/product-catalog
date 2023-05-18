@@ -1,12 +1,16 @@
 @import '../../styles/utils';
 
 .product-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-
   width: $PhoneProductCardWidth;
-  min-height: 475px;
+  margin: 0 auto;
+
+  border: 1px solid $colorElements;
+  padding: 32px;
+
+  color: $colorPrimary;
+  transition:
+    box-shadow $animationDuration ease,
+    width $animationDuration ease;
 
   @include onTablet {
     width: $TabletProductCardWidth;
@@ -18,18 +22,12 @@
     min-height: 526px;
   }
 
-  border: 1px solid $colorElements;
-  padding: 32px;
-
-  color: $colorPrimary;
-  transition: box-shadow $animationDuration ease;
-
   &:hover {
     box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.1);
   }
 
   &__image {
-    height: 129px;
+    height: 130px;
 
     object-fit: contain;
     margin-bottom: $marginBottomSmall;
@@ -46,8 +44,10 @@
   &__model {
     @extend %buttonText;
     color: $colorPrimary;
-    min-height: 42px;
+    max-height: 42px;
     margin-bottom: 8px;
+    
+    overflow: hidden;
   }
 
   &__link {
