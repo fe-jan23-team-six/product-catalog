@@ -12,7 +12,7 @@ export const FavouritePage: React.FC = () => {
   return (
     <div className="favourite-page">
       <div className="favourite-page__breadcrumbs">
-        <Breadcrumbs breadcrumbs={[{ text: 'Favourites' }]}/>
+        <Breadcrumbs />
       </div>
 
       <h1 className="favourite-page__title">

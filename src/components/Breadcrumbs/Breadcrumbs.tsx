@@ -1,22 +1,12 @@
 import React from 'react';
 import './Breadcrumbs.scss';
-import { Link } from 'react-router-dom';
-import { BreadcrumbItem } from '../../types/BreadcrumbItem';
+import { Link, useLocation } from 'react-router-dom';
+import { getBreadcrumbsByPath } from '../../utils/helpers/getBreadcrumbsByPath';
 
-type Props = {
-  breadcrumbs?: BreadcrumbItem[];
-};
+export const Breadcrumbs: React.FC = () => {
+  const location = useLocation();
+  const breadcrumbs = getBreadcrumbsByPath(location);
 
-export const Breadcrumbs: React.FC<Props> = ({ breadcrumbs = [] }) => {
-  // const breadcrumbs: BreadcrumbItem[] = [
-  //   {
-  //     link: '/phones',
-  //     text: 'Phones',
-  //   },
-  //   {
-  //     text: 'Apple iPhone 11 Pro Max 64GB Gold (iMT9G2FS/A)',
-  //   },
-  // ];
   return (
     <div className="breadcrumbs">
       <div className="breadcrumbs__child">

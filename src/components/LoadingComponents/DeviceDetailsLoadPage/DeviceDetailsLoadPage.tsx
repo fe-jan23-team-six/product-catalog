@@ -2,21 +2,15 @@ import React, { useContext } from 'react';
 import './DeviceDetailsLoadPage.scss';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
-import { Breadcrumbs } from '../../Breadcrumbs';
-import { BreadcrumbItem } from '../../../types/BreadcrumbItem';
 import { ProductManageButtons } from '../../ProductManage';
 import { CartContext } from '../../../contexts/CartContext';
 import { FavouriteContext } from '../../../contexts/FavouriteContext';
 
 type Props = {
   slug: string;
-  breadcrumbs?: BreadcrumbItem[];
 }
 
-export const DeviceDetailsLoadPage: React.FC<Props> = ({
-  slug,
-  breadcrumbs,
-}) => {
+export const DeviceDetailsLoadPage: React.FC<Props> = ({ slug }) => {
   const { checkIsInCart } = useContext(CartContext);
   const { checkIsInFavourite } = useContext(FavouriteContext);
 
@@ -25,10 +19,6 @@ export const DeviceDetailsLoadPage: React.FC<Props> = ({
 
   return (
     <SkeletonTheme baseColor="#ececec" highlightColor="#fafbfc">
-      <section className="device-details-load__breadcrumbs">
-        <Breadcrumbs breadcrumbs={breadcrumbs} />
-      </section>
-
       <h1 className="device-details-load__title">
         <Skeleton />
       </h1>
