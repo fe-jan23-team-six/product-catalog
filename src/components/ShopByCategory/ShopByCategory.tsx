@@ -22,7 +22,6 @@ export const ShopByCategory: React.FC = () => {
 
   useEffect(() => {
     fetchAmount(() => getTotalAmount().then(res => {
-      global.console.log('res:', res);
       setAmountThings(res);
     }));
   }, []);

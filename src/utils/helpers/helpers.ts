@@ -1,52 +1,5 @@
-import { DeviceColors } from '../../types/enums/DeviceColors';
-import { ProductTypes } from '../../types/enums/ProductTypes';
-import {
-  ACCESSORIES_CATALOG,
-  PHONES_CATALOG,
-  TABLETS_CATALOG,
-} from '../../utils/constants/route';
+import { Category } from '../../types/enums/Category';
 import { getTotalAmount } from '../api/products';
-
-export const getColorOfDevice = (color: string | undefined): DeviceColors => {
-  switch (color) {
-    case 'Black':
-      return DeviceColors.Black;
-
-    case 'Silver':
-      return DeviceColors.Silver;
-
-    case 'Gold':
-      return DeviceColors.Gold;
-
-    case 'Rosegold':
-      return DeviceColors.Rosegold;
-
-    case 'Spacegray':
-      return DeviceColors.Spacegray;
-
-    case 'Purple':
-      return DeviceColors.Purple;
-
-    case 'Red':
-      return DeviceColors.Red;
-
-    case 'Green':
-      return DeviceColors.Green;
-
-    case 'Yellow':
-      return DeviceColors.Yellow;
-
-    case 'MidnightGreen':
-      return DeviceColors.MidnightGreen;
-
-    case 'Coral':
-      return DeviceColors.Coral;
-
-    case 'White':
-    default:
-      return DeviceColors.White;
-  }
-};
 
 export const getPluralWord = (word: string, count: number): string => {
   const label = `${count} ${word}`;
@@ -56,42 +9,30 @@ export const getPluralWord = (word: string, count: number): string => {
     : label + 's';
 };
 
-export const getEndpoint = (productType: ProductTypes) => {
-  switch (productType) {
-    case ProductTypes.TABLETS:
-      return TABLETS_CATALOG;
-    case ProductTypes.ACCESSORIES:
-      return ACCESSORIES_CATALOG;
-    case ProductTypes.PHONES:
-    default:
-      return PHONES_CATALOG;
-  }
-};
-
 export const getHandleAmountFetch = (
-  productType: ProductTypes,
+  productType: Category,
   setTotalAmount: (amount: string) => void,
 ) => {
   switch (productType) {
-    case ProductTypes.PHONES:
+    case Category.PHONES:
       return () => getTotalAmount()
         .then(({ phones }) => setTotalAmount(phones));
-    case ProductTypes.TABLETS:
+    case Category.TABLETS:
       return () => getTotalAmount()
         .then(({ tablets }) => setTotalAmount(tablets));
-    case ProductTypes.ACCESSORIES:
+    case Category.ACCESSORIES:
       return () => getTotalAmount()
         .then(({ accessories }) => setTotalAmount(accessories));
   }
 };
 
-export const getPageTitle = (productType: ProductTypes) => {
+export const getPageTitle = (productType: Category) => {
   switch (productType) {
-    case ProductTypes.PHONES:
+    case Category.PHONES:
       return 'Mobile phones';
-    case ProductTypes.TABLETS:
+    case Category.TABLETS:
       return 'Tablets';
-    case ProductTypes.ACCESSORIES:
+    case Category.ACCESSORIES:
       return 'Accessories';
   }
 };

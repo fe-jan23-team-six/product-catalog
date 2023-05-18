@@ -8,16 +8,13 @@ import { ProductMain } from '../../types/ProductMain';
 import { FavouriteContext } from '../../contexts/FavouriteContext';
 import { CartContext } from '../../contexts/CartContext';
 import { Picture } from '../Picture';
+import { getRouteByCategory } from '../../utils/helpers/getRouteByCategory';
 
 type Props = {
   product: ProductMain;
-  nextRouteLink?: string;
 };
 
-export const ProductCard: React.FC<Props> = ({
-  product,
-  nextRouteLink,
-}) => {
+export const ProductCard: React.FC<Props> = ({ product }) => {
   const {
     id,
     name: productName,
@@ -41,7 +38,7 @@ export const ProductCard: React.FC<Props> = ({
 
   return (
     <div className="product-card">
-      <Link to={nextRouteLink ? `${nextRouteLink}/${id}` : `./${id}`}>
+      <Link to={`${getRouteByCategory(product.category)}/${id}`}>
         <Picture
           className="product-card__image"
           src={image}

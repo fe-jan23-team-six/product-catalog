@@ -43,10 +43,6 @@ export const DeviceDetailsPage: FC = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [productSlug]);
 
-  /*   useEffect(() => {
-    console.log('loading', productQuery.data, productQuery.isFetching);
-  }, [productQuery.isFetching]); */
-
   const product = productQuery.data;
   const recommended = recommendedQuery.data;
 
@@ -66,7 +62,7 @@ export const DeviceDetailsPage: FC = () => {
 
   return (
       <div className="device-details">
-        {productQuery.isFetching ? (
+        {productQuery.isInitialLoading ? (
           <DeviceDetailsLoadPage
             breadcrumbs={breadcrumbs}
           />

@@ -13,35 +13,35 @@ type Props = {
 export const DeviceDetailsLoadPage: React.FC<Props> = ({ breadcrumbs }) => {
   return (
     <SkeletonTheme baseColor="#ececec" highlightColor="#fafbfc">
-      <section className="device-details_load__breadcrumbs">
+      <section className="device-details-load__breadcrumbs">
         <Breadcrumbs breadcrumbs={breadcrumbs} />
       </section>
 
-      <h1 className="device-details_load__title">
+      <h1 className="device-details-load__title">
         <Skeleton />
       </h1>
 
       <section
-        className="device-details_load__product
+        className="device-details-load__product
             grid grid--mobile-off"
       >
         <div
-          className="device-details_load__pictures
+          className="device-details-load__pictures
           grid__item--tablet-1-6 grid__item--desktop-1-12"
         >
           <Skeleton
-            containerClassName="device-details_load__pictures--mobile"
+            containerClassName="device-details-load__pictures--mobile"
             height={354}
           />
 
           <Skeleton
-            containerClassName="device-details_load__pictures--desktop"
-            height={464}
+            containerClassName="device-details-load__pictures--desktop"
+            height={461}
           />
         </div>
 
         <div
-          className="device-details_load__selector_load
+          className="device-details-load__selector_load
           grid__item--tablet-7-12 grid__item--desktop-14-20"
         >
           <div className="selector_load__colours">
@@ -54,7 +54,7 @@ export const DeviceDetailsLoadPage: React.FC<Props> = ({ breadcrumbs }) => {
             </div>
 
             <div className="selector_load__colours__selector">
-              <Skeleton height={30} />
+              <Skeleton height={29} />
             </div>
           </div>
 
@@ -62,7 +62,7 @@ export const DeviceDetailsLoadPage: React.FC<Props> = ({ breadcrumbs }) => {
             <p className="selector_load__title">Select capacity</p>
 
             <div className="selector_load__capacity__selector">
-              <Skeleton height={29.5} />
+              <Skeleton height={28.5} />
             </div>
           </div>
 
@@ -83,13 +83,13 @@ export const DeviceDetailsLoadPage: React.FC<Props> = ({ breadcrumbs }) => {
           </div>
         </div>
 
-        <p className="device-details_load__id grid__item--desktop-22-24">
+        <p className="device-details-load__id grid__item--desktop-22-24">
           <Skeleton />
         </p>
       </section>
 
       <section
-        className="device-details_load__about-product
+        className="device-details-load__about-product
         grid grid--mobile-tablet-off"
       >
         <div

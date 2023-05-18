@@ -29,8 +29,6 @@ export const DeviceDetailsSelector: React.FC<Props> = ({ product }) => {
     resolution,
     processor,
     ram,
-    colorsAvailable,
-    capacityAvailable,
   } = product;
 
   const { toggleFavourite, isInFavourite } = useContext(FavouriteContext);
@@ -67,10 +65,7 @@ export const DeviceDetailsSelector: React.FC<Props> = ({ product }) => {
         </div>
 
         <div className="colours">
-          <ProductColorGroup
-            colors={colorsAvailable}
-            product={product}
-          />
+          <ProductColorGroup product={product} />
         </div>
       </div>
 
@@ -84,10 +79,7 @@ export const DeviceDetailsSelector: React.FC<Props> = ({ product }) => {
         <div
           className="capacities"
         >
-          <ProductCapacityGroup
-            capacities={capacityAvailable}
-            product={product}
-          />
+          <ProductCapacityGroup product={product} />
         </div>
       </div>
 
