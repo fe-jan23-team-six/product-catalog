@@ -7,6 +7,7 @@ export const NotFoundPage: React.FC = () => {
     <ErrorPageGenerator
       imageName={catNotFoundPage}
       errorTitle="404 Uh-oh, page not found"
+      buttonTitle="Go to Home Page"
     />
   );
 };

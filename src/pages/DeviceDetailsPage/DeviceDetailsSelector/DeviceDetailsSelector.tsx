@@ -86,12 +86,14 @@ export const DeviceDetailsSelector: React.FC<Props> = ({ product }) => {
       <div>
         <div className="selector__price">
           <h2 className="selector__price__current">
-            ${priceRegular}
+            {hasDiscount
+              ? `$${priceDiscount}`
+              : `$${priceRegular}`}
           </h2>
 
           {hasDiscount && (
             <h3 className="selector__price__old">
-              ${priceDiscount}
+              ${priceRegular}
             </h3>
           )}
         </div>

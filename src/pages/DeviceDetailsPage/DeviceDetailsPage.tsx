@@ -27,7 +27,7 @@ export const DeviceDetailsPage: FC = () => {
   const { productSlug = '' } = useParams();
 
   const productQuery = useQuery<Product>({
-    queryKey: ['product'],
+    queryKey: [`${productSlug}`],
     queryFn: () => getById(productSlug),
   });
 
@@ -39,7 +39,7 @@ export const DeviceDetailsPage: FC = () => {
   useEffect(() => {
     productQuery.refetch();
     recommendedQuery.refetch();
-    window.scrollTo({ top: 0, behavior: 'auto' });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [productSlug]);
 
   const product = productQuery.data;
@@ -66,17 +66,17 @@ export const DeviceDetailsPage: FC = () => {
             {product && (
               <>
                 <section
-                className="device-details__product
-                grid grid--mobile-off"
-              >
-                <DeviceDetailsImages images={product.images} />
+                  className="device-details__product
+                  grid grid--mobile-off"
+                >
+                  <DeviceDetailsImages images={product.images} />
 
-                <DeviceDetailsSelector product={product} />
+                  <DeviceDetailsSelector product={product} />
 
-              <p className="device-details__id grid__item--desktop-22-24">
-                {`ID ${convertSlugToDigit(product.id)}`}
-              </p>
-            </section>
+                <p className="device-details__id grid__item--desktop-22-24">
+                  {`ID ${convertSlugToDigit(product.id)}`}
+                </p>
+              </section>
 
               <section
                 className="device-details__about-product
@@ -88,16 +88,16 @@ export const DeviceDetailsPage: FC = () => {
               </section>
               </>
             )}
-          </>
-        )}
 
-        {recommended && (
-          <section className="device-details__slider-products">
-            <SliderProducts
-              title={'You may also like'}
-              products={recommended}
-            />
-          </section>
+            {recommended && (
+              <section className="device-details__slider-products">
+                <SliderProducts
+                  title={'You may also like'}
+                  products={recommended}
+                />
+              </section>
+            )}
+          </>
         )}
       </div>
   );
