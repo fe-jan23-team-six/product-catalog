@@ -17,7 +17,10 @@ export const DropDown: FC<Props> = ({
   description,
 }) => {
   const [isMenuOpened, setIsMenuOpened] = useState(false);
+  const [isMenuAnimated, setIsMenuAnimated] = useState(false);
   const [lastInputDevice, setLastInputDevice] = useState<string | null>(null);
+
+  useEffect(() => setIsMenuAnimated(!isMenuOpened), [isMenuOpened]);
 
   const handleMouseDown = () => {
     setLastInputDevice('mouse');
@@ -154,6 +157,7 @@ export const DropDown: FC<Props> = ({
           'drop-down__menu',
           {
             'drop-down__menu--closed': !isMenuOpened,
+            'drop-down__menu--is-transition': isMenuAnimated,
           },
         )}
       >
