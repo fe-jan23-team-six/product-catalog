@@ -3,6 +3,7 @@ import './Footer.scss';
 import { Link } from 'react-router-dom';
 import { Logo } from '../Logo';
 import { ArrowButton } from '../ArrowButton';
+import { GIT_PAGE, RIGHTS_PAGE } from '../../utils/constants/route';
 
 export const Footer: React.FC = () => {
   return (
@@ -13,7 +14,7 @@ export const Footer: React.FC = () => {
 
       <ul className="footer__list">
         <li className="footer__item">
-          <Link to={''} className="footer__link">
+          <Link to={GIT_PAGE} className="footer__link">
             Github
           </Link>
         </li>
@@ -25,7 +26,7 @@ export const Footer: React.FC = () => {
         </li>
 
         <li className="footer__item">
-          <Link to={''} className="footer__link">
+          <Link to={RIGHTS_PAGE} className="footer__link">
             Rights
           </Link>
         </li>
