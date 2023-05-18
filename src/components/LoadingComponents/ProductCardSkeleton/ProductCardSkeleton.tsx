@@ -10,7 +10,7 @@ export const ProductCardSkeleton: React.FC = () => (
     />
 
     <div className="product-card__price">
-      <Skeleton width={120} height={10} count={2} />
+      <Skeleton width={120} height={34} count={2}/>
     </div>
 
     <hr className="product-card__hr"></hr>

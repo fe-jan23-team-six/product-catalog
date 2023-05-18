@@ -6,13 +6,16 @@
   justify-content: center;
 
   width: $PhoneProductCardWidth;
+  min-height: 475px;
 
   @include onTablet {
     width: $TabletProductCardWidth;
+    min-height: 532px;
   }
 
   @include onDesktop {
     width: $DesktopProductCardWidth;
+    min-height: 526px;
   }
 
   border: 1px solid $colorElements;
