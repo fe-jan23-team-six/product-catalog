@@ -17,6 +17,7 @@ import { Breadcrumbs } from '../../components/Breadcrumbs';
 import { BreadcrumbItem } from '../../types/BreadcrumbItem';
 
 import { useDataFetcher } from '../../hooks/useDataFetcher';
+import { BackButton } from '../../components/BackButton';
 
 export const DeviceDetailsPage: FC = () => {
   const [product, setProduct] = useState<Phone | null>(null);
@@ -53,6 +54,7 @@ export const DeviceDetailsPage: FC = () => {
           <>
             <section className="device-details__breadcrumbs">
               <Breadcrumbs breadcrumbs={breadcrumbs} />
+              <BackButton />
             </section>
 
             <h1 className="device-details__title">
