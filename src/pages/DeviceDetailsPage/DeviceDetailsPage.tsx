@@ -23,6 +23,10 @@ import { convertSlugToDigit } from '../../utils/helpers/converSlugInId';
 import {
   DeviceDetailsLoadPage,
 } from '../../components/LoadingComponents/DeviceDetailsLoadPage';
+import {
+  SliderProductsSkeleton,
+// eslint-disable-next-line max-len
+} from '../../components/LoadingComponents/HomePageSkeletons/SliderProductsSkeleton';
 
 export const DeviceDetailsPage: FC = () => {
   const { productSlug = '' } = useParams();
@@ -75,23 +79,29 @@ export const DeviceDetailsPage: FC = () => {
 
                   <DeviceDetailsSelector product={product} />
 
-                <p className="device-details__id grid__item--desktop-22-24">
-                  {`ID ${convertSlugToDigit(product.id)}`}
-                </p>
-              </section>
+                  <p className="device-details__id grid__item--desktop-22-24">
+                    {`ID ${convertSlugToDigit(product.id)}`}
+                  </p>
+                </section>
 
-              <section
-                className="device-details__about-product
-                grid grid--mobile-tablet-off"
-              >
-                <DeviceDetailsAbout descriptions={product.description} />
+                <section
+                  className="device-details__about-product
+                  grid grid--mobile-tablet-off"
+                >
+                  <DeviceDetailsAbout descriptions={product.description} />
 
-                <DeviceDetailsSpecs product={product} />
-              </section>
+                  <DeviceDetailsSpecs product={product} />
+                </section>
               </>
             )}
 
-            {recommended && (
+            {recommendedQuery.isFetching ? (
+              <section className="device-details__slider-products">
+                <SliderProductsSkeleton
+                  title={'You may also like'}
+                />
+              </section>
+            ) : (
               <section className="device-details__slider-products">
                 <SliderProducts
                   title={'You may also like'}

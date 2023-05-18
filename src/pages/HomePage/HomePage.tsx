@@ -6,17 +6,20 @@ import { getDiscountProducts, getNewProducts } from '../../utils/api/products';
 import { ProductMain } from '../../types/ProductMain';
 
 import { SliderProducts } from '../../components/SliderProducts';
-import { Banner } from '../../components/Banner/Banner';
+import { Banner } from '../../components/Banner';
 import { DataLoader } from '../../components/DataLoader';
 
 import { ShopByCategory } from '../../components/ShopByCategory';
 
 import { useDataFetcher } from '../../hooks/useDataFetcher';
+import {
+  SliderProductsSkeleton,
+// eslint-disable-next-line max-len
+} from '../../components/LoadingComponents/HomePageSkeletons/SliderProductsSkeleton';
 
 export const HomePage: React.FC = () => {
   const [newProducts, setNewProducts] = useState<ProductMain[]>([]);
   const [discountProducts, setDiscountProducts] = useState<ProductMain[]>([]);
-
   const [newProductsFetchStatus, fetchNewProducts] = useDataFetcher();
   const [discountProductsFetchStatus, fetchDiscountProducts] = useDataFetcher();
 
@@ -39,7 +42,10 @@ export const HomePage: React.FC = () => {
       </section>
 
       <section className="home-page__product-slider--new-products">
-        <DataLoader fetchStatus={newProductsFetchStatus}>
+        <DataLoader
+          fetchStatus={newProductsFetchStatus}
+          loader={<SliderProductsSkeleton title="Brand new models" />}
+        >
           <SliderProducts
             title="Brand new models"
             products={newProducts}
@@ -52,7 +58,10 @@ export const HomePage: React.FC = () => {
       </section>
 
       <section className="home-page__product-slider">
-        <DataLoader fetchStatus={discountProductsFetchStatus}>
+        <DataLoader
+          fetchStatus={discountProductsFetchStatus}
+          loader={<SliderProductsSkeleton title="Hot prices" />}
+        >
           <SliderProducts
             title="Hot prices"
             products={discountProducts}

@@ -17,14 +17,15 @@
       width: 100%;
     }
 
+    &--skeleton,
     .slick-track {
       display: grid;
-      grid-template-columns: repeat(auto-fit, $PhoneProductCardWidth); // 212px
+      grid-template-columns: repeat(auto-fit, $PhoneProductCardWidth);
       grid-auto-flow: column dense;
       gap: 16px;
 
       @include onTablet {
-        grid-template-columns: repeat(auto-fit, $TabletProductCardWidth); // 237px
+        grid-template-columns: repeat(auto-fit, $TabletProductCardWidth);
       }
 
       @include onDesktop {

@@ -10,18 +10,16 @@ type Props = {
 export const PrimaryButton: React.FC<Props> = ({
   onCartAdd = () => undefined,
   isInCart = false,
-}) => {
-  return (
-    <button
-      className={classNames(
-        'primary-button',
-        {
-          'primary-button--selected': isInCart,
-        },
-      )}
-      onClick={onCartAdd}
-    >
-      {isInCart ? 'Added' : 'Add to cart'}
-    </button>
-  );
-};
+}) => (
+  <button
+    className={classNames(
+      'primary-button',
+      {
+        'primary-button--selected': isInCart,
+      },
+    )}
+    onClick={onCartAdd}
+  >
+    {isInCart ? 'Added' : 'Add to cart'}
+  </button>
+);

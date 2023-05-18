@@ -14,10 +14,12 @@
 
   @include onTablet {
     width: $TabletProductCardWidth;
+    min-height: 532px;
   }
 
   @include onDesktop {
     width: $DesktopProductCardWidth;
+    min-height: 526px;
   }
 
   &:hover {

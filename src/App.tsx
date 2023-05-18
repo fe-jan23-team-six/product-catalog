@@ -11,14 +11,15 @@ import { CartProvider } from './contexts/CartContext';
 import { Outlet } from 'react-router-dom';
 import { Footer } from './components/Footer';
 import { Header } from './components/Header';
+import { SkeletonTheme } from 'react-loading-skeleton';
 
 const queryClient = new QueryClient();
 
-export const App: React.FC = () => {
-  return (
-    <CartProvider>
-      <FavouriteProvider>
-        <QueryClientProvider client={queryClient}>
+export const App: React.FC = () => (
+  <CartProvider>
+    <FavouriteProvider>
+      <QueryClientProvider client={queryClient}>
+        <SkeletonTheme baseColor="#ececec" highlightColor="#fafbfc">
           <div className="App">
             <Header />
 
@@ -30,8 +31,8 @@ export const App: React.FC = () => {
 
             <Footer />
           </div>
-        </QueryClientProvider>
-      </FavouriteProvider>
-    </CartProvider>
-  );
-};
+        </SkeletonTheme>
+      </QueryClientProvider>
+    </FavouriteProvider>
+  </CartProvider>
+);

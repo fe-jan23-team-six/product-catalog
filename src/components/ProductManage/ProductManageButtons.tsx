@@ -17,21 +17,19 @@ export const ProductManageButtons: React.FC<Props> = ({
   isInCart = false,
   onCartAdd = () => undefined,
   onLike = () => undefined,
-}) => {
-  return (
+}) => (
     <div className="product-manage-buttons">
       <PrimaryButton
         isInCart={isInCart}
         onCartAdd={onCartAdd}
       />
 
-      <div
-        className="product-manage-buttons__like">
-        <LikeButton
-          isLiked={isLiked}
-          isBig={isBig}
-          onClick={onLike}/>
-      </div>
+    <div
+      className="product-manage-buttons__like">
+      <LikeButton
+        isLiked={isLiked}
+        isBig={isBig}
+        onClick={onLike}/>
     </div>
-  );
-};
+  </div>
+);

@@ -1,10 +1,13 @@
 import React, { useContext } from 'react';
 import './DeviceDetailsLoadPage.scss';
-import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
+import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import { ProductManageButtons } from '../../ProductManage';
 import { CartContext } from '../../../contexts/CartContext';
 import { FavouriteContext } from '../../../contexts/FavouriteContext';
+import {
+  SliderProductsSkeleton,
+} from '../HomePageSkeletons/SliderProductsSkeleton';
 
 type Props = {
   slug: string;
@@ -18,7 +21,7 @@ export const DeviceDetailsLoadPage: React.FC<Props> = ({ slug }) => {
   const isLiked = checkIsInFavourite(slug);
 
   return (
-    <SkeletonTheme baseColor="#ececec" highlightColor="#fafbfc">
+    <>
       <h1 className="device-details-load__title">
         <Skeleton />
       </h1>
@@ -120,6 +123,12 @@ export const DeviceDetailsLoadPage: React.FC<Props> = ({ slug }) => {
           <Skeleton count={5} />
         </div>
       </section>
-    </SkeletonTheme>
+
+      <section className="device-details__slider-products">
+        <SliderProductsSkeleton
+          title={'You may also like'}
+        />
+      </section>
+    </>
   );
 };
