@@ -5,9 +5,9 @@ import './ShopByCategory.scss';
 import { useDataFetcher } from '../../hooks/useDataFetcher';
 import { DataLoader } from '../DataLoader';
 import {
-  PHONES_CATALOG,
-  TABLETS_CATALOG,
-  ACCESSORIES_CATALOG,
+  PHONES_PAGE,
+  TABLETS_PAGE,
+  ACCESSORIES_PAGE,
 } from '../../utils/constants/route';
 import { TypeAmount } from '../../types/TypeAmount';
 import {
@@ -47,7 +47,7 @@ export const ShopByCategory: React.FC = () => {
             "
           >
             <CategoryLink
-              path={PHONES_CATALOG}
+              path={PHONES_PAGE}
               amount={amountsThings.phones}
             />
           </div>
@@ -59,7 +59,7 @@ export const ShopByCategory: React.FC = () => {
             "
           >
             <CategoryLink
-              path={TABLETS_CATALOG}
+              path={TABLETS_PAGE}
               amount={amountsThings.tablets}
             />
           </div>
@@ -71,7 +71,7 @@ export const ShopByCategory: React.FC = () => {
             "
           >
             <CategoryLink
-              path={ACCESSORIES_CATALOG}
+              path={ACCESSORIES_PAGE}
               amount={amountsThings.accessories}
             />
           </div>

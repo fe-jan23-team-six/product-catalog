@@ -3,7 +3,7 @@ import paw from '../../images/paw.png';
 export const projectCreators = [
   {
     image: `${paw}`,
-    fullName: 'Sergiy Lipikhin',
+    fullName: 'Serhii Lipikhin',
     teamLead: true,
     linkedInLink: 'https://www.linkedin.com/in/serhii-lipikhin-b6685a273/',
     gitHubLink: 'https://github.com/sergey-lipikhin',
