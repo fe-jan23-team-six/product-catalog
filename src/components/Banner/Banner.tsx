@@ -17,12 +17,12 @@ export const Banner: React.FC = () => {
     arrows: false,
     infinite: true,
     autoplay: true,
+    pauseOnHover: true,
     autoplaySpeed: 5000,
-    centerMode: true,
-    centerPadding: '0px',
     speed: 300,
     slidesToShow: 1,
     slidesToScroll: 1,
+    initialSlide: 0,
     customPaging: (i) => (
       <div
         className='banner__paging'
@@ -72,7 +72,12 @@ export const Banner: React.FC = () => {
 
           return (
             <img
-              className="banner__image"
+              className="
+                banner__image
+                grid__item--desktop-2-22
+                grid__item--tablet-2-11
+                grid__item--mobile-1-4
+              "
               src={url}
               alt={url}
               key={id}

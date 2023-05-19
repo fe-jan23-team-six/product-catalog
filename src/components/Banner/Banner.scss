@@ -20,15 +20,13 @@
     @include onTablet {
       width: 100%;
       aspect-ratio: 26 / 10;
-      margin-left: 0;
-      margin-right: 0;
+      margin: 0;
     }
 
     @include onDesktop {
       width: 1040px;
       aspect-ratio: 26 / 10;
-      margin-left: 0;
-      margin-right: 0;
+      margin: 0;
     }
 
     .slick-list {
@@ -64,7 +62,8 @@
   }
 
   &__image {
-    object-fit: contain;
+    max-height: 400px;
+    object-fit: cover;
   }
 
   &__paging {
@@ -93,3 +92,4 @@
     }
   }
 }
+
