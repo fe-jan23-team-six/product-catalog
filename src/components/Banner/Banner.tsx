@@ -1,8 +1,9 @@
 import React, { useRef } from 'react';
 import Slider, { Settings } from 'react-slick';
 import { ArrowButton } from '../ArrowButton';
+import { Picture } from '../Picture';
 
-import { bannerImages } from '../../utils/constants/main';
+import { bannerImages } from '../../utils/constants/bannerImages';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -71,13 +72,8 @@ export const Banner: React.FC = () => {
           const { id, url } = slide;
 
           return (
-            <img
-              className="
-                banner__image
-                grid__item--desktop-2-22
-                grid__item--tablet-2-11
-                grid__item--mobile-1-4
-              "
+            <Picture
+              className="banner__image"
               src={url}
               alt={url}
               key={id}

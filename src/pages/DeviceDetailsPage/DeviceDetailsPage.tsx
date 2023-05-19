@@ -58,8 +58,11 @@ export const DeviceDetailsPage: FC = () => {
       <div className="device-details">
         <section className="device-details__breadcrumbs">
           <Breadcrumbs />
-          <BackButton />
         </section>
+
+        <div className="device-details__back-button">
+          <BackButton />
+        </div>
 
         {productQuery.isFetching ? (
           <DeviceDetailsLoadPage slug={productSlug} />
@@ -80,7 +83,7 @@ export const DeviceDetailsPage: FC = () => {
                   <DeviceDetailsSelector product={product} />
 
                   <p className="device-details__id grid__item--desktop-22-24">
-                    {`ID ${convertSlugToDigit(product.id)}`}
+                    {`ID ${convertSlugToDigit(product.productCode)}`}
                   </p>
                 </section>
 

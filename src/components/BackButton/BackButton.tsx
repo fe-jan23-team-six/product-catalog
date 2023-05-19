@@ -1,15 +1,21 @@
 import React from 'react';
 import './BackButton.scss';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export const BackButton: React.FC = () => {
+  const navigate = useNavigate();
+
   return (
-    <Link to={'/catalog'} className="back-button">
+    <a
+      className="back-button"
+      onClick={() => navigate(-1)}
+    >
       <img
         src="icons/leftBlack16x16.svg"
         alt="Back to top"
-        className="back-button__image"/>
-        <p className="back-button__text">Back</p>
-    </Link>
+        className="back-button__image"
+      />
+      Back
+    </a>
   );
 };

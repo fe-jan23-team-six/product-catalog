@@ -91,6 +91,11 @@
 
   &__info-value {
     @extend %smallText;
+    max-width: 70%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
     font-weight: $fontWeightBold;
     color: $colorPrimary;
   }

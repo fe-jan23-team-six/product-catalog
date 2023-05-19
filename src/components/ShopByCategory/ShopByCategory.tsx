@@ -8,7 +8,7 @@ import {
   PHONES_PAGE,
   TABLETS_PAGE,
   ACCESSORIES_PAGE,
-} from '../../utils/constants/route';
+} from '../../utils/constants/routes';
 import { TypeAmount } from '../../types/TypeAmount';
 import {
   ShopByCategorySkeleton,

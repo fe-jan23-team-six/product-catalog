@@ -20,6 +20,7 @@ import {
   CatalogPageSkeleton,
 } from '../../components/LoadingComponents/CatalogPageSkeleton';
 import Skeleton from 'react-loading-skeleton';
+import { Breadcrumbs } from '../../components/Breadcrumbs';
 
 type Props = {
   productType: Category,
@@ -89,6 +90,10 @@ export const CatalogPage: React.FC<Props> = ({ productType }) => {
 
   return (
     <div className="catalog-page">
+      <div className="catalog-page__breadcrumbs">
+        <Breadcrumbs />
+      </div>
+
       <h1 className="catalog-page__title">
         {pageTitle}
       </h1>

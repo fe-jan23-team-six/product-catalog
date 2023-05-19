@@ -21,6 +21,7 @@ export const ProductCardSkeleton: React.FC = () => (
         <Skeleton
           width={70}
           className="product-card__info-value"
+          style={{ maxWidth: 'none' }}
         />
       </div>
 
@@ -30,6 +31,7 @@ export const ProductCardSkeleton: React.FC = () => (
         <Skeleton
           width={50}
           className="product-card__info-value"
+          style={{ maxWidth: 'none' }}
         />
       </div>
 
@@ -38,6 +40,7 @@ export const ProductCardSkeleton: React.FC = () => (
         <Skeleton
           width={100}
           className="product-card__info-value"
+          style={{ maxWidth: 'none' }}
         />
       </div>
     </div>
