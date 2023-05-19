@@ -4,7 +4,7 @@
 .drop-down {
   @extend %bodyText;
   position: relative;
-  z-index: 999;
+  z-index: 100;
 
   transition: all $animationDuration ease-out;
 
