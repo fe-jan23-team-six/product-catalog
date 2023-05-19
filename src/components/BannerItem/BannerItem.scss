@@ -1,0 +1,192 @@
+@import '../../styles/utils';
+
+.banner-item {
+  display: flex;
+  justify-content: space-between;
+  aspect-ratio: 26 / 10;
+  padding: 12px;
+  background-color: $colorBlack;
+
+  @include onPhone {
+    width: 100%;
+    min-height: 320px;
+  }
+
+  &--disable {
+    @include onTabletAndDesktop {
+      display: none;
+    }
+  }
+
+  &__order {
+    margin-right: 70px;
+    padding: 50px;
+    width: 100%;
+    max-width: 468px;
+    background-color: $colorPrimary;
+    border-radius: 30px;
+
+    @include onTablet {
+      max-width: 300px;
+      margin-right: 40px;
+
+      padding: 24px;
+    }
+
+    @include onPhone {
+      display: none;
+      margin: 0;
+    }
+  }
+
+  &__order-items {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__order-title {
+    max-width: 280px;
+    margin-bottom: 24px;
+
+    background: -webkit-linear-gradient(#7B4DF5, #D862FE);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    @include onTablet {
+      margin-bottom: 8px;
+      font-size: 24px;
+    }
+
+    @include onPhone {
+      max-width: 180px;
+      margin-bottom: 8px;
+      text-align: center;
+    }
+  }
+
+  &__order-slogan {
+    color: $colorBorder;
+
+    @include onTablet {
+      font-weight: $fontWeightSemiBold;
+      font-size: 12px;
+      line-height: 15px;
+    }
+  }
+
+  &__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 200px;
+    height: 60px;
+
+    @extend %buttonText;
+    
+
+    @include onTablet {
+      width: 140px;
+      height: 50px;
+    }
+
+    background: #1A1A1A;
+    border: 1px solid $colorBorder;
+    border-radius: 50px;
+    color: $colorElements;
+    text-transform: uppercase;
+  }
+
+  &__content {
+    margin: 0 auto;
+  }
+
+  &__content-items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 380px;
+
+    @include onTablet {
+      min-height: 300px;
+    }
+
+    @include onPhone {
+      min-height: 310px;
+      margin-bottom: 4px;
+      padding: 0;
+    }
+  }
+
+  &__content-description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin-bottom: 24px;
+
+    @include onPhone {
+      margin-bottom: 12px;
+    }
+  }
+
+  &__content-title {
+    margin-bottom: 12px;
+    color: $colorElements;
+
+    font-weight: 800;
+    font-size: 32px;
+    line-height: 41px;
+
+    @include onTablet {
+      font-size: 22px;
+      line-height: 140%;
+    }
+
+    @include onPhone {
+      font-size: 20px;
+      margin-bottom: 4px;
+    }
+  }
+
+  &__content-image {
+    width: 100%;
+
+    @include onTablet {
+      max-width: 300px;
+    }
+
+    @include onPhone {
+      max-width: 250px;
+    }
+
+    animation: slide 3s infinite;
+
+    @keyframes slide {
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+  }
+
+  &__logo {
+    min-width: 16px;
+    margin-left: 10px;
+
+    @include onTablet {
+      min-width: 18px;
+      margin-left: 16px;
+    }
+
+    @include onDesktop {
+      min-width: 30px;
+      margin-left: 16px;
+    }
+  }
+
+  .slick-slide &__logo {
+    display: inline-block;
+  }
+}

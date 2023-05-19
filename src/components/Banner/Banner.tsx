@@ -1,13 +1,39 @@
 import React, { useRef } from 'react';
 import Slider, { Settings } from 'react-slick';
 import { ArrowButton } from '../ArrowButton';
-import { Picture } from '../Picture';
-
-import { bannerImages } from '../../utils/constants/bannerImages';
-
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import './Banner.scss';
+import {
+  ACCESSORIES_PAGE,
+  PHONES_PAGE,
+  TABLETS_PAGE,
+} from '../../utils/constants/routes';
+import { BannerItem } from '../BannerItem';
+
+export const bannerItems = [
+  {
+    id: 1,
+    name: 'phone',
+    title: 'Apple iPhone',
+    src: 'banner/phone.png',
+    path: PHONES_PAGE,
+  },
+  {
+    id: 2,
+    name: 'tablet',
+    title: 'Apple iPad',
+    src: 'banner/tablet.png',
+    path: TABLETS_PAGE,
+  },
+  {
+    id: 3,
+    name: 'watch',
+    title: 'Apple Watch',
+    src: 'banner/watch.png',
+    path: ACCESSORIES_PAGE,
+  },
+];
 
 export const Banner: React.FC = () => {
   const sliderRef = useRef<Slider>(null);
@@ -18,12 +44,12 @@ export const Banner: React.FC = () => {
     arrows: false,
     infinite: true,
     autoplay: true,
+    pauseOnHover: true,
     autoplaySpeed: 5000,
-    centerMode: true,
-    centerPadding: '0px',
     speed: 300,
     slidesToShow: 1,
     slidesToScroll: 1,
+    initialSlide: 0,
     customPaging: (i) => (
       <div
         className='banner__paging'
@@ -68,15 +94,22 @@ export const Banner: React.FC = () => {
         {...settings}
       >
 
-        {bannerImages.map(slide => {
-          const { id, url } = slide;
+        {bannerItems.map(item => {
+          const {
+            id,
+            name,
+            title,
+            src,
+            path,
+          } = item;
 
           return (
-            <Picture
-              className="banner__image"
-              src={url}
-              alt={url}
+            <BannerItem
               key={id}
+              name={name}
+              title={title}
+              src={src}
+              path={path}
             />
           );
         })}
