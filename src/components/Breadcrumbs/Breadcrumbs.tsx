@@ -1,6 +1,6 @@
 import React from 'react';
 import './Breadcrumbs.scss';
-import { HOME_PAGE } from '../../utils/constants/route';
+import { HOME_PAGE } from '../../utils/constants/routes';
 import { Link, useLocation } from 'react-router-dom';
 import { getBreadcrumbsByPath } from '../../utils/helpers/getBreadcrumbsByPath';
 

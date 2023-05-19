@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { Logo } from '../Logo';
 import { ArrowButton } from '../ArrowButton';
 import { CONTACTS_PAGE,
-  GIT_PAGE, RIGHTS_PAGE } from '../../utils/constants/route';
+  GIT_PAGE, RIGHTS_PAGE } from '../../utils/constants/routes';
 
 export const Footer: React.FC = () => {
   return (
