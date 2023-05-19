@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './MenuToggleButton.scss';
 import classNames from 'classnames';
 
@@ -11,12 +11,6 @@ export const MenuToggleButton: React.FC<Props> = ({
   isMenuOpened,
   onMenuOpen,
 }) => {
-  const [rotate, setRotate] = useState(0);
-
-  const handelClick = () => {
-    setRotate((prev) => prev ? prev * 0 : prev + 180);
-  };
-
   return (
     <button
       className={classNames(
@@ -25,22 +19,15 @@ export const MenuToggleButton: React.FC<Props> = ({
           'menu-toggle-button--opened': isMenuOpened,
         },
       )}
-      // onClick={onMenuOpen}
-      onClick={() => {
-        handelClick();
-        setTimeout(() => onMenuOpen(), 500);
-      }}
+      onClick={onMenuOpen}
     >
       <img
-        id='burge'
         src={isMenuOpened ? (
           './icons/close16x16.svg'
         ) : (
           './icons/menu16x16.svg'
         )}
         alt="Menu"
-
-        style = {{ transform: `rotate(${rotate}deg)`, transition: 'transform 1s ease' }}
       />
     </button>
   );
