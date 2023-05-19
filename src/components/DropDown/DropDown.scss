@@ -4,6 +4,7 @@
 .drop-down {
   @extend %bodyText;
   position: relative;
+  z-index: 999;
 
   transition: all $animationDuration ease-out;
 
@@ -45,10 +46,6 @@
 
     &--closed {
       display: none;
-    }
-
-    &--is-transition {
-      transform: translateY(100%);
     }
 
       &__item {

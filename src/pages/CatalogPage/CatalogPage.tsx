@@ -11,10 +11,8 @@ import { useSearchParams } from 'react-router-dom';
 
 import { DropDown } from '../../components/DropDown';
 import { Category } from '../../types/enums/Category';
-import {
-  getHandleAmountFetch,
-  getPageTitle,
-} from '../../utils/helpers/helpers';
+import { getPageTitle } from '../../utils/helpers/getPageTitle';
+import { getHandleAmountFetch } from '../../utils/helpers/getHandleAmountFetch';
 import { getRouteByCategory } from '../../utils/helpers/getRouteByCategory';
 import {
   CatalogPageSkeleton,
