@@ -32,7 +32,7 @@ export const getHexColorOfDevice = (color: string): DeviceColors => {
     case 'Yellow':
       return DeviceColors.Yellow;
 
-    case 'MidnightGreen':
+    case 'Midnightgreen':
       return DeviceColors.MidnightGreen;
 
     case 'Coral':
@@ -40,6 +40,9 @@ export const getHexColorOfDevice = (color: string): DeviceColors => {
 
     case 'Blue':
       return DeviceColors.Blue;
+
+    case 'Pink':
+      return DeviceColors.Pink;
 
     case 'White':
     default:
