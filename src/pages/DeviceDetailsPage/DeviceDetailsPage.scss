@@ -3,8 +3,17 @@
 @import '../../styles/utils/mixins';
 
 .device-details {
+
   &__breadcrumbs {
-    margin-bottom: $marginBottomMiddle;
+    margin-bottom: $marginBottomSmall;
+
+    @include onTabletAndDesktop {
+      margin-bottom: $marginBottomMiddle;
+    }
+  }
+
+  &__back-button {
+    margin-bottom: $marginBottomTheSmallest;
   }
 
   &__title {

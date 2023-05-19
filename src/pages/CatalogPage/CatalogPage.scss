@@ -5,6 +5,15 @@
   display: flex;
   flex-direction: column;
 
+  &__breadcrumbs {
+    margin-bottom: 24px;
+
+    @include onTabletAndDesktop {
+      margin-bottom: 40px;
+    }
+  }
+
+
   &__title {
     margin-bottom: 8px;
   }

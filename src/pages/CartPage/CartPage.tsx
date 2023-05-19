@@ -4,23 +4,32 @@ import { CartList } from '../../components/CartList';
 import { CartCheckoutBox } from '../../components/CartCheckoutBox';
 import { CartContext } from '../../contexts/CartContext';
 import { CartUserMessage } from '../../components/CartUserMessage';
+import { BackButton } from '../../components/BackButton';
 
 export const CartPage = () => {
   const { cart } = useContext(CartContext);
 
   return (
-    <div className="cartPage">
-      <h1 className="h1 cartPage__title">Cart</h1>
+    <div className="cart-page">
 
-      <section className="cartPage__content">
-        {cart.length ? (<>
+      <div className="cart-page__back-button">
+        <BackButton />
+      </div>
+
+      <h1 className="cart-page__title">
+        Cart
+      </h1>
+
+      <section className="cart-page__content">
+        {cart.length ? (
+          <>
             <CartList cart={cart} />
 
             <CartCheckoutBox />
-          </>)
-          : (
-            <CartUserMessage />
-          )
+          </>
+        ) : (
+          <CartUserMessage />
+        )
         }
       </section>
     </div>

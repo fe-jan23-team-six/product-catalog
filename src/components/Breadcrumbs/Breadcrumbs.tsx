@@ -28,7 +28,7 @@ export const Breadcrumbs: React.FC = () => {
                 {breadcrumb.text}
               </Link>
             ) : (
-              <p>
+              <p className="breadcrumbs__truncate">
                 {breadcrumb.text}
               </p>
             )}
