@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import Slider, { Settings } from 'react-slick';
 import { ArrowButton } from '../ArrowButton';
+import { Picture } from '../Picture';
 
 import { bannerImages } from '../../utils/constants/main';
 
@@ -71,7 +72,7 @@ export const Banner: React.FC = () => {
           const { id, url } = slide;
 
           return (
-            <img
+            <Picture
               className="banner__image"
               src={url}
               alt={url}

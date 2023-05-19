@@ -2,6 +2,7 @@ import { ProductDescription } from './ProductDescription';
 import { ProductMain } from './ProductMain';
 
 export interface Product extends ProductMain {
+  productCode: string,
   color: string,
   year: number,
   capacityAvailable: string[],

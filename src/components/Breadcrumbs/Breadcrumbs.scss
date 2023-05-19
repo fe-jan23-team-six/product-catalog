@@ -4,6 +4,9 @@
 .breadcrumbs {
   display: flex;
   align-items: center;
+  
+  white-space: nowrap;
+  overflow: hidden;
 
   &__child {
     @extend %smallText;
@@ -24,6 +27,13 @@
     &:hover {
       cursor: pointer;
     }
+  }
+
+  &__truncate {
+    width: min-content;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
 
