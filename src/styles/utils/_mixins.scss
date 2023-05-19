@@ -29,3 +29,12 @@
     @content;
   }
 }
+
+@mixin modifyUrl($themeName, $url) {
+  @if ($themeName == 'dark') {
+    $modifiedUrl: str-replace('.svg', '_dark.svg', $url);
+    background-image: url($modifiedUrl);
+  } @else {
+    background-image: url($url);
+  }
+}

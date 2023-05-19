@@ -6,14 +6,14 @@
   flex-direction: column;
   justify-content: center;
   width: $productCardWidth;
-  border: 1px solid $colorElements;
+  border: 1px solid var(--elementsColor);
   padding: 32px;
 
   color: var(--primaryColor);
   transition: box-shadow $animationDuration ease;
 
   &:hover {
-    box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 2px 16px var(--cardHoverShadow);
   }
 
   &__image {
@@ -42,7 +42,7 @@
   }
 
   &__hr {
-    border: 1px solid $colorElements;
+    border: 1px solid var(--elementsColor);
     width: 100%;
     margin-bottom: 8px;
   }

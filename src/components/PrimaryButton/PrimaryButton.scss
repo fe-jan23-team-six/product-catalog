@@ -7,15 +7,16 @@
   box-shadow: none;
   width: 100%;
   border: 1px solid transparent;
-  background: var(--primaryColor);
+  background: var(--accentColor);
 
-  &:hover {
-    box-shadow: 0px 3px 13px rgba(23, 32, 49, 0.4);
+  &:hover:not(.primary-button--selected) {
+    background-color: var(--elementsHoverBG);
+    box-shadow: 0px 3px 13px rgba(232, 222, 206, 04);
   }
 
   &--selected {
-    background: var(--whiteColor);
-    border: 1px solid $colorElements;
+    background: var(--backgroundColor);
+    border: 1px solid var(--elementsColor);
     color: $colorGreen;
 
     &:hover {

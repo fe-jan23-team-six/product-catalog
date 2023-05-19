@@ -9,7 +9,7 @@ export const CartUserMessage: React.FC = () => (
       height="128"
       width="128"
       // eslint-disable-next-line max-len
-      src="//s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/shopping-cart.png"
+      src="img/cart.png"
     />
 
     <p className='user-message__text'>

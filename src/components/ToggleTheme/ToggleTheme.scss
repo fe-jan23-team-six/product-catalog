@@ -1,8 +1,8 @@
 @import './../../styles/utils/mixins';
 
 .themeToggle {
-  background-color: var(--whiteColor);
-  color: var(--primaryColor);
+  background-color: var(--backgroundColor);
+  color: var(--bgOppositeColor);
   line-height: 100%;
   border: none;
 
@@ -37,13 +37,13 @@
     top: 0;
     left: 0;
     border-width: 0 var(--size) var(--size) 0;
-    border-color: transparent var(--primaryColor) transparent transparent;
+    border-color: transparent var(--bgOppositeColor) transparent transparent;
   }
 
   &::after {
     bottom: 0;
     right: 0;
     border-width: var(--size) 0 0 var(--size);
-    border-color: transparent transparent transparent var(--whiteColor);
+    border-color: transparent transparent transparent var(--backgroundColor);
   }
 }

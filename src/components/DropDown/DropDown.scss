@@ -16,7 +16,7 @@
 
   height: $dropDownHeight;
   padding-left: $dropDownLeftPadding;
-  border: $dropDownBorder solid $colorIcons;
+  border: $dropDownBorder solid var(--iconsColor);
 
   color: var(--primaryColor);
   transition: all $animationDuration ease-out;
@@ -37,10 +37,10 @@
 
     width: 100%;
     padding: 4px 0;
-    border: $dropDownBorder solid $colorElements;
+    border: $dropDownBorder solid var(--elementsColor);
 
-    background: var(--whiteColor);
-    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.05);
+    background: var(--backgroundColor);
+    box-shadow: 0px 2px 15px var(--cardHoverShadow);
 
     &--closed {
       display: none;
@@ -58,7 +58,7 @@
         &:hover {
           font-weight: inherit;
           color: inherit;
-          background-color: $colorHoverAndBG;
+          background-color: var(--hoverBGColor);
         }
       }
   }
@@ -83,11 +83,11 @@
   }
 
   &:not(:focus)::after,  &:not(.clicked):focus::after {
-    background-image: url('../../../public/icons/dropDown_arrow.svg');
+    @include modifyUrl(var(--themeName) ,'../../../public/icons/dropDown_arrow.svg');
   }
 
   &.clicked:focus::after {
-    background-image: url('../../../public/icons/dropDown_arrow.svg');
+    @include modifyUrl(var(--themeName) ,'../../../public/icons/dropDown_arrow.svg');
     transform: translateY(-50%) rotate(180deg);
   }
 }

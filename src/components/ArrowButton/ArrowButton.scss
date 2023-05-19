@@ -2,16 +2,17 @@
 @import './../../styles/utils/mixins';
 @import './../../styles/utils/extends';
 
+
 .arrow-button {
   @extend %flexCenter;
-  
+
   width: 32px;
   height: 32px;
   border-radius: 0;
   background-color: transparent;
-  border: 1px solid $colorElements;
+  border: 1px solid var(--elementsColor);
 
-  background-image: url('./../../../public/icons/leftBlack16x16.svg');
+  @include modifyUrl(var(--themeName) ,'./../../../public/icons/leftBlack16x16.svg');
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center center;

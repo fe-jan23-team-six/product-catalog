@@ -1,6 +1,7 @@
 import React from 'react';
 import './MenuToggleButton.scss';
 import classNames from 'classnames';
+import { useModifiedUrl } from '../../components/ToggleTheme';
 
 type Props = {
   isMenuOpened: boolean;
@@ -23,9 +24,13 @@ export const MenuToggleButton: React.FC<Props> = ({
     >
       <img
         src={isMenuOpened ? (
-          './icons/close16x16.svg'
+          useModifiedUrl(
+            './icons/close16x16.svg',
+            localStorage.getItem('themeName') || 'light',
+          )
         ) : (
-          './icons/menu16x16.svg'
+          useModifiedUrl('./icons/menu16x16.svg',
+            localStorage.getItem('themeName') || 'light')
         )}
         alt="Menu"
       />

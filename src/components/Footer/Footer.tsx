@@ -2,6 +2,7 @@ import React from 'react';
 import './Footer.scss';
 import { Link } from 'react-router-dom';
 import { Logo } from '../Logo';
+import { useModifiedUrl } from '../../components/ToggleTheme';
 
 export const Footer: React.FC = () => {
   return (
@@ -47,7 +48,10 @@ export const Footer: React.FC = () => {
           id="btn-up"
         >
           <img
-            src="icons/up16x16.svg"
+            src={useModifiedUrl(
+              'icons/up16x16.svg',
+              localStorage.getItem('themeName') || 'light',
+            )}
             alt="Back to top"
             className="footer__to-top__image" />
         </div>

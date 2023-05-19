@@ -4,7 +4,7 @@
 
 .cartCheckoutBox {
   height: fit-content;
-  border: 1px solid $colorElements;
+  border: 1px solid var(--elementsColor);
   @extend %flexColumnCenter;
   padding: 24px ;
 
@@ -32,7 +32,7 @@
     }
 
     padding-bottom: 16px;
-    border-bottom: 1px solid $colorElements;
+    border-bottom: 1px solid var(--elementsColor);
     margin-bottom: 16px;
   }
 }

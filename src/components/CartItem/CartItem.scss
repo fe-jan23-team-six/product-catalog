@@ -4,7 +4,7 @@
 
 .cartItem {
   width: 100%;
-  border: 1px solid $colorElements;
+  border: 1px solid var(--elementsColor);
 
   justify-content: space-between;
 
@@ -30,7 +30,7 @@
 
       &_button {
         color: transparent;
-        background-image: url('./../../../public/icons/close16x16.svg');
+        @include modifyUrl(var(--themeName) ,'./../../../public/icons/close16x16.svg');
         width: 10px;
         height: 10px;
         background-size: contain;
@@ -97,40 +97,38 @@
 
     &_amount {
       width: 96px;
+      display: flex;
 
-      &_amount {
-        display: inline-flex;
+      .amount {
+        display: flex;
         width: 32px;
         align-items: center;
         justify-content: center;
+        height: 32px;
 
-        @extend %buttonText;
+        &.quantuty {
+          @extend %buttonText;
+        }
 
-        color: $colorBlack;
+        color: var(--primaryColor);
       }
 
       &_button {
         width: 32px;
         height: 32px;
 
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
         color: transparent;
-        border: 1px solid $colorIcons;
+        border: 1px solid var(--primaryColor);
 
         &.minus {
-          background-image: url('./../../../public/icons/minus16x16.svg');
-          background-position: center;
-          background-repeat: no-repeat;
 
           &.disabled {
-            background-image: url('./../../../public/icons/minus16x16_disabled.svg');
-            border-color: $colorElements;
+            border-color: var(--elementsColor);
           }
-        }
-
-        &.plus {
-          background-image: url('./../../../public/icons/plus16x16.svg');
-          background-position: center;
-          background-repeat: no-repeat;
         }
       }
     }

@@ -3,8 +3,8 @@
 .capacity-button {
   padding: 4px 8px;
 
-  background-color: var(--whiteColor);
-  border: 1px solid $colorIcons;
+  background-color: var(--backgroundColor);
+  border: 1px solid var(--iconsColor);
 
   &:hover:not(.capacity-button--selected) {
     outline: 1px solid var(--primaryColor);

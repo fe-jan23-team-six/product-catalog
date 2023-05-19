@@ -4,6 +4,7 @@ import { PageNavLink } from '../PageNavLink';
 import classNames from 'classnames';
 import { FavouriteContext } from '../../contexts/FavouriteContext';
 import { CartContext } from '../../contexts/CartContext';
+import { useModifiedUrl } from '../../components/ToggleTheme';
 
 type Props = {
   isHalf?: boolean;
@@ -37,7 +38,10 @@ export const PageNavIcons: React.FC<Props> = ({ isHalf = false }) => {
       >
         <PageNavLink to="/favourite">
           <img
-            src="./icons/favAddFav16x16.svg"
+            src={useModifiedUrl(
+              './icons/favAddFav16x16.svg',
+              localStorage.getItem('themeName') || 'light',
+            )}
             alt="logo"
           />
         </PageNavLink>
@@ -55,7 +59,10 @@ export const PageNavIcons: React.FC<Props> = ({ isHalf = false }) => {
         <PageNavLink to="/cart">
           <img
             className="nav_icon"
-            src="./icons/shoppingBag16x16.svg"
+            src={useModifiedUrl(
+              './icons/shoppingBag16x16.svg',
+              localStorage.getItem('themeName') || 'light',
+            )}
             alt="logo"
           />
         </PageNavLink>

@@ -7,7 +7,7 @@
   height: 48px;
   justify-content: center;
   align-items: center;
-  box-shadow: -1px 0 0 $colorElements;
+  box-shadow: -1px 0 0 var(--elementsColor);
 
   @include onTabletAndDesktop {
     display: none;

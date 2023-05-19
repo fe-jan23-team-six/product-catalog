@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import { CartItemType } from '../../types/CartItemType';
 import { CartContext } from '../../contexts/CartContext';
 import { QuantityActionType } from '../../types/QuantityActionType';
+import { useModifiedUrl } from '../ToggleTheme';
 
 type Props = {
   cartItem: CartItemType;
@@ -34,7 +35,14 @@ export const CartItem: React.FC<Props> = ({
             className='cartItem__head_remove_button'
             onClick={() => removeFromCart(id)}
           >
-            X
+            <img
+              src={useModifiedUrl(
+                'icons/close16x16.svg',
+                localStorage.getItem('themeName') || 'light',
+              )}
+              alt="Close button"
+              title='Remove this product from cart'
+            />
           </button>
         </div>
 
@@ -65,20 +73,50 @@ export const CartItem: React.FC<Props> = ({
               disabled={disabled}
               onClick={() => changeQuantity(id, QuantityActionType.MINUS)}
           >
-            -
+            {disabled ? (
+              <img
+                className='minus_image image'
+                src={useModifiedUrl(
+                  'icons/minus16x16_disabled.svg',
+                  localStorage.getItem('themeName') || 'light',
+                )}
+                alt="Decrease quantity"
+                title='Decrease quantity'
+              />
+            ) : (
+              <img
+                className='minus_image image'
+                src={useModifiedUrl(
+                  'icons/minus16x16.svg',
+                  localStorage.getItem('themeName') || 'light',
+                )}
+                alt="Decrease quantity"
+                title='Decrease quantity'
+              />
+            )}
           </button>
 
-          <span
-            className='cartItem__priceAmount_amount_amount'
+          <div
+            className='cartItem__priceAmount_amount_amount amount'
           >
-            {quantity}
-          </span>
+            <span className="quantity">
+              {quantity}
+            </span>
+          </div>
 
           <button
             className='cartItem__priceAmount_amount_button plus'
             onClick={() => changeQuantity(id, QuantityActionType.PLUS)}
           >
-            +
+            <img
+              className='plus_image image'
+              src={useModifiedUrl(
+                'icons/plus16x16.svg',
+                localStorage.getItem('themeName') || 'light',
+              )}
+              alt="Increase quantity"
+              title='Increase quantity'
+            />
           </button>
         </div>
 

@@ -5,7 +5,7 @@
   height: 32px;
   border: 3px solid var(--whiteColor);
   border-radius: 50%;
-  outline: 1px solid $colorElements;
+  outline: 1px solid var(--elementsColor);
   outline-offset: -1px;
 
   &:hover:not(.colored-button--selected) {

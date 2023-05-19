@@ -4,7 +4,7 @@
   width: 32px;
   height: 32px;
   background-color: transparent;
-  border: 1px solid $colorElements;
+  border: 1px solid var(--elementsColor);
 
   font-family: inherit;
   font-weight: $fontWeightSemiBold;
@@ -13,6 +13,7 @@
 
   &:hover {
     border-color: var(--primaryColor);
+    background-color: var(--elementsHoverBG);
   }
 
   &.selected {

@@ -1,11 +1,12 @@
 @import './../../styles/utils/vars';
+@import '../../styles/utils/mixins';
 
 .like-button {
   display: flex; // for avoiding line-height troubles
   width: 40px;
   height: 40px;
-  border: 1px solid $colorIcons;
-  background-image: url('./../../../public/icons/favAddFav16x16.svg');
+  border: 1px solid var(--iconsColor);
+  @include modifyUrl(var(--themeName) ,'./../../../public/icons/favAddFav16x16.svg');
   background-repeat: no-repeat;
   background-position: center;
 
@@ -14,7 +15,7 @@
   }
   
   &--selected {
-    background-image: url('./../../../public/icons/favIsFav16x16.svg');
+    @include modifyUrl(var(--themeName) ,'./../../../public/icons/favIsFav16x16.svg');
   }
 
   &--big {

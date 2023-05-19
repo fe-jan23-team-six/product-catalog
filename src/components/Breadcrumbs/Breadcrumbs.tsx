@@ -2,6 +2,7 @@ import React from 'react';
 import './Breadcrumbs.scss';
 import { Link } from 'react-router-dom';
 import { BreadcrumbItem } from '../../types/BreadcrumbItem';
+import { useModifiedUrl } from '../../components/ToggleTheme';
 
 type Props = {
   breadcrumbs?: BreadcrumbItem[];
@@ -21,7 +22,13 @@ export const Breadcrumbs: React.FC<Props> = ({ breadcrumbs = [] }) => {
     <div className="breadcrumbs">
       <div className="breadcrumbs__child">
         <Link to={'/home'} className="breadcrumbs__link">
-          <img src="icons/home16x16.svg" alt="Home link icon" />
+          <img
+            src={useModifiedUrl(
+              'icons/home16x16.svg',
+              localStorage.getItem('themeName') || 'light',
+            )}
+            alt="Home link icon"
+          />
         </Link>
       </div>
 

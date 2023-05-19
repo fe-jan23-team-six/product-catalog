@@ -11,12 +11,12 @@
   line-height: 21px;
 
   &:hover {
-    box-shadow: 0px 3px 13px rgba(23, 32, 49, 0.4);
+    box-shadow: 0px 3px 13px var(--boxShadowRGBA);
   }
 
   &.selected {
-    background-color: var(--whiteColor);
-    border: 1px solid $colorElements;
+    background-color: var(--backgroundColor);
+    border: 1px solid var(--elementsColor);
     color: $colorGreen;
   }
 }

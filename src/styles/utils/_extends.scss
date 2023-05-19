@@ -68,7 +68,7 @@
   font-weight: $fontWeightBlack;
   font-size: 22px;
   line-height: 31px;
-  color: $colorPrimary;
+  color: var(--primaryColor);
 }
 
 %devicePageTitleSpecsAfter {
@@ -77,7 +77,7 @@
   position: relative;
   top: 16px;
   height: 1px;
-  background-color: $colorElements;
+  background-color: var(--elementsColor);
 }
 
 %devicePageProductId {
@@ -87,7 +87,7 @@
   font-size: 12px;
   line-height: 15px;
   text-align: right;
-  color: $colorIcons;
+  color: var(--iconsColor);
 }
 
 %devicePageAboutMargins {
@@ -112,5 +112,5 @@
   content: "";
   display: block;
   height: 1px;
-  background-color: $colorElements;
+  background-color: var(--elementsColor);
 }

@@ -1,11 +1,40 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { lightTheme, darkTheme } from '../../styles/themes';
-import './ToogleTheme.scss';
+import './ToggleTheme.scss';
+
+export const useModifiedUrl = (iconUrl: string, themeName: string): string => {
+  const [modifiedUrl, setModifiedUrl] = useState<string>(iconUrl);
+
+  useEffect(() => {
+    function modifyUrl(url: string, theme: string): string {
+      if (theme === 'dark') {
+        return url.replace('.svg', '_dark.svg');
+      } else {
+        return url;
+      }
+    }
+
+    setModifiedUrl(modifyUrl(iconUrl, themeName));
+  }, [iconUrl, themeName]);
+
+  return modifiedUrl;
+};
 
 const ToggleTheme: React.FC = () => {
   const [currentTheme, setCurrentTheme] = useState<string>(
-    localStorage.getItem('theme') || 'light',
+    localStorage.getItem('themeName') || 'light',
   );
+
+  const toggleTheme = useCallback(() => {
+    setCurrentTheme(prevTheme => {
+      const newTheme = prevTheme === 'light' ? 'dark' : 'light';
+
+      localStorage.setItem('themeName', newTheme);
+
+      return newTheme;
+    });
+    window.location.reload();
+  }, []);
 
   useEffect(() => {
     const theme = currentTheme === 'light' ? lightTheme : darkTheme;
@@ -15,13 +44,7 @@ const ToggleTheme: React.FC = () => {
     Object.entries(theme).forEach(([property, value]) => {
       root.style.setProperty(`--${property}`, value);
     });
-
-    localStorage.setItem('theme', currentTheme);
   }, [currentTheme]);
-
-  const toggleTheme = () => {
-    setCurrentTheme(prevTheme => (prevTheme === 'light' ? 'dark' : 'light'));
-  };
 
   return (
     <button
@@ -30,10 +53,7 @@ const ToggleTheme: React.FC = () => {
       title={`Switch to ${currentTheme === 'light' ? 'DARK' : 'LIGHT'} theme`}
     >
       {'Switch to\n'}
-      <b>
-      {currentTheme === 'light'
-        ? 'Dark' : 'Light'}
-      </b>
+      <b>{currentTheme === 'light' ? 'Dark' : 'Light'}</b>
     </button>
   );
 };

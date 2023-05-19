@@ -68,7 +68,7 @@
     display: inline-block;
     width: 14px;
     height: 4px;
-    background-color: $colorElements;
+    background-color: var(--elementsColor);
   
     transition: transform $animationDuration background-color $animationDuration;
 
