@@ -4,7 +4,7 @@ import './FavouritePage.scss';
 import { Breadcrumbs } from '../../components/Breadcrumbs';
 import { ProductList } from '../../components/ProductList';
 import { FavouriteContext } from '../../contexts/FavouriteContext';
-import { getPluralWord } from '../../utils/helpers/helpers';
+import { getPluralWord } from '../../utils/helpers/getPluralWord';
 
 export const FavouritePage: React.FC = () => {
   const { favourite } = useContext(FavouriteContext);
