@@ -7,6 +7,7 @@ export const ENDPOINT_ACCESSORIES = ENDPOINT_PRODUCTS + '/accessories';
 export const ENDPOINT_NEW = ENDPOINT_PRODUCTS + '/new';
 export const ENDPOINT_DISCOUNT = ENDPOINT_PRODUCTS + '/discount';
 export const ENDPOINT_AMOUNT = ENDPOINT_PRODUCTS + '/amount';
+export const ENDPOINT_RECOMENDED = '/recomended';
 
 export default {
   ENDPOINT_PRODUCTS,
@@ -16,4 +17,5 @@ export default {
   ENDPOINT_NEW,
   ENDPOINT_DISCOUNT,
   ENDPOINT_AMOUNT,
+  ENDPOINT_RECOMENDED,
 };

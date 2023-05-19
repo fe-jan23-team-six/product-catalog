@@ -13,7 +13,7 @@ import { Product } from '../../types/Product';
 import { ProductMain } from '../../types/ProductMain';
 import {
   getById,
-  getProducts,
+  getRecomended,
 } from '../../utils/api/products';
 
 import { Breadcrumbs } from '../../components/Breadcrumbs';
@@ -38,7 +38,7 @@ export const DeviceDetailsPage: FC = () => {
 
   const recommendedQuery = useQuery<ProductMain[]>({
     queryKey: ['recommended'],
-    queryFn: () => getProducts(),
+    queryFn: () => getRecomended(productSlug),
   });
 
   useEffect(() => {
