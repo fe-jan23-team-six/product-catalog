@@ -1,6 +1,6 @@
 import { Category } from '../../types/enums/Category';
 import { ACCESSORIES_PAGE,
-  PHONES_PAGE, TABLETS_PAGE } from '../constants/route';
+  PHONES_PAGE, TABLETS_PAGE } from '../constants/routes';
 
 export const getRouteByCategory = (productType: Category) => {
   switch (productType) {

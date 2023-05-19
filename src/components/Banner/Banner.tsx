@@ -3,7 +3,7 @@ import Slider, { Settings } from 'react-slick';
 import { ArrowButton } from '../ArrowButton';
 import { Picture } from '../Picture';
 
-import { bannerImages } from '../../utils/constants/main';
+import { bannerImages } from '../../utils/constants/bannerImages';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
