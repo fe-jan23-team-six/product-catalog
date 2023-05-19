@@ -15,9 +15,6 @@ export const DataLoader: React.FC<Props> = ({
   loader,
 }) => (
   <>
-    {fetchStatus === FetchStatus.Uninitialized && (
-      <h2>{'unitin'}</h2>
-    )}
     {fetchStatus === FetchStatus.Loading && (loader || <Loader />)}
 
     {fetchStatus === FetchStatus.Error && (

@@ -2,6 +2,7 @@ import React, { FC, useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import './DropDown.scss';
 import classNames from 'classnames';
+import { useDidUpdateEffect } from '../../hooks/useDidUpdateEffect';
 
 type Props = {
   optionList: string[],
@@ -17,10 +18,25 @@ export const DropDown: FC<Props> = ({
   description,
 }) => {
   const [isMenuOpened, setIsMenuOpened] = useState(false);
-  const [isMenuAnimated, setIsMenuAnimated] = useState(false);
   const [lastInputDevice, setLastInputDevice] = useState<string | null>(null);
 
-  useEffect(() => setIsMenuAnimated(!isMenuOpened), [isMenuOpened]);
+  useDidUpdateEffect(() => {
+    if (!isMenuOpened) {
+      return;
+    }
+
+    const disableArrowKeysScroll = (event: KeyboardEvent) => {
+      if (event.key === 'ArrowUp' || event.key === 'ArrowDown') {
+        event.preventDefault();
+      }
+    };
+
+    window.addEventListener('keydown', disableArrowKeysScroll);
+
+    return () => {
+      window.removeEventListener('keydown', disableArrowKeysScroll);
+    };
+  }, [isMenuOpened]);
 
   const handleMouseDown = () => {
     setLastInputDevice('mouse');
@@ -157,7 +173,6 @@ export const DropDown: FC<Props> = ({
           'drop-down__menu',
           {
             'drop-down__menu--closed': !isMenuOpened,
-            'drop-down__menu--is-transition': isMenuAnimated,
           },
         )}
       >

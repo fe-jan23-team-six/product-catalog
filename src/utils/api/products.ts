@@ -41,3 +41,11 @@ export const getProductPage = (
 export const getById = (id: string) => {
   return client.get<Product>(endpoints.ENDPOINT_PRODUCTS + '/' + id);
 };
+
+export const getRecomended = (productId: string) => {
+  return client.get<ProductMain[]>(
+    endpoints.ENDPOINT_PRODUCTS
+    + `/${productId}`
+    + endpoints.ENDPOINT_RECOMENDED,
+  );
+};

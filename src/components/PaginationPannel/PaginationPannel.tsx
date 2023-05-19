@@ -1,31 +1,8 @@
 import React from 'react';
+import { getVisibleButtons } from '../../utils/helpers/getVisibleButtons';
 import { ArrowButton } from '../ArrowButton';
 import { NumberButton } from '../NumberButton';
 import './PaginationPannel.scss';
-
-const getVisibleButtons = (currentPage: number, lastPage: number) => {
-  const result = [];
-
-  if (lastPage <= 4) {
-    for (let i = 1; i <= lastPage; i++) {
-      result.push(i);
-    }
-  } else if (currentPage <= 2) {
-    for (let i = 1; i <= 4; i++) {
-      result.push(i);
-    }
-  } else if (currentPage >= lastPage - 1) {
-    for (let i = lastPage - 3; i <= lastPage; i++) {
-      result.push(i);
-    }
-  } else {
-    for (let i = currentPage - 1; i <= currentPage + 2; i++) {
-      result.push(i);
-    }
-  }
-
-  return result;
-};
 
 const getButtons = (start: number, stop:number) => {
   const buttons = [];
